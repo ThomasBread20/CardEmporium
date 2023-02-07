@@ -19,9 +19,9 @@
                </font>
             </Text>
             <Text fill="#010057" layoutX="454.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrati" />
-            <Button fx:id="ButtomRegister" layoutX="444.0" mnemonicParsing="false" onAction="#Register" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="ButtomRegister" layoutX="444.0" mnemonicParsing="false" onAction="#register" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="403.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
-            <Button fx:id="ButtomLogin" layoutX="375.0" mnemonicParsing="false" onAction="#Login" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="ButtomLogin" layoutX="375.0" mnemonicParsing="false" onAction="#login" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
          </children>
       </Pane>
       <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">

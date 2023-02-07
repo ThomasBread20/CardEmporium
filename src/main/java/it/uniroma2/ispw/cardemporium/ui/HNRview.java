@@ -16,13 +16,13 @@ import java.io.IOException;
 public class HNRview {
 
     @FXML
-    private Pane Base;
+    private Pane base;
 
     @FXML
-    private Button ButtomLogin;
+    private Button buttomLogin;
 
     @FXML
-    private Button ButtomRegister;
+    private Button buttomRegister;
 
     @FXML
     private Text testoCard;
@@ -30,25 +30,25 @@ public class HNRview {
 
 
     @FXML
-    public void Login(ActionEvent event) throws IOException {
-        Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+    public void login(ActionEvent event) throws IOException {
+        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
 
     }
 
     @FXML
-    public void Register(ActionEvent event) throws IOException  {
-        Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+    public void register(ActionEvent event) throws IOException  {
+        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
 
     }

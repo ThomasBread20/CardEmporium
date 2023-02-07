@@ -167,7 +167,7 @@ public class RegisterView {
                 Scene ViewRegisterScene = new Scene(ViewRegister);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 LoginView loginView = loader.getController();
-                loginView.ChangeLabel("Register successfully complete! Switch To Login Page");
+                loginView.changeLabel("Register successfully complete! Switch To Login Page");
                 window.setScene(ViewRegisterScene);
                 window.show();
 

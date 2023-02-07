@@ -22,10 +22,10 @@ public class HRview {
 
 
     @FXML
-    private Button SellButton;
+    private Button sellButton;
 
     @FXML
-    private Button LogoutButton;
+    private Button logoutButton;
 
 
     @FXML
@@ -40,21 +40,22 @@ public class HRview {
     DataSingleton info = DataSingleton.getInstance();
 
     @FXML
-    void Logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException {
 
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
 
-        if(alert.showAndWait().get() == ButtonType.OK){
 
-            Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-            Scene ViewRegisterScene = new Scene(ViewRegister);
+        if((alert.showAndWait().get() == ButtonType.OK )){
+
+            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
+            Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-            window.setScene(ViewRegisterScene);
+            window.setScene(viewRegisterScene);
             window.show();
         }
     }
@@ -65,35 +66,35 @@ public class HRview {
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
-        Parent ViewRegister = loader.load();
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Profiloview Profiloview = loader.getController();
-        Profiloview.initData(
+        Profiloview profiloview = loader.getController();
+        profiloview.initData(
                 info.getUsername(),
                 info.getName(),
                 info.getSurname(),
                 String.valueOf(info.getData()),
                 info.getRole()
         );
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
 
     }
 
     @FXML
-    void Sell(ActionEvent event) throws IOException {
+    void sell(ActionEvent event) throws IOException {
 
 
-        String Role = info.getRole();
+        String role = info.getRole();
 
-        if(Role.equals("Venditore")){
-            Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
-            Scene ViewRegisterScene = new Scene(ViewRegister);
+        if(role.equals("Venditore")){
+            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
+            Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-            window.setScene(ViewRegisterScene);
+            window.setScene(viewRegisterScene);
             window.show();
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
