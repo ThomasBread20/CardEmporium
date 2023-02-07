@@ -27,29 +27,29 @@
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
             </Text>
-            <Text fx:id="UserNameT" fill="#0e2c9a" layoutX="42.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Username" textAlignment="CENTER" wrappingWidth="68.91107536764706">
+            <Text fx:id="userNameT" fill="#0e2c9a" layoutX="42.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Username" textAlignment="CENTER" wrappingWidth="68.91107536764706">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font>
             </Text>
-            <Text fx:id="PasswordT" fill="#0e2c9a" layoutX="42.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Password" textAlignment="CENTER" wrappingWidth="68.91107536764706">
+            <Text fx:id="passwordT" fill="#0e2c9a" layoutX="42.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Password" textAlignment="CENTER" wrappingWidth="68.91107536764706">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="RegistrarsiB" layoutX="48.0" layoutY="228.0" mnemonicParsing="false" onAction="#RegisterButton" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: #0e2c9a;" text="Registrarsi" textFill="WHITE">
+            <Button fx:id="registrarsiB" layoutX="48.0" layoutY="228.0" mnemonicParsing="false" onAction="#registerButton" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: #0e2c9a;" text="Registrarsi" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
             </Button>
-            <Line fx:id="Linea2" endX="-100.0" endY="149.0" layoutX="284.0" layoutY="47.0" opacity="0.25" startX="-100.0" startY="16.0" />
-            <Line fx:id="Linea1" endX="291.0" layoutX="56.0" layoutY="46.0" opacity="0.25" startX="-38.0" />
-            <TextField fx:id="NomeTextField" layoutX="192.0" layoutY="78.0" onAction="#NameField" prefHeight="1.0" prefWidth="132.0" />
-            <TextField fx:id="CognomeTextField" layoutX="192.0" layoutY="130.0" onAction="#SurField" prefHeight="1.0" prefWidth="132.0" />
-            <TextField fx:id="UsernameTextField" layoutX="48.0" layoutY="78.0" onAction="#UsField" prefHeight="1.0" prefWidth="132.0" />
-            <PasswordField fx:id="PasswordTextField" layoutX="49.0" layoutY="130.0" onAction="#PassField" prefHeight="25.0" prefWidth="130.0" />
-            <PasswordField fx:id="RipetiPasswordTextField" layoutX="50.0" layoutY="177.0" onAction="#RepPassField" prefHeight="25.0" prefWidth="128.0" />
-            <Text fx:id="CognomeT" fill="#0e2c9a" layoutX="198.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Cognome" wrappingWidth="68.91107536764706">
+            <Line fx:id="linea2" endX="-100.0" endY="149.0" layoutX="284.0" layoutY="47.0" opacity="0.25" startX="-100.0" startY="16.0" />
+            <Line fx:id="linea1" endX="291.0" layoutX="56.0" layoutY="46.0" opacity="0.25" startX="-38.0" />
+            <TextField fx:id="nomeTextField" layoutX="192.0" layoutY="78.0" onAction="#nameField" prefHeight="1.0" prefWidth="132.0" />
+            <TextField fx:id="cognomeTextField" layoutX="192.0" layoutY="130.0" onAction="#surField" prefHeight="1.0" prefWidth="132.0" />
+            <TextField fx:id="usernameTextField" layoutX="48.0" layoutY="78.0" onAction="#usField" prefHeight="1.0" prefWidth="132.0" />
+            <PasswordField fx:id="passwordTextField" layoutX="49.0" layoutY="130.0" onAction="#passField" prefHeight="25.0" prefWidth="130.0" />
+            <PasswordField fx:id="ripetiPasswordTextField" layoutX="50.0" layoutY="177.0" onAction="#repPassField" prefHeight="25.0" prefWidth="128.0" />
+            <Text fx:id="cognomeT" fill="#0e2c9a" layoutX="198.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Cognome" wrappingWidth="68.91107536764706">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font>
@@ -59,12 +59,12 @@
                   <Font name="Segoe UI" size="12.0" />
                </font>
             </Text>
-            <Text fx:id="RipetiPassT" fill="#0e2c9a" layoutX="49.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Ripeti Password" textAlignment="CENTER" wrappingWidth="87.91107536764706">
+            <Text fx:id="ripetiPassT" fill="#0e2c9a" layoutX="49.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Ripeti Password" textAlignment="CENTER" wrappingWidth="87.91107536764706">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font>
             </Text>
-            <Text fx:id="DataNascitaT" fill="#0e2c9a" layoutX="196.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Data di nascita" textAlignment="CENTER" wrappingWidth="87.91107536764707">
+            <Text fx:id="dataNascitaT" fill="#0e2c9a" layoutX="196.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Data di nascita" textAlignment="CENTER" wrappingWidth="87.91107536764707">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font>
@@ -79,13 +79,13 @@
                   <Font name="Segoe UI" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="TornaLogin" layoutX="293.0" layoutY="267.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#TornaLogin" opacity="0.0" prefHeight="25.0" prefWidth="59.0" text="Iscriviti qui!" textAlignment="CENTER" textFill="#0400ff" />
-            <Label fx:id="LabelError" contentDisplay="BOTTOM" layoutX="50.0" layoutY="202.0" prefHeight="17.0" prefWidth="275.0" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="tornaLogin" layoutX="293.0" layoutY="267.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#tornaLogin" opacity="0.0" prefHeight="25.0" prefWidth="59.0" text="Iscriviti qui!" textAlignment="CENTER" textFill="#0400ff" />
+            <Label fx:id="labelError" contentDisplay="BOTTOM" layoutX="50.0" layoutY="202.0" prefHeight="17.0" prefWidth="275.0" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Segoe UI Bold" size="10.0" />
                </font>
             </Label>
-            <DatePicker fx:id="DataNascitaTextField" layoutX="193.0" layoutY="177.0" prefHeight="25.0" prefWidth="130.0" />
+            <DatePicker fx:id="dataNascitaTextField" layoutX="193.0" layoutY="177.0" prefHeight="25.0" prefWidth="130.0" />
          </children>
       </Pane>
    </children>

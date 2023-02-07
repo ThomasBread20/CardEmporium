@@ -21,8 +21,8 @@
                </font>
             </Text>
             <Line fx:id="line1" endX="291.0" layoutX="58.0" layoutY="37.0" opacity="0.25" startX="-38.0" />
-            <TextField fx:id="Usernamefield" layoutX="49.0" layoutY="65.0" onAction="#usernamefield" prefHeight="25.0" prefWidth="270.0" />
-            <PasswordField fx:id="passwordfield" layoutX="50.0" layoutY="109.0" onAction="#passwordfield" prefHeight="25.0" prefWidth="270.0" />
+            <TextField fx:id="usernamefield" layoutX="49.0" layoutY="65.0" prefHeight="25.0" prefWidth="270.0" />
+            <PasswordField fx:id="passwordfield" layoutX="50.0" layoutY="109.0" prefHeight="25.0" prefWidth="270.0" />
             <Text fx:id="password" fill="#0e2c9a" layoutX="40.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Password" textAlignment="CENTER" wrappingWidth="68.91107536764706">
                <font>
                   <Font name="Segoe UI" size="12.0" />
@@ -54,7 +54,7 @@
                   </Text>
                </children>
             </Pane>
-            <Label fx:id="ErrorMessage" layoutX="50.0" layoutY="134.0" prefHeight="17.0" prefWidth="270.0" textAlignment="CENTER" textFill="#ff4a4a" />
+            <Label fx:id="errorMessage" layoutX="50.0" layoutY="134.0" prefHeight="17.0" prefWidth="270.0" textAlignment="CENTER" textFill="#ff4a4a" />
          </children>
       </Pane>
       <Text fx:id="cardemp" fill="WHITE" layoutX="250.0" layoutY="63.0" scaleX="4.0" scaleY="4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" text="Card Emporium" textAlignment="CENTER" wrappingWidth="98.91107536764707">

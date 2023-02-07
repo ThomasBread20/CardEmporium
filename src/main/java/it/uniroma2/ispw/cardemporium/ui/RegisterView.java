@@ -26,56 +26,56 @@ import static java.lang.Thread.sleep;
 public class RegisterView {
 
     @FXML
-    private Text CardEmporiumT;
+    private Text cardEmporiumT;
 
     @FXML
-    private Label LabelError;
+    private Label labelError;
 
     @FXML
-    private Text CognomeT;
+    private Text cognomeT;
 
     @FXML
-    private TextField CognomeTextField;
+    private TextField cognomeTextField;
 
     @FXML
-    private Text DataNascitaT;
+    private Text dataNascitaT;
 
 
     @FXML
-    private DatePicker DataNascitaTextField;
+    private DatePicker dataNascitaTextField;
 
     @FXML
-    private Line Linea1;
+    private Line linea1;
 
     @FXML
-    private Line Linea2;
+    private Line linea2;
 
     @FXML
-    private TextField NomeTextField;
+    private TextField nomeTextField;
 
     @FXML
-    private Text PasswordT;
+    private Text passwordT;
 
     @FXML
-    private PasswordField PasswordTextField;
+    private PasswordField passwordTextField;
 
     @FXML
-    private Button RegistrarsiB;
+    private Button registrarsiB;
 
     @FXML
-    private Text RipetiPassT;
+    private Text ripetiPassT;
 
     @FXML
-    private PasswordField RipetiPasswordTextField;
+    private PasswordField ripetiPasswordTextField;
 
     @FXML
-    private Button SchermataBaseB;
+    private Button schermataBaseB;
 
     @FXML
-    private Text UserNameT;
+    private Text userNameT;
 
     @FXML
-    private TextField UsernameTextField;
+    private TextField usernameTextField;
 
     @FXML
     private Button iscrivitiB;
@@ -99,44 +99,44 @@ public class RegisterView {
     private Text textiscriviti;
 
     @FXML
-    void DateField(ActionEvent event) throws UnsupportedOperationException {
+    void dateField(ActionEvent event) throws UnsupportedOperationException {
         throw new UnsupportedOperationException("");
 
     }
 
     @FXML
-    void NameField(ActionEvent event) throws UnsupportedOperationException {
+    void nameField(ActionEvent event) throws UnsupportedOperationException {
         throw new UnsupportedOperationException("");
     }
 
     @FXML
-    void PassField(ActionEvent event) throws UnsupportedOperationException {
+    void passField(ActionEvent event) throws UnsupportedOperationException {
         throw new UnsupportedOperationException("");
     }
 
     @FXML
-    void RepPassField(ActionEvent event) throws UnsupportedOperationException {
+    void repPassField(ActionEvent event) throws UnsupportedOperationException {
         throw new UnsupportedOperationException("");
     }
 
     @FXML
-    void SurField(ActionEvent event) throws UnsupportedOperationException {
+    void surField(ActionEvent event) throws UnsupportedOperationException {
         throw new UnsupportedOperationException("");
     }
 
 
     @FXML
-    void UsField(ActionEvent event) throws UnsupportedOperationException {
+    void usField(ActionEvent event) throws UnsupportedOperationException {
         throw new UnsupportedOperationException("");
     }
 
 
-    boolean CheckPassword(String pass1, String pass2){
-        String FirstPass = pass1;
-        String SecPass = pass2;
+    boolean checkPassword(String pass1, String pass2){
+        String firstPass = pass1;
+        String secPass = pass2;
 
-        if(FirstPass.compareTo(SecPass) != 0 ){
-            RipetiPasswordTextField.clear();
+        if(firstPass.compareTo(secPass) != 0 ){
+            ripetiPasswordTextField.clear();
             return false;
         }
         else{
@@ -145,74 +145,74 @@ public class RegisterView {
 
     }
 
-    public void RegisterButton(ActionEvent event) throws SQLException, IOException, InterruptedException {
+    public void registerButton(ActionEvent event) throws SQLException, IOException {
 
 
-        if (CheckPassword(PasswordTextField.getText(), RipetiPasswordTextField.getText())) {
+        if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {
 
             try {
-                RegisterProcess(
-                        UsernameTextField.getText(),
-                        PasswordTextField.getText(),
-                        NomeTextField.getText(),
-                        CognomeTextField.getText(),
-                        DataNascitaTextField.getValue());
+                registerProcess(
+                        usernameTextField.getText(),
+                        passwordTextField.getText(),
+                        nomeTextField.getText(),
+                        cognomeTextField.getText(),
+                        dataNascitaTextField.getValue());
 
 
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
-                Parent ViewRegister = loader.load();
-                Scene ViewRegisterScene = new Scene(ViewRegister);
+                Parent viewRegister = loader.load();
+                Scene viewRegisterScene = new Scene(viewRegister);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 LoginView loginView = loader.getController();
                 loginView.changeLabel("Register successfully complete! Switch To Login Page");
-                window.setScene(ViewRegisterScene);
+                window.setScene(viewRegisterScene);
                 window.show();
 
             } catch (ExceptionUserAlreadyExist e) {
-                LabelError.setTextFill(Color.TOMATO);
-                LabelError.setText("User already exist... Please try again");
+                labelError.setTextFill(Color.TOMATO);
+                labelError.setText("User already exist... Please try again");
             }
         } else{
-            LabelError.setTextFill(Color.TOMATO);
-            LabelError.setText("Wrong check-password... Please try again");
+            labelError.setTextFill(Color.TOMATO);
+            labelError.setText("Wrong check-password... Please try again");
         }
     }
-    public boolean RegisterProcess(String username, String passwd, String Name, String Surname, LocalDate Date) throws SQLException, ExceptionUserAlreadyExist {
+    public boolean registerProcess(String username, String passwd, String name, String surname, LocalDate date) throws SQLException, ExceptionUserAlreadyExist {
 
-        RegisterBean Register=new RegisterBean();
-        Register.setUsernameBean(username);
-        Register.setPasswdBean(passwd);
-        Register.setNameBean(Name);
-        Register.setCognomeBean(Surname);
-        Register.setDateBean(Date);
+        RegisterBean registerValue=new RegisterBean();
+        registerValue.setUsernameBean(username);
+        registerValue.setPasswdBean(passwd);
+        registerValue.setNameBean(name);
+        registerValue.setCognomeBean(surname);
+        registerValue.setDateBean(date);
 
 
-        return RegisterController.insertUserDao(Register);
+        return RegisterController.insertUserDao(registerValue);
 
     }
 
 
-    public void TornaLogin(ActionEvent event) throws IOException {
+    public void tornaLogin(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
-        Parent ViewRegister = loader.load();
+        Parent viewRegister = loader.load();
 
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
     }
 
     @FXML
     public void sitename(ActionEvent event) throws IOException{
-        Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
 
     }

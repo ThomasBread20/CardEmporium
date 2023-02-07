@@ -24,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 public class LoginView {
 
@@ -78,9 +78,6 @@ public class LoginView {
 
 
     @FXML
-    void usernamefield(ActionEvent event) {
-        throw new UnsupportedOperationException("");
-    }
 
     public void changeLabel(String name){
 
@@ -95,12 +92,13 @@ public class LoginView {
     }
 
     @FXML
-    void loginB(ActionEvent event) throws SQLException, ExceptionDBerror {
+    void loginB(ActionEvent event) throws  ExceptionDBerror {
 
         login(usernamefield.getText(),passwordfield.getText(), event);
 
+
     }
-    public void login(String username, String passwd, ActionEvent event) throws SQLException, ExceptionDBerror {
+    public void login(String username, String passwd, ActionEvent event) throws  ExceptionDBerror {
         LoginBean loginInfo=new LoginBean();
         loginInfo.setUsernameBean(username);
         loginInfo.setPasswdBean(passwd);
@@ -138,9 +136,6 @@ public class LoginView {
     }
 
     @FXML
-    void passwordfield(ActionEvent event) {
-        throw new UnsupportedOperationException("");
-    }
     public void registratiButton(ActionEvent event) throws IOException {
 
         Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));

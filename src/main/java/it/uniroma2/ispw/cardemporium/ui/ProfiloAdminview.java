@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class ProfiloAdminview {
 
@@ -48,7 +49,9 @@ public class ProfiloAdminview {
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
 
-        if (alert.showAndWait().orElse(null) == ButtonType.OK) {
+        Optional<ButtonType> test = alert.showAndWait();
+
+        if((test.isPresent() && test.get() == ButtonType.OK )){
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
             Parent viewRegister = loader.load();

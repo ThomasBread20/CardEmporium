@@ -13,14 +13,15 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class Sellerview {
 
     @FXML
-    private Button HomeRegistrat;
+    private Button homeRegistrat;
 
     @FXML
-    private Button LogoutButton;
+    private Button logoutButton;
 
     @FXML
     private Button profileButton;
@@ -28,34 +29,36 @@ public class Sellerview {
 
     DataSingleton info = DataSingleton.getInstance();
     @FXML
-    void Logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException {
 
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
 
-        if (alert.showAndWait().get() == ButtonType.OK) {
+        Optional<ButtonType> test = alert.showAndWait();
 
-            Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-            Scene ViewRegisterScene = new Scene(ViewRegister);
+        if((test.isPresent() && test.get() == ButtonType.OK )){
+
+            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
+            Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(ViewRegisterScene);
+            window.setScene(viewRegisterScene);
             window.show();
         }
     }
 
     @FXML
-    public void HomeRegistrato(ActionEvent event) throws IOException {
+    public void homeRegistrato(ActionEvent event) throws IOException {
 
-        Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
 
     }
@@ -65,18 +68,18 @@ public class Sellerview {
 
     public void profileButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
-        Parent ViewRegister = loader.load();
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Profiloview Profiloview = loader.getController();
-        Profiloview.initData(
+        Profiloview profiloview = loader.getController();
+        profiloview.initData(
                 info.getUsername(),
                 info.getName(),
                 info.getSurname(),
                 String.valueOf(info.getData()),
                 info.getRole()
         );
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
     }
 }
