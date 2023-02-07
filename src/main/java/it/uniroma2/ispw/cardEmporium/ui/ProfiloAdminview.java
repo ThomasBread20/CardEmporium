@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.cardEmporium.ui;
 
+import it.uniroma2.ispw.cardEmporium.business.DataSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +31,7 @@ public class ProfiloAdminview {
     @FXML
     private Label username;
 
+    DataSingleton info = DataSingleton.getInstance();
 
     public void initData(String user, String name, String surname, String born, String role) {
 
@@ -73,5 +75,23 @@ public class ProfiloAdminview {
         window.setScene(ViewRegisterScene);
         window.show();
 
+    }
+
+    public void profileButton(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfiloAdmin.fxml"));
+        Parent ViewRegister = loader.load();
+        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        ProfiloAdminview ProfiloAdminview = loader.getController();
+        ProfiloAdminview.initData(
+                info.getUsername(),
+                info.getName(),
+                info.getSurname(),
+                String.valueOf(info.getData()),
+                info.getRole()
+        );
+        window.setScene(ViewRegisterScene);
+        window.show();
     }
 }
