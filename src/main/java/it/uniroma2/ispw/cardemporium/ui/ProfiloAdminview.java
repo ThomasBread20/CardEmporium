@@ -17,7 +17,7 @@ public class ProfiloAdminview {
 
 
     @FXML
-    private Label Nome;
+    private Label nome;
 
     @FXML
     private Label cognome;
@@ -36,14 +36,14 @@ public class ProfiloAdminview {
     public void initData(String user, String name, String surname, String born, String role) {
 
         username.setText(user);
-        Nome.setText(name);
+        nome.setText(name);
         cognome.setText(surname);
         datanascita.setText(born);
         ruolo.setText(role);
     }
 
     @FXML
-    void Logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
@@ -51,12 +51,12 @@ public class ProfiloAdminview {
         if (alert.showAndWait().orElse(null) == ButtonType.OK) {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
-            Parent ViewRegister = loader.load();
-            Scene ViewRegisterScene = new Scene(ViewRegister);
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(ViewRegisterScene);
+            window.setScene(viewRegisterScene);
             window.show();
 
         }
@@ -64,15 +64,15 @@ public class ProfiloAdminview {
     }
     @FXML
 
-    public void HomeButton (ActionEvent event) throws IOException {
+    public void homeButton(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_home_admin.fxml"));
-        Parent ViewRegister = loader.load();
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
 
     }
@@ -80,18 +80,18 @@ public class ProfiloAdminview {
     public void profileButton(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfiloAdmin.fxml"));
-        Parent ViewRegister = loader.load();
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        ProfiloAdminview ProfiloAdminview = loader.getController();
-        ProfiloAdminview.initData(
+        ProfiloAdminview profiloAdminview = loader.getController();
+        profiloAdminview.initData(
                 info.getUsername(),
                 info.getName(),
                 info.getSurname(),
                 String.valueOf(info.getData()),
                 info.getRole()
         );
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
     }
 }

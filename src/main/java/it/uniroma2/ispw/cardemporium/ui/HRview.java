@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class HRview {
 
@@ -39,6 +40,8 @@ public class HRview {
 
     DataSingleton info = DataSingleton.getInstance();
 
+
+
     @FXML
     void logout(ActionEvent event) throws IOException {
 
@@ -47,8 +50,9 @@ public class HRview {
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
 
+        Optional<ButtonType> test = alert.showAndWait();
 
-        if((alert.showAndWait().get() == ButtonType.OK )){
+        if((test.isPresent() && test.get() == ButtonType.OK )){
 
             Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
             Scene viewRegisterScene = new Scene(viewRegister);

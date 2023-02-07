@@ -11,20 +11,21 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class Profiloview {
 
     @FXML
-    private Button HomeButtom;
+    private Button homeButtom;
 
     @FXML
-    private Button LogoutButton;
+    private Button logoutButton;
 
     @FXML
-    private Label Nome;
+    private Label nome;
 
     @FXML
-    private Button SellButton;
+    private Button sellButton;
 
     @FXML
     private Label cognome;
@@ -49,7 +50,7 @@ public class Profiloview {
     public void initData(String user, String name, String surname, String born, String role) {
 
         username.setText(user);
-        Nome.setText(name);
+        nome.setText(name);
         cognome.setText(surname);
         datanascita.setText(born);
         ruolo.setText(role);
@@ -57,38 +58,40 @@ public class Profiloview {
 
 
     @FXML
-    void Logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException {
 
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
 
-        if(alert.showAndWait().get() == ButtonType.OK){
+        Optional<ButtonType> test = alert.showAndWait();
 
-            Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-            Scene ViewRegisterScene = new Scene(ViewRegister);
+        if((test.isPresent() && test.get() == ButtonType.OK )){
+
+            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
+            Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-            window.setScene(ViewRegisterScene);
+            window.setScene(viewRegisterScene);
             window.show();
         }
     }
 
     @FXML
-    void Sell(ActionEvent event) throws IOException {
+    void sell(ActionEvent event) throws IOException {
 
 
-        String Role = info.getRole();
+        String role = info.getRole();
 
-        if (Role.equals("Venditore")) {
-            Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
-            Scene ViewRegisterScene = new Scene(ViewRegister);
+        if (role.equals("Venditore")) {
+            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
+            Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(ViewRegisterScene);
+            window.setScene(viewRegisterScene);
             window.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -100,12 +103,12 @@ public class Profiloview {
     }
 
     public void sitename1(ActionEvent event) throws IOException {
-        Parent ViewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
-        Scene ViewRegisterScene = new Scene(ViewRegister);
+        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
+        Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ViewRegisterScene);
+        window.setScene(viewRegisterScene);
         window.show();
         }
 

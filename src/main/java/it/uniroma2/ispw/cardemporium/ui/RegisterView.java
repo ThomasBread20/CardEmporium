@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
+import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,40 +99,37 @@ public class RegisterView {
     private Text textiscriviti;
 
     @FXML
-    void DateField(ActionEvent event) {
+    void DateField(ActionEvent event) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("");
 
     }
 
     @FXML
-    void NameField(ActionEvent event) {
-
+    void NameField(ActionEvent event) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("");
     }
 
     @FXML
-    void PassField(ActionEvent event) {
-
+    void PassField(ActionEvent event) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("");
     }
 
     @FXML
-    void RepPassField(ActionEvent event) {
-
+    void RepPassField(ActionEvent event) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("");
     }
 
     @FXML
-    void SurField(ActionEvent event) {
-
+    void SurField(ActionEvent event) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("");
     }
 
 
     @FXML
-    void UsField(ActionEvent event) {
-
+    void UsField(ActionEvent event) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("");
     }
 
-    public void getDate(ActionEvent event){
-
-        LocalDate myDate = DataNascitaTextField.getValue();
-    }
 
     boolean CheckPassword(String pass1, String pass2){
         String FirstPass = pass1;
