@@ -19,10 +19,10 @@
          </font>
       </Text>
       <Button fx:id="sitename1" layoutX="112.0" layoutY="30.0" mnemonicParsing="false" onAction="#sitename" opacity="0.0" prefHeight="58.0" prefWidth="377.0" textFill="WHITE" />
-      <Pane layoutX="122.0" layoutY="94.0" prefHeight="298.0" prefWidth="368.0">
+      <Pane layoutX="121.0" layoutY="93.0" prefHeight="298.0" prefWidth="368.0">
          <children>
-            <Rectangle fx:id="sfondo" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="298.0" layoutX="-2.0" layoutY="-2.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" width="372.0" />
-            <Text fx:id="registrazioneT" fill="#0e2c9a" layoutX="136.0" layoutY="27.0" scaleX="3.0" scaleY="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Registrazione" textAlignment="CENTER" wrappingWidth="93.91107918234432">
+            <Rectangle fx:id="sfondo" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="298.0" layoutX="-3.0" layoutY="-3.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" width="374.0" />
+            <Text fx:id="registrazioneT" fill="#0e2c9a" layoutX="140.0" layoutY="18.0" scaleX="3.0" scaleY="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" text="Registrazione" textAlignment="CENTER" wrappingWidth="93.91107918234432">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
@@ -43,7 +43,7 @@
                </font>
             </Button>
             <Line fx:id="linea2" endX="-100.0" endY="149.0" layoutX="284.0" layoutY="47.0" opacity="0.25" startX="-100.0" startY="16.0" />
-            <Line fx:id="linea1" endX="291.0" layoutX="56.0" layoutY="46.0" opacity="0.25" startX="-38.0" />
+            <Line fx:id="linea1" endX="291.0" layoutX="52.0" layoutY="37.0" opacity="0.25" startX="-38.0" />
             <TextField fx:id="nomeTextField" layoutX="192.0" layoutY="78.0" onAction="#nameField" prefHeight="1.0" prefWidth="132.0" />
             <TextField fx:id="cognomeTextField" layoutX="192.0" layoutY="130.0" onAction="#surField" prefHeight="1.0" prefWidth="132.0" />
             <TextField fx:id="usernameTextField" layoutX="48.0" layoutY="78.0" onAction="#usField" prefHeight="1.0" prefWidth="132.0" />
