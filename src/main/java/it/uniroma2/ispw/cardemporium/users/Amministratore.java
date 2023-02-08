@@ -15,8 +15,6 @@ public class Amministratore extends Users{
         return "Schermata_home_admin";
     }
 
-    @Override
-    public String getRole() {
-        return "Amministratore";
-    }
+
+
 }

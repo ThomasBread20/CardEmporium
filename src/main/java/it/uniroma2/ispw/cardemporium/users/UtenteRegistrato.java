@@ -14,8 +14,6 @@ public class UtenteRegistrato extends Users{
         return "Schermata_home_registrato";
     }
 
-    @Override
-    public String getRole() {
-        return "Utente";
-    }
+
+
 }

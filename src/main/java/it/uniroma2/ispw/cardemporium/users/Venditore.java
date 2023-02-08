@@ -14,8 +14,6 @@ public class Venditore extends Users {
         return "schermata_home_registrato";
     }
 
-    @Override
-    public String getRole() {
-        return "Venditore";
-    }
+
+
 }

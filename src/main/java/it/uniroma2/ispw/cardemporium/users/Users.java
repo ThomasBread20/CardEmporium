@@ -11,10 +11,12 @@ public abstract class Users {
     private Date data;
 
     private boolean isBanned;
-    private String role;
+
+    private String ruolo;
 
 
-    public Users(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
+
+    protected Users(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
         this.pwd = pwd;
         this.username = username;
         this.name = name;
@@ -47,13 +49,14 @@ public abstract class Users {
     }
 
 
-    public void setRole(String ruolo) {
-        this.role = ruolo;
+    public void setRole(String value) {
+        this.ruolo = value;
     }
+    public String getRole(){ return ruolo;}
 
     public abstract String getHomePage();
 
-    public abstract String getRole();
+
 
 
 }
