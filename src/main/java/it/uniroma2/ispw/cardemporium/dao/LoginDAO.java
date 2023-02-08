@@ -3,6 +3,7 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.users.UtenteFactory;
 import it.uniroma2.ispw.cardemporium.business.DBconnection;
@@ -25,42 +26,42 @@ public class LoginDAO {
 
     private Connection connCheck()
     {
-        Connection conn = DBconnection.getDBInstance().getConnection();
-        return conn;
+        return DBconnection.getDBInstance().getConnection();
+
     }
 
 
 
-    public Users getUser(LoginBean credential) throws ExceptionBannedUser, ExceptionUserNotExist {
+    public Users getUser(LoginBean credential) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
 
         String username = credential.getUsernameBean();
-        String Password = credential.getPasswdBean();
+        String password = credential.getPasswdBean();
         String sql = "SELECT * FROM credenziali WHERE Username = ? and PasswordUtente = ? ";
         Connection conn = connCheck();
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, username);
-            statement.setString(2, Password);
+            statement.setString(2, password);
             resultSet = statement.executeQuery();
             if (!resultSet.next()) {
                 throw new ExceptionUserNotExist("User does not exists");
             }
 
-            int ID = 0;
-            ID = resultSet.getInt("utenti_ID");
+            int id = 0;
+            id = resultSet.getInt("utenti_ID");
 
 
             String sql2 = "SELECT * FROM utenti JOIN credenziali WHERE ID = ?;";
-            String Role = null;
+
 
             statement = conn.prepareStatement(sql2);
-            statement.setInt(1, ID);
+            statement.setInt(1, id);
             resultSet = statement.executeQuery();
             resultSet.next();
             if (resultSet.getBoolean("IsBanned")) {
                 throw new ExceptionBannedUser("The User is Banned");
             } else {
-                Users User = UtenteFactory.getUser(Password,
+                return  UtenteFactory.getUser(password,
                         username,
                         resultSet.getString("Nome"),
                         resultSet.getString("Cognome"),
@@ -69,10 +70,9 @@ public class LoginDAO {
                         resultSet.getString("Ruolo")
                         );
 
-                return User;
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new ExceptionDBerror("");
         }
 
     }

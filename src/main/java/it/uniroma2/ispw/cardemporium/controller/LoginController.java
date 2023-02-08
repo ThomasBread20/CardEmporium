@@ -20,15 +20,15 @@ public class LoginController
     }
 
     public static Users checkUserDao(LoginBean ciao) throws ExceptionBannedUser, ExceptionUserNotExist {
-        LoginDAO Login = new LoginDAO();
+        LoginDAO login = new LoginDAO();
 
-        return Login.getUser(ciao);
+        return login.getUser(ciao);
     }
 
 
-    public static void DataFuller(String pwd, String username, String name, String surname, Date data, boolean isBanned, String role){
+    public static void dataFuller(String pwd, String username, String name, String surname, Date data, boolean isBanned, String role){
         DataSingleton info = DataSingleton.getInstance();
-        info.Users(pwd, username, name, surname, data, isBanned);
+        info.users(pwd, username, name, surname, data, isBanned);
         info.setRole(role);
 
     }

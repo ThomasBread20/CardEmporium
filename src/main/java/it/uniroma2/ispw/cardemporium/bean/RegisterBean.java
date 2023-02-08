@@ -1,52 +1,39 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class RegisterBean {
-    private String UsernameBean;
+    private String usernameBean;
 
-    private String Email;
-    private String PasswdBean;
-    public Boolean result;
-    public Boolean validate;
+
+    private String passwdBean;
+
     private String nameBean;
     private String cognomeBean;
     private java.sql.Date dateBean;
-    private String seconda_password;
+    private String secondaPassword;
 
-    private String Role;
+    private String role;
 
-    public String GetEmail(){
-        return Email;
-    }
-
-    public void setEmail(String Email)
-    {
-        //inserire e-mail;
-    }
 
     public String getPasswdBean() {
 
-        return PasswdBean;
+        return passwdBean;
     }
 
     public void setPasswdBean(String passwdBean) {
 
-        PasswdBean = passwdBean;
+        this.passwdBean = passwdBean;
     }
 
     public String getUsernameBean() {
-        return UsernameBean;
+        return usernameBean;
     }
 
     public void setUsernameBean(String usernameBean) {
-        UsernameBean = usernameBean;
+        this.usernameBean = usernameBean;
     }
-    public boolean checkUsernameSyntax(String UsernameBean){
 
-        return result;
-    }
 
     public String getNameBean() {
 
@@ -79,26 +66,24 @@ public class RegisterBean {
 
         this.dateBean = d;
     }
-    public Boolean check_Date(Date dateBean){
-        return validate;
+
+
+
+    public String getSecondaPassword() {
+
+        return secondaPassword;
     }
 
+    public void setSecondaPassword(String secondaPassword) {
 
-    public String getSeconda_password() {
-
-        return seconda_password;
-    }
-
-    public void setSeconda_password(String seconda_password) {
-
-        this.seconda_password = seconda_password;
+        this.secondaPassword = secondaPassword;
     }
 
     public void setRole(String ruolo){
-        this.Role = ruolo;
+        this.role = ruolo;
     }
 
     public String getRole(){
-        return Role;
+        return role;
     }
 }

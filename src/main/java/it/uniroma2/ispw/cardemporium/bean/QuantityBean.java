@@ -1,13 +1,13 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 public class QuantityBean {
-    private Integer quantity_bean;
+    private Integer quantityBeanValue;
 
-    public Integer getQuantity_bean() {
-        return quantity_bean;
+    public Integer getQuantityBeanValue() {
+        return quantityBeanValue;
     }
 
-    public void setQuantity_bean(Integer quantity_bean) {
-        this.quantity_bean = quantity_bean;
+    public void setQuantityBeanValue(Integer quantityBeanValue) {
+        this.quantityBeanValue = quantityBeanValue;
     }
 }

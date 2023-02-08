@@ -18,7 +18,7 @@ public class DataSingleton {
         return instance;
     }
 
-    public void Users(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
+    public void users(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
         this.pwd = pwd;
         this.username = username;
         this.name = name;
@@ -30,6 +30,8 @@ public class DataSingleton {
     public String getPwd() {
         return pwd;
     }
+
+    public boolean getIsbanned(){return isBanned;}
 
 
     public String getUsername() {

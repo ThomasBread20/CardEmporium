@@ -112,7 +112,7 @@ public class LoginView {
             errorMessage.setTextFill(Color.GREEN);
             errorMessage.setText("Succesfull Login! Processing...");
 
-            LoginController.DataFuller(user.getPwd(),user.getUsername(),user.getName(),user.getSurname(),user.getData(),user.getIsBanned(),user.getRole());
+            LoginController.dataFuller(user.getPwd(),user.getUsername(),user.getName(),user.getSurname(),user.getData(),user.getIsBanned(),user.getRole());
 
             Parent viewRegister = FXMLLoader.load(getClass().getResource(user.getHomePage() + ".fxml" ));
             Scene viewRegisterScene = new Scene(viewRegister);

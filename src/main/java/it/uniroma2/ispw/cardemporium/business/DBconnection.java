@@ -1,5 +1,7 @@
 package it.uniroma2.ispw.cardemporium.business;
 
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,15 +13,13 @@ public class DBconnection {
     //this is a SINGLETON
     private Connection conn;
     private static DBconnection instance;
-    public Connection DBconnection1(){
+    public Connection dbconnection() throws ExceptionDBerror {
         try {
             Class.forName(DRIVER_CLASS_NAME);
-            this.conn = DriverManager.getConnection(BD_URL,USER,PASSWD);
-            //Logger.getLogger("Run").log(Level.INFO, "Database connesso");
-            System.out.println("conn value: " + conn);
+            this.conn = DriverManager.getConnection(DBURL,USER,PASSWD);
 
         }catch(ClassNotFoundException | SQLException e){
-            System.out.println("Exception Thrown: " + e);
+            throw new ExceptionDBerror("");
 
         }
 
@@ -33,7 +33,7 @@ public class DBconnection {
         try{
             if((instance==null) || instance.getConnection().isClosed()){
                 instance=new DBconnection();
-                instance.DBconnection1();
+                instance.dbconnection();
             }
         }catch (Exception e){
             e.printStackTrace();

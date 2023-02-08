@@ -1,34 +1,31 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 public class LoginBean {
-    private String UsernameBean;
-    private String PasswdBean;
+    private String usernameBean;
+    private String passwdBean;
 
 
-    public Boolean result;
+
 
 
 
 
     public String getPasswdBean() {
-        return PasswdBean;
+        return passwdBean;
     }
 
     public void setPasswdBean(String passwdBean) {
-        PasswdBean = passwdBean;
+        this.passwdBean = passwdBean;
     }
 
     public String getUsernameBean() {
-        return UsernameBean;
+        return usernameBean;
     }
 
     public void setUsernameBean(String usernameBean) {
-        UsernameBean = usernameBean;
+        this.usernameBean = usernameBean;
     }
-    public boolean checkUsernameSyntax(String UsernameBean){
 
-        return result;
-    }
 
 
 }

@@ -1,13 +1,14 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 public class ConditionBean {
-    private String condition_bean;
+    private String conditionBeanValue;
 
-    public String getCondition_bean() {
-        return condition_bean;
+
+    public String getConditionBean() {
+        return conditionBeanValue;
     }
 
-    public void setCondition_bean(String condition_bean) {
-        this.condition_bean = condition_bean;
+    public void setConditionBean(String conditionBean) {
+        this.conditionBeanValue = conditionBean;
     }
 }

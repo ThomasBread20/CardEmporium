@@ -1,13 +1,13 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 public class LanguageBean {
-    private String language_bean;
+    private String languageBeanValeu;
 
-    public String getLanguage_bean() {
-        return language_bean;
+    public String getLanguageBeanValeu() {
+        return languageBeanValeu;
     }
 
-    public void setLanguage_bean(String language_bean) {
-        this.language_bean = language_bean;
+    public void setLanguageBeanValeu(String languageBeanValeu) {
+        this.languageBeanValeu = languageBeanValeu;
     }
 }

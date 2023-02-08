@@ -1,13 +1,13 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 public class EditionBean {
-    private Integer edition_bean;
+    private Integer editionBeanValue;
 
-    public int getEdition_bean() {
-        return edition_bean;
+    public int getEditionBeanValue() {
+        return editionBeanValue;
     }
 
-    public void setEdition_bean(int edition_bean) {
-        this.edition_bean = edition_bean;
+    public void setEditionBeanValue(int editionBeanValue) {
+        this.editionBeanValue = editionBeanValue;
     }
 }

@@ -17,7 +17,7 @@ public class Main1 {
         DBconnection instance;
         try {
             Class.forName(DRIVER_CLASS_NAME);
-            Connection conn = DriverManager.getConnection(BD_URL,USER,PASSWD);
+            Connection conn = DriverManager.getConnection(DBURL,USER,PASSWD);
             Logger.getLogger("Run").log(Level.INFO, "Database connesso");
             System.out.println("conn value: " + conn);
         }catch(ClassNotFoundException | SQLException e){
