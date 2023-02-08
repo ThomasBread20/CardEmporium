@@ -129,8 +129,8 @@ public class LoginView {
         } catch (ExceptionBannedUser e) {
             errorMessage.setTextFill(Color.TOMATO);
             errorMessage.setText("This user is banned.");
-         
-        } catch (IOException e) {
+
+        } catch (ExceptionDBerror | IOException e ) {
             throw new ExceptionDBerror("value");
         }
     }

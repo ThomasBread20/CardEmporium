@@ -72,7 +72,7 @@ public class LoginDAO {
 
             }
         } catch (SQLException e) {
-            throw new ExceptionDBerror("");
+            throw new ExceptionDBerror("SQL Error");
         }
 
     }
