@@ -2,7 +2,6 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.control.*;
 
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class Profiloview {
 
@@ -60,7 +58,7 @@ public class Profiloview {
     void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
-        LogoutAction.Logout(event);
+        LogoutAction.logout(event);
     }
 
     @FXML

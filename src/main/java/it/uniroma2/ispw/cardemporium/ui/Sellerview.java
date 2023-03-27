@@ -2,7 +2,6 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,13 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class Sellerview {
 
@@ -35,7 +31,7 @@ public class Sellerview {
     void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
-        LogoutAction.Logout(event);
+        LogoutAction.logout(event);
     }
 
     @FXML
