@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
@@ -47,20 +48,8 @@ public class ProfiloAdminview {
 
     @FXML
     void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
-        String returnValue = Popup.logout();
 
-        if(returnValue.equals("yes")){
-
-            try {
-                SwitchPage page = SwitchPage.getInstance();
-                page.switchPage("schermata login", event);
-            }catch (ExceptionSwitchpage | IOException e) {
-                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
-            }
-
-
-
-        }
+        LogoutAction.Logout(event);
 
     }
     @FXML

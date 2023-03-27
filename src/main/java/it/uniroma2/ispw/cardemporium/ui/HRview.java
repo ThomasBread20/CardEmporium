@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
@@ -45,21 +46,10 @@ public class HRview {
 
 
     @FXML
-    void logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
-        String returnValue = Popup.logout();
-
-        if(returnValue.equals("yes")){
-
-            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-            window.setScene(viewRegisterScene);
-            window.show();
-        }
+        LogoutAction.Logout(event);
     }
 
     @FXML
