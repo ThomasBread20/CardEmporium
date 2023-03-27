@@ -18,12 +18,11 @@ import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
 public class Main1 {
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         DBconnection instance;
 
 
-        try (InputStream input = new FileInputStream("src/main/resources/DBProp.properties")){
-
+        try (InputStream input = new FileInputStream("src/main/resources/DBProp.properties")) {
 
 
             Properties properties = new Properties();
@@ -34,26 +33,23 @@ public class Main1 {
             String USERs = properties.getProperty("USER");
             String PASSWDs = properties.getProperty("PASSWD");
 
-            System.out.printf(DBURLs + USERs + PASSWDs );
-            System.out.printf("\n");
-            System.out.printf(DBURL + USER + PASSWD);
-            System.out.printf("\n");
-
 
             Class.forName(DRIVER_CLASS_NAME);
-            Connection conn = DriverManager.getConnection(DBURLs,USERs,PASSWDs);
+            Connection conn = DriverManager.getConnection(DBURLs, USERs, PASSWDs);
             Logger.getLogger("Run").log(Level.INFO, "Database connesso");
-            System.out.println("conn value: " + conn);
 
-        }catch(ClassNotFoundException | SQLException e){
-            //Logger.getLogger("Run").log(Level.INFO, "Impossibile connettersi al database");
-            System.out.println("Exception Thrown: " + e);
+
+        } catch (SQLException e) {
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }
+
 
 
