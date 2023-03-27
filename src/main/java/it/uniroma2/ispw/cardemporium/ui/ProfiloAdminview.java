@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,13 +47,9 @@ public class ProfiloAdminview {
 
     @FXML
     void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("you're about to logout!");
+        String returnValue = Popup.logout();
 
-        Optional<ButtonType> test = alert.showAndWait();
-
-        if((test.isPresent() && test.get() == ButtonType.OK )){
+        if(returnValue.equals("yes")){
 
             try {
                 SwitchPage page = SwitchPage.getInstance();
