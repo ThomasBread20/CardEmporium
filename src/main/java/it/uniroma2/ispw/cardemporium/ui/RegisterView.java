@@ -202,15 +202,7 @@ public class RegisterView {
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
-        Parent viewRegister = loader.load();
 
-        Scene viewRegisterScene = new Scene(viewRegister);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(viewRegisterScene);
-        window.show();*/
     }
 
     @FXML
@@ -223,14 +215,6 @@ public class RegisterView {
         }
 
 
-        /*
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();*/
 
     }
 

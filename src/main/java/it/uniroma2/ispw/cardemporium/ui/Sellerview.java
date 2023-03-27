@@ -49,13 +49,6 @@ public class Sellerview {
             }
 
 
-           /* Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(viewRegisterScene);
-            window.show();*/
         }
     }
 
@@ -69,15 +62,7 @@ public class Sellerview {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
 
-        /*
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
 
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();
-        */
     }
 
 

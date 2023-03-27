@@ -117,13 +117,7 @@ public class LoginView {
             page.switchPage(user.getHomePage(), event);
 
 
-            /*Parent viewRegister = FXMLLoader.load(getClass().getResource(user.getHomePage() + ".fxml" ));
-            Scene viewRegisterScene = new Scene(viewRegister);
 
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-            window.setScene(viewRegisterScene);
-            window.show();*/
 
         } catch (ExceptionUserNotExist e) {
             errorMessage.setTextFill(Color.TOMATO);
@@ -152,13 +146,7 @@ public class LoginView {
         }
 
 
-       /* Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
 
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();*/
     }
 
     @FXML
@@ -172,13 +160,7 @@ public class LoginView {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
 
-        /*Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
 
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();*/
 
     }
 }

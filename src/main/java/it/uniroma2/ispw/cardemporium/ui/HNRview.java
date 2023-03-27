@@ -36,15 +36,7 @@ public class HNRview {
             page.switchPage("schermata login", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
-        }/*
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();*/
-
+        }
     }
 
     @FXML
@@ -58,14 +50,7 @@ public class HNRview {
         }
 
 
-        /*
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
 
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();*/
 
     }
 

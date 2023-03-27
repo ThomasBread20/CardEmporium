@@ -71,13 +71,6 @@ public class Profiloview {
                 page.switchPage("schermata login", event);
 
 
-            /*Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-            window.setScene(viewRegisterScene);
-            window.show();*/
         }
     }
 
@@ -95,14 +88,7 @@ public class Profiloview {
                 throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
             }
 
-            /*
-            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
-            Scene viewRegisterScene = new Scene(viewRegister);
 
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(viewRegisterScene);
-            window.show();*/
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -121,14 +107,7 @@ public class Profiloview {
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
-        /*
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
-        Scene viewRegisterScene = new Scene(viewRegister);
 
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewRegisterScene);
-        window.show();*/
         }
 
 }
