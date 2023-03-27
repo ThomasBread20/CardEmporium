@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,7 @@ public class Sellerview {
 
     DataSingleton info = DataSingleton.getInstance();
     @FXML
-    void logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -40,19 +41,35 @@ public class Sellerview {
 
         if((test.isPresent() && test.get() == ButtonType.OK )){
 
-            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage("schermata login", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+
+           /* Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
         }
     }
 
     @FXML
-    public void homeRegistrato(ActionEvent event) throws IOException {
+    public void homeRegistrato(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata_home_registrato", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+
+        /*
         Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
@@ -60,7 +77,7 @@ public class Sellerview {
 
         window.setScene(viewRegisterScene);
         window.show();
-
+        */
     }
 
 

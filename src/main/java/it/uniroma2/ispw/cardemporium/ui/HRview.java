@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -87,19 +88,25 @@ public class HRview {
     }
 
     @FXML
-    void sell(ActionEvent event) throws IOException {
+    void sell(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
         String role = info.getRole();
 
         if(role.equals("Venditore")){
-            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage("schermata_venditore1", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+            /*Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("You are not a Seller!");

@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.controller.RegisterController;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
 import javafx.event.ActionEvent;
@@ -193,8 +194,15 @@ public class RegisterView {
     }
 
 
-    public void tornaLogin(ActionEvent event) throws IOException {
+    public void tornaLogin(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata login", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+        /*
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
         Parent viewRegister = loader.load();
 
@@ -202,18 +210,27 @@ public class RegisterView {
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(viewRegisterScene);
-        window.show();
+        window.show();*/
     }
 
     @FXML
-    public void sitename(ActionEvent event) throws IOException{
+    public void sitename(ActionEvent event) throws  ExceptionSwitchpage {
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata home non registrato", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+
+
+        /*
         Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewRegisterScene);
-        window.show();
+        window.show();*/
 
     }
 

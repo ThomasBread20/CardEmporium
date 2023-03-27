@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,26 +31,44 @@ public class HNRview {
 
 
     @FXML
-    public void login(ActionEvent event) throws IOException {
+    public void login(ActionEvent event) throws IOException, ExceptionSwitchpage {
+
+
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata login", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }/*
         Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewRegisterScene);
-        window.show();
+        window.show();*/
 
     }
 
     @FXML
-    public void register(ActionEvent event) throws IOException  {
+    public void register(ActionEvent event) throws IOException, ExceptionSwitchpage {
+
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata registrazione", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+
+
+        /*
         Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewRegisterScene);
-        window.show();
+        window.show();*/
 
     }
 

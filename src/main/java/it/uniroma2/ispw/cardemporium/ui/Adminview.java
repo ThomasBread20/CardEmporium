@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,10 @@ public class Adminview {
     DataSingleton info = DataSingleton.getInstance();
 
     @FXML
-    void profileButton(ActionEvent event) throws IOException {
+    void profileButton(ActionEvent event) throws IOException, ExceptionSwitchpage {
+
+
+
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfiloAdmin.fxml"));
         Parent viewregister = loader.load();
@@ -40,7 +44,7 @@ public class Adminview {
     }
 
     @FXML
-    void logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -50,14 +54,21 @@ public class Adminview {
         if(alert.showAndWait().orElse(null) == ButtonType.OK){
 
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage("schermata login", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+           /* FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
             Parent viewRegister = loader.load();
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
         }
     }
 

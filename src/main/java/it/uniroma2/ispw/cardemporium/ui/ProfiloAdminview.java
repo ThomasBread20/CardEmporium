@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +45,7 @@ public class ProfiloAdminview {
     }
 
     @FXML
-    void logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("you're about to logout!");
@@ -53,6 +54,14 @@ public class ProfiloAdminview {
 
         if((test.isPresent() && test.get() == ButtonType.OK )){
 
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage("schermata login", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+            /*
             FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
             Parent viewRegister = loader.load();
             Scene viewRegisterScene = new Scene(viewRegister);
@@ -60,7 +69,7 @@ public class ProfiloAdminview {
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
 
         }
 

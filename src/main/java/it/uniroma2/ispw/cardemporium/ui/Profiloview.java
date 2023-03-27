@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,6 @@ public class Profiloview {
     DataSingleton info = DataSingleton.getInstance();
 
     public void initData(String user, String name, String surname, String born, String role) {
-
         username.setText(user);
         nome.setText(name);
         cognome.setText(surname);
@@ -58,7 +58,7 @@ public class Profiloview {
 
 
     @FXML
-    void logout(ActionEvent event) throws IOException {
+    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -69,30 +69,46 @@ public class Profiloview {
 
         if((test.isPresent() && test.get() == ButtonType.OK )){
 
-            Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage("schermata login", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+            /*Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
         }
     }
 
     @FXML
-    void sell(ActionEvent event) throws IOException {
+    void sell(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
 
         String role = info.getRole();
 
         if (role.equals("Venditore")) {
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage("schermata_venditore1", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+            /*
             Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_venditore1.fxml"));
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
+
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("You are not a Seller!");
@@ -102,14 +118,22 @@ public class Profiloview {
 
     }
 
-    public void sitename1(ActionEvent event) throws IOException {
+    public void sitename1(ActionEvent event) throws IOException, ExceptionSwitchpage {
+
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata_home_registrato", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+        /*
         Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata_home_registrato.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewRegisterScene);
-        window.show();
+        window.show();*/
         }
 
 }

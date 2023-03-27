@@ -3,6 +3,7 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
 import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
@@ -114,13 +115,21 @@ public class LoginView {
 
             LoginController.dataFuller(user.getPwd(),user.getUsername(),user.getName(),user.getSurname(),user.getData(),user.getIsBanned(),user.getRole());
 
-            Parent viewRegister = FXMLLoader.load(getClass().getResource(user.getHomePage() + ".fxml" ));
+
+            try {
+                SwitchPage Page = SwitchPage.getInstance();
+                Page.switchPage(user.getHomePage(), event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+            /*Parent viewRegister = FXMLLoader.load(getClass().getResource(user.getHomePage() + ".fxml" ));
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
             window.setScene(viewRegisterScene);
-            window.show();
+            window.show();*/
 
         } catch (ExceptionUserNotExist e) {
             errorMessage.setTextFill(Color.TOMATO);
@@ -130,36 +139,52 @@ public class LoginView {
             errorMessage.setTextFill(Color.TOMATO);
             errorMessage.setText("This user is banned.");
 
-        } catch (ExceptionDBerror | IOException e ) {
+        } catch (ExceptionDBerror | ExceptionSwitchpage e ) {
             throw new ExceptionDBerror("value");
         }
     }
 
     @FXML
-    public void registratiButton(ActionEvent event) throws IOException {
+    public void registratiButton(ActionEvent event) throws ExceptionSwitchpage {
 
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
+
+
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata registrazione", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+
+
+       /* Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata registrazione.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewRegisterScene);
-        window.show();
+        window.show();*/
     }
 
     @FXML
-    public void sitename(ActionEvent event) throws IOException{
-        Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
+    public void sitename(ActionEvent event) throws IOException, ExceptionSwitchpage {
+
+
+        try {
+            SwitchPage Page = SwitchPage.getInstance();
+            Page.switchPage("schermata home non registrato", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+
+        /*Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata home non registrato.fxml"));
         Scene viewRegisterScene = new Scene(viewRegister);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewRegisterScene);
-        window.show();
-
+        window.show();*/
 
     }
-
-
 }
 
