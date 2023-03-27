@@ -3,14 +3,11 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -35,8 +32,8 @@ public class HNRview {
 
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata login", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata login", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }/*
@@ -54,8 +51,8 @@ public class HNRview {
     public void register(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata registrazione", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata registrazione", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }

@@ -21,7 +21,7 @@ public class Adminview {
     DataSingleton info = DataSingleton.getInstance();
 
     @FXML
-    void profileButton(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    void profileButton(ActionEvent event) throws IOException {
 
 
 
@@ -55,8 +55,8 @@ public class Adminview {
 
 
             try {
-                SwitchPage Page = SwitchPage.getInstance();
-                Page.switchPage("schermata login", event);
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage("schermata login", event);
             }catch (ExceptionSwitchpage | IOException e) {
                 throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
             }

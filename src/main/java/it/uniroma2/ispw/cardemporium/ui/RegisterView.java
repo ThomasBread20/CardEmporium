@@ -197,8 +197,8 @@ public class RegisterView {
     public void tornaLogin(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata login", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata login", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
@@ -216,8 +216,8 @@ public class RegisterView {
     @FXML
     public void sitename(ActionEvent event) throws  ExceptionSwitchpage {
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata home non registrato", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata home non registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }

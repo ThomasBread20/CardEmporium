@@ -42,8 +42,8 @@ public class Sellerview {
         if((test.isPresent() && test.get() == ButtonType.OK )){
 
             try {
-                SwitchPage Page = SwitchPage.getInstance();
-                Page.switchPage("schermata login", event);
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage("schermata login", event);
             }catch (ExceptionSwitchpage | IOException e) {
                 throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
             }
@@ -63,8 +63,8 @@ public class Sellerview {
     public void homeRegistrato(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata_home_registrato", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata_home_registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }

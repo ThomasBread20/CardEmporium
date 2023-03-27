@@ -95,8 +95,8 @@ public class HRview {
 
         if(role.equals("Venditore")){
             try {
-                SwitchPage Page = SwitchPage.getInstance();
-                Page.switchPage("schermata_venditore1", event);
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage("schermata_venditore1", event);
             }catch (ExceptionSwitchpage | IOException e) {
                 throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
             }

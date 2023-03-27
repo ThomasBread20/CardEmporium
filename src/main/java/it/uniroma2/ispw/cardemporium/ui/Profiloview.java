@@ -4,12 +4,9 @@ import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.util.Optional;
@@ -69,12 +66,10 @@ public class Profiloview {
 
         if((test.isPresent() && test.get() == ButtonType.OK )){
 
-            try {
-                SwitchPage Page = SwitchPage.getInstance();
-                Page.switchPage("schermata login", event);
-            }catch (ExceptionSwitchpage | IOException e) {
-                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
-            }
+
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage("schermata login", event);
+
 
             /*Parent viewRegister = FXMLLoader.load(getClass().getResource("schermata login.fxml"));
             Scene viewRegisterScene = new Scene(viewRegister);
@@ -94,8 +89,8 @@ public class Profiloview {
 
         if (role.equals("Venditore")) {
             try {
-                SwitchPage Page = SwitchPage.getInstance();
-                Page.switchPage("schermata_venditore1", event);
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage("schermata_venditore1", event);
             }catch (ExceptionSwitchpage | IOException e) {
                 throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
             }
@@ -121,8 +116,8 @@ public class Profiloview {
     public void sitename1(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata_home_registrato", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata_home_registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }

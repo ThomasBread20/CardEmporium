@@ -9,10 +9,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -22,7 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -113,15 +110,12 @@ public class LoginView {
             errorMessage.setTextFill(Color.GREEN);
             errorMessage.setText("Succesfull Login! Processing...");
 
-            LoginController.dataFuller(user.getPwd(),user.getUsername(),user.getName(),user.getSurname(),user.getData(),user.getIsBanned(),user.getRole());
+            LoginController.dataFuller(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(), user.getData(), user.getIsBanned(), user.getRole());
 
 
-            try {
-                SwitchPage Page = SwitchPage.getInstance();
-                Page.switchPage(user.getHomePage(), event);
-            }catch (ExceptionSwitchpage | IOException e) {
-                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
-            }
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage(user.getHomePage(), event);
+
 
             /*Parent viewRegister = FXMLLoader.load(getClass().getResource(user.getHomePage() + ".fxml" ));
             Scene viewRegisterScene = new Scene(viewRegister);
@@ -139,8 +133,9 @@ public class LoginView {
             errorMessage.setTextFill(Color.TOMATO);
             errorMessage.setText("This user is banned.");
 
-        } catch (ExceptionDBerror | ExceptionSwitchpage e ) {
+        } catch (ExceptionDBerror | ExceptionSwitchpage | IOException e) {
             throw new ExceptionDBerror("value");
+
         }
     }
 
@@ -150,8 +145,8 @@ public class LoginView {
 
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata registrazione", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata registrazione", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
@@ -171,8 +166,8 @@ public class LoginView {
 
 
         try {
-            SwitchPage Page = SwitchPage.getInstance();
-            Page.switchPage("schermata home non registrato", event);
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata home non registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
