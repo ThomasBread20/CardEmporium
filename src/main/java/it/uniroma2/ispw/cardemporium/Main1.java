@@ -34,7 +34,10 @@ public class Main1 {
             String USERs = properties.getProperty("USER");
             String PASSWDs = properties.getProperty("PASSWD");
 
-
+            System.out.printf(DBURLs + USERs + PASSWDs );
+            System.out.printf("\n");
+            System.out.printf(DBURL + USER + PASSWD);
+            System.out.printf("\n");
 
 
             Class.forName(DRIVER_CLASS_NAME);
