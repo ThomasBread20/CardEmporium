@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
 
-import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
+
 import it.uniroma2.ispw.cardemporium.business.DBFunc;
 import it.uniroma2.ispw.cardemporium.business.DBconnection;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
@@ -26,17 +26,17 @@ public class RegisterDAO {
 
     }
 
-    public Boolean addUser(RegisterBean credential) throws SQLException, ExceptionUserAlreadyExist {
+    public void addUser(String username1, String passw, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist {
 
         Connection conn = connCheck();
 
-        String username = credential.getUsernameBean();
+        String username = username1;
         DBFunc.register();
 
-        String passwdBean = credential.getPasswdBean();
-        String name = credential.getNameBean();
-        java.sql.Date date = credential.getDateBean();
-        String surname = credential.getCognomeBean();
+        String passwdBean = passw;
+        String name = name1;
+        java.sql.Date date = date1;
+        String surname = surname1;
 
 
         String sql = "CALL `Inserisci-Utente`(?, ?, ?, ?, ?)";
@@ -53,7 +53,7 @@ public class RegisterDAO {
             statement.setDate(5, date);
             statement.executeQuery();
 
-            return true;
+
 
         }catch (SQLException e) {
 

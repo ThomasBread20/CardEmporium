@@ -28,7 +28,7 @@ public class Sellerview {
 
     DataSingleton info = DataSingleton.getInstance();
     @FXML
-    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
 
 
         LogoutAction.logout(event);

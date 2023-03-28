@@ -1,13 +1,15 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
-import it.uniroma2.ispw.cardemporium.bean.LoginBean;
+
 import it.uniroma2.ispw.cardemporium.dao.LoginDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import javafx.event.ActionEvent;
+
 
 import java.util.Date;
 
@@ -20,11 +22,11 @@ public class LoginController
         event = evento;
     }
 
-    public static Users checkUserDao(LoginBean ciao) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
+    public static Users checkUserDao(String username, String passw) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
         LoginDAO login = new LoginDAO();
 
         try{
-            return login.getUser(ciao);
+            return login.getUser(username, passw);
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE");
         }
@@ -37,5 +39,8 @@ public class LoginController
         info.setRole(role);
 
     }
+
+
+
 
 }

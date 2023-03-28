@@ -45,7 +45,7 @@ public class ProfiloAdminview {
     }
 
     @FXML
-    void logout(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    void logout(ActionEvent event) throws  ExceptionSwitchpage {
 
         LogoutAction.logout(event);
 

@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
-import it.uniroma2.ispw.cardemporium.controller.RegisterController;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
@@ -20,9 +20,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
-import static java.lang.Thread.sleep;
+
+
 
 public class RegisterView {
 
@@ -152,12 +152,19 @@ public class RegisterView {
         if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {
 
             try {
-                registerProcess(
-                        usernameTextField.getText(),
-                        passwordTextField.getText(),
-                        nomeTextField.getText(),
-                        cognomeTextField.getText(),
-                        dataNascitaTextField.getValue());
+
+                RegisterBean registerValue=new RegisterBean();
+                registerValue.setUsernameBean( usernameTextField.getText());
+                registerValue.setPasswdBean(passwordTextField.getText());
+                registerValue.setNameBean(nomeTextField.getText());
+                registerValue.setCognomeBean(cognomeTextField.getText());
+                registerValue.setDateBean(dataNascitaTextField.getValue());
+
+
+
+
+                registerValue.beaninsertuserdao();
+
 
 
 
@@ -179,21 +186,9 @@ public class RegisterView {
             labelError.setText("Wrong check-password... Please try again");
         }
     }
-    public boolean registerProcess(String username, String passwd, String name, String surname, LocalDate date) throws SQLException, ExceptionUserAlreadyExist {
-
-        RegisterBean registerValue=new RegisterBean();
-        registerValue.setUsernameBean(username);
-        registerValue.setPasswdBean(passwd);
-        registerValue.setNameBean(name);
-        registerValue.setCognomeBean(surname);
-        registerValue.setDateBean(date);
 
 
-        return RegisterController.insertUserDao(registerValue);
-
-    }
-
-
+    //switch page
     public void tornaLogin(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
@@ -205,7 +200,7 @@ public class RegisterView {
 
     }
 
-    @FXML
+    @FXML//switch page
     public void sitename(ActionEvent event) throws  ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();

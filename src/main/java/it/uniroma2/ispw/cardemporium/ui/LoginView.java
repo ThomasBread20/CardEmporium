@@ -1,10 +1,8 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
-import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import javafx.event.ActionEvent;
@@ -94,29 +92,15 @@ public class LoginView {
 
         login(usernamefield.getText(),passwordfield.getText(), event);
 
-
     }
     public void login(String username, String passwd, ActionEvent event) throws  ExceptionDBerror {
-        LoginBean loginInfo=new LoginBean();
+        LoginBean loginInfo = new LoginBean();
         loginInfo.setUsernameBean(username);
         loginInfo.setPasswdBean(passwd);
-        result(loginInfo, event);
 
-    }
-
-    public void result(LoginBean credential, ActionEvent event) throws ExceptionDBerror {
         try {
-            Users user = LoginController.checkUserDao(credential);
-            errorMessage.setTextFill(Color.GREEN);
-            errorMessage.setText("Succesfull Login! Processing...");
 
-            LoginController.dataFuller(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(), user.getData(), user.getIsBanned(), user.getRole());
-
-
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage(user.getHomePage(), event);
-
-
+            loginInfo.result(event);
 
 
         } catch (ExceptionUserNotExist e) {
@@ -127,11 +111,14 @@ public class LoginView {
             errorMessage.setTextFill(Color.TOMATO);
             errorMessage.setText("This user is banned.");
 
-        } catch (ExceptionDBerror | ExceptionSwitchpage | IOException e) {
+        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
             throw new ExceptionDBerror("value");
+
 
         }
     }
+
+
 
     @FXML
     public void registratiButton(ActionEvent event) throws ExceptionSwitchpage {

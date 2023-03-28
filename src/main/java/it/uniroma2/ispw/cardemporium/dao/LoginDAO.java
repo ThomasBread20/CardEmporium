@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 
-import it.uniroma2.ispw.cardemporium.bean.LoginBean;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.users.UtenteFactory;
@@ -32,10 +32,10 @@ public class LoginDAO {
 
 
 
-    public Users getUser(LoginBean credential) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
+    public Users getUser(String username1, String passw1) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
 
-        String username = credential.getUsernameBean();
-        String password = credential.getPasswdBean();
+        String username = username1;
+        String password = passw1;
         String sql = "SELECT * FROM credenziali WHERE Username = ? and PasswordUtente = ? ";
         Connection conn = connCheck();
         try {

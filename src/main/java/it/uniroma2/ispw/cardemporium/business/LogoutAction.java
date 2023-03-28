@@ -25,4 +25,5 @@ public class LogoutAction {
         }
 
     }
+    private LogoutAction() {}
 }
