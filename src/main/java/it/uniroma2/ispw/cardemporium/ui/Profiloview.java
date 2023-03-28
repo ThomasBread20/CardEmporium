@@ -55,12 +55,7 @@ public class Profiloview {
     }
 
 
-    @FXML
-    void logout(ActionEvent event) throws  ExceptionSwitchpage {
 
-
-        LogoutAction.logout(event);
-    }
 
     @FXML
     void sell(ActionEvent event) throws  ExceptionSwitchpage {
@@ -71,6 +66,13 @@ public class Profiloview {
         Popup.notSeller(event, role);
 
 
+    }
+
+    @FXML
+    void logout(ActionEvent event) throws  ExceptionSwitchpage {
+
+
+        LogoutAction.logout(event);
     }
 
     public void sitename1(ActionEvent event) throws IOException, ExceptionSwitchpage {
