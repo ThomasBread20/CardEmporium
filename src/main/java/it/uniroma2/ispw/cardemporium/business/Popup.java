@@ -1,8 +1,12 @@
 package it.uniroma2.ispw.cardemporium.business;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+
+import java.io.IOException;
 
 public class Popup {
 
@@ -22,6 +26,29 @@ public class Popup {
             throw new ExceptionSwitchpage("Popup");
         }
 
+
+    }
+
+    public static void notSeller(ActionEvent event, String role) throws ExceptionSwitchpage {
+
+
+
+        if (role.equals("Venditore")) {
+            try {
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage("schermata_venditore1", event);
+            }catch (ExceptionSwitchpage | IOException e) {
+                throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            }
+
+
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("You are not a Seller!");
+            alert.setHeaderText("Became a Seller for sell your cards!");
+            alert.show();
+        }
 
     }
 
