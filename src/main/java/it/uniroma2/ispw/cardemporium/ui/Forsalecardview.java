@@ -10,29 +10,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Adminview {
 
+public class Forsalecardview {
 
+    @FXML
+    private Button logoutBut;
 
+    @FXML
+    private Button profileBut;
+
+    @FXML
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
+        LogoutAction.logout(event);
+    }
     DataSingleton info = DataSingleton.getInstance();
 
-    @FXML
-    void profileButton(ActionEvent event) throws IOException {
-
-
-        InitProfileButton.InitProfileAdmin(event);
-
-    }
 
     @FXML
-    void logoutAdmin(ActionEvent event) throws  ExceptionSwitchpage {
-
-
-        LogoutAction.logout(event);
+    void profile(ActionEvent event) throws IOException {
+        InitProfileButton.InitProfileUser(event);
     }
 
 }

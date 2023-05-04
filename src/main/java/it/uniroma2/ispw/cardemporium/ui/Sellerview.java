@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.business.InitProfileButton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
@@ -15,6 +16,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Sellerview {
+    @FXML
+    private Button Expose;
+
 
     @FXML
     private Button homeRegistrat;
@@ -51,19 +55,20 @@ public class Sellerview {
 
 
     public void profileButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
-        Parent viewRegister = loader.load();
-        Scene viewRegisterScene = new Scene(viewRegister);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Profiloview profiloview = loader.getController();
-        profiloview.initData(
-                info.getUsername(),
-                info.getName(),
-                info.getSurname(),
-                String.valueOf(info.getData()),
-                info.getRole()
-        );
-        window.setScene(viewRegisterScene);
-        window.show();
+        InitProfileButton.InitProfileUser(event);
+    }
+    @FXML
+    void Expose(ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("Schermata venditore vendi carte seleziona carta, selezione", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page seller 2");
+        }
+
+    }
+
+    public void manage(ActionEvent event) {
+
     }
 }

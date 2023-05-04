@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.business.InitProfileButton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
@@ -67,19 +68,6 @@ public class ProfiloAdminview {
 
     public void profileButton(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfiloAdmin.fxml"));
-        Parent viewRegister = loader.load();
-        Scene viewRegisterScene = new Scene(viewRegister);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        ProfiloAdminview profiloAdminview = loader.getController();
-        profiloAdminview.initData(
-                info.getUsername(),
-                info.getName(),
-                info.getSurname(),
-                String.valueOf(info.getData()),
-                info.getRole()
-        );
-        window.setScene(viewRegisterScene);
-        window.show();
+        InitProfileButton.InitProfileAdmin(event);
     }
 }

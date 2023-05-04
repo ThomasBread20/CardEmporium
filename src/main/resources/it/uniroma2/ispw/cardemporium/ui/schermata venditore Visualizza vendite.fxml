@@ -5,10 +5,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.Sellerview">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.Forsalecardview">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -17,17 +18,16 @@
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="homeRegistrat" mnemonicParsing="false" onAction="#homeRegistrato" opacity="0.0" prefHeight="32.0" prefWidth="154.0" />
-            <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profilo" />
-            <Button fx:id="profileButton" layoutX="195.0" mnemonicParsing="false" onAction="#profileButton" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendi" />
+            <Button fx:id="profileBut" layoutX="196.0" mnemonicParsing="false" onAction="#profile" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Button layoutX="265.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acquisti" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrello" />
             <Button layoutX="405.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profilo" />
+            <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendi" />
+            <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acquisti" />
+            <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrello" />
+            <Button fx:id="logoutBut" focusTraversable="false" layoutX="537.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
-            <Button fx:id="logoutButton" focusTraversable="false" layoutX="537.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
       </Pane>
       <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">
@@ -50,15 +50,17 @@
             </Text>
          </children>
       </Pane>
-      <Button fx:id="Expose" layoutX="119.0" layoutY="183.0" mnemonicParsing="false" onAction="#Expose" prefHeight="57.0" prefWidth="103.0" scaleX="2.0" scaleY="2.0" text="Esponi carte" textAlignment="CENTER" textFill="#190082">
+      <Text layoutX="67.0" layoutY="105.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista carte" wrappingWidth="95.349609375">
          <font>
-            <Font name="Segoe UI Black" size="12.0" />
+            <Font name="Segoe UI Black" size="13.0" />
          </font>
-      </Button>
-      <Button fx:id="manageCard" layoutX="392.0" layoutY="183.0" mnemonicParsing="false" onAction="#manage" prefHeight="57.0" prefWidth="103.0" scaleX="2.0" scaleY="2.0" text="Gestisci carte" textFill="#190082">
-         <font>
-            <Font name="Segoe UI Black" size="12.0" />
-         </font>
-      </Button>
+      </Text>
+      <Text fill="#010057" layoutX="43.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" wrappingWidth="49.0" />
+      <Line endX="408.0" layoutX="144.0" layoutY="115.0" opacity="0.59" startX="-100.0" />
+      <Text fill="#010057" layoutX="268.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prezzo" wrappingWidth="49.0" />
+      <Text fill="#010057" layoutX="349.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" wrappingWidth="49.0" />
+      <Text fill="#010057" layoutX="437.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lingua" wrappingWidth="49.0" />
+      <Button alignment="TOP_CENTER" layoutX="506.0" layoutY="113.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="56.0" text="Cestino" visible="false" />
+      <Text fill="#010057" layoutX="513.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cestino" wrappingWidth="49.0" />
    </children>
 </Pane>
