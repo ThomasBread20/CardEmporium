@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.InitProfileButton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
@@ -55,7 +54,22 @@ public class Sellerview {
 
 
     public void profileButton(ActionEvent event) throws IOException {
-        InitProfileButton.InitProfileUser(event);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Profiloview profiloview = loader.getController();
+
+        profiloview.initData(
+                info.getUsername(),
+                info.getName(),
+                info.getSurname(),
+                String.valueOf(info.getData()),
+                info.getRole()
+        );
+        window.setScene(viewRegisterScene);
+        window.show();
     }
     @FXML
     void Expose(ActionEvent event) throws ExceptionSwitchpage {
@@ -68,7 +82,12 @@ public class Sellerview {
 
     }
 
-    public void manage(ActionEvent event) {
-
+    public void manage(ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata venditore Visualizza vendite", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page seller 2");
+        }
     }
 }

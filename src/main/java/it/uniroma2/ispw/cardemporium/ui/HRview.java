@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.InitProfileButton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -54,8 +53,22 @@ public class HRview {
     @FXML
     void profileButton(ActionEvent event) throws IOException {
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
 
-        InitProfileButton.InitProfileUser(event);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Profiloview profiloview = loader.getController();
+
+        profiloview.initData(
+                info.getUsername(),
+                info.getName(),
+                info.getSurname(),
+                String.valueOf(info.getData()),
+                info.getRole()
+        );
+        window.setScene(viewRegisterScene);
+        window.show();
     }
 
     @FXML

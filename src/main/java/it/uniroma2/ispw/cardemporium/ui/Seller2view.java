@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.InitProfileButton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
@@ -17,10 +16,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.EventObject;
 
 
 public class Seller2view {
+    public Text profileButton;
     @FXML
     private Button sellCard;
 
@@ -55,6 +54,7 @@ public class Seller2view {
         void logout(ActionEvent event) throws ExceptionSwitchpage {
             LogoutAction.logout(event);
         }
+    DataSingleton info = DataSingleton.getInstance();
 
         @FXML
         void number(ActionEvent event) {
@@ -78,8 +78,43 @@ public class Seller2view {
 
     }
 
-    public void profiloButton(ActionEvent event) throws IOException {
-        InitProfileButton.InitProfileUser(event);
+
+
+    public void goHome(ActionEvent actionEvent) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata_home_registrato", actionEvent);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata home");
+        }
+    }
+
+    public void goProfile(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
+        Parent viewRegister = loader.load();
+        Scene viewRegisterScene = new Scene(viewRegister);
+
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Profiloview profiloview = loader.getController();
+
+        profiloview.initData(
+                info.getUsername(),
+                info.getName(),
+                info.getSurname(),
+                String.valueOf(info.getData()),
+                info.getRole()
+        );
+        window.setScene(viewRegisterScene);
+        window.show();
+    }
+
+    public void goback(ActionEvent actionEvent) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata_venditore1", actionEvent);
+        } catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata seller");
+        }
     }
 }
 
