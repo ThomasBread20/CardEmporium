@@ -105,16 +105,23 @@
             <Line endX="332.0" layoutX="132.0" layoutY="138.0" opacity="0.13" startX="118.5" />
             <Line endX="332.0" layoutX="132.0" layoutY="171.0" opacity="0.13" startX="118.5" />
             <Line endX="332.0" layoutX="132.0" layoutY="208.0" opacity="0.13" startX="118.5" />
-            <SplitMenuButton layoutX="271.0" layoutY="107.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="249.0" scaleX="0.5" scaleY="0.5">
+            <SplitMenuButton fx:id="Language" layoutX="271.0" layoutY="107.0" mnemonicParsing="false" onAction="#getLanguage" prefHeight="25.0" prefWidth="249.0" scaleX="0.5" scaleY="0.5">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Ghost from the past" />
-                  <MenuItem mnemonicParsing="false" text="Blackwing blast" />
+                  <MenuItem mnemonicParsing="false" text="Italian" />
+                  <MenuItem mnemonicParsing="false" text="Tedesco" />
+                  <MenuItem mnemonicParsing="false" text="Spagnolo" />
+                  <MenuItem mnemonicParsing="false" text="Inglese" />
                </items>
             </SplitMenuButton>
-            <SplitMenuButton layoutX="272.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="247.0" scaleX="0.5" scaleY="0.5">
+            <SplitMenuButton fx:id="Conditions" layoutX="272.0" layoutY="142.0" mnemonicParsing="false" onAction="#getCondition" prefHeight="25.0" prefWidth="247.0" scaleX="0.5" scaleY="0.5">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Ghost from the past" />
-                  <MenuItem mnemonicParsing="false" text="Blackwing blast" />
+                  <MenuItem mnemonicParsing="false" text="Mint" />
+                  <MenuItem mnemonicParsing="false" text="Near mint" />
+                  <MenuItem mnemonicParsing="false" text="Excellent" />
+                  <MenuItem mnemonicParsing="false" text="Good" />
+                  <MenuItem mnemonicParsing="false" text="Light Played" />
+                  <MenuItem mnemonicParsing="false" text="Played" />
+                  <MenuItem mnemonicParsing="false" text="Poor" />
                </items>
             </SplitMenuButton>
             <Button fx:id="cardName" layoutX="328.0" layoutY="41.0" mnemonicParsing="false" onAction="#cardName" opacity="0.0" prefHeight="25.0" prefWidth="135.0" />

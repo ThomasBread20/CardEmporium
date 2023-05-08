@@ -1,5 +1,8 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+import it.uniroma2.ispw.cardemporium.bean.NameCardBean;
+import it.uniroma2.ispw.cardemporium.bean.PriceBean;
+import it.uniroma2.ispw.cardemporium.bean.QuantityBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -15,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -43,9 +47,11 @@ public class Seller2view {
 
         @FXML
         private TextArea textArea;
+    private Label price;
 
 
-        @FXML
+
+    @FXML
         void cardName(ActionEvent event) {
 
         }
@@ -58,12 +64,14 @@ public class Seller2view {
 
         @FXML
         void number(ActionEvent event) {
-
+            QuantityBean quantityBean = new QuantityBean();
+            quantityBean.setQuantityBeanValue(Integer.valueOf(number.getText()));
         }
 
         @FXML
         void price(ActionEvent event) {
-
+            PriceBean pb=new PriceBean();
+            pb.setPriceBeanValue(Double.valueOf(Price.getText()));
         }
 
 
@@ -71,7 +79,8 @@ public class Seller2view {
 
         @FXML
         void search(ActionEvent event) {
-
+            NameCardBean nc=new NameCardBean();
+            nc.setName(searchProduct.getText());
         }
     @FXML
     void sell(ActionEvent event) {
@@ -116,6 +125,13 @@ public class Seller2view {
             throw new ExceptionSwitchpage("switch page schermata seller");
         }
     }
+
+    public void getCondition(ActionEvent actionEvent) {
+    }
+
+    public void getLanguage(ActionEvent actionEvent) {
+    }
+
 }
 
 

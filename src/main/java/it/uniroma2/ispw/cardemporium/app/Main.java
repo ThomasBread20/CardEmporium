@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.app;
 
 import it.uniroma2.ispw.cardemporium.ui.HomeNonRegistrati;
-import it.uniroma2.ispw.cardemporium.ui.LoginGUIview;
+
 import javafx.application.Application;
 
 import java.io.BufferedReader;

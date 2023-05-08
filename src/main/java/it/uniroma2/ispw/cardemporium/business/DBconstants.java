@@ -21,5 +21,5 @@ public class DBconstants {
                 INSERT INTO credenziali  VALUES (var_username, var_Password, last_insert_id());
                 commit;
                 END""";
-    public static final String SQL4 ="SELECT * FROM carta WHERE NomeCarta=LIKE %";
+
 }
