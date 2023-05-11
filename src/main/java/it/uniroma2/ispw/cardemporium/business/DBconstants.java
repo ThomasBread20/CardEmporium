@@ -21,5 +21,17 @@ public class DBconstants {
                 INSERT INTO credenziali  VALUES (var_username, var_Password, last_insert_id());
                 commit;
                 END""";
-
+public static final String SQL4="""
+                CREATE  PROCEDURE `Search-Card-to-Sell`(in Var_nome varchar(45), in Var_version int)
+                BEGIN
+                DECLARE EXIT HANDLER FOR SQLEXCEPTION
+                BEGIN
+                ROLLBACK; -- rollback any changes made in the transaction
+                RESIGNAL; -- raise again the sql exception to the caller
+                END;
+                SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+                START TRANSACTION;
+                SELECT NomeCarta FROM carta WHERE NomeCarta=%Var_nome% and Versione=Var_version;
+                commit;
+                END""";
 }

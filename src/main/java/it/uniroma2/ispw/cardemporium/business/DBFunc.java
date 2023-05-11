@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.business;
 
 import java.sql.*;
+import java.util.List;
 
 import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
 
@@ -71,6 +72,23 @@ public class DBFunc {
 
 
     }
+    public static List<String> SearchCardtoSell(String str,int v) throws SQLException {
+        Connection conn = connCheck();
+        List<String> Carte = null;
+        String sql2 = "DROP PROCEDURE IF EXISTS cardemporium.`Search-Card-to_sell`";
+        statement = conn.prepareStatement(sql2);
+        statement.execute();
 
+        String q=SQL4;
+        statement = conn.prepareStatement(q);
+        statement.setString(1,str);
+        statement.setInt(2,v);
+        ResultSet rs=statement.executeQuery();
+        while(rs.next()){
+            Carte.add(rs.getString(1));
+        }
+        return Carte;
+    }
+    public static void Expose_dao(int q,String c,double price,int v,String card){}
 
 }
