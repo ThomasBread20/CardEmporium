@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.Seller3view">
+   <children>
+      <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Text fill="WHITE" layoutX="30.0" layoutY="21.0" scaleX="1.5" scaleY="1.5" stroke="#04006b" strokeType="OUTSIDE" strokeWidth="2.0" text="Card Emporium" wrappingWidth="95.8125">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Text>
+            <Button fx:id="profile" layoutX="196.0" mnemonicParsing="false" onAction="#goProfile" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button layoutX="265.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button layoutX="405.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Text fx:id="profiloButton" fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profilo" />
+            <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendi" />
+            <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acquisti" />
+            <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrello" />
+            <Line endX="612.0" layoutX="-12.0" layoutY="30.0" opacity="0.61" startX="5.5" />
+            <Button fx:id="logoutButton" focusTraversable="false" layoutX="537.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
+            <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
+            <Button fx:id="goHome" layoutX="-4.0" layoutY="-3.0" mnemonicParsing="false" onAction="#goHome" opacity="0.0" prefHeight="32.0" prefWidth="154.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="44.0" layoutY="75.0" prefHeight="318.0" prefWidth="504.0" style="-fx-background-color: #b6b6da;">
+         <children>
+            <Text fill="#010057" layoutX="154.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Articolo">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#010057" layoutX="152.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#010057" layoutX="158.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lingua">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#010057" layoutX="146.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Condizioni">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#010057" layoutX="157.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prezzo">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Line endX="282.4000244140625" endY="-9.999992370605469" layoutX="73.0" layoutY="51.0" opacity="0.13" startX="73.60002136230469" startY="-10.0" />
+            <Line endX="332.0" layoutX="26.0" layoutY="90.0" opacity="0.13" startX="118.5" />
+            <Line endX="332.0" layoutX="27.0" layoutY="136.0" opacity="0.13" startX="118.5" />
+            <Line endX="332.0" layoutX="26.0" layoutY="181.0" opacity="0.13" startX="118.5" />
+            <Line endX="332.0" layoutX="27.0" layoutY="231.0" opacity="0.13" startX="118.5" />
+            <SplitMenuButton fx:id="Language" layoutX="154.0" layoutY="95.0" mnemonicParsing="false" onAction="#getLanguage" prefHeight="25.0" prefWidth="249.0" scaleX="0.5" scaleY="0.5">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Italian" />
+                  <MenuItem mnemonicParsing="false" text="Tedesco" />
+                  <MenuItem mnemonicParsing="false" text="Spagnolo" />
+                  <MenuItem mnemonicParsing="false" text="Inglese" />
+               </items>
+            </SplitMenuButton>
+            <SplitMenuButton fx:id="Conditions" layoutX="156.0" layoutY="147.0" mnemonicParsing="false" onAction="#getCondition" prefHeight="25.0" prefWidth="247.0" scaleX="0.5" scaleY="0.5">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Mint" />
+                  <MenuItem mnemonicParsing="false" text="Near mint" />
+                  <MenuItem mnemonicParsing="false" text="Excellent" />
+                  <MenuItem mnemonicParsing="false" text="Good" />
+                  <MenuItem mnemonicParsing="false" text="Light Played" />
+                  <MenuItem mnemonicParsing="false" text="Played" />
+                  <MenuItem mnemonicParsing="false" text="Poor" />
+               </items>
+            </SplitMenuButton>
+            <Label fx:id="ArticleName" layoutX="226.0" layoutY="14.0" prefHeight="17.0" prefWidth="125.0" />
+            <TextField fx:id="Quantity" layoutX="251.0" layoutY="53.0" onAction="#getQuantitiy" prefHeight="13.0" prefWidth="56.0" />
+            <TextField fx:id="Price" layoutX="252.0" layoutY="196.0" onAction="#getPrice" prefHeight="13.0" prefWidth="56.0" />
+            <Button fx:id="Sell" layoutX="396.0" layoutY="268.0" mnemonicParsing="false" onAction="#SellCard" text="Vendi" />
+         </children>
+      </Pane>
+      <Button alignment="TOP_CENTER" layoutX="506.0" layoutY="113.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="56.0" text="Cestino" visible="false" />
+      <Text fill="#010057" layoutX="43.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleziona caratteristiche dell'articolo scelto">
+         <font>
+            <Font name="Segoe UI Black" size="11.0" />
+         </font>
+      </Text>
+      <Line endX="403.0" layoutX="144.0" layoutY="58.0" opacity="0.54" startX="-100.0" />
+      <Button fx:id="Back" layoutX="556.0" layoutY="32.0" mnemonicParsing="false" onAction="#goback" text="&lt;-" />
+   </children>
+</Pane>

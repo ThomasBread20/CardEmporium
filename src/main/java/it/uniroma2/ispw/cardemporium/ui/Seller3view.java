@@ -1,5 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+
+
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -10,49 +12,89 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Sellerview {
-
-
+public class Seller3view {
 
     @FXML
-    private Button homeRegistrat;
+    private Button Back;
+
+    @FXML
+    private SplitMenuButton Conditions;
+
+    @FXML
+    private SplitMenuButton Language;
+
+    @FXML
+    private TextField Price;
+
+    @FXML
+    private TextField Quantity;
+
+    @FXML
+    private Button Sell;
+
+    @FXML
+    private Label cardName;
+
+    @FXML
+    private Button goHome;
 
     @FXML
     private Button logoutButton;
 
     @FXML
-    private Button profileButton;
+    private Button profile;
 
+    @FXML
+    private Text profiloButton;
+
+    @FXML
+    void SellCard(ActionEvent event) {
+
+    }
 
     DataSingleton info = DataSingleton.getInstance();
+
+
     @FXML
-    void logout(ActionEvent event) throws ExceptionSwitchpage {
+    void getCondition(ActionEvent event) {
 
-
-        LogoutAction.logout(event);
     }
 
     @FXML
-    public void homeRegistrato(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    void getLanguage(ActionEvent event) {
 
+    }
+
+    @FXML
+    void getPrice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getQuantitiy(ActionEvent event) {
+
+    }
+
+    @FXML
+    void goHome(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage("schermata_home_registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
-            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            throw new ExceptionSwitchpage("switch page schermata home");
         }
-
-
     }
 
-
-
-
-    public void profileButton(ActionEvent event) throws IOException {
+    @FXML
+    void goProfile(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
         Parent viewRegister = loader.load();
         Scene viewRegisterScene = new Scene(viewRegister);
@@ -70,23 +112,21 @@ public class Sellerview {
         window.setScene(viewRegisterScene);
         window.show();
     }
+
     @FXML
-    void Expose(ActionEvent event) throws ExceptionSwitchpage {
+    void goback(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage("venditore2", event);
-        }catch (ExceptionSwitchpage | IOException e) {
-            throw new ExceptionSwitchpage("switch page seller 2");
-        }
-
-    }
-
-    public void manage(ActionEvent event) throws ExceptionSwitchpage {
-        try {
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("schermata venditore Visualizza vendite", event);
-        }catch (ExceptionSwitchpage | IOException e) {
-            throw new ExceptionSwitchpage("switch page seller 2");
+        } catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata venditore2");
         }
     }
+
+    @FXML
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
+        LogoutAction.logout(event);
+    }
+
 }
+

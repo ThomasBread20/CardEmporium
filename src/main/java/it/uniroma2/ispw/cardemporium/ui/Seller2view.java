@@ -12,13 +12,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
+
 import java.io.IOException;
 
 
@@ -36,8 +37,6 @@ public class Seller2view {
         @FXML
         private Button logoutButton;
 
-        @FXML
-        private TextField number;
 
         @FXML
         private Text profiloButton;
@@ -45,16 +44,57 @@ public class Seller2view {
         @FXML
         private TextField searchProduct;
 
-        @FXML
-        private TextArea textArea;
-    private Label price;
+
+
+    @FXML
+    private Button Back;
+
+    @FXML
+    private Button Continue;
+
+    @FXML
+    private SplitMenuButton Edition;
+
+    @FXML
+    private Button Search;
+
+    @FXML
+    private Button goHome;
+
+    @FXML
+    private ListView<?> itemList;
+
+
+    @FXML
+    private Button profile;
 
 
 
     @FXML
-        void cardName(ActionEvent event) {
-
+    void Continue(ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("venditore3", event);
+        } catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page venditore3");
         }
+    }
+
+    @FXML
+    void Search(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getEdition(ActionEvent event) {
+
+    }
+
+
+
+
+
+
 
         @FXML
         void logout(ActionEvent event) throws ExceptionSwitchpage {
@@ -62,17 +102,10 @@ public class Seller2view {
         }
     DataSingleton info = DataSingleton.getInstance();
 
-        @FXML
-        void number(ActionEvent event) {
-            QuantityBean quantityBean = new QuantityBean();
-            quantityBean.setQuantityBeanValue(Integer.valueOf(number.getText()));
-        }
 
-        @FXML
-        void price(ActionEvent event) {
-            PriceBean pb=new PriceBean();
-            pb.setPriceBeanValue(Double.valueOf(Price.getText()));
-        }
+
+
+
 
 
 
@@ -82,10 +115,7 @@ public class Seller2view {
             NameCardBean nc=new NameCardBean();
             nc.setName(searchProduct.getText());
         }
-    @FXML
-    void sell(ActionEvent event) {
 
-    }
 
 
 
@@ -126,11 +156,7 @@ public class Seller2view {
         }
     }
 
-    public void getCondition(ActionEvent actionEvent) {
-    }
 
-    public void getLanguage(ActionEvent actionEvent) {
-    }
 
 }
 
