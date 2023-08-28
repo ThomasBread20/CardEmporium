@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
+
 import javafx.stage.Stage;
 
 
@@ -24,17 +26,32 @@ public class HRview {
 
 
     @FXML
-    private Button sellButton;
+    private Button LogoutButton;
 
     @FXML
-    private Button logoutButton;
-
+    private Button SellButton;
 
     @FXML
     private Button profileButton;
 
     @FXML
     private TextField researchBar;
+
+    @FXML
+    private Button searchbuttom;
+
+
+
+    @FXML
+    void Search(ActionEvent event) {
+        researchBar.getText();
+
+    }
+
+
+
+
+
 
 
     Stage stage;
@@ -44,7 +61,7 @@ public class HRview {
 
 
     @FXML
-    void logout(ActionEvent event) throws  ExceptionSwitchpage {
+    void Logout(ActionEvent event) throws  ExceptionSwitchpage {
 
 
         LogoutAction.logout(event);
@@ -72,7 +89,7 @@ public class HRview {
     }
 
     @FXML
-    void sell(ActionEvent event) throws  ExceptionSwitchpage {
+    void Sell(ActionEvent event) throws  ExceptionSwitchpage {
 
 
         String role = info.getRole();
@@ -85,6 +102,7 @@ public class HRview {
 
 
     }
+
 
 
 }
