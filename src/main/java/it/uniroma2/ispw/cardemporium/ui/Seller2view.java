@@ -52,8 +52,7 @@ public class Seller2view {
     @FXML
     private Button Continue;
 
-    @FXML
-    private SplitMenuButton Edition;
+
 
     @FXML
     private Button Search;
@@ -61,8 +60,7 @@ public class Seller2view {
     @FXML
     private Button goHome;
 
-    @FXML
-    private ListView<?> itemList;
+
 
 
     @FXML
@@ -85,10 +83,7 @@ public class Seller2view {
 
     }
 
-    @FXML
-    void getEdition(ActionEvent event) {
 
-    }
 
 
 
