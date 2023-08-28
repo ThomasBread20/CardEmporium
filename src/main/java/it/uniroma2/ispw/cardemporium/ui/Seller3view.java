@@ -8,19 +8,19 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Seller3view {
+public class Seller3view implements Initializable {
 
     @FXML
     private Button Back;
@@ -56,8 +56,13 @@ public class Seller3view {
     private Text profiloButton;
 
     @FXML
-    void SellCard(ActionEvent event) {
-
+    void SellCard(ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("venditore2", event);
+        } catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata venditore2");
+        }
     }
 
     DataSingleton info = DataSingleton.getInstance();
@@ -72,6 +77,13 @@ public class Seller3view {
     void getLanguage(ActionEvent event) {
 
     }
+    private String[]language={"Italian","French","German","English"};
+    @FXML
+    private ChoiceBox<String> choiceOne;
+
+    private String[]conditions={"Near mint","Excellent","Good","Light played","Poor"};
+    @FXML
+    private ChoiceBox<String> choiceTwo;
 
     @FXML
     void getPrice(ActionEvent event) {
@@ -128,5 +140,10 @@ public class Seller3view {
         LogoutAction.logout(event);
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        choiceOne.getItems().addAll(language);
+        choiceTwo.getItems().addAll(conditions);
+    }
 }
 
