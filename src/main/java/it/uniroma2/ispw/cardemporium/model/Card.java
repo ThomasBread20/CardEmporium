@@ -4,7 +4,7 @@ public class Card {
   private   String name;
   private int id;
   private int version;
-  private int id_setCarte;
+  private String SetName;
   private String nomeGioco;
 
     public String getName() {
@@ -31,19 +31,30 @@ public class Card {
         this.version = version;
     }
 
-    public int getId_setCarte() {
-        return id_setCarte;
-    }
 
-    public void setId_setCarte(int id_setCarte) {
-        this.id_setCarte = id_setCarte;
-    }
 
-    public String getNomeGioco() {
+    public String getnomeGioco() {
         return nomeGioco;
     }
 
     public void setNomeGioco(String nomeGioco) {
         this.nomeGioco = nomeGioco;
+    }
+    public Card(int idCard,String nameCard,int ver,String Game,String set){
+        this.id=idCard;
+        this.name=nameCard;
+        this.version=ver;
+        this.nomeGioco=Game;
+        this.SetName=set;
+
+
+    }
+
+    public String getSetName() {
+        return SetName;
+    }
+
+    public void setSetName(String setName) {
+        this.SetName = setName;
     }
 }
