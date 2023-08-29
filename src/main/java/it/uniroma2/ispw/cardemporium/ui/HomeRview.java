@@ -3,7 +3,10 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.exception.*;
+import it.uniroma2.ispw.cardemporium.model.Card;
+import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +14,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 
@@ -20,8 +25,10 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class HRview {
+public class HomeRview {
 
 
 
@@ -43,8 +50,53 @@ public class HRview {
 
 
     @FXML
-    void Search(ActionEvent event) {
-        researchBar.getText();
+    void Search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+
+
+
+       try{
+           ArrayList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
+
+
+
+           /*SwitchPage page = SwitchPage.getInstance();
+           page.switchPage("Schermata_Carta", event);*/
+
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_Carta.fxml"));
+           Parent viewRegister = loader.load();
+           Scene viewRegisterScene = new Scene(viewRegister);
+
+           Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           CardView CardView = loader.getController();
+
+
+
+           CardView.initData1(cards.get(0).getNomeCarta(),cards.get(0).getNomeGioco());
+           window.setScene(viewRegisterScene);
+           window.show();
+
+
+
+
+       }catch (ExceptionCardNotExist e)
+       {
+
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("Notification!");
+           alert.setHeaderText("This Card do not exist!");
+           alert.showAndWait();
+
+       }catch ( IOException e) {
+           throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+       }
+
+
+       catch (ExceptionDBerror  e) {
+           throw new ExceptionDBerror("value");
+
+
+       }
+
 
     }
 

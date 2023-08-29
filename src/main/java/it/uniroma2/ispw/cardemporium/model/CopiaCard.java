@@ -49,6 +49,6 @@ public class CopiaCard {
         this.cartaSingolaID = CartasingolaID;
         this.cartaID = CartaID;
         this.nomeCarta = Nomecarta;
-        this.nomeGioco = nomeGioco;
+        this.nomeGioco = NomeGioco;
     };
 }
