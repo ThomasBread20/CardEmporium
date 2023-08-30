@@ -5,13 +5,36 @@ public class CopiaCard {
 
   private  String condizione;
   private double prezzo;
-  private int utenteVenditore;
+  private String  utenteVenditore;
   private int cartaSingolaID;
   private int cartaID;
 
   private String nomeCarta;
 
   private String nomeGioco;
+
+  private String lingua;
+
+  private Boolean nelCarrello;
+
+    public Boolean getNelCarrello() {
+        return nelCarrello;
+    }
+
+    private int versione;
+  private String nomeSet;
+
+    public int getVersione() {
+        return versione;
+    }
+
+    public String getNomeSet() {
+        return nomeSet;
+    }
+
+    public void setLingua(String lingua) {
+        this.lingua = lingua;
+    }
 
     public String getCondizione() {
         return condizione;
@@ -21,7 +44,7 @@ public class CopiaCard {
         return prezzo;
     }
 
-    public int getUtenteVenditore() {
+    public String  getUtenteVenditore() {
         return utenteVenditore;
     }
 
@@ -42,7 +65,7 @@ public class CopiaCard {
 
 
 
-    public CopiaCard(String Condizione1, double Prezzo, int Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco){
+    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome, boolean carrello){
         this.condizione = Condizione1;
         this.prezzo = Prezzo;
         this.utenteVenditore = Utentevenditore;
@@ -50,5 +73,17 @@ public class CopiaCard {
         this.cartaID = CartaID;
         this.nomeCarta = Nomecarta;
         this.nomeGioco = NomeGioco;
+        this.lingua = Lingua;
+        this.versione = versione;
+        this.nomeSet = setNome;
+        this.nelCarrello = carrello;
     };
+
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public String getLingua() {
+        return lingua;
+    }
 }

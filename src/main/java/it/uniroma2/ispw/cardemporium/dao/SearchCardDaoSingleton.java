@@ -3,16 +3,14 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 import it.uniroma2.ispw.cardemporium.business.DBconnection;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class SearchCardDaoSingleton {
 
@@ -31,9 +29,9 @@ public class SearchCardDaoSingleton {
         return DBconnection.getDBInstance().getConnection();
 
     }
-    public ArrayList<CopiaCard> getCard(String Name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCard> getCard(String Name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
-        ArrayList<CopiaCard> Cards = new ArrayList();
+        ObservableList<CopiaCard> Cards = FXCollections.observableArrayList();
 
 
         Connection conn = connCheck();
@@ -64,14 +62,18 @@ public class SearchCardDaoSingleton {
 
                 String condizione = resultSet.getString("Condizione");
                 double prezzo = resultSet.getDouble("Prezzo");
-                int utenteVenditore = resultSet.getInt("UtenteVenditore");
+                String  utenteVenditore = resultSet.getString("Venditore");
                 int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
                 int cartaID = resultSet.getInt("Carta_ID");
-                String nomeCarta = resultSet.getString("carta_NomeCarta");
+                String nomeCarta = resultSet.getString("NomeCarta");
                 String nomeGioco = resultSet.getString("carta_setcarte_NomeGioco");
-                CopiaCard card = new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco);
-                Cards.add(card);
-                System.out.printf("set gioco" + Cards.get(0).getNomeGioco());
+                int versione = resultSet.getInt("carta_versione");
+                String nomeSet = resultSet.getString("NomeSet");
+                String lingua = resultSet.getString("Lingua");
+                boolean carrello = resultSet.getBoolean("nel carrello");
+
+                Cards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello));
+
 
             }
             return Cards;

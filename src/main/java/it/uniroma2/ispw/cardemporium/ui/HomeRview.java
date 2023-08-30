@@ -7,6 +7,7 @@ import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,7 +56,7 @@ public class HomeRview {
 
 
        try{
-           ArrayList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
+           ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
 
 
 
@@ -67,11 +68,14 @@ public class HomeRview {
            Scene viewRegisterScene = new Scene(viewRegister);
 
            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           CardView CardView = loader.getController();
+           CardView cardView = loader.getController();
 
 
 
-           CardView.initData1(cards.get(0).getNomeCarta(),cards.get(0).getNomeGioco());
+           cardView.initData1(cards.get(0).getNomeCarta(), cards.get(0).getNomeGioco());
+           cardView.modifytable(cards);
+
+
            window.setScene(viewRegisterScene);
            window.show();
 

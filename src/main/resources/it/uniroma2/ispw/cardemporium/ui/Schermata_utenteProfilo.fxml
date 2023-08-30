@@ -35,26 +35,6 @@
             <Button fx:id="logoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
       </Pane>
-      <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">
-         <children>
-            <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
-            <Button layoutX="404.0" layoutY="2.0" mnemonicParsing="false" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
-            <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca" />
-            <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Yu gi oh" />
-                <MenuItem mnemonicParsing="false" text="Pokemon" />
-                  <MenuItem mnemonicParsing="false" text="Magic" />
-                  <MenuItem mnemonicParsing="false" text="Dragon ball" />
-              </items>
-            </MenuButton>
-            <Text fill="WHITE" layoutX="11.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prodotti">
-               <font>
-                  <Font name="Segoe UI Black" size="12.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
       <Pane layoutY="64.0" prefHeight="336.0" prefWidth="600.0">
          <children>
             <Text fill="#010057" layoutX="25.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="125.21875">
@@ -132,6 +112,26 @@
                </font>
             </Label>
             <Line endX="438.0" endY="80.0" layoutX="10.0" layoutY="32.0" opacity="0.61" startX="150.0" startY="80.0" />
+         </children>
+      </Pane>
+      <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">
+         <children>
+            <TextField fx:id="researchBar1" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
+            <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#Search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Yu gi oh" />
+                  <MenuItem mnemonicParsing="false" text="Pokemon" />
+                  <MenuItem mnemonicParsing="false" text="Magic" />
+                  <MenuItem mnemonicParsing="false" text="Dragon ball" />
+               </items>
+            </MenuButton>
+            <Text fill="WHITE" layoutX="11.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prodotti">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

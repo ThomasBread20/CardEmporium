@@ -24,26 +24,6 @@
             <Button fx:id="ButtomLogin" layoutX="375.0" mnemonicParsing="false" onAction="#login" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
          </children>
       </Pane>
-      <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">
-         <children>
-            <TextField layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" />
-            <Button layoutX="404.0" layoutY="2.0" mnemonicParsing="false" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
-            <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca" />
-            <MenuButton mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Yu gi oh" />
-                  <MenuItem mnemonicParsing="false" text="Pokemon" />
-                  <MenuItem mnemonicParsing="false" text="Magic" />
-                  <MenuItem mnemonicParsing="false" text="Dragon ball" />
-               </items>
-            </MenuButton>
-            <Text fill="WHITE" layoutX="15.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prodotti">
-               <font>
-                  <Font name="Segoe UI Black" size="12.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
       <Text fill="#010057" layoutX="80.0" layoutY="93.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Più vendute!" wrappingWidth="80.21875">
          <font>
             <Font name="Segoe UI Black" size="12.0" />
@@ -56,5 +36,25 @@
          </font>
       </Text>
       <Line endX="95.0" layoutX="435.0" layoutY="113.0" opacity="0.61" startX="-100.0" />
+      <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">
+         <children>
+            <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
+            <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#Search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Yu gi oh" />
+                  <MenuItem mnemonicParsing="false" text="Pokemon" />
+                  <MenuItem mnemonicParsing="false" text="Magic" />
+                  <MenuItem mnemonicParsing="false" text="Dragon ball" />
+               </items>
+            </MenuButton>
+            <Text fill="WHITE" layoutX="11.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prodotti">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </Pane>
