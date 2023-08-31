@@ -4,11 +4,13 @@ import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CardBean {
     private String name_bean;
@@ -57,16 +59,16 @@ public class CardBean {
     public void setGame_bean(String game_bean) {
         this.game_bean = game_bean;
     }
-    public void showCard(ActionEvent actionEvent) throws ExceptionCardNotExist, ExceptionDBerror, IOException , ExceptionSwitchpage{
-        Card card= ExposeController.SearchAllCard(getName(),getVersion_bean(),getGame_bean(),getSetcard_bean());
-
+    public Card showCard(ActionEvent actionEvent) throws ExceptionCardNotExist, ExceptionDBerror, IOException , ExceptionSwitchpage{
 
         SwitchPage sw=SwitchPage.getInstance();
         try {
+            Card card= ExposeController.SearchAllCard(getName(),getVersion_bean(),getGame_bean(),getSetcard_bean());
             sw.switchPage("venditore3",actionEvent);
+            return card;
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage e) {
+        } catch (ExceptionSwitchpage | SQLException | ExceptionUserAlreadyExist e) {
             throw new RuntimeException(e);
         }
 

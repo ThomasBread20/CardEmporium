@@ -57,7 +57,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="setTF" layoutX="133.0" layoutY="237.0" prefHeight="25.0" prefWidth="236.0" />
             <Text fill="#010057" layoutX="145.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose the Game the card belongs to" wrappingWidth="214.5">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -66,6 +65,7 @@
             <ChoiceBox fx:id="choiseGame" layoutX="177.0" layoutY="166.0" prefWidth="150.0" />
             <Line endX="332.0" layoutX="27.0" layoutY="206.0" opacity="0.13" startX="118.5" />
             <Label fx:id="ermessage" layoutX="156.0" layoutY="284.0" prefHeight="17.0" prefWidth="192.0" />
+            <ChoiceBox fx:id="choiceSet" layoutX="176.0" layoutY="237.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Button alignment="TOP_CENTER" layoutX="506.0" layoutY="113.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="56.0" text="Cestino" visible="false" />

@@ -46,6 +46,8 @@ public class Seller2view  implements Initializable{
     private Text profiloButton;
 
 
+    @FXML
+    private ChoiceBox<String> choiceSet;
 
 
     @FXML
@@ -64,11 +66,45 @@ public class Seller2view  implements Initializable{
 
     @FXML
     private Button profile;
+public Object verify_game(){
+    Object str;
+    Object r=choiseGame.getValue();
+    if(r!=null){
+        str=r;
+    }else{
+        str=null;
+    }
+    return str;
 
+}
+public Object verify_version(){
+    Object n;
+    Integer version=choiceVersion.getValue();
+    if(version!=null){
+        n=version;
+
+    }else{
+        n=0;
+    }
+    return n;
+}
+public Object verify_set() {
+    Object str;
+    Object r = choiceSet.getValue();
+    if (r != null) {
+        str = r;
+    } else {
+        str = null;
+    }
+    return str;
+
+
+}
 
     @FXML
     void Continue(ActionEvent event) throws ExceptionDBerror {
-        CardBean cb = new CardBean(nameTF.getText(), choiceVersion.getValue(), choiseGame.getValue(), setTF.getText());
+
+        CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
             cb.showCard(event);
         } catch (ExceptionCardNotExist e) {
@@ -148,11 +184,15 @@ public class Seller2view  implements Initializable{
 
     public String[]games={"Yu-gi-oh","Pokemon","Magic","Dragonball"};
     public Integer[]v={1,2,3};
+    public String[]set={
+            "draghi della leggenda","battaglie della leggenda","fantasmi dal passato","sopravvissuti selvaggi","incredibili difensori","tempesta argentata","lucentezza siderale"
+    };
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         choiceVersion.getItems().addAll(v);
         choiseGame.getItems().addAll(games);
+        choiceSet.getItems().addAll(set);
     }
 
 

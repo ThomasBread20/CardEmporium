@@ -47,7 +47,7 @@ public class SearchAllCardDAO {
         if (!resultSet.next()) {
             throw new ExceptionCardNotExist("Card does not exists");
         } else {
-            resultSet.beforeFirst();
+
 
             Integer CardID = resultSet.getInt(1);
             String CardName = resultSet.getString(2);
