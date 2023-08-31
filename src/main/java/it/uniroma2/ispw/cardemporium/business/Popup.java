@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.business;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -28,6 +29,7 @@ public class Popup {
 
 
     }
+
 
     public static void notSeller(ActionEvent event, String role) throws ExceptionSwitchpage {
 

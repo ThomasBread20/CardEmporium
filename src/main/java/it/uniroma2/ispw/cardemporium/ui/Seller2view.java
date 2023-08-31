@@ -1,14 +1,15 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
-import it.uniroma2.ispw.cardemporium.bean.NameCardBean;
-import it.uniroma2.ispw.cardemporium.bean.PriceBean;
-import it.uniroma2.ispw.cardemporium.bean.QuantityBean;
+import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,33 +17,34 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Seller2view {
-    public Text profileButton;
+public class Seller2view  implements Initializable{
+
     @FXML
-    private Button sellCard;
-
-        @FXML
-        private TextField Price;
-
-        @FXML
-        private Button cardName;
-
-        @FXML
-        private Button logoutButton;
+    public Text profileButton;
 
 
-        @FXML
-        private Text profiloButton;
 
-        @FXML
-        private TextField searchProduct;
+
+
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Label ermessage;
+
+
+    @FXML
+    private Text profiloButton;
+
 
 
 
@@ -53,7 +55,6 @@ public class Seller2view {
     private Button Continue;
 
 
-
     @FXML
     private Button Search;
 
@@ -61,55 +62,39 @@ public class Seller2view {
     private Button goHome;
 
 
-
-
     @FXML
     private Button profile;
 
 
-
     @FXML
-    void Continue(ActionEvent event) throws ExceptionSwitchpage {
+    void Continue(ActionEvent event) throws ExceptionDBerror {
+        CardBean cb = new CardBean(nameTF.getText(), choiceVersion.getValue(), choiseGame.getValue(), setTF.getText());
         try {
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("venditore3", event);
-        } catch (ExceptionSwitchpage | IOException e) {
-            throw new ExceptionSwitchpage("switch page venditore3");
+            cb.showCard(event);
+        } catch (ExceptionCardNotExist e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Notification!");
+            alert.setHeaderText("This Card do not exist!");
+            alert.showAndWait();
+        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
+            throw new ExceptionDBerror("value");
+
         }
     }
+
+
+
+
+
+
 
     @FXML
-    void Search(ActionEvent event) {
-
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
+        LogoutAction.logout(event);
     }
 
-
-
-
-
-
-
-
-
-        @FXML
-        void logout(ActionEvent event) throws ExceptionSwitchpage {
-            LogoutAction.logout(event);
-        }
     DataSingleton info = DataSingleton.getInstance();
 
-
-
-
-
-
-
-
-
-        @FXML
-        void search(ActionEvent event) {
-            NameCardBean nc=new NameCardBean();
-            nc.setName(searchProduct.getText());
-        }
 
 
 
@@ -118,7 +103,7 @@ public class Seller2view {
         try {
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage("schermata_home_registrato", actionEvent);
-        }catch (ExceptionSwitchpage | IOException e) {
+        } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata home");
         }
     }
@@ -151,6 +136,24 @@ public class Seller2view {
         }
     }
 
+    @FXML
+    private ChoiceBox<Integer> choiceVersion;
+
+    @FXML
+    private ChoiceBox<String> choiseGame;
+    @FXML
+    private TextField nameTF;
+    @FXML
+    private TextField setTF;
+
+    public String[]games={"Yu-gi-oh","Pokemon","Magic","Dragonball"};
+    public Integer[]v={1,2,3};
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        choiceVersion.getItems().addAll(v);
+        choiseGame.getItems().addAll(games);
+    }
 
 
 }
