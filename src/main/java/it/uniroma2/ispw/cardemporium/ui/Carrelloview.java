@@ -8,6 +8,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,10 +20,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class Carrelloview {
+
+    @FXML
+    private Button Homebutton;
 
     @FXML
     private Button LogoutButton;
@@ -31,15 +36,22 @@ public class Carrelloview {
     private Button SellButton;
 
     @FXML
-    private TableView<CopiaCard> TableList;
+    private Button carrello;
 
     @FXML
-    private TableColumn<CopiaCard, String> nome;
+    private TableView<CopiaCardCarrello> TableList;
+
 
     @FXML
-    private TableColumn<CopiaCard, Double> prezzo;
+    private TableColumn<CopiaCardCarrello, Integer> id;
+
     @FXML
-    private TableColumn<CopiaCard, String> venditore;
+    private TableColumn<CopiaCardCarrello, String> nome;
+
+    @FXML
+    private TableColumn<CopiaCardCarrello, Double> prezzo;
+    @FXML
+    private TableColumn<CopiaCardCarrello, String> venditore;
     @FXML
     private Button profileButton;
 
@@ -48,6 +60,18 @@ public class Carrelloview {
 
     @FXML
     private Button searchbuttom;
+
+
+    @FXML
+    void Homebutton(ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            SwitchPage page = SwitchPage.getInstance();
+            page.switchPage("schermata_home_registrato", event);
+        }catch (ExceptionSwitchpage | IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+        }
+
+    }
 
 
 
@@ -104,9 +128,9 @@ public class Carrelloview {
 
 
     }
-    public void modifytable(ObservableList<CopiaCard> card) {
+    public void modifytable(ObservableList<CopiaCardCarrello> card) {
 
-
+        id.setCellValueFactory(new PropertyValueFactory<>("cartaID"));
         nome.setCellValueFactory(new PropertyValueFactory<>("nomeCarta"));
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
         venditore.setCellValueFactory(new PropertyValueFactory<>("UtenteVenditore"));
@@ -158,6 +182,68 @@ public class Carrelloview {
 
     }
 
-    public void Scarrello(ActionEvent event) {
+    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+
+        SwitchPage page = SwitchPage.getInstance();
+
+
+        try{
+
+            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+
+
+
+            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
+
+
+            Carrelloview.modifytable(cards);
+
+
+        }catch (ExceptionCardNotExist e)
+        {
+
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
+
+
+        }catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
+
+
+        catch (ExceptionDBerror  e) {
+            throw new ExceptionDBerror("value");
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+    public void Removecard(javafx.scene.input.MouseEvent mouseEvent) throws ExceptionSwitchpage {
+
+        int index = TableList.getSelectionModel().getSelectedIndex();
+
+        if(index <= -1){
+            return;
+        }
+
+        String returnValue = Popup.shoppingcart();
+
+        if(returnValue.equals("yes")){
+
+            try{
+                BuyCardApplicativo.removeCard(id.getCellData(index));
+                //SwitchPage.switchPageData1("Schermata_Carta", mouseEvent);
+
+
+            }catch(ExceptionDBerror e){
+                System.out.printf("errore db");
+            }
+
+        }
     }
 }
+

@@ -10,6 +10,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,14 +77,41 @@ public class CardView {
     @FXML
     private Button Carrello;
 
-    @FXML
-    void Scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+
         SwitchPage page = SwitchPage.getInstance();
-        page.switchPage("Schermata_Carrello", event);
+
+
+        try{
+
+            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
 
 
 
+            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
 
+
+            Carrelloview.modifytable(cards);
+
+
+        }catch (ExceptionCardNotExist e)
+        {
+
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
+
+
+        }catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
+
+
+        catch (ExceptionDBerror  e) {
+            throw new ExceptionDBerror("value");
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -136,10 +164,7 @@ public class CardView {
         }catch (ExceptionCardNotExist e)
         {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notification!");
-            alert.setHeaderText("This Card do not exist!");
-            alert.showAndWait();
+            Popup.CardNoExist();
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");

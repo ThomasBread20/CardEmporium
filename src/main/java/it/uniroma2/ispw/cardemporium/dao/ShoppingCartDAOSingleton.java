@@ -4,6 +4,7 @@ import it.uniroma2.ispw.cardemporium.business.DBconnection;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -95,11 +96,10 @@ public class ShoppingCartDAOSingleton {
 
 
     }
-    public ObservableList<CopiaCard> getCard(int ID) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCardCarrello> getCard(int ID) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
-        ObservableList<CopiaCard> Cards = FXCollections.observableArrayList();
+        ObservableList<CopiaCardCarrello> Cards = FXCollections.observableArrayList();
 
-        FilteredList<CopiaCard> filteredData = new FilteredList<>(Cards, b -> true);
 
 
         Connection conn = connCheck();
@@ -107,13 +107,13 @@ public class ShoppingCartDAOSingleton {
 
         int cardName = ID;
 
-        String sql = "CALL `SearchCard`(?)";
+        String sql = "CALL `SearchCardbyIDuser`(?)";
 
 
         try {
 
             statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            statement.setInt(1,ID);
+            statement.setInt(1,cardName);
             resultSet = statement.executeQuery();
         }catch (SQLException e) {
 
@@ -121,27 +121,19 @@ public class ShoppingCartDAOSingleton {
         }
 
 
-        if (!resultSet.next()) {
-            throw new ExceptionCardNotExist("Card does not exists");
-        }else {
-            resultSet.beforeFirst();
+
 
             while(resultSet.next())
             {
 
-                String condizione = resultSet.getString("Condizione");
-                double prezzo = resultSet.getDouble("Prezzo");
-                String  utenteVenditore = resultSet.getString("Venditore");
+                int Id = resultSet.getInt("Carta_SingolaID");
+                double prezzo = resultSet.getDouble("copiacarta_Prezzo");
+                String  utenteVenditore = resultSet.getString("NomeVenditore");
                 int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
-                int cartaID = resultSet.getInt("Carta_ID");
                 String nomeCarta = resultSet.getString("NomeCarta");
-                String nomeGioco = resultSet.getString("setcarte_NomeGioco");
-                int versione = resultSet.getInt("versione");
-                String nomeSet = resultSet.getString("NomeSet");
-                String lingua = resultSet.getString("Lingua");
-                boolean carrello = resultSet.getBoolean("nel_carrello");
 
-                Cards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello));
+
+                Cards.add(new CopiaCardCarrello(Id, prezzo, utenteVenditore, cartaSingolaID, nomeCarta));
 
 
             }
@@ -149,4 +141,4 @@ public class ShoppingCartDAOSingleton {
         }
 
     }
-}
+

@@ -89,5 +89,22 @@ public class Popup {
 
     }
 
+    public static String removeCardFromSC() throws ExceptionSwitchpage {
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("CardEmporium");
+            alert.setHeaderText("Do you want to remove this card from your Shopping Cart?");
+
+            if (alert.showAndWait().orElse(null) == ButtonType.OK) {
+                return "yes";
+            } else {
+                return "no";
+            }
+        } catch (Exception e) {
+            throw new ExceptionSwitchpage("Popup");
+        }
+    }
+
+
     private Popup(){}
 }

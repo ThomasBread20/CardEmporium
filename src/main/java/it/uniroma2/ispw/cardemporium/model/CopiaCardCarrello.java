@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.model;
 
-public class CopiaCard {
+public class CopiaCardCarrello {
 
 
   private  String condizione;
@@ -65,21 +65,15 @@ public class CopiaCard {
 
 
 
-    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome, boolean carrello){
-        this.condizione = Condizione1;
+
+    public CopiaCardCarrello( int cartaid, double Prezzo, String Utentevenditore, int CartasingolaID, String Nomecarta){
         this.prezzo = Prezzo;
         this.utenteVenditore = Utentevenditore;
         this.cartaSingolaID = CartasingolaID;
-        this.cartaID = CartaID;
         this.nomeCarta = Nomecarta;
-        this.nomeGioco = NomeGioco;
-        this.lingua = Lingua;
-        this.versione = versione;
-        this.nomeSet = setNome;
-        this.nelCarrello = carrello;
+        this.cartaID = cartaid;
+
     };
-
-
 
     public double getPrezzo() {
         return prezzo;

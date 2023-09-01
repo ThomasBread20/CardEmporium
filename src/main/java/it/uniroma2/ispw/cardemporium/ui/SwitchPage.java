@@ -69,6 +69,30 @@ public class SwitchPage {
     }
 
 
+    public static Carrelloview switchPageData1(String value, ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Carrelloview Carrelloview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return Carrelloview;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
+
+    }
+
+
 
     public void switchPageCard(ActionEvent event){
 

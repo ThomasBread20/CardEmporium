@@ -20,6 +20,7 @@
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
             </Text>
+            <Button fx:id="Homebutton" layoutY="-5.0" mnemonicParsing="false" onAction="#Homebutton" opacity="0.0" prefHeight="38.0" prefWidth="151.0" />
             <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profilo" />
             <Button fx:id="profileButton" layoutX="196.0" mnemonicParsing="false" onAction="#profileButton" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendi" />
@@ -27,7 +28,7 @@
             <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acquisti" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrello" />
-            <Button layoutX="405.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#Scarrello" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="LogoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
@@ -52,11 +53,12 @@
             </Text>
          </children>
       </Pane>
-      <TableView fx:id="TableList" layoutX="25.0" layoutY="116.0" onSort="#tablelist" prefHeight="236.0" prefWidth="550.0">
+      <TableView fx:id="TableList" layoutX="25.0" layoutY="116.0" onMouseClicked="#Removecard" onSort="#tablelist" prefHeight="236.0" prefWidth="550.0">
          <columns>
-            <TableColumn fx:id="nome" prefWidth="180.0" text="nome" />
-            <TableColumn fx:id="venditore" prefWidth="181.0" text="Venditore" />
-            <TableColumn fx:id="prezzo" prefWidth="188.0" text="Prezzo" />
+            <TableColumn fx:id="id" prefWidth="31.0" text="ID" />
+            <TableColumn fx:id="nome" prefWidth="234.0" text="nome" />
+            <TableColumn fx:id="venditore" prefWidth="197.0" text="Venditore" />
+            <TableColumn fx:id="prezzo" prefWidth="87.0" text="Prezzo" />
          </columns>
       </TableView>
       <Label layoutX="25.0" layoutY="64.0" prefHeight="56.0" prefWidth="164.0" text="Carrello">
