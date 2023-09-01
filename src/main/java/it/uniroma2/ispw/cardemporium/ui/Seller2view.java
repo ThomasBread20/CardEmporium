@@ -3,12 +3,14 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
+import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.model.Card;
+import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -111,19 +113,27 @@ public Object verify_set() {
 
     @FXML
     void Continue(ActionEvent event) throws ExceptionDBerror, ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist {
-
-        CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
+        SwitchPage page = SwitchPage.getInstance();
+        //CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
+            ObservableList<Card> cards =  ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
+
+            Seller3view switchpage = page.switchPageseller("venditore3", event);
+
+            switchpage.populate_table(cards);
+
+
+            /*
              cb.showCard(event);
              ObservableList<Card>card=ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
              Seller3view seller3view= SwitchPage.switchPageseller("venditore3",event);
-             seller3view.populate_table(card);
+             seller3view.populate_table(card);*/
         } catch (ExceptionCardNotExist e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Notification!");
             alert.setHeaderText("This Card do not exist!");
             alert.showAndWait();
-        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
+        } catch (ExceptionDBerror | ExceptionSwitchpage e) {
             throw new ExceptionDBerror("value");
 
         }

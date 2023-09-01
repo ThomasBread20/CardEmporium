@@ -182,11 +182,11 @@ public class Seller3view implements Initializable {
     @FXML
     private TableColumn<Card,String> set_name;
     public void populate_table(ObservableList<Card> cards){
-        card_id.setCellValueFactory(new PropertyValueFactory<>("CardID"));
-        name_card.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        num_version.setCellValueFactory(new PropertyValueFactory<>("Version"));
-        set_name.setCellValueFactory(new PropertyValueFactory<>("Set Name"));
-        game_name.setCellValueFactory(new PropertyValueFactory<>("Game"));
+        card_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
+        num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
+        set_name.setCellValueFactory(new PropertyValueFactory<>("SetName"));
+        game_name.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
 
         tableview.setItems(cards);
     }

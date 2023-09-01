@@ -88,7 +88,7 @@ public class SwitchPage {
             // return obj;
         }
         catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+            throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
         }
     }
 

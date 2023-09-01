@@ -50,6 +50,10 @@ public class Card {
 
     }
 
+    public String getNomeGioco() {
+        return nomeGioco;
+    }
+
     public String getSetName() {
         return SetName;
     }
