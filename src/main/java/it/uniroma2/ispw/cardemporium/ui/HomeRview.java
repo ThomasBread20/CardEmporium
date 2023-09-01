@@ -105,7 +105,7 @@ public class HomeRview {
 
 
 
-           CardView cardView = SwitchPage.switchPageData("Schermata_Carta", event);
+           CardView cardView = (CardView) SwitchPage.switchPageData("Schermata_Carta", event);
 
            cardView.initData1(cards.get(0).getNomeCarta(), cards.get(0).getNomeGioco());
            cardView.modifytable(cards);

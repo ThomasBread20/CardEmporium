@@ -4,6 +4,9 @@ import it.uniroma2.ispw.cardemporium.business.DBconnection;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.model.Card;
+import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 import java.sql.Connection;
@@ -23,10 +26,10 @@ public class SearchAllCardDAO {
 
     }
 
-    public Card getAllCard(String Name, int ver, String gioco, String set) throws ExceptionUserAlreadyExist, SQLException, ExceptionCardNotExist {
+    public ObservableList<Card> getAllCard(String Name, int ver, String gioco, String set) throws ExceptionUserAlreadyExist, SQLException, ExceptionCardNotExist {
 
         Connection conn = connCheck();
-
+        ObservableList<Card> Cards = FXCollections.observableArrayList();
 
         String sql2 = "CALL `SearchAllCards`(?,?,?,?)";
 
@@ -55,10 +58,11 @@ public class SearchAllCardDAO {
 
             String nomeGioco = resultSet.getString(4);
             String nomeSet = resultSet.getString(5);
-            Card card = new Card(CardID, CardName, Version, nomeGioco, nomeSet);
+            //Card card=new Card(CardID, CardName, Version, nomeGioco, nomeSet);
+            Cards.add(new Card(CardID, CardName, Version, nomeGioco, nomeSet));
 
 
-            return card;
+            return Cards;
 
 
         }
