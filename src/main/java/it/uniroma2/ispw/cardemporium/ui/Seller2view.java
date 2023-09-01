@@ -3,9 +3,11 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
+import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,6 +29,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -107,12 +110,14 @@ public Object verify_set() {
 }
 
     @FXML
-    void Continue(ActionEvent event) throws ExceptionDBerror {
-        ObservableList<Card>card;
+    void Continue(ActionEvent event) throws ExceptionDBerror, ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist {
+
         CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
-            card= (ObservableList<Card>) cb.showCard(event);
-
+             cb.showCard(event);
+             ObservableList<Card>card=ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
+             Seller3view seller3view= SwitchPage.switchPageseller("venditore3",event);
+             seller3view.populate_table(card);
         } catch (ExceptionCardNotExist e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Notification!");

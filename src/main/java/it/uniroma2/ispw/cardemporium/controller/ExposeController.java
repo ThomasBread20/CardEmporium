@@ -13,7 +13,7 @@ import java.util.List;
 public class ExposeController {
     public static ObservableList<Card> SearchAllCard(String name, int version, String game_name, String set_name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror, ExceptionUserAlreadyExist {
         SearchAllCardDAO src = new SearchAllCardDAO();
-        return (ObservableList<Card>) src.getAllCard(name, version, game_name, set_name);
+        return  src.getAllCard(name, version, game_name, set_name);
 
 
     }
