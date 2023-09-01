@@ -2,13 +2,13 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 
 
-import it.uniroma2.ispw.cardemporium.bean.ConditionBean;
-import it.uniroma2.ispw.cardemporium.bean.LanguageBean;
-import it.uniroma2.ispw.cardemporium.bean.PriceBean;
-import it.uniroma2.ispw.cardemporium.bean.QuantityBean;
+import it.uniroma2.ispw.cardemporium.bean.*;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.model.Card;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -64,7 +65,7 @@ public class Seller3view implements Initializable {
     void SellCard(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("venditore2", event);
+            page.switchPage("schermata_venditore1", event);
         } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata venditore2");
         }
@@ -164,6 +165,33 @@ public class Seller3view implements Initializable {
         LanguageBean selected_lan=new LanguageBean();
         String language=choiceOne.getSelectionModel().getSelectedItem();
         selected_lan.setLanguageBeanValeu(language);
+
+    }
+    @FXML
+    private Button Expose_button;
+    @FXML
+    private TableColumn<Card, Integer> card_id;
+    @FXML
+    private TableColumn<Card,String> game_name;
+    @FXML
+    private TableColumn<Card,String> name_card;
+    @FXML
+    private TableView<Card> tableview;
+    @FXML
+    private TableColumn<Card,Integer> num_version;
+    @FXML
+    private TableColumn<Card,String> set_name;
+    public void populate_table(ObservableList<Card> cards){
+        card_id.setCellValueFactory(new PropertyValueFactory<>("CardID"));
+        name_card.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        num_version.setCellValueFactory(new PropertyValueFactory<>("Version"));
+        set_name.setCellValueFactory(new PropertyValueFactory<>("Set Name"));
+        game_name.setCellValueFactory(new PropertyValueFactory<>("Game"));
+
+        tableview.setItems(cards);
+    }
+
+    public void Expose(ActionEvent actionEvent) {
 
     }
 }

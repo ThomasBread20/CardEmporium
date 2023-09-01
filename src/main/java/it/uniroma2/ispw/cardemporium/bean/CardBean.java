@@ -63,7 +63,7 @@ public class CardBean {
 
         SwitchPage sw=SwitchPage.getInstance();
         try {
-            Card card= ExposeController.SearchAllCard(getName(),getVersion_bean(),getGame_bean(),getSetcard_bean());
+            Card card= (Card) ExposeController.SearchAllCard(getName(),getVersion_bean(),getGame_bean(),getSetcard_bean());
             sw.switchPage("venditore3",actionEvent);
             return card;
         } catch (IOException e) {

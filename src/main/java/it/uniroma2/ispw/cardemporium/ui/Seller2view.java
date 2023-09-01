@@ -6,6 +6,8 @@ import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.model.Card;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -25,6 +28,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+
 
 
 public class Seller2view  implements Initializable{
@@ -103,10 +108,11 @@ public Object verify_set() {
 
     @FXML
     void Continue(ActionEvent event) throws ExceptionDBerror {
-
+        ObservableList<Card>card;
         CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
-            cb.showCard(event);
+            card= (ObservableList<Card>) cb.showCard(event);
+
         } catch (ExceptionCardNotExist e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Notification!");
@@ -116,6 +122,7 @@ public Object verify_set() {
             throw new ExceptionDBerror("value");
 
         }
+
     }
 
 
@@ -194,6 +201,7 @@ public Object verify_set() {
         choiseGame.getItems().addAll(games);
         choiceSet.getItems().addAll(set);
     }
+
 
 
 }
