@@ -33,6 +33,9 @@ public class HomeRview {
 
 
 
+
+
+
     @FXML
     private Button LogoutButton;
 
@@ -47,6 +50,19 @@ public class HomeRview {
 
     @FXML
     private Button searchbuttom;
+    @FXML
+    private Button Carrello;
+
+    @FXML
+    void Scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage {
+         SwitchPage page = SwitchPage.getInstance();
+         page.switchPage("Schermata_Carrello", event);
+
+
+
+
+
+    }
 
 
 
@@ -60,26 +76,10 @@ public class HomeRview {
 
 
 
-           /*SwitchPage page = SwitchPage.getInstance();
-           page.switchPage("Schermata_Carta", event);*/
-
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_Carta.fxml"));
-           Parent viewRegister = loader.load();
-           Scene viewRegisterScene = new Scene(viewRegister);
-
-           Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           CardView cardView = loader.getController();
-
-
+           CardView cardView = SwitchPage.switchPageData("Schermata_Carta", event);
 
            cardView.initData1(cards.get(0).getNomeCarta(), cards.get(0).getNomeGioco());
            cardView.modifytable(cards);
-
-
-           window.setScene(viewRegisterScene);
-           window.show();
-
-
 
 
        }catch (ExceptionCardNotExist e)

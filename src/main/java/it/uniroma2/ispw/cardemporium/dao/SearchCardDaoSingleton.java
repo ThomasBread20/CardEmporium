@@ -8,6 +8,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 
 import java.sql.*;
@@ -34,6 +35,8 @@ public class SearchCardDaoSingleton {
         ObservableList<CopiaCard> Cards = FXCollections.observableArrayList();
 
 
+
+
         Connection conn = connCheck();
 
 
@@ -52,6 +55,7 @@ public class SearchCardDaoSingleton {
             throw new ExceptionDBerror("");
         }
 
+
         if (!resultSet.next()) {
             throw new ExceptionCardNotExist("Card does not exists");
         }else {
@@ -66,11 +70,11 @@ public class SearchCardDaoSingleton {
                 int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
                 int cartaID = resultSet.getInt("Carta_ID");
                 String nomeCarta = resultSet.getString("NomeCarta");
-                String nomeGioco = resultSet.getString("carta_setcarte_NomeGioco");
-                int versione = resultSet.getInt("carta_versione");
+                String nomeGioco = resultSet.getString("setcarte_NomeGioco");
+                int versione = resultSet.getInt("versione");
                 String nomeSet = resultSet.getString("NomeSet");
                 String lingua = resultSet.getString("Lingua");
-                boolean carrello = resultSet.getBoolean("nel carrello");
+                boolean carrello = resultSet.getBoolean("nel_carrello");
 
                 Cards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello));
 

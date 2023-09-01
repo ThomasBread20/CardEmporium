@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
@@ -84,10 +85,7 @@ public class HNRview {
         }catch (ExceptionCardNotExist e)
         {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notification!");
-            alert.setHeaderText("This Card do not exist!");
-            alert.showAndWait();
+            Popup.CardNoExist();
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");

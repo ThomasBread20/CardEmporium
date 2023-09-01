@@ -23,7 +23,7 @@
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="profileButton1" mnemonicParsing="false" onAction="#profileButton" opacity="0.0" prefHeight="32.0" prefWidth="152.0" />
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeButton1" opacity="0.0" prefHeight="32.0" prefWidth="152.0" />
             <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profilo" />
             <Button fx:id="profileButton" layoutX="196.0" mnemonicParsing="false" onAction="#profileButton" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendi" />
@@ -31,7 +31,7 @@
             <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acquisti" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrello" />
-            <Button layoutX="405.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="Carrello" layoutX="405.0" mnemonicParsing="false" onAction="#Scarrello" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="LogoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
@@ -88,13 +88,14 @@
             </Label>
          </children>
       </GridPane>
-      <TableView fx:id="TableList" layoutX="25.0" layoutY="145.0" onSort="#tablelist" prefHeight="236.0" prefWidth="550.0">
+      <TableView fx:id="TableList" layoutX="25.0" layoutY="145.0" onMouseClicked="#ShoppingCART" prefHeight="236.0" prefWidth="550.0">
         <columns>
-            <TableColumn fx:id="condizione" prefWidth="98.0" text="Condizione" />
-          <TableColumn fx:id="venditore" prefWidth="118.0" text="Venditore" />
-          <TableColumn fx:id="prezzo" prefWidth="65.0" text="Prezzo" />
-            <TableColumn fx:id="lingua" prefWidth="66.0" text="Lingua" />
-            <TableColumn fx:id="setgioco" prefWidth="201.0" text="Set" />
+            <TableColumn fx:id="ID" prefWidth="27.0" text="ID" />
+            <TableColumn fx:id="condizione" prefWidth="113.0" text="Condizione" />
+          <TableColumn fx:id="venditore" prefWidth="85.0" text="Venditore" />
+          <TableColumn fx:id="prezzo" prefWidth="95.0" text="Prezzo" />
+            <TableColumn fx:id="lingua" prefWidth="106.0" text="Lingua" />
+            <TableColumn fx:id="setgioco" prefWidth="123.0" text="Set" />
         </columns>
       </TableView>
    </children>

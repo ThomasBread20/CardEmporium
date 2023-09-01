@@ -39,6 +39,7 @@ public class LoginBean {
             Users user = LoginController.checkUserDao(getUsernameBean(), getPasswdBean());
             LoginController.dataFuller(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(), user.getData(), user.getIsBanned(), user.getRole());
 
+            LoginController.createShoppingCart();
 
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage(user.getHomePage(), event);

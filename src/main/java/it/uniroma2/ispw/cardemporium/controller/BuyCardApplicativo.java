@@ -1,10 +1,14 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
+import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.dao.ShoppingCartDAOSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.dao.SearchCardDaoSingleton;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.ui.CardView;
+import it.uniroma2.ispw.cardemporium.ui.Carrelloview;
+import it.uniroma2.ispw.cardemporium.users.Users;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -24,8 +28,19 @@ public class BuyCardApplicativo {
 
     }
 
-    public void addCard(ObservableList<CopiaCard> card){
-        //CardView.modifytable(card);
-        return;
+    public static void addCard(int ID) throws ExceptionDBerror {
+        ShoppingCartDAOSingleton cards =  ShoppingCartDAOSingleton.getInstance();
+        try{
+
+            String nome = DataSingleton.getInstance().getUsername();
+            int IDuser = cards.getID(nome);
+            cards.SetCard(ID, IDuser);
+
+
+        }catch (ExceptionDBerror e){
+            throw new ExceptionDBerror("ERRORE");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

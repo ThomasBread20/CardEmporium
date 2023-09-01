@@ -4,6 +4,7 @@ package it.uniroma2.ispw.cardemporium.controller;
 import it.uniroma2.ispw.cardemporium.dao.LoginDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
+import it.uniroma2.ispw.cardemporium.ui.Carrelloview;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
@@ -38,6 +39,10 @@ public class LoginController
         info.users(pwd, username, name, surname, data, isBanned);
         info.setRole(role);
 
+    }
+
+    public static void createShoppingCart(){
+        Carrelloview Carrell = new Carrelloview();
     }
 
 

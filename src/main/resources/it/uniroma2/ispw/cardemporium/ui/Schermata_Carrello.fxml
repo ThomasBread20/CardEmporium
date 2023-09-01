@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.HomeRview">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.Carrelloview">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -54,7 +54,7 @@
       </Pane>
       <TableView fx:id="TableList" layoutX="25.0" layoutY="116.0" onSort="#tablelist" prefHeight="236.0" prefWidth="550.0">
          <columns>
-            <TableColumn fx:id="condizione" prefWidth="180.0" text="nome" />
+            <TableColumn fx:id="nome" prefWidth="180.0" text="nome" />
             <TableColumn fx:id="venditore" prefWidth="181.0" text="Venditore" />
             <TableColumn fx:id="prezzo" prefWidth="188.0" text="Prezzo" />
          </columns>

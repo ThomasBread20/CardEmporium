@@ -71,15 +71,15 @@ public class Seller2view  implements Initializable{
 
     @FXML
     private Button profile;
-public Object verify_game(){
-    Object str;
-    Object r=choiseGame.getValue();
-    if(r!=null){
-        str=r;
-    }else{
-        str=null;
-    }
-    return str;
+    public Object verify_game(){
+        Object str;
+        Object r=choiseGame.getValue();
+        if(r!=null){
+          str=r;
+        }else{
+            str=null;
+        }
+        return str;
 
 }
 public Object verify_version(){

@@ -2,7 +2,6 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 
 
-import com.mysql.cj.xdevapi.Table;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
@@ -10,9 +9,7 @@ import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,14 +19,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class CardView {
 
@@ -47,6 +41,9 @@ public class CardView {
 
     @FXML
     private TableColumn<CopiaCard,String> condizione;
+
+    @FXML
+    private TableColumn<CopiaCard, Integer> ID;
     @FXML
     private TableColumn<CopiaCard, String> lingua;
 
@@ -71,15 +68,30 @@ public class CardView {
     private TextField researchBar;
 
     @FXML
-    private Button profileButton1;
+    private Button homeButton1;
 
     @FXML
     private Button searchbuttom;
 
+    @FXML
+    private Button Carrello;
+
+    @FXML
+    void Scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage {
+        SwitchPage page = SwitchPage.getInstance();
+        page.switchPage("Schermata_Carrello", event);
+
+
+
+
+
+    }
+
+
 
 
     @FXML
-    void  homebutton(ActionEvent event) throws ExceptionSwitchpage {
+    void  homeButton1(ActionEvent event) throws ExceptionSwitchpage {
 
         try {
             SwitchPage page = SwitchPage.getInstance();
@@ -143,6 +155,7 @@ public class CardView {
 
     }
 
+    Integer index;
 
 
     Stage stage;
@@ -207,7 +220,7 @@ public class CardView {
 
     public void modifytable(ObservableList<CopiaCard> card){
 
-
+        ID.setCellValueFactory(new PropertyValueFactory<>("cartaSingolaID"));
         condizione.setCellValueFactory(new PropertyValueFactory<>("condizione"));
         lingua.setCellValueFactory(new PropertyValueFactory<>("Lingua"));
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
@@ -216,8 +229,38 @@ public class CardView {
 
 
         TableList.setItems(card);
+
+
+
+
     }
 
+
+
+    public void ShoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+
+        index = TableList.getSelectionModel().getSelectedIndex();
+
+        if(index <= -1){
+            return;
+        }
+
+        String returnValue = Popup.shoppingcart();
+
+        if(returnValue.equals("yes")){
+
+            try{
+                BuyCardApplicativo.addCard(ID.getCellData(index));
+                //SwitchPage.switchPageData1("Schermata_Carta", mouseEvent);
+
+
+            }catch(ExceptionDBerror e){
+                System.out.printf("errore db");
+            }
+
+        }
+
+    }
 }
 
 

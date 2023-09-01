@@ -65,6 +65,7 @@ public class CardBean {
         try {
             Card card= (Card) ExposeController.SearchAllCard(getName(),getVersion_bean(),getGame_bean(),getSetcard_bean());
             sw.switchPage("venditore3",actionEvent);
+
             return card;
         } catch (IOException e) {
             throw new RuntimeException(e);

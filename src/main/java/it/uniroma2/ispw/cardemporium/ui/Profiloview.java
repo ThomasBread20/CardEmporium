@@ -60,6 +60,19 @@ public class Profiloview {
 
     DataSingleton info = DataSingleton.getInstance();
 
+    @FXML
+    private Button Carrello;
+
+    @FXML
+    void Scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage {
+        SwitchPage page = SwitchPage.getInstance();
+        page.switchPage("Schermata_Carrello", event);
+
+
+
+    }
+
+
     public void initData(String user, String name, String surname, String born, String role) {
         username.setText(user);
         nome.setText(name);
