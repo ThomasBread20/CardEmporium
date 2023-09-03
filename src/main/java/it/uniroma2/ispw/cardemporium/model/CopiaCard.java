@@ -77,7 +77,20 @@ public class CopiaCard {
         this.versione = versione;
         this.nomeSet = setNome;
         this.nelCarrello = carrello;
-    };
+    }
+    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome){
+        this.condizione = Condizione1;
+        this.prezzo = Prezzo;
+        this.utenteVenditore = Utentevenditore;
+        this.cartaSingolaID = CartasingolaID;
+        this.cartaID = CartaID;
+        this.nomeCarta = Nomecarta;
+        this.nomeGioco = NomeGioco;
+        this.lingua = Lingua;
+        this.versione = versione;
+        this.nomeSet = setNome;
+
+    }// QUESTA PER ME CHE LA DEVO INSERIRE FRA QUELLE IN VENDITA
 
 
 

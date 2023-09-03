@@ -30,7 +30,7 @@ public class BuyCardApplicativo {
         }
 
     }
-
+//PERCHE' TUTTE QUESTE OPERAZIONI?
     public static void addCard(int ID) throws ExceptionDBerror {
         ShoppingCartDAOSingleton cards =  ShoppingCartDAOSingleton.getInstance();
         try{

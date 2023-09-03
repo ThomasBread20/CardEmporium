@@ -217,6 +217,44 @@ public Object verify_set() {
         choiceSet.getItems().addAll(set);
     }
 
+    public void ShoppingCart(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+
+        SwitchPage page = SwitchPage.getInstance();
+
+
+        try{
+
+            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+
+
+
+            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
+
+
+            Carrelloview.modifytable(cards);
+
+
+        }catch (ExceptionCardNotExist e)
+        {
+
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
+
+
+        }catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
+
+
+        catch (ExceptionDBerror  e) {
+            throw new ExceptionDBerror("value");
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 
 }
