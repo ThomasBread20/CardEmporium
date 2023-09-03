@@ -118,7 +118,53 @@ public class SwitchPage {
 
 
 
-    public void switchPageCard(ActionEvent event){
+
+    public Carrelloview switchPageDataM(String schermataCarrello, javafx.scene.input.MouseEvent mouseEvent) throws ExceptionSwitchpage {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(schermataCarrello + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            Carrelloview Carrelloview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return Carrelloview;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
+
+    }
+
+
+    public static CardView switchPageDataM1(String value, javafx.scene.input.MouseEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //CardView obj=loader.getController();
+            CardView cardView = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return cardView;
+            // return obj;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
 
     }
 

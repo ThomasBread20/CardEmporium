@@ -234,6 +234,7 @@ public class CardView {
     }
     public void initData1(String name, String gioco1) {
 
+
         Nome.setText(name);
         gioco.setText(gioco1);
 
@@ -244,6 +245,8 @@ public class CardView {
 
 
     public void modifytable(ObservableList<CopiaCard> card){
+
+
 
         ID.setCellValueFactory(new PropertyValueFactory<>("cartaSingolaID"));
         condizione.setCellValueFactory(new PropertyValueFactory<>("condizione"));
@@ -276,11 +279,21 @@ public class CardView {
 
             try{
                 BuyCardApplicativo.addCard(ID.getCellData(index));
-                //SwitchPage.switchPageData1("Schermata_Carta", mouseEvent);
+
+                BuyCardApplicativo.refreshCardView(Nome.getText(), mouseEvent,gioco.getText());
+
+
 
 
             }catch(ExceptionDBerror e){
                 System.out.printf("errore db");
+
+            } catch (ExceptionCardNotExist e) {
+                throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
 
         }

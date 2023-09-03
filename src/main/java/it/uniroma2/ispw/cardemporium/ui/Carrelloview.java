@@ -18,9 +18,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -222,7 +222,7 @@ public class Carrelloview {
 
 
 
-    public void Removecard(javafx.scene.input.MouseEvent mouseEvent) throws ExceptionSwitchpage {
+    public void Removecard(MouseEvent mouseEvent) throws ExceptionSwitchpage {
 
         int index = TableList.getSelectionModel().getSelectedIndex();
 
@@ -236,11 +236,25 @@ public class Carrelloview {
 
             try{
                 BuyCardApplicativo.removeCard(id.getCellData(index));
-                //SwitchPage.switchPageData1("Schermata_Carta", mouseEvent);
+                SwitchPage page = SwitchPage.getInstance();
+
+                ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+
+
+
+                Carrelloview Carrelloview = page.switchPageDataM("Schermata_Carrello", mouseEvent);
+
+
+                Carrelloview.modifytable(cards);
+
 
 
             }catch(ExceptionDBerror e){
                 System.out.printf("errore db");
+            } catch (ExceptionCardNotExist e) {
+                throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
         }

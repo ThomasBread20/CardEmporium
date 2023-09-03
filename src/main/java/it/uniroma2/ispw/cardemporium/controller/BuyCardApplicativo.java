@@ -5,15 +5,17 @@ import it.uniroma2.ispw.cardemporium.dao.ShoppingCartDAOSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.dao.SearchCardDaoSingleton;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import it.uniroma2.ispw.cardemporium.ui.CardView;
 import it.uniroma2.ispw.cardemporium.ui.Carrelloview;
-import it.uniroma2.ispw.cardemporium.users.Users;
+import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import javafx.collections.ObservableList;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class BuyCardApplicativo {
 
@@ -85,6 +87,38 @@ public class BuyCardApplicativo {
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE");
         }
+    }
+
+
+    public static void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+        SwitchPage page = SwitchPage.getInstance();
+        try{
+
+
+           ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard( nome);
+
+
+
+           CardView cardview = page.switchPageDataM1("Schermata_Carta", event);
+
+           cardview.initData1(nome, set);
+           cardview.modifytable(cards);
+
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       } catch (ExceptionCardNotExist e) {
+
+           CardView cardview = page.switchPageDataM1("Schermata_Carta", event);
+
+           cardview.initData1(nome, set);
+
+       } catch (ExceptionDBerror e) {
+           throw new RuntimeException(e);
+       } catch (ExceptionSwitchpage e) {
+           throw new RuntimeException(e);
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
     }
 
 
