@@ -133,7 +133,7 @@ public Object verify_set() {
             alert.setTitle("Notification!");
             alert.setHeaderText("This Card do not exist!");
             alert.showAndWait();
-        } catch (ExceptionDBerror | ExceptionSwitchpage e) {
+        } catch (ExceptionSwitchpage e) {
             throw new ExceptionDBerror("value");
 
         }

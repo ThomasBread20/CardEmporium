@@ -78,11 +78,11 @@ public class CopiaCard {
         this.nomeSet = setNome;
         this.nelCarrello = carrello;
     }
-    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome){
+    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome){
         this.condizione = Condizione1;
         this.prezzo = Prezzo;
         this.utenteVenditore = Utentevenditore;
-        this.cartaSingolaID = CartasingolaID;
+
         this.cartaID = CartaID;
         this.nomeCarta = Nomecarta;
         this.nomeGioco = NomeGioco;

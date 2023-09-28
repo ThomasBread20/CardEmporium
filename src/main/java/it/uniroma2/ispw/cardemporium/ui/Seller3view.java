@@ -113,6 +113,7 @@ public class Seller3view implements Initializable {
         try {
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage("venditore2", event);
+            print();
         } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata venditore2");
         }
@@ -159,11 +160,27 @@ public class Seller3view implements Initializable {
 
         tableview.setItems(cards);
     }
+    public void print(){
+        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
+        System.out.println(name);
+    }
 
     public void Expose(ActionEvent actionEvent) {
         Float prezzo= Float.valueOf(Price.getText());
         Integer q= Integer.valueOf(Quantity.getText());
-        CardInfoBean cardInfoBean=new CardInfoBean((String) verify_Con(),prezzo,q,(String)verify_Lan());
+        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
+        Integer id=card_id.getCellObservableValue(0).getValue();
+
+        Integer ver=num_version.getCellObservableValue(0).getValue();
+        String game=game_name.getCellObservableValue(0).getValue();
+        String set=set_name.getCellObservableValue(0).getValue();
+
+        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q, (String) verify_Lan());
+        try {
+            cardInfoBean.InsertCard(actionEvent);
+        } catch (ExceptionDBerror e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
