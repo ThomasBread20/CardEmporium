@@ -17,17 +17,16 @@ public class SearchCardDaoSingleton {
 
     private static final SearchCardDaoSingleton instance = new SearchCardDaoSingleton();
 
-    public static SearchCardDaoSingleton getInstance(){
-        return instance;}
+
     boolean result;
 
     PreparedStatement statement = null;
     ResultSet resultSet = null;
 
 
-    private Connection connCheck()
-    {
-        return DBconnection.getDBInstance().getConnection();
+    private Connection connCheck() throws ExceptionDBerror {
+        Connection1Singelton conn = Connection1Singelton.getInstance();
+        return conn.getConn();
 
     }
     public ObservableList<CopiaCard> getCard(String Name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {

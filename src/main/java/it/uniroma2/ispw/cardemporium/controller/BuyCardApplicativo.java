@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.dao.DatabaseBuyCardFacade;
 import it.uniroma2.ispw.cardemporium.dao.ShoppingCartDAOSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
@@ -21,9 +22,9 @@ public class BuyCardApplicativo {
 
 
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
-        SearchCardDaoSingleton cards = SearchCardDaoSingleton.getInstance();
+        DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
-            return cards.getCard(name);
+            return cards.searchCard(name);
 
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE");
@@ -32,12 +33,12 @@ public class BuyCardApplicativo {
     }
 //PERCHE' TUTTE QUESTE OPERAZIONI?
     public static void addCard(int ID) throws ExceptionDBerror {
-        ShoppingCartDAOSingleton cards =  ShoppingCartDAOSingleton.getInstance();
+        DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
             String nome = DataSingleton.getInstance().getUsername();
             int IDuser = cards.getID(nome);
-            cards.SetCard(ID, IDuser);
+            cards.setCard(ID, IDuser);
 
 
         }catch (ExceptionDBerror e){
@@ -48,7 +49,7 @@ public class BuyCardApplicativo {
     }
 
     public static ObservableList<CopiaCardCarrello> searchCard1(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
-        ShoppingCartDAOSingleton cards = ShoppingCartDAOSingleton.getInstance();
+        DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
             return cards.getCard(id);
 
@@ -59,7 +60,7 @@ public class BuyCardApplicativo {
     }
 
     public static int getID() throws ExceptionDBerror {
-        ShoppingCartDAOSingleton cards =  ShoppingCartDAOSingleton.getInstance();
+        DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
             String nome = DataSingleton.getInstance().getUsername();
@@ -76,7 +77,7 @@ public class BuyCardApplicativo {
 
 
     public static void removeCard(int ID) throws ExceptionDBerror {
-        ShoppingCartDAOSingleton cards =  ShoppingCartDAOSingleton.getInstance();
+        DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
             String nome = DataSingleton.getInstance().getUsername();

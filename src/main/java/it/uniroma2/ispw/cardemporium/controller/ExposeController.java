@@ -29,7 +29,7 @@ public class ExposeController {
 
     }
     
-    public static ObservableList<Card> SearchAllCard(String name, int version, String game_name, String set_name) throws ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist {
+    public static ObservableList<Card> SearchAllCard(String name, int version, String game_name, String set_name) throws ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
 
         SearchAllCardDAO src = new SearchAllCardDAO();
 

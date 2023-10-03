@@ -15,8 +15,9 @@ public class ExposeDAO {
     PreparedStatement statement = null;
     ResultSet resultSet = null;
 
-    private Connection connCheck() {
-        return DBconnection.getDBInstance().getConnection();
+    private Connection connCheck() throws ExceptionDBerror {
+        Connection1Singelton conn = Connection1Singelton.getInstance();
+        return conn.getConn();
 
     }
 

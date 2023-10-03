@@ -24,9 +24,7 @@ public class RegisterDAO {
     private Connection connCheck() throws ExceptionDBerror {
 
         Connection1Singelton conn = Connection1Singelton.getInstance();
-
         return conn.getConn();
-
     }
 
     public void addUser(String username1, String passw, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {

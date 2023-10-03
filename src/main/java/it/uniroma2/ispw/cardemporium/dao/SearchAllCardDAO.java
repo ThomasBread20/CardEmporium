@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 import it.uniroma2.ispw.cardemporium.business.DBconnection;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
@@ -21,12 +22,13 @@ public class SearchAllCardDAO {
     PreparedStatement statement = null;
     ResultSet resultSet = null;
 
-    private Connection connCheck() {
-        return DBconnection.getDBInstance().getConnection();
+    private Connection connCheck() throws ExceptionDBerror {
+        Connection1Singelton conn = Connection1Singelton.getInstance();
+        return conn.getConn();
 
     }
 
-    public ObservableList<Card> getAllCard(String Name, int ver, String gioco, String set) throws ExceptionUserAlreadyExist, SQLException, ExceptionCardNotExist {
+    public ObservableList<Card> getAllCard(String Name, int ver, String gioco, String set) throws ExceptionUserAlreadyExist, SQLException, ExceptionCardNotExist, ExceptionDBerror {
 
         Connection conn = connCheck();
         ObservableList<Card> Cards = FXCollections.observableArrayList();

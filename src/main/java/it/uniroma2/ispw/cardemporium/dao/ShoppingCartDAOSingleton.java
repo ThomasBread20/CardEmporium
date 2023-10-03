@@ -15,19 +15,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ShoppingCartDAOSingleton {
-    private static final ShoppingCartDAOSingleton instance = new ShoppingCartDAOSingleton();
 
-    public static ShoppingCartDAOSingleton getInstance(){
-        return instance;}
     boolean result;
 
     PreparedStatement statement = null;
     ResultSet resultSet = null;
 
 
-    private Connection connCheck()
-    {
-        return DBconnection.getDBInstance().getConnection();
+    private Connection connCheck() throws ExceptionDBerror {
+        Connection1Singelton conn = Connection1Singelton.getInstance();
+        return conn.getConn();
 
     }
 
