@@ -15,7 +15,7 @@ public class Factory {
 
     }
 
-    public CardBase createConcreteCardY(){
+public CardBase createConcreteCardY(){
         return new concreteCardYugioh();
     }
     public CardBase createConcreteCardP(){
