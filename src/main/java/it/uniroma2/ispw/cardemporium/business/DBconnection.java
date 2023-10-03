@@ -37,6 +37,8 @@ public class DBconnection {
             Class.forName(DRIVER_CLASS_NAME);
             this.conn = DriverManager.getConnection(dburl,user,passwd);
 
+            System.out.println("connected to database");
+
         }catch(SQLException | IOException e){
             throw new ExceptionDBerror("");
 

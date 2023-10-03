@@ -4,6 +4,7 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 import it.uniroma2.ispw.cardemporium.business.DBFunc;
 import it.uniroma2.ispw.cardemporium.business.DBconnection;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
 
@@ -20,13 +21,15 @@ public class RegisterDAO {
     ResultSet resultSet = null;
 
 
-    private Connection connCheck()
-    {
-        return DBconnection.getDBInstance().getConnection();
+    private Connection connCheck() throws ExceptionDBerror {
+
+        Connection1Singelton conn = Connection1Singelton.getInstance();
+
+        return conn.getConn();
 
     }
 
-    public void addUser(String username1, String passw, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist {
+    public void addUser(String username1, String passw, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
 
         Connection conn = connCheck();
 

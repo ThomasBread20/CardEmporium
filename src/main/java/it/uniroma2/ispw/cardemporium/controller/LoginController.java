@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
 
+import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 import it.uniroma2.ispw.cardemporium.dao.LoginDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
@@ -24,10 +25,10 @@ public class LoginController
     }
 
     public static Users checkUserDao(String username, String passw) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
-        LoginDAO login = new LoginDAO();
+        DatabaseLoReFacade login = new DatabaseLoReFacade();
 
         try{
-            return login.getUser(username, passw);
+            return login.Login(username, passw);
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE");
         }

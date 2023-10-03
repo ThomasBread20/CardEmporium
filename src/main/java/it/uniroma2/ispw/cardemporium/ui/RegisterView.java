@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
@@ -146,7 +147,7 @@ public class RegisterView {
 
     }
 
-    public void registerButton(ActionEvent event) throws SQLException, IOException {
+    public void registerButton(ActionEvent event) throws SQLException, IOException, ExceptionDBerror {
 
 
         if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {
@@ -180,6 +181,8 @@ public class RegisterView {
             } catch (ExceptionUserAlreadyExist e) {
                 labelError.setTextFill(Color.TOMATO);
                 labelError.setText("User already exist... Please try again");
+            } catch (ExceptionDBerror e) {
+                throw new ExceptionDBerror("errore login db");
             }
         } else{
             labelError.setTextFill(Color.TOMATO);
