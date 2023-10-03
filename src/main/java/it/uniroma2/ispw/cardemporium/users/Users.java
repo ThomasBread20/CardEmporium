@@ -6,6 +6,8 @@ public abstract class Users {
 
     private String pwd;
     private String username;
+
+    private int id;
     private String name;
     private String surname;
     private Date data;
@@ -16,13 +18,20 @@ public abstract class Users {
 
 
 
-    protected Users(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
+
+
+    protected Users(String pwd, String username, String name, String surname, Date data, boolean isBanned, int iD) {
         this.pwd = pwd;
         this.username = username;
         this.name = name;
         this.surname = surname;
         this.data = data;
         this.isBanned = isBanned;
+        this.id = iD;
+    }
+
+    public int getID() {
+        return id;
     }
 
     public String getPwd() {

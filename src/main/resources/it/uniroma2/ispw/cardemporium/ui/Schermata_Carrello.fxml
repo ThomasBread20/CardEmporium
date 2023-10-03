@@ -66,6 +66,6 @@
             <Font name="System Bold" size="39.0" />
          </font>
       </Label>
-      <Button layoutX="513.0" layoutY="80.0" mnemonicParsing="false" text="Acquista" />
+      <Button fx:id="buy1" layoutX="513.0" layoutY="80.0" mnemonicParsing="false" onAction="#buy" text="Acquista" />
    </children>
 </Pane>

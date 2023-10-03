@@ -5,8 +5,8 @@ import java.util.Date;
 public class Amministratore extends Users{
 
 
-    public Amministratore(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
-        super(pwd, username, name, surname, data,isBanned);
+    public Amministratore(String pwd, String username, String name, String surname, Date data, boolean isBanned, int iD) {
+        super(pwd, username, name, surname, data,isBanned, iD);
         this.setRole("Amministratore");
     }
 

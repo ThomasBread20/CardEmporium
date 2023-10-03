@@ -67,7 +67,8 @@ public class LoginDAO {
                         resultSet.getString("Cognome"),
                         resultSet.getDate("DataNascita"),
                         resultSet.getBoolean("IsBanned"),
-                        resultSet.getString("Ruolo")
+                        resultSet.getString("Ruolo"),
+                        resultSet.getInt("ID")
                         );
 
             }

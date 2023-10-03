@@ -4,6 +4,7 @@ import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -182,47 +183,21 @@ public class Carrelloview {
 
     }
 
-    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
 
-        SwitchPage page = SwitchPage.getInstance();
-
-
-        try{
-
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
-
-
-
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
-
-
-            Carrelloview.modifytable(cards);
-
-
-        }catch (ExceptionCardNotExist e)
-        {
-
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-
-
-        }catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-
-
-        catch (ExceptionDBerror  e) {
-            throw new ExceptionDBerror("value");
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+      try{
+          ShoppingController.refreshCartView(event);
+      }catch (ExceptionSwitchpage e){
+          throw new ExceptionSwitchpage("erroreswitchpage");
+      }catch (ExceptionDBerror e) {
+          throw new ExceptionDBerror("erroreDB");
+      }
 
     }
 
 
 
-    public void Removecard(MouseEvent mouseEvent) throws ExceptionSwitchpage {
+    public void Removecard(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionCardNotExist {
 
         int index = TableList.getSelectionModel().getSelectedIndex();
 
@@ -252,11 +227,44 @@ public class Carrelloview {
             }catch(ExceptionDBerror e){
                 System.out.printf("errore db");
             } catch (ExceptionCardNotExist e) {
-                throw new RuntimeException(e);
+                throw new ExceptionCardNotExist("erroreswitchapgee");
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                System.out.printf("errore db");;
             }
 
+        }
+    }
+
+    DataSingleton inf = DataSingleton.getInstance();
+
+    public void buy(ActionEvent event) throws ExceptionDBerror, ExceptionSwitchpage, ExceptionCardNotExist {
+
+        try{
+
+            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            int value = inf.getID();
+            while(!cards.isEmpty()) {
+                int n = 0;
+                CopiaCardCarrello carta = cards.get(n);
+
+
+                cards.remove(n);
+
+                ShoppingController.shopping(carta.getCartaID(),value);
+
+                n++;
+            }
+            ShoppingController.refreshCartView(event);
+        }catch (ExceptionDBerror e){
+            throw new ExceptionDBerror("ERRORE");
+        } catch (ExceptionCardNotExist e) {
+            throw new ExceptionCardNotExist("la carta non esiste");
+        } catch (SQLException e) {
+            throw new ExceptionDBerror("ERRORE");
+        } catch (IOException e) {
+             throw new ExceptionDBerror("ERRORE");
+        } catch (ExceptionSwitchpage e) {
+            throw new ExceptionSwitchpage("erroreswitchpage");
         }
     }
 }

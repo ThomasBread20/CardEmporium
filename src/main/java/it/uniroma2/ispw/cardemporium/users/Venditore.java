@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Venditore extends Users {
 
-    public Venditore(String pwd, String username, String name, String surname, Date data, boolean isBanned) {
-        super(pwd, username, name, surname, data, isBanned);
+    public Venditore(String pwd, String username, String name, String surname, Date data, boolean isBanned, int iD) {
+        super(pwd, username, name, surname, data, isBanned, iD);
         this.setRole("Venditore");
     }
 

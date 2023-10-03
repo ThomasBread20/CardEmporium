@@ -34,9 +34,9 @@ public class LoginController
     }
 
 
-    public static void dataFuller(String pwd, String username, String name, String surname, Date data, boolean isBanned, String role){
+    public static void dataFuller(String pwd, String username, String name, String surname, Date data, boolean isBanned, String role, int iD){
         DataSingleton info = DataSingleton.getInstance();
-        info.users(pwd, username, name, surname, data, isBanned);
+        info.users(pwd, username, name, surname, data, isBanned, iD);
         info.setRole(role);
 
     }
