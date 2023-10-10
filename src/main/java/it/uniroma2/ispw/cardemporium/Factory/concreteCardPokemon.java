@@ -1,5 +1,7 @@
 package it.uniroma2.ispw.cardemporium.Factory;
 
+import it.uniroma2.ispw.cardemporium.ui.pokemonView;
+
 public class concreteCardPokemon implements CardBase{
     boolean altered;
     boolean signed;
@@ -8,7 +10,7 @@ public class concreteCardPokemon implements CardBase{
     boolean reverse_holo;
 
     @Override
-    public String useCard() {
+    public String  useCard() {
         return "poke";
     }
 }

@@ -108,18 +108,35 @@ public Object verify_set() {
 
 }
 
+
+
     @FXML
     void Continue(ActionEvent event) throws ExceptionDBerror, ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist, CardGameException {
         SwitchPage page = SwitchPage.getInstance();
-        String game=ExposeController.getConcreteGame((String) verify_game());
+        String game =ExposeController.getConcreteGame((String) verify_game());
 
         //CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
             ObservableList<Card> cards =  ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
 
-            Seller3view switchpage = page.switchPageseller(game, event);
+            //Object switchpage = page.switchPageseller(game, event);
 
-            switchpage.populate_table(cards);
+            if(game=="yugioh") {
+                YugiohView yu = (YugiohView) page.switchPageseller(game, event);
+                yu.populate_table(cards);
+            } else if (game=="poke") {
+                pokemonView pv=(pokemonView)page.switchPageseller(game,event);
+                pv.populate_table(cards);
+            } else if (game=="dg") {
+                dgView dgv=(dgView)page.switchPageseller(game,event);
+                dgv.populate_table(cards);
+            } else if (game=="magic") {
+                magicView mv=(magicView) page.switchPageseller(game,event);
+                mv.populate_table(cards);
+
+            }
+
+           // .populate_table(cards);
 
 
             /*
@@ -133,8 +150,7 @@ public Object verify_set() {
             alert.setHeaderText("This Card do not exist!");
             alert.showAndWait();
         } catch (ExceptionSwitchpage e) {
-            throw new ExceptionDBerror("value");
-
+            throw new RuntimeException(e);
         }
 
     }

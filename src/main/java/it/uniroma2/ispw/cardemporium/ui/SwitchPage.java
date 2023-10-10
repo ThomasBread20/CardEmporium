@@ -69,7 +69,7 @@ public class SwitchPage {
     }
 
     }
-    public static Seller3view switchPageseller(String value,ActionEvent event) throws ExceptionSwitchpage {
+    public static YugiohView switchPagesellerY(String value,ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
 
@@ -78,19 +78,109 @@ public class SwitchPage {
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             //CardView obj=loader.getController();
-           Seller3view seller3view = loader.getController();
+           YugiohView sellerview = loader.getController();
 
 
             window.setScene(viewRegisterScene);
             window.show();
 
-            return seller3view;
+            return sellerview;
             // return obj;
         }
         catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
         }
     }
+    public static Object switchPageseller(String value,ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //CardView obj=loader.getController();
+            Object sellerview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return sellerview;
+            // return obj;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
+        }
+    }
+
+    public static pokemonView switchPagesellerP(String value,ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //CardView obj=loader.getController();
+            pokemonView sellerview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return sellerview;
+            // return obj;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
+        }
+    }
+    public static magicView switchPagesellerM(String value,ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //CardView obj=loader.getController();
+            magicView sellerview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return sellerview;
+            // return obj;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
+        }
+    }
+    public static dgView switchPagesellerDG(String value,ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //CardView obj=loader.getController();
+            dgView sellerview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return sellerview;
+            // return obj;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
+        }
+    }
+
 
 
     public static Carrelloview switchPageData1(String value, ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {

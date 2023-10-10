@@ -14,6 +14,7 @@ public class CardInfoBean {
     private Float price;
     private Integer quantity;
 
+
     public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, String language) {
         this.id = id;
         this.nome = nome;
@@ -24,6 +25,7 @@ public class CardInfoBean {
         this.price = price;
         this.quantity = quantity;
         this.language = language;
+
     }
 
     private String language;

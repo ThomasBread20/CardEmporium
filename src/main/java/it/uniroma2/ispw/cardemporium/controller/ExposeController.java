@@ -60,6 +60,7 @@ public class ExposeController {
         ExposeController exposeController = null;
         if(nome_gioco=="Yu-gi-oh"){
              exposeController=new ExposeController(1);
+
             
         }
         else if(nome_gioco=="Pokemon"){

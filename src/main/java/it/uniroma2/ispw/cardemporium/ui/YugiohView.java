@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
+import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
@@ -17,10 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -56,6 +54,12 @@ public class YugiohView implements Initializable {
     private TableColumn<Card,Integer> num_version;
     @FXML
     private TableColumn<Card,String> set_name;
+    @FXML
+    private CheckBox altered_y;
+    @FXML
+    private CheckBox fedition_y;
+    @FXML
+    private CheckBox signed_y;
 
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
@@ -181,6 +185,11 @@ public class YugiohView implements Initializable {
         System.out.println(name);
     }
     public void Expose(ActionEvent actionEvent) {
+        boolean al=altered_y.isSelected();
+        boolean sig=signed_y.isSelected();
+        boolean f=fedition_y.isSelected();
+
+        
         Float prezzo= Float.valueOf(Price.getText());
         Integer q= Integer.valueOf(Quantity.getText());
         String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
@@ -191,6 +200,7 @@ public class YugiohView implements Initializable {
         String set=set_name.getCellObservableValue(0).getValue();
 
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q, (String) verify_Lan());
+        ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         try {
             cardInfoBean.InsertCard(actionEvent);
         } catch (ExceptionDBerror e) {
