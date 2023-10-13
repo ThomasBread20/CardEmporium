@@ -199,9 +199,9 @@ public class dgView implements Initializable {
         Integer ver=num_version.getCellObservableValue(0).getValue();
         String game=game_name.getCellObservableValue(0).getValue();
         String set=set_name.getCellObservableValue(0).getValue();
-
-        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q, (String) verify_Lan());
         ExtraBeanDG extraBeanDG=new ExtraBeanDG(sig,alt,foil,id,ver,name);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanDG, (String) verify_Lan());
+
         try {
             cardInfoBean.InsertCard(actionEvent);
         } catch (ExceptionDBerror e) {

@@ -11,8 +11,66 @@ public class CardInfoBean {
     private String gioco;
     private String set;
     private String condition;
+
+    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanDG extraBeanDG, String language) {
+        this.id = id;
+        this.nome = nome;
+        this.versione = versione;
+        this.gioco = gioco;
+        this.set = set;
+        this.condition = condition;
+        this.price = price;
+        this.quantity = quantity;
+        this.extraBeanDG = extraBeanDG;
+        this.language = language;
+    }
+
+    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanP extraBeanP, String language) {
+        this.id = id;
+        this.nome = nome;
+        this.versione = versione;
+        this.gioco = gioco;
+        this.set = set;
+        this.condition = condition;
+        this.price = price;
+        this.quantity = quantity;
+        this.extraBeanP = extraBeanP;
+        this.language = language;
+    }
+
+    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanY extraBeanY, String language) {
+        this.id = id;
+        this.nome = nome;
+        this.versione = versione;
+        this.gioco = gioco;
+        this.set = set;
+        this.condition = condition;
+        this.price = price;
+        this.quantity = quantity;
+        this.extraBeanY = extraBeanY;
+        this.language = language;
+    }
+
     private Float price;
     private Integer quantity;
+
+    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanM extraBeanM, String language) {
+        this.id = id;
+        this.nome = nome;
+        this.versione = versione;
+        this.gioco = gioco;
+        this.set = set;
+        this.condition = condition;
+        this.price = price;
+        this.quantity = quantity;
+        this.extraBeanM = extraBeanM;
+        this.language = language;
+    }
+
+    ExtraBeanDG extraBeanDG;
+    ExtraBeanY extraBeanY;
+    ExtraBeanP extraBeanP;
+    ExtraBeanM extraBeanM;
 
 
     public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, String language) {

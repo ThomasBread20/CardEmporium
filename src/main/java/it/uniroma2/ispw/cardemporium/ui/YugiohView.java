@@ -198,9 +198,9 @@ public class YugiohView implements Initializable {
         Integer ver=num_version.getCellObservableValue(0).getValue();
         String game=game_name.getCellObservableValue(0).getValue();
         String set=set_name.getCellObservableValue(0).getValue();
-
-        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q, (String) verify_Lan());
         ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanY, (String) verify_Lan());
+       // ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         try {
             cardInfoBean.InsertCard(actionEvent);
         } catch (ExceptionDBerror e) {

@@ -199,9 +199,9 @@ public class magicView implements Initializable {
         Integer ver=num_version.getCellObservableValue(0).getValue();
         String game=game_name.getCellObservableValue(0).getValue();
         String set=set_name.getCellObservableValue(0).getValue();
-
-        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q, (String) verify_Lan());
         ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanM, (String) verify_Lan());
+       // ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
         try {
             cardInfoBean.InsertCard(actionEvent);
         } catch (ExceptionDBerror e) {

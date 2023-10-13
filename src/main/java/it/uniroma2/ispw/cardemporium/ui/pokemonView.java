@@ -202,9 +202,9 @@ public class pokemonView implements Initializable {
         Integer ver=num_version.getCellObservableValue(0).getValue();
         String game=game_name.getCellObservableValue(0).getValue();
         String set=set_name.getCellObservableValue(0).getValue();
-
-        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q, (String) verify_Lan());
         ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanP, (String) verify_Lan());
+        //ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
         try {
             cardInfoBean.InsertCard(actionEvent);
         } catch (ExceptionDBerror e) {
