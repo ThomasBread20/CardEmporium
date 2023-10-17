@@ -202,7 +202,7 @@ public class YugiohView implements Initializable {
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanY, (String) verify_Lan());
        // ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         try {
-            cardInfoBean.InsertCard(actionEvent);
+            cardInfoBean.InsertCardY(actionEvent);
         } catch (ExceptionDBerror e) {
             throw new RuntimeException(e);
         }

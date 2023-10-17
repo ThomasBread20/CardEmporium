@@ -128,9 +128,21 @@ public class CardInfoBean {
     public void setLanguage(String language) {
         this.language = language;
     }
-    public Boolean InsertCard(ActionEvent actionEvent) throws ExceptionDBerror {
+    public Boolean InsertCardY(ActionEvent actionEvent) throws ExceptionDBerror {
 
-        ExposeController.ExposeOnMarket(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),getSet());
+        ExposeController.ExposeOnMarketY(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanY,getSet());
+        return true;
+    }
+    public Boolean InsertCardP(ActionEvent actionEvent) throws ExceptionDBerror{
+        ExposeController.ExposeOnMarketP(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanP,getSet());
+        return true;
+    }
+    public Boolean InsertCardDB(ActionEvent actionEvent) throws ExceptionDBerror {
+        ExposeController.ExposeOnMarketDB(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanDG,getSet());
+        return true;
+    }
+    public Boolean InsertCardM(ActionEvent actionEvent ) throws ExceptionDBerror {
+        ExposeController.ExposeOnMarketM(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanM,getSet());
         return true;
     }
 

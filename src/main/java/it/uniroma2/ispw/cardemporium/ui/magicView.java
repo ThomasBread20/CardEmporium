@@ -203,7 +203,7 @@ public class magicView implements Initializable {
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanM, (String) verify_Lan());
        // ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
         try {
-            cardInfoBean.InsertCard(actionEvent);
+            cardInfoBean.InsertCardM(actionEvent);
         } catch (ExceptionDBerror e) {
             throw new RuntimeException(e);
         }

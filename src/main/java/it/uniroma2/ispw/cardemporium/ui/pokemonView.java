@@ -206,7 +206,7 @@ public class pokemonView implements Initializable {
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanP, (String) verify_Lan());
         //ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
         try {
-            cardInfoBean.InsertCard(actionEvent);
+            cardInfoBean.InsertCardP(actionEvent);
         } catch (ExceptionDBerror e) {
             throw new RuntimeException(e);
         }
