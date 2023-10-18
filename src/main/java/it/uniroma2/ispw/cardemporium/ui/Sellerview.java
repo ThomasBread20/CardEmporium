@@ -84,7 +84,7 @@ public class Sellerview {
     public void manage(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("schermata venditore Visualizza vendite", event);
+            page.switchPage("schermata_venditore_Visualizza_vendite", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page seller 2");
         }

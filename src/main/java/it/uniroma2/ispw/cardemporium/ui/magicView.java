@@ -190,6 +190,7 @@ public class magicView implements Initializable {
         boolean al=altered_m.isSelected();
         boolean pl=playset_m.isSelected();
         boolean f=foil_m.isSelected();
+        SwitchPage page=SwitchPage.getInstance();
 
         Float prezzo= Float.valueOf(Price.getText());
         Integer q= Integer.valueOf(Quantity.getText());
@@ -204,7 +205,12 @@ public class magicView implements Initializable {
        // ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
         try {
             cardInfoBean.InsertCardM(actionEvent);
+            page.switchPage("schermata_venditore1",actionEvent);
         } catch (ExceptionDBerror e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ExceptionSwitchpage e) {
             throw new RuntimeException(e);
         }
 

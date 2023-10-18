@@ -193,6 +193,7 @@ public class pokemonView implements Initializable {
         boolean fed=fedition_p.isSelected();
         boolean pla=playset_p.isSelected();
         boolean rev=reverseh.isSelected();
+        SwitchPage page=SwitchPage.getInstance();
 
         Float prezzo= Float.valueOf(Price.getText());
         Integer q= Integer.valueOf(Quantity.getText());
@@ -207,7 +208,12 @@ public class pokemonView implements Initializable {
         //ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
         try {
             cardInfoBean.InsertCardP(actionEvent);
+            page.switchPage("schermata_venditore1",actionEvent);
         } catch (ExceptionDBerror e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ExceptionSwitchpage e) {
             throw new RuntimeException(e);
         }
 

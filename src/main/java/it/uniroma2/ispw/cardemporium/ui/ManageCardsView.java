@@ -6,19 +6,60 @@ import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class ManageCardsView {
+    @FXML
+    private TableView<?> cardlistTable;
+
+    @FXML
+    private TableColumn<?, ?> cond;
+    @FXML
+    private TableColumn<?, ?> lan;
+    @FXML
+    private TableColumn<?, ?> name;
+
+    @FXML
+    private TableColumn<?, ?> price;
+    @FXML
+    private TableColumn<?, ?> qty;
+
+    @FXML
+    private TableColumn<?, ?> set;
+
+    @FXML
+    private TableColumn<?, ?> ver;
+    @FXML
+    private TableColumn<?, ?> al;
+    @FXML
+    private TableColumn<?, ?> f;
+
+    @FXML
+    private TableColumn<?, ?> fe;
+    @FXML
+    private TableColumn<?, ?> ps;
+    @FXML
+    private TableColumn<?, ?> rh;
+
+    @FXML
+    private TableColumn<?, ?> s;
+
+
 
 
     DataSingleton info = DataSingleton.getInstance();
@@ -100,7 +141,7 @@ public class ManageCardsView {
 
     }
 
-
+/*
     public void GotoSell(ActionEvent actionEvent) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
@@ -108,5 +149,12 @@ public class ManageCardsView {
         } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata seller");
         }
+    }*/
+    public void modify_table(ObservableList<CopiaCard> copiaCards){
+        name.setCellValueFactory(new PropertyValueFactory<>("nomeCarta"));
+        lan.setCellValueFactory(new PropertyValueFactory<>("lingua"));
+        cond.setCellValueFactory(new PropertyValueFactory<>("condizione"));
+        price.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
+        qty.setCellValueFactory(new PropertyValueFactory<>(""));
     }
 }

@@ -29,7 +29,7 @@ public class ExposeDAO {
         Boolean al=extraBeanY.isAltered();
         Boolean fed=extraBeanY.isFedition();
 
-        String q="CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
+        String q="CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             statement = conn.prepareStatement(q);
             statement.setString(1,name);
@@ -42,6 +42,7 @@ public class ExposeDAO {
             statement.setBoolean(8,sig);
             statement.setBoolean(9,al);
             statement.setBoolean(10,fed);
+            statement.setInt(11,quan);
             ResultSet rs=statement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -56,7 +57,7 @@ public class ExposeDAO {
         Boolean foil=extraBeanM.isFoil();
         Boolean ps=extraBeanM.isPlayset();
 
-        String q="CALL Expose_M(?,?,?,?,?,?,?,?,?,?,?)";
+        String q="CALL Expose_M(?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
             statement = conn.prepareStatement(q);
             statement.setString(1,name);
@@ -70,6 +71,7 @@ public class ExposeDAO {
             statement.setBoolean(9,al);
             statement.setBoolean(10,foil);
             statement.setBoolean(11,ps);
+            statement.setInt(12,quan);
             ResultSet rs=statement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -83,7 +85,7 @@ public class ExposeDAO {
         Boolean al=extraBeanDG.isAltered();
         Boolean foil=extraBeanDG.isFoil();
 
-        String q="CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
+        String q="CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             statement = conn.prepareStatement(q);
             statement.setString(1,name);
@@ -96,6 +98,7 @@ public class ExposeDAO {
             statement.setBoolean(8,sig);
             statement.setBoolean(9,al);
             statement.setBoolean(10,foil);
+            statement.setInt(11,quan);
             ResultSet rs=statement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -111,7 +114,7 @@ public class ExposeDAO {
         Boolean ps=extraBeanP.isPlayset();
         Boolean rev=extraBeanP.isReverse();
 
-        String q="CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String q="CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             statement = conn.prepareStatement(q);
             statement.setString(1,name);
@@ -126,6 +129,7 @@ public class ExposeDAO {
             statement.setBoolean(10,fed);
             statement.setBoolean(11,rev);
             statement.setBoolean(12,ps);
+            statement.setInt(13,quan);
             ResultSet rs=statement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);

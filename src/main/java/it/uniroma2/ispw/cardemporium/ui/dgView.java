@@ -186,6 +186,7 @@ public class dgView implements Initializable {
         System.out.println(name);
     }
     public void Expose(ActionEvent actionEvent) {
+        SwitchPage page=SwitchPage.getInstance();
         boolean alt=altered_dg.isSelected();
         boolean sig=signed_dg.isSelected();
         boolean foil=foil_dg.isSelected();
@@ -203,8 +204,14 @@ public class dgView implements Initializable {
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanDG, (String) verify_Lan());
 
         try {
+
             cardInfoBean.InsertCardDB(actionEvent);
+            page.switchPage("schermata_venditore1",actionEvent);
         } catch (ExceptionDBerror e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ExceptionSwitchpage e) {
             throw new RuntimeException(e);
         }
 

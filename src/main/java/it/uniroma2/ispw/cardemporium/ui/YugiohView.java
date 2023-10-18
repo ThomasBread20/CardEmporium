@@ -188,7 +188,7 @@ public class YugiohView implements Initializable {
         boolean al=altered_y.isSelected();
         boolean sig=signed_y.isSelected();
         boolean f=fedition_y.isSelected();
-
+        SwitchPage page=SwitchPage.getInstance();
         
         Float prezzo= Float.valueOf(Price.getText());
         Integer q= Integer.valueOf(Quantity.getText());
@@ -203,7 +203,12 @@ public class YugiohView implements Initializable {
        // ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         try {
             cardInfoBean.InsertCardY(actionEvent);
+            page.switchPage("schermata_venditore1",actionEvent);
         } catch (ExceptionDBerror e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ExceptionSwitchpage e) {
             throw new RuntimeException(e);
         }
 
