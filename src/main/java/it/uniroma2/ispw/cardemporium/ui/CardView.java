@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 
 
+import it.uniroma2.ispw.cardemporium.bean.ExtraBeanG;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
@@ -55,6 +56,11 @@ public class CardView {
 
     @FXML
     private TableColumn<CopiaCard, String> setgioco;
+
+    @FXML
+    private TableColumn<CopiaCard, String> extra;
+
+
 
 
 
@@ -254,6 +260,9 @@ public class CardView {
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
         venditore.setCellValueFactory(new PropertyValueFactory<>("UtenteVenditore"));
         setgioco.setCellValueFactory(new PropertyValueFactory<>("nomeSet"));
+        extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
+
+
 
 
         TableList.setItems(card);

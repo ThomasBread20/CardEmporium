@@ -23,7 +23,6 @@ public class Connection1Singelton {
         } catch (ExceptionDBerror e) {
             throw new ExceptionDBerror("errore login db");
         }
-
     }
 
 

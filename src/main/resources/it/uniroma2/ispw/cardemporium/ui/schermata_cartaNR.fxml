@@ -74,7 +74,8 @@
           <TableColumn fx:id="venditore" prefWidth="118.0" text="Venditore" />
           <TableColumn fx:id="prezzo" prefWidth="65.0" text="Prezzo" />
             <TableColumn fx:id="lingua" prefWidth="66.0" text="Lingua" />
-            <TableColumn fx:id="setgioco" prefWidth="201.0" text="Set" />
+            <TableColumn fx:id="setgioco" prefWidth="96.0" text="Set" />
+            <TableColumn fx:id="extra" prefWidth="106.0" text="extra" />
         </columns>
       </TableView>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">

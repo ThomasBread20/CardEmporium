@@ -57,8 +57,9 @@
          <columns>
             <TableColumn fx:id="id" prefWidth="31.0" text="ID" />
             <TableColumn fx:id="nome" prefWidth="234.0" text="nome" />
-            <TableColumn fx:id="venditore" prefWidth="197.0" text="Venditore" />
-            <TableColumn fx:id="prezzo" prefWidth="87.0" text="Prezzo" />
+            <TableColumn fx:id="venditore" prefWidth="119.0" text="Venditore" />
+            <TableColumn fx:id="prezzo" prefWidth="63.0" text="Prezzo" />
+            <TableColumn fx:id="extra" prefWidth="102.0" text="extra" />
          </columns>
       </TableView>
       <Label layoutX="25.0" layoutY="64.0" prefHeight="56.0" prefWidth="164.0" text="Carrello">

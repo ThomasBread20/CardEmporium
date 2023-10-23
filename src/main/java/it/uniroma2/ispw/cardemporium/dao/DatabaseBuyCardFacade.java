@@ -12,9 +12,9 @@ public class DatabaseBuyCardFacade {
 
     BuyCardDAO buyCardDAO;
 
-    SearchCardDaoSingleton searchCardDaoSingleton;
+    SearchCardDao searchCardDao;
 
-    ShoppingCartDAOSingleton shoppingCartDAOSingleton;
+    ShoppingCartDAO shoppingCartDAO;
 
     public void buyCard(int id, int user) throws ExceptionDBerror {
         buyCardDAO = new BuyCardDAO();
@@ -24,36 +24,36 @@ public class DatabaseBuyCardFacade {
     }
 
     public ObservableList<CopiaCard> searchCard(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
-        searchCardDaoSingleton = new SearchCardDaoSingleton();
+        searchCardDao = new SearchCardDao();
 
-            return searchCardDaoSingleton.getCard(name);
+            return searchCardDao.getCard(name);
 
     }
     public void setCard(int id, int user) throws ExceptionDBerror {
-        shoppingCartDAOSingleton = new ShoppingCartDAOSingleton();
+        shoppingCartDAO = new ShoppingCartDAO();
 
-        shoppingCartDAOSingleton.SetCard(id, user);
+        shoppingCartDAO.SetCard(id, user);
 
     }
 
     public int getID(String username) throws ExceptionDBerror, SQLException {
-        shoppingCartDAOSingleton = new ShoppingCartDAOSingleton();
+        shoppingCartDAO = new ShoppingCartDAO();
 
-        return shoppingCartDAOSingleton.getID(username);
+        return shoppingCartDAO.getID(username);
 
     }
 
     public void detCard(int id) throws ExceptionDBerror {
-        shoppingCartDAOSingleton = new ShoppingCartDAOSingleton();
+        shoppingCartDAO = new ShoppingCartDAO();
 
-        shoppingCartDAOSingleton.detCard(id);
+        shoppingCartDAO.detCard(id);
 
     }
 
     public ObservableList<CopiaCardCarrello> getCard(int id) throws ExceptionDBerror, ExceptionCardNotExist, SQLException {
-        shoppingCartDAOSingleton = new ShoppingCartDAOSingleton();
+        shoppingCartDAO = new ShoppingCartDAO();
 
-        return shoppingCartDAOSingleton.getCard(id);
+        return shoppingCartDAO.getCard(id);
 
     }
 }

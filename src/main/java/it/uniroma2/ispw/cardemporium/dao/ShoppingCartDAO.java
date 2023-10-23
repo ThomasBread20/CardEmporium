@@ -1,20 +1,19 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.business.DBconnection;
+import it.uniroma2.ispw.cardemporium.bean.ExtraBeanG;
+import it.uniroma2.ispw.cardemporium.controller.ExtraController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ShoppingCartDAOSingleton {
+public class ShoppingCartDAO {
 
     boolean result;
 
@@ -123,14 +122,55 @@ public class ShoppingCartDAOSingleton {
             while(resultSet.next())
             {
 
-                int Id = resultSet.getInt("Carta_SingolaID");
+                int id = resultSet.getInt("Carta_SingolaID");
                 double prezzo = resultSet.getDouble("copiacarta_Prezzo");
                 String  utenteVenditore = resultSet.getString("NomeVenditore");
                 int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
                 String nomeCarta = resultSet.getString("NomeCarta");
+                boolean firmato = resultSet.getBoolean("firmato");
+                boolean foil = resultSet.getBoolean("foil");
+                boolean alterato = resultSet.getBoolean("alterato");
+                boolean playset = resultSet.getBoolean("playset");
+                boolean first_edition = resultSet.getBoolean("first_edition");
+                boolean reverse_holo = resultSet.getBoolean("reverse_holo");
 
 
-                Cards.add(new CopiaCardCarrello(Id, prezzo, utenteVenditore, cartaSingolaID, nomeCarta));
+
+                StringBuilder stringBuilder = new StringBuilder();
+
+                if (firmato){
+                    stringBuilder.append("Fir");
+                    stringBuilder.append(", ");
+                }
+                if (foil){
+                    stringBuilder.append("Foil");
+                    stringBuilder.append(", ");
+                }
+                if (alterato){
+                    stringBuilder.append("Alt");
+                    stringBuilder.append(", ");
+                }
+                if (playset){
+                    stringBuilder.append("Ps");
+                    stringBuilder.append(", ");
+                }
+                if (first_edition){
+                    stringBuilder.append("Fe");
+                    stringBuilder.append(", ");
+                }
+                if (reverse_holo){
+                    stringBuilder.append("Rh");
+                    stringBuilder.append(", ");
+                }
+
+                String result = stringBuilder.toString();
+
+
+
+
+
+
+                Cards.add(new CopiaCardCarrello(id, prezzo, utenteVenditore, cartaSingolaID, nomeCarta, result));
 
 
             }

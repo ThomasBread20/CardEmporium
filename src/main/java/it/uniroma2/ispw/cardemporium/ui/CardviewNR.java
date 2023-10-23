@@ -48,6 +48,9 @@ public class CardviewNR {
     private TableColumn<CopiaCard, String> setgioco;
 
     @FXML
+    private TableColumn<CopiaCard, String> extra;
+
+    @FXML
     private Label gioco;
 
 
@@ -180,6 +183,7 @@ public class CardviewNR {
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
         venditore.setCellValueFactory(new PropertyValueFactory<>("UtenteVenditore"));
         setgioco.setCellValueFactory(new PropertyValueFactory<>("nomeSet"));
+        extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
 
 
         TableList.setItems(card);

@@ -19,8 +19,7 @@ public class Main {
         System.out.println("Welcome to CardEmporium."+"\n"+"Please press 1 to get the CLI or 2 to get the JavaFX interface:");
         int choose = Integer.parseInt(reader.readLine());
         if(choose==2) Application.launch(HomeNonRegistrati.class, args);
-        //da fare una seconda interfaccia con una casella per prendere i dati e basta 
-
+        //da fare una seconda interfaccia con una casella per prendere i dati e basta2
     }
 
 }

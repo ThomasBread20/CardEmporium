@@ -2,20 +2,18 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 
-import it.uniroma2.ispw.cardemporium.business.DBconnection;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 
 
 import java.sql.*;
 
-public class SearchCardDaoSingleton {
+public class SearchCardDao {
 
-    private static final SearchCardDaoSingleton instance = new SearchCardDaoSingleton();
+    private static final SearchCardDao instance = new SearchCardDao();
 
 
     boolean result;
@@ -67,15 +65,59 @@ public class SearchCardDaoSingleton {
                 double prezzo = resultSet.getDouble("Prezzo");
                 String  utenteVenditore = resultSet.getString("Venditore");
                 int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
-                int cartaID = resultSet.getInt("Carta_ID");
+                int cartaID = resultSet.getInt("ValueID");
                 String nomeCarta = resultSet.getString("NomeCarta");
                 String nomeGioco = resultSet.getString("setcarte_NomeGioco");
                 int versione = resultSet.getInt("versione");
                 String nomeSet = resultSet.getString("NomeSet");
                 String lingua = resultSet.getString("Lingua");
                 boolean carrello = resultSet.getBoolean("nel_carrello");
+                boolean firmato = resultSet.getBoolean("firmato");
+                boolean foil = resultSet.getBoolean("foil");
+                boolean alterato = resultSet.getBoolean("alterato");
+                boolean playset = resultSet.getBoolean("playset");
+                boolean first_edition = resultSet.getBoolean("first_edition");
+                boolean reverse_holo = resultSet.getBoolean("reverse_holo");
+                boolean venduto = resultSet.getBoolean("venduto");
 
-                Cards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello));
+
+                StringBuilder stringBuilder = new StringBuilder();
+
+                if (firmato){
+                        stringBuilder.append("Fir");
+                        stringBuilder.append(", ");
+                }
+                if (foil){
+                    stringBuilder.append("Foil");
+                    stringBuilder.append(", ");
+                }
+                if (alterato){
+                    stringBuilder.append("Alt");
+                    stringBuilder.append(", ");
+                }
+                if (playset){
+                    stringBuilder.append("Ps");
+                    stringBuilder.append(", ");
+                }
+                if (first_edition){
+                    stringBuilder.append("Fe");
+                    stringBuilder.append(", ");
+                }
+                if (reverse_holo){
+                    stringBuilder.append("Rh");
+                    stringBuilder.append(", ");
+                }
+
+                String result = stringBuilder.toString();
+
+
+
+
+
+
+
+
+                Cards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello,result, venduto ));
 
 
             }

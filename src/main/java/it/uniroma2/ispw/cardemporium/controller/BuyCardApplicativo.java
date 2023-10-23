@@ -2,15 +2,12 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.DatabaseBuyCardFacade;
-import it.uniroma2.ispw.cardemporium.dao.ShoppingCartDAOSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.dao.SearchCardDaoSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import it.uniroma2.ispw.cardemporium.ui.CardView;
-import it.uniroma2.ispw.cardemporium.ui.Carrelloview;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import javafx.collections.ObservableList;
 import javafx.scene.input.MouseEvent;

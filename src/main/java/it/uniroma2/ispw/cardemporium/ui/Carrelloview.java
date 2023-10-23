@@ -54,6 +54,8 @@ public class Carrelloview {
     @FXML
     private TableColumn<CopiaCardCarrello, String> venditore;
     @FXML
+    private TableColumn<CopiaCardCarrello, String> extra;
+    @FXML
     private Button profileButton;
 
     @FXML
@@ -135,6 +137,7 @@ public class Carrelloview {
         nome.setCellValueFactory(new PropertyValueFactory<>("nomeCarta"));
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
         venditore.setCellValueFactory(new PropertyValueFactory<>("UtenteVenditore"));
+        extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
 
 
         TableList.setItems(card);
