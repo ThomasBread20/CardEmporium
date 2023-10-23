@@ -68,7 +68,7 @@ public class GetExtraDAO {
 
         }catch (SQLException e) {
 
-            throw new ExceptionDBerror("");
+            throw new ExceptionDBerror("impossible to get extra");
         }
 
 

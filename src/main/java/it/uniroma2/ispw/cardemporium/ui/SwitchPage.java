@@ -205,6 +205,28 @@ public class SwitchPage {
         }
 
     }
+    public ManageCardsView switchPageMC(String value,ActionEvent event) throws ExceptionSwitchpage {
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value+ ".fxml"));
+
+            Parent viewRegister = loader.load();
+            Scene viewRegisterScene = new Scene(viewRegister);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           ManageCardsView sellerview = loader.getController();
+
+
+            window.setScene(viewRegisterScene);
+            window.show();
+
+            return sellerview;
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
+        }
+
+    }
+
 
 
 

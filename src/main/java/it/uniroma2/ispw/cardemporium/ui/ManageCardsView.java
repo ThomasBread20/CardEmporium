@@ -25,7 +25,7 @@ import java.sql.SQLException;
 
 public class ManageCardsView {
     @FXML
-    private TableView<?> cardlistTable;
+    private TableView<CopiaCard> cardlistTable;
 
     @FXML
     private TableColumn<?, ?> cond;
@@ -45,19 +45,7 @@ public class ManageCardsView {
     @FXML
     private TableColumn<?, ?> ver;
     @FXML
-    private TableColumn<?, ?> al;
-    @FXML
-    private TableColumn<?, ?> f;
-
-    @FXML
-    private TableColumn<?, ?> fe;
-    @FXML
-    private TableColumn<?, ?> ps;
-    @FXML
-    private TableColumn<?, ?> rh;
-
-    @FXML
-    private TableColumn<?, ?> s;
+    private TableColumn<?,?>extra;
 
 
 
@@ -155,6 +143,8 @@ public class ManageCardsView {
         lan.setCellValueFactory(new PropertyValueFactory<>("lingua"));
         cond.setCellValueFactory(new PropertyValueFactory<>("condizione"));
         price.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
-        qty.setCellValueFactory(new PropertyValueFactory<>(""));
+        qty.setCellValueFactory(new PropertyValueFactory<>("q"));
+        extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
+        cardlistTable.setItems(copiaCards);
     }
 }

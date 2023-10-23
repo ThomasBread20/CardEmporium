@@ -23,6 +23,7 @@ public class CopiaCard {
 
     private int versione;
   private String nomeSet;
+  private int q;
 
     public int getVersione() {
         return versione;
@@ -56,6 +57,17 @@ public class CopiaCard {
         return cartaID;
     }
 
+    public CopiaCard(String condizione, double prezzo, String nomeCarta, String extra, String lingua, int versione, String nomeSet, int q) {
+        this.condizione = condizione;
+        this.prezzo = prezzo;
+        this.nomeCarta = nomeCarta;
+        this.extra = extra;
+        this.lingua = lingua;
+        this.versione = versione;
+        this.nomeSet = nomeSet;
+        this.q = q;
+    }
+
     public String getNomeCarta() {
         return nomeCarta;
     }
@@ -77,6 +89,24 @@ public class CopiaCard {
         return venduto;
     }
 
+    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto,int quantity){
+        this.condizione = Condizione1;
+        this.prezzo = Prezzo;
+        this.utenteVenditore = Utentevenditore;
+        this.cartaSingolaID = CartasingolaID;
+        this.cartaID = CartaID;
+        this.nomeCarta = Nomecarta;
+        this.nomeGioco = NomeGioco;
+        this.lingua = Lingua;
+        this.versione = versione;
+        this.nomeSet = setNome;
+        this.nelCarrello = carrello;
+        this.q=quantity;
+
+        this.extra = extra;
+
+        this.venduto = venduto;
+    }
     public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto){
         this.condizione = Condizione1;
         this.prezzo = Prezzo;
@@ -90,12 +120,14 @@ public class CopiaCard {
         this.nomeSet = setNome;
         this.nelCarrello = carrello;
 
+
         this.extra = extra;
 
         this.venduto = venduto;
     }
-    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome){
+    public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome,int quantity){
         this.condizione = Condizione1;
+        this.q=quantity;
         this.prezzo = Prezzo;
         this.utenteVenditore = Utentevenditore;
 
@@ -116,5 +148,13 @@ public class CopiaCard {
 
     public String getLingua() {
         return lingua;
+    }
+
+    public int getQ() {
+        return q;
+    }
+
+    public void setQ(int q) {
+        this.q = q;
     }
 }

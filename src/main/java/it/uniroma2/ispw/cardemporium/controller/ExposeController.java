@@ -50,7 +50,7 @@ public class ExposeController {
 
             Boolean result = ex.ExposeCardY(price, quan, lan, cond, id, name, versione,extraBeanY, info.getID());
             System.out.println(info.getUsername());
-            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set);
+            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("CardEmporium");
@@ -86,7 +86,7 @@ public class ExposeController {
         try {
 
             Boolean result = ex.ExposeCardM(price, quan, lan, cond, id, name, versione,extraBeanM, info.getID());
-            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set);
+            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("CardEmporium");
@@ -105,7 +105,7 @@ public class ExposeController {
         try {
 
             Boolean result = ex.ExposeCardDB(price, quan, lan, cond, id, name, versione,extraBeanDG, info.getID());
-            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set);
+            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("CardEmporium");
@@ -123,7 +123,7 @@ public class ExposeController {
         try {
 
             Boolean result = ex.ExposeCardP(price, quan, lan, cond, id, name, versione,extraBeanP, info.getID());
-            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set);
+            card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("CardEmporium");

@@ -2,7 +2,10 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
+import it.uniroma2.ispw.cardemporium.controller.ManageControllerApp;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,8 +87,13 @@ public class Sellerview {
     public void manage(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("schermata_venditore_Visualizza_vendite", event);
-        }catch (ExceptionSwitchpage | IOException e) {
+
+            ObservableList<CopiaCard>cards=ManageControllerApp.showCards(event);
+            ManageCardsView manageCardsView=page.switchPageMC("schermata_venditore_Visualizza_vendite", event);
+            manageCardsView.modify_table(cards);
+
+
+        }catch (ExceptionSwitchpage e) {
             throw new ExceptionSwitchpage("switch page seller 2");
         }
     }
