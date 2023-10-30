@@ -111,14 +111,15 @@ public Object verify_set() {
 
 
     @FXML
-    void Continue(ActionEvent event) throws ExceptionDBerror, ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist, CardGameException {
+    void Continue(ActionEvent event) throws ExceptionDBerror, ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist, CardGameException, IOException {
         SwitchPage page = SwitchPage.getInstance();
         String game =ExposeController.getConcreteGame((String) verify_game());
+        CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(),(String) verify_set());
 
         //CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
-            ObservableList<Card> cards =  ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
-
+            //ObservableList<Card> cards =  ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
+            ObservableList<Card> cards=cardBean.showCard(event);
             //Object switchpage = page.switchPageseller(game, event);
 
             if(game=="yugioh") {

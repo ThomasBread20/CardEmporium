@@ -31,6 +31,7 @@ public class SearchAllCardDAO {
     public ObservableList<Card> getAllCard(String Name, int ver, String gioco, String set) throws ExceptionUserAlreadyExist, SQLException, ExceptionCardNotExist, ExceptionDBerror {
 
         Connection conn = connCheck();
+
         ObservableList<Card> Cards = FXCollections.observableArrayList();
 
         String sql2 = "CALL `SearchAllCards`(?,?,?,?)";
@@ -46,7 +47,7 @@ public class SearchAllCardDAO {
             resultSet = statement.executeQuery();
         } catch (SQLException e) {
 
-            throw new ExceptionUserAlreadyExist("");
+            throw new ExceptionCardNotExist("");
         }
 
         if (!resultSet.next()) {
@@ -55,6 +56,7 @@ public class SearchAllCardDAO {
 
 
             Integer CardID = resultSet.getInt(1);
+            System.out.println(CardID);
             String CardName = resultSet.getString(2);
             int Version = resultSet.getInt(3);
 

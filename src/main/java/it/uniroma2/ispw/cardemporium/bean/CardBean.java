@@ -6,7 +6,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.model.Card;
-import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
+import it.uniroma2.ispw.cardemporium.ui.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
@@ -18,7 +18,7 @@ public class CardBean {
     private String setcard_bean;
 
 
-    public CardBean(String name_bean, int version_bean , String game_bean,String setcard_bean) {
+    public CardBean(String name_bean, int version_bean, String game_bean, String setcard_bean) {
         this.name_bean = name_bean;
         this.setcard_bean = setcard_bean;
         this.version_bean = version_bean;
@@ -60,17 +60,32 @@ public class CardBean {
     public void setGame_bean(String game_bean) {
         this.game_bean = game_bean;
     }
-    public ObservableList<Card> showCard(ActionEvent actionEvent) throws ExceptionCardNotExist, ExceptionDBerror, IOException , ExceptionSwitchpage{
 
-        SwitchPage sw=SwitchPage.getInstance();
+    public ObservableList<Card> showCard(ActionEvent event) throws ExceptionCardNotExist, ExceptionDBerror, IOException, ExceptionSwitchpage {
+
+        SwitchPage page = SwitchPage.getInstance();
         try {
-            ObservableList<Card> obcard= ExposeController.SearchAllCard(getName(),getVersion_bean(),getGame_bean(),getSetcard_bean());
-            sw.switchPage("venditore3",actionEvent);
+            ObservableList<Card> obcard = ExposeController.SearchAllCard(getName(), getVersion_bean(), getGame_bean(), getSetcard_bean());
+            if (getGame_bean() == "yugioh") {
+                YugiohView yu = (YugiohView) page.switchPageseller(getGame_bean(), event);
+                yu.populate_table(obcard);
+            } else if (getGame_bean() == "poke") {
+                pokemonView pv = (pokemonView) page.switchPageseller(getGame_bean(), event);
+                pv.populate_table(obcard);
+            } else if (getGame_bean() == "dg") {
+                dgView dgv = (dgView) page.switchPageseller(getGame_bean(), event);
+                dgv.populate_table(obcard);
+            } else if (getGame_bean() == "magic") {
+                magicView mv = (magicView) page.switchPageseller(getGame_bean(), event);
+                mv.populate_table(obcard);
 
+
+
+            }
             return obcard;
-        } catch (IOException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage | SQLException | ExceptionUserAlreadyExist e) {
+        } catch (ExceptionUserAlreadyExist e) {
             throw new RuntimeException(e);
         }
 
