@@ -11,7 +11,7 @@ public class DBFunc {
     ResultSet resultSet = null;
 
 
-    private static Connection connCheck()
+    public static Connection connCheck()
     {
         return DBconnection.getDBInstance().getConnection();
 
