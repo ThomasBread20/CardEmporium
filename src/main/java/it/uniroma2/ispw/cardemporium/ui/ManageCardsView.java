@@ -36,8 +36,7 @@ public class ManageCardsView {
 
     @FXML
     private TableColumn<?, ?> price;
-    @FXML
-    private TableColumn<?, ?> qty;
+
 
     @FXML
     private TableColumn<?, ?> set;
@@ -143,8 +142,9 @@ public class ManageCardsView {
         lan.setCellValueFactory(new PropertyValueFactory<>("lingua"));
         cond.setCellValueFactory(new PropertyValueFactory<>("condizione"));
         price.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
-        qty.setCellValueFactory(new PropertyValueFactory<>("q"));
+        set.setCellValueFactory(new PropertyValueFactory<>("nomeSet"));
         extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
+        ver.setCellValueFactory(new PropertyValueFactory<>("versione"));
         cardlistTable.setItems(copiaCards);
     }
 }

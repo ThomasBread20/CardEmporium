@@ -57,14 +57,13 @@
       <Button alignment="TOP_CENTER" layoutX="506.0" layoutY="113.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="56.0" text="Cestino" visible="false" />
       <TableView fx:id="cardlistTable" layoutY="126.0" prefHeight="256.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="name" prefWidth="81.5999755859375" text="Name" />
-            <TableColumn fx:id="ver" prefWidth="48.00006103515625" text="Version" />
-            <TableColumn fx:id="set" prefWidth="91.199951171875" text="Set Name" />
-            <TableColumn fx:id="cond" prefWidth="68.0" text="Condition" />
-            <TableColumn fx:id="qty" prefWidth="55.20001220703125" text="Quantity" />
-            <TableColumn fx:id="lan" prefWidth="66.39996337890625" text="Language" />
-            <TableColumn fx:id="price" prefWidth="34.4000244140625" text="Price" />
-            <TableColumn fx:id="extra" prefWidth="152.0" text="Extra" />
+          <TableColumn fx:id="name" prefWidth="102.40002745389938" text="Name" />
+            <TableColumn fx:id="ver" prefWidth="56.79998779296875" text="Version" />
+            <TableColumn fx:id="set" prefWidth="92.0" text="Set Name" />
+            <TableColumn fx:id="cond" prefWidth="75.99998474121094" text="Condition" />
+            <TableColumn fx:id="lan" prefWidth="69.60003662109375" text="Language" />
+            <TableColumn fx:id="price" prefWidth="40.0" text="Price" />
+            <TableColumn fx:id="extra" prefWidth="164.7999267578125" text="Extra" />
         </columns>
       </TableView>
    </children>
