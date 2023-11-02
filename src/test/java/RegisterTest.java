@@ -1,5 +1,5 @@
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
-import it.uniroma2.ispw.cardemporium.dao.RegisterDAO;
+import it.uniroma2.ispw.cardemporium.dao.RegisterDAODB;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +18,7 @@ public class RegisterTest {
         registerBean.setDateBean(LocalDate.parse("2000-11-06"));
         registerBean.setPasswdBean("test");
         registerBean.setUsernameBean("test");
-        RegisterDAO registerDAO=new RegisterDAO();
+        RegisterDAODB registerDAO=new RegisterDAODB();
     try {
         registerDAO.addUser(registerBean.getUsernameBean(),registerBean.getPasswdBean(),registerBean.getNameBean(),registerBean.getDateBean(), registerBean.getCognomeBean());
         Assertions.fail();
