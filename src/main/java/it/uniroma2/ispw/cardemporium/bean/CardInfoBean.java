@@ -88,7 +88,7 @@ public class CardInfoBean {
     }
 
     private String language;
-    public void getInfo(){}//QUI CI METTO QUELLO CHE NON ENTRA DI SOTTO E LO PASSO AL CONTROLLER
+
 
 
     public CardInfoBean(String condition, Float price, Integer quantity, String language) {
@@ -129,20 +129,20 @@ public class CardInfoBean {
     public void setLanguage(String language) {
         this.language = language;
     }
-    public Boolean InsertCardY(ActionEvent actionEvent) throws ExceptionDBerror, Exceptionquantity {
+    public Boolean InsertCardY() throws ExceptionDBerror, Exceptionquantity {
 
         ExposeController.ExposeOnMarketY(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanY,getSet());
         return true;
     }
-    public Boolean InsertCardP(ActionEvent actionEvent) throws ExceptionDBerror, Exceptionquantity {
+    public Boolean InsertCardP() throws ExceptionDBerror, Exceptionquantity {
         ExposeController.ExposeOnMarketP(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanP,getSet());
         return true;
     }
-    public Boolean InsertCardDB(ActionEvent actionEvent) throws ExceptionDBerror, Exceptionquantity {
+    public Boolean InsertCardDB() throws ExceptionDBerror, Exceptionquantity {
         ExposeController.ExposeOnMarketDB(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanDG,getSet());
         return true;
     }
-    public Boolean InsertCardM(ActionEvent actionEvent ) throws ExceptionDBerror, Exceptionquantity {
+    public Boolean InsertCardM( ) throws ExceptionDBerror, Exceptionquantity {
         ExposeController.ExposeOnMarketM(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanM,getSet());
         return true;
     }

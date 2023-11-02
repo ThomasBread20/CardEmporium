@@ -29,7 +29,7 @@ public class DatabaseLoReFacade {
         try {
             registerFS.addUser(user , password ,name1, date1, surname1);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.getCause();
         }
     }
 }

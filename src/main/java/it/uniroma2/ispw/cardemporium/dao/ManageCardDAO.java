@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
@@ -23,9 +23,9 @@ public class ManageCardDAO {
 
     }
 
-    // DataSingleton info = DataSingleton.getInstance();
+
     public ObservableList<CopiaCard> getCards(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
-        ObservableList<CopiaCard> Cards = FXCollections.observableArrayList();
+        ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
         String sq = "CALL `showCards`(?)";
         System.out.println(2);
         Connection conn = connCheck();
@@ -37,7 +37,7 @@ public class ManageCardDAO {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
 
         while (resultSet.next()) {
@@ -53,8 +53,8 @@ public class ManageCardDAO {
             boolean foil = resultSet.getBoolean(9);
             boolean alterato = resultSet.getBoolean(10);
             boolean playset = resultSet.getBoolean(11);
-            boolean first_edition = resultSet.getBoolean(12);
-            boolean reverse_holo = resultSet.getBoolean(13);
+            boolean firstedition = resultSet.getBoolean(12);
+            boolean reverseholo = resultSet.getBoolean(13);
 
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -75,22 +75,22 @@ public class ManageCardDAO {
                 stringBuilder.append("Ps");
                 stringBuilder.append(", ");
             }
-            if (first_edition) {
+            if (firstedition) {
                 stringBuilder.append("Fe");
                 stringBuilder.append(", ");
             }
-            if (reverse_holo) {
+            if (reverseholo) {
                 stringBuilder.append("Rh");
                 stringBuilder.append(", ");
             }
 
             String result = stringBuilder.toString();
 
-            Cards.add(new CopiaCard(cond, price, nome, result, lang, v, nset, q));
+            copiaCards.add(new CopiaCard(cond, price, nome, result, lang, v, nset, q));
 
 
         }
 
-        return Cards;
+        return copiaCards;
     }
 }

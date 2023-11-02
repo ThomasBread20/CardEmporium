@@ -13,10 +13,10 @@ import java.sql.*;
 
 public class SearchCardDao {
 
-    private static final SearchCardDao instance = new SearchCardDao();
 
 
-    boolean result;
+
+
 
     PreparedStatement statement = null;
     ResultSet resultSet = null;
@@ -29,7 +29,7 @@ public class SearchCardDao {
     }
     public ObservableList<CopiaCard> getCard(String Name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
-        ObservableList<CopiaCard> Cards = FXCollections.observableArrayList();
+        ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
 
 
 
@@ -37,7 +37,7 @@ public class SearchCardDao {
         Connection conn = connCheck();
 
 
-        String cardName = Name;
+
 
         String sql = "CALL `SearchCard`(?)";
 
@@ -76,8 +76,8 @@ public class SearchCardDao {
                 boolean foil = resultSet.getBoolean("foil");
                 boolean alterato = resultSet.getBoolean("alterato");
                 boolean playset = resultSet.getBoolean("playset");
-                boolean first_edition = resultSet.getBoolean("first_edition");
-                boolean reverse_holo = resultSet.getBoolean("reverse_holo");
+                boolean firstedition = resultSet.getBoolean("first_edition");
+                boolean reverseholo = resultSet.getBoolean("reverse_holo");
                 boolean venduto = resultSet.getBoolean("venduto");
 
 
@@ -99,11 +99,11 @@ public class SearchCardDao {
                     stringBuilder.append("Ps");
                     stringBuilder.append(", ");
                 }
-                if (first_edition){
+                if (firstedition){
                     stringBuilder.append("Fe");
                     stringBuilder.append(", ");
                 }
-                if (reverse_holo){
+                if (reverseholo){
                     stringBuilder.append("Rh");
                     stringBuilder.append(", ");
                 }
@@ -117,11 +117,11 @@ public class SearchCardDao {
 
 
 
-                Cards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello,result, venduto ));
+                copiaCards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello,result, venduto ));
 
 
             }
-            return Cards;
+            return copiaCards;
         }
 
     }

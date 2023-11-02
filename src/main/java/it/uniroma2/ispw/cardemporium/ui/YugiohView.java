@@ -31,11 +31,11 @@ import java.util.ResourceBundle;
 
 public class YugiohView implements Initializable {
     DataSingleton info = DataSingleton.getInstance();
-    private String[]language={"Italian","French","German","English"};
+    private final String[]language={"Italian","French","German","English"};
     @FXML
     private ChoiceBox<String> choiceOne;
 
-    private String[]conditions={"Near mint","Excellent","Good","Light played","Poor"};
+    private  final String[]conditions={"Near mint","Excellent","Good","Light played","Poor"};
     @FXML
     private ChoiceBox<String> choiceTwo;
     @FXML
@@ -132,7 +132,7 @@ public class YugiohView implements Initializable {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
     }
         public void getQuantitiy(ActionEvent actionEvent) {
@@ -201,16 +201,11 @@ public class YugiohView implements Initializable {
         String set=set_name.getCellObservableValue(0).getValue();
         ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanY, (String) verify_Lan());
-       // ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         try {
-            cardInfoBean.InsertCardY(actionEvent);
+            cardInfoBean.InsertCardY();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage | Exceptionquantity e) {
-            throw new RuntimeException(e);
+        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage | Exceptionquantity e) {
+            e.getCause();
         }
 
 

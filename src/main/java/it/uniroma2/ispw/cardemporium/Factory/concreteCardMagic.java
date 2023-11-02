@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.Factory;
 
-import it.uniroma2.ispw.cardemporium.ui.magicView;
+
 
 public class concreteCardMagic implements CardBase{
     boolean altered;

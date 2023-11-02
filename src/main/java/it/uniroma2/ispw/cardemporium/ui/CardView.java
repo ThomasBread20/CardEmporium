@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 
 
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanG;
+
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
@@ -94,10 +94,10 @@ public class CardView {
 
 
 
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
+            Carrelloview carrelloview = page.switchPageData1("Schermata_Carrello", event);
 
 
-            Carrelloview.modifytable(cards);
+            carrelloview.modifytable(cards);
 
 
         }catch (ExceptionCardNotExist e)
@@ -116,7 +116,7 @@ public class CardView {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
 
     }
@@ -145,8 +145,8 @@ public class CardView {
 
 
 
-           /*SwitchPage page = SwitchPage.getInstance();
-           page.switchPage("Schermata_Carta", event);*/
+
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_Carta.fxml"));
             Parent viewRegister = loader.load();
@@ -234,10 +234,7 @@ public class CardView {
 
     }
 
-    @FXML
-    void tablelist(ActionEvent event) {
 
-    }
     public void initData1(String name, String gioco1) {
 
 
@@ -295,14 +292,10 @@ public class CardView {
 
 
             }catch(ExceptionDBerror e){
-                System.out.printf("errore db");
+                System.out.println("errore db");
 
-            } catch (ExceptionCardNotExist e) {
-                throw new RuntimeException(e);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            } catch (ExceptionCardNotExist | SQLException | IOException e) {
+                e.getCause();
             }
 
         }

@@ -20,17 +20,19 @@ import java.sql.SQLException;
 
 public class ExposeController {
     private CardBase card;
+    String ex="no cards";
+    static String ce="Card Emporium";
     public ExposeController(int type){
         Factory factory=new Factory();
         try {
             this.card=factory.createCard(type);
         } catch (CardGameException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
     
-    public static ObservableList<Card> SearchAllCard(String name, int version, String game_name, String set_name) throws ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
+    public static ObservableList<Card> SearchAllCard(String name, int version, String game_name, String set_name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         SearchAllCardDAO src = new SearchAllCardDAO();
 
@@ -44,7 +46,7 @@ public class ExposeController {
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(quan<1){
-            throw new Exceptionquantity("no cards");
+            throw new Exceptionquantity(ex.toString());
         }
         try {
 
@@ -53,26 +55,26 @@ public class ExposeController {
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("CardEmporium");
-                alert.setHeaderText("ERROR");
+                alert.setTitle(ce);
+                alert.setHeaderText("ERROR numero 1");
             }
         } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 1.1");
         }
         return card;
     }
-    public static String getConcreteGame(String nome_gioco) throws CardGameException {
+    public static String getConcreteGame(String nome_gioco) {
         ExposeController exposeController = null;
-        if(nome_gioco=="Yu-gi-oh"){
+        if(nome_gioco.equals("Yu-gi-oh")){
              exposeController=new ExposeController(1);
 
             
         }
-        else if(nome_gioco=="Pokemon"){
+        else if(nome_gioco.equals("Pokemon")){
              exposeController=new ExposeController(2);
-        } else if (nome_gioco=="DragonBall") {
+        } else if (nome_gioco.equals("DragonBall")) {
             exposeController=new ExposeController(3);
-        } else if (nome_gioco=="Magic") {
+        } else if (nome_gioco.equals("Magic")) {
              exposeController=new ExposeController(4);
         }
     return exposeController.card.useCard();
@@ -84,7 +86,7 @@ public class ExposeController {
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(quan<1){
-            throw new Exceptionquantity("no cards");
+            throw new Exceptionquantity(ex.toString());
         }
         try {
 
@@ -92,11 +94,11 @@ public class ExposeController {
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("CardEmporium");
-                alert.setHeaderText("ERROR");
+                alert.setTitle(ce);
+                alert.setHeaderText("ERROR numero 2");
             }
         } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 2.1");
         }
         return card;
     }
@@ -106,7 +108,7 @@ public class ExposeController {
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(quan<1){
-            throw new Exceptionquantity("no cards");
+            throw new Exceptionquantity(ex.toString());
         }
         try {
 
@@ -114,11 +116,11 @@ public class ExposeController {
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (result != true) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("CardEmporium");
-                alert.setHeaderText("ERROR");
+                alert.setTitle(ce);
+                alert.setHeaderText("ERROR numero 3");
             }
         } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 3.1");
         }
         return card;
     }
@@ -127,7 +129,7 @@ public class ExposeController {
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(quan<1){
-            throw new Exceptionquantity("no cards");
+            throw new Exceptionquantity(ex.toString());
         }
         try {
 

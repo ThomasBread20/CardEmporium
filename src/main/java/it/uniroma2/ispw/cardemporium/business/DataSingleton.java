@@ -12,7 +12,7 @@ public class DataSingleton {
     private boolean isBanned;
     private String role;
 
-    private int ID;
+    private int userID;
 
     private static final DataSingleton instance = new DataSingleton();
 
@@ -20,19 +20,19 @@ public class DataSingleton {
         return instance;
     }
 
-    public void users(String pwd, String username, String name, String surname, Date data, boolean isBanned, int ID) {
+    public void users(String pwd, String username, String name, String surname, Date data, boolean isBanned, int userID) {
         this.pwd = pwd;
         this.username = username;
         this.name = name;
         this.surname = surname;
         this.data = data;
         this.isBanned = isBanned;
-        this.ID = ID;
+        this.userID = userID;
     }
 
 
     public Integer getID() {
-        return ID;
+        return userID;
     }
     public String getPwd() {
         return pwd;

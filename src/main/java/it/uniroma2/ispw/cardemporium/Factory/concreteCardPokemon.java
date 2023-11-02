@@ -1,13 +1,13 @@
 package it.uniroma2.ispw.cardemporium.Factory;
 
-import it.uniroma2.ispw.cardemporium.ui.pokemonView;
+
 
 public class concreteCardPokemon implements CardBase{
     boolean altered;
     boolean signed;
-    boolean first_edition;
+    boolean firstedition;
     boolean playset;
-    boolean reverse_holo;
+    boolean reverseholo;
 
     @Override
     public String  useCard() {

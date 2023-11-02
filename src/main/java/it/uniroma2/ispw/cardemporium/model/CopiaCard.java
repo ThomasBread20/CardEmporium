@@ -85,9 +85,7 @@ public class CopiaCard {
 
     private boolean venduto;
 
-    public boolean isvenduto(){
-        return venduto;
-    }
+
 
     public CopiaCard(String Condizione1, double Prezzo, String Utentevenditore, int CartasingolaID, int CartaID, String Nomecarta, String NomeGioco, String Lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto,int quantity){
         this.condizione = Condizione1;

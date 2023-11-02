@@ -13,19 +13,23 @@ import java.util.Random;
 
 public class RegisterController {
 
+
     private RegisterController() throws IllegalStateException {
         throw new IllegalStateException("Utility class");
     }
 
 
-    public static void insertUserDao(String username, String passw, String name, java.sql.Date date, String surname ) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
-        Random random = new Random();
+    public static void insertUserDao(String username, String passw, String name, java.sql.Date date, String surname) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
 
-        int rand = random.nextInt();
+
+        Random random=new Random();
 
         DatabaseLoReFacade register = new DatabaseLoReFacade();
 
-        //  DatabaseLoReFacade register = new DatabaseLoReFacade();
+        int rand = random.nextInt();
+
+
+
 
         if (rand % 2 == 0) {
 
@@ -35,7 +39,7 @@ public class RegisterController {
 
         }
 
-        //register.Register(username, passw, name, date, surname);
+
     }
 }
 

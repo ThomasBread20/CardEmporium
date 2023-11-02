@@ -87,7 +87,7 @@ public class CopiaCardCarrello {
         this.cartaID = cartaid;
         this.extra = extra;
 
-    };
+    }
 
     public double getPrezzo() {
         return prezzo;

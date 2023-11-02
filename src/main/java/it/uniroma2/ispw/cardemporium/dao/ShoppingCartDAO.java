@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanG;
-import it.uniroma2.ispw.cardemporium.controller.ExtraController;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 
 public class ShoppingCartDAO {
 
-    boolean result;
+
 
     PreparedStatement statement = null;
     ResultSet resultSet = null;

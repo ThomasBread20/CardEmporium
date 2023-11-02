@@ -89,6 +89,6 @@ public class DBFunc {
         }
         return Carte;
     }
-    public static void Expose_dao(int q,String c,double price,int v,String card){}
+
 
 }

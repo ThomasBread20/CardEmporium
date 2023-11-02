@@ -133,7 +133,7 @@ public class dgView implements Initializable {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
     }
     public void getQuantitiy(ActionEvent actionEvent) {
@@ -206,14 +206,10 @@ public class dgView implements Initializable {
 
         try {
 
-            cardInfoBean.InsertCardDB(actionEvent);
+            cardInfoBean.InsertCardDB();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage | Exceptionquantity e) {
-            throw new RuntimeException(e);
+        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage | Exceptionquantity e) {
+            e.getCause();
         }
 
 

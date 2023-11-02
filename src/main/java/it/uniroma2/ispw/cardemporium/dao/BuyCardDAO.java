@@ -1,13 +1,8 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.business.DBconnection;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
-import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

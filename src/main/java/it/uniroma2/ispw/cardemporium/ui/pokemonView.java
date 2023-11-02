@@ -135,7 +135,7 @@ public class pokemonView implements Initializable {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
     }
     public void getQuantitiy(ActionEvent actionEvent) {
@@ -206,18 +206,11 @@ public class pokemonView implements Initializable {
         String set=set_name.getCellObservableValue(0).getValue();
         ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanP, (String) verify_Lan());
-        //ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
         try {
-            cardInfoBean.InsertCardP(actionEvent);
+            cardInfoBean.InsertCardP();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage e) {
-            throw new RuntimeException(e);
-        } catch (Exceptionquantity e) {
-            throw new RuntimeException(e);
+        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage | Exceptionquantity e) {
+            e.getCause();
         }
 
 

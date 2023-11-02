@@ -111,24 +111,18 @@ public Object verify_set() {
 
     @FXML
     void Continue(ActionEvent event) throws ExceptionDBerror, CardGameException, IOException {
-        SwitchPage page = SwitchPage.getInstance();
+
         String game =ExposeController.getConcreteGame((String) verify_game());
         CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(),(String) verify_set());
 
-        //CardBean cb = new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
         try {
-            //ObservableList<Card> cards =  ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
-            ObservableList<Card> cards=cardBean.showCard(event);
-            //Object switchpage = page.switchPageseller(game, event);
+            ObservableList<Card> cards=cardBean.showCard(event); //da cambiare valore di ritorno
 
 
-            /*
-             cb.showCard(event);
-             ObservableList<Card>card=ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
-             Seller3view seller3view= SwitchPage.switchPageseller("venditore3",event);
-             seller3view.populate_table(card);*/
+
+
         } catch (ExceptionSwitchpage e) {
-            throw new RuntimeException(e);
+            e.getCause();
         }
 
     }
@@ -197,9 +191,9 @@ public Object verify_set() {
     @FXML
     private TextField setTF;
 
-    public String[]games={"Yu-gi-oh","Pokemon","Magic","Dragonball"};
-    public Integer[]v={1,2,3};
-    public String[]set={
+    public final String[]games={"Yu-gi-oh","Pokemon","Magic","Dragonball"};
+    public final Integer[]v={1,2,3};
+    public final String[]set={
             "draghi della leggenda","battaglie della leggenda","fantasmi dal passato","sopravvissuti selvaggi","incredibili difensori","tempesta argentata","lucentezza siderale"
     };
 
@@ -243,7 +237,7 @@ public Object verify_set() {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
 
     }

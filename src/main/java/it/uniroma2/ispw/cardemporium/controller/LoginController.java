@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 
 import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
-import it.uniroma2.ispw.cardemporium.dao.LoginDAO;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
 import it.uniroma2.ispw.cardemporium.ui.Carrelloview;
@@ -43,7 +43,7 @@ public class LoginController
     }
 
     public static void createShoppingCart(){
-        Carrelloview Carrell = new Carrelloview();
+        Carrelloview carrelloview = new Carrelloview();
     }
 
 

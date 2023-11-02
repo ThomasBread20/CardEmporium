@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class BuyCardApplicativo {
+ public class BuyCardApplicativo {
 
 
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
@@ -24,7 +24,7 @@ public class BuyCardApplicativo {
             return cards.searchCard(name);
 
         }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE nuumero 1");
         }
 
     }
@@ -39,7 +39,7 @@ public class BuyCardApplicativo {
 
 
         }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 2");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -51,7 +51,7 @@ public class BuyCardApplicativo {
             return cards.getCard(id);
 
         }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 3");
         }
 
     }
@@ -66,7 +66,7 @@ public class BuyCardApplicativo {
 
 
         }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 4");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -77,13 +77,13 @@ public class BuyCardApplicativo {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
-            String nome = DataSingleton.getInstance().getUsername();
+
             cards.detCard(ID);
 
 
 
         }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE");
+            throw new ExceptionDBerror("ERRORE numero 5");
         }
     }
 
@@ -112,7 +112,7 @@ public class BuyCardApplicativo {
 
        } catch (ExceptionDBerror e) {
            throw new RuntimeException(e);
-       } catch (ExceptionSwitchpage e) {
+       } catch (ExceptionSwitchpage e ) {
            throw new RuntimeException(e);
        } catch (IOException e) {
            throw new RuntimeException(e);

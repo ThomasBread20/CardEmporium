@@ -44,9 +44,9 @@ while (i++<quan) {
         statement.setBoolean(9, al);
         statement.setBoolean(10, fed);
 
-        ResultSet rs = statement.executeQuery();
+        statement.executeQuery();
     } catch (SQLException e) {
-        throw new RuntimeException(e);
+        e.getErrorCode();
     }
 }
 
@@ -75,9 +75,9 @@ while(i++<quan) {
         statement.setBoolean(10, foil);
         statement.setBoolean(11, ps);
 
-        ResultSet rs = statement.executeQuery();
+         statement.executeQuery();
     } catch (SQLException e) {
-        throw new RuntimeException(e);
+        e.getErrorCode();
     }
 }
 
@@ -105,9 +105,9 @@ while(i++<quan) {
                 statement.setBoolean(9, al);
                 statement.setBoolean(10, foil);
 
-                ResultSet rs = statement.executeQuery();
+                statement.executeQuery();
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.getErrorCode();
             }
         }
         return true;
@@ -139,9 +139,9 @@ while (i++<quan) {
         statement.setBoolean(11, rev);
         statement.setBoolean(12, ps);
 
-        ResultSet rs = statement.executeQuery();
+         statement.executeQuery();
     } catch (SQLException e) {
-        throw new RuntimeException(e);
+        e.getErrorCode();
     }
 }
 

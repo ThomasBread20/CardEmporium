@@ -123,20 +123,12 @@ public class ManageCardsView {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
 
     }
 
-/*
-    public void GotoSell(ActionEvent actionEvent) throws ExceptionSwitchpage {
-        try {
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("schermata_venditore1", actionEvent);
-        } catch (ExceptionSwitchpage | IOException e) {
-            throw new ExceptionSwitchpage("switch page schermata seller");
-        }
-    }*/
+
     public void modify_table(ObservableList<CopiaCard> copiaCards){
         name.setCellValueFactory(new PropertyValueFactory<>("nomeCarta"));
         lan.setCellValueFactory(new PropertyValueFactory<>("lingua"));

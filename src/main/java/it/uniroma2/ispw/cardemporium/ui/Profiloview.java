@@ -97,7 +97,7 @@ public class Profiloview {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
 
     }
@@ -122,8 +122,7 @@ public class Profiloview {
 
 
 
-           /*SwitchPage page = SwitchPage.getInstance();
-           page.switchPage("Schermata_Carta", event);*/
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_Carta.fxml"));
             Parent viewRegister = loader.load();

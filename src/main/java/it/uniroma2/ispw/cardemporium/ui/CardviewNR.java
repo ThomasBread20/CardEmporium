@@ -78,8 +78,7 @@ public class CardviewNR {
 
 
 
-           /*SwitchPage page = SwitchPage.getInstance();
-           page.switchPage("Schermata_Carta", event);*/
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_CartaNR.fxml"));
             Parent viewRegister = loader.load();

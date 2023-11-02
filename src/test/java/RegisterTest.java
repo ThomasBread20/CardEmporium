@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-public class RegisterTest {
+ class RegisterTest {
     //GUIDATO SIMONE
     RegisterBean registerBean=new RegisterBean();
     @Test
-    public void regTest() throws SQLException, ExceptionDBerror {
+     void regTest() throws SQLException, ExceptionDBerror {
         registerBean.setNameBean("test");
         registerBean.setCognomeBean("test");
         registerBean.setDateBean(LocalDate.parse("2000-11-06"));

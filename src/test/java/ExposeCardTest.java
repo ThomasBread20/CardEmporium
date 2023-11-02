@@ -1,19 +1,18 @@
-import it.uniroma2.ispw.cardemporium.bean.CardBean;
+
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
-import javafx.event.ActionEvent;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class ExposeCardTest {
+ class ExposeCardTest {
 
-    //ExposeController exposeController=new ExposeController();
 //GUIDATO SIMONE
     Float price= 1.1F;
     int quan=0;
@@ -27,7 +26,7 @@ public class ExposeCardTest {
     String set="draghi della leggenda";
     CopiaCard card;
     @Test
-    public void  searchTest() throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void  searchTest() throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
 
         try {
             ExposeController.ExposeOnMarketY(price,quan,lan,cond,id,nome,v,gioco,extraBeanY,set);

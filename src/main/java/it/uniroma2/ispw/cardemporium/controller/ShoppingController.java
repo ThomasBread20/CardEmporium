@@ -50,12 +50,10 @@ public class ShoppingController {
         }
 
 
-        catch (ExceptionDBerror  e) {
+        catch (ExceptionDBerror | SQLException e) {
             throw new ExceptionDBerror("value");
 
 
-        } catch (SQLException e) {
-            throw new ExceptionDBerror("value");
         }
     }
 }

@@ -133,7 +133,7 @@ public class magicView implements Initializable {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
     }
     public void getQuantitiy(ActionEvent actionEvent) {
@@ -203,16 +203,11 @@ public class magicView implements Initializable {
         String set=set_name.getCellObservableValue(0).getValue();
         ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
         CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanM, (String) verify_Lan());
-       // ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
         try {
-            cardInfoBean.InsertCardM(actionEvent);
+            cardInfoBean.InsertCardM();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage e) {
-            throw new RuntimeException(e);
+        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
+            e.getCause();
         }
 
 

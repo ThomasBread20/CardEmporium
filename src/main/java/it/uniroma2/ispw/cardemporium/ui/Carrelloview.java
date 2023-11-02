@@ -227,12 +227,10 @@ public class Carrelloview {
 
 
 
-            }catch(ExceptionDBerror e){
-                System.out.printf("errore db");
+            }catch(ExceptionDBerror | SQLException e){
+                System.out.println("errore db");
             } catch (ExceptionCardNotExist e) {
                 throw new ExceptionCardNotExist("erroreswitchapgee");
-            } catch (SQLException e) {
-                System.out.printf("errore db");;
             }
 
         }
@@ -258,15 +256,11 @@ public class Carrelloview {
                 n++;
             }
             ShoppingController.refreshCartView(event);
-        }catch (ExceptionDBerror e){
+        }catch (ExceptionDBerror | SQLException | IOException e){
             throw new ExceptionDBerror("ERRORE");
         } catch (ExceptionCardNotExist e) {
             throw new ExceptionCardNotExist("la carta non esiste");
-        } catch (SQLException e) {
-            throw new ExceptionDBerror("ERRORE");
-        } catch (IOException e) {
-             throw new ExceptionDBerror("ERRORE");
-        } catch (ExceptionSwitchpage e) {
+        }   catch (ExceptionSwitchpage e) {
             throw new ExceptionSwitchpage("erroreswitchpage");
         }
     }

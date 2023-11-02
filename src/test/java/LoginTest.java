@@ -1,21 +1,19 @@
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
 import it.uniroma2.ispw.cardemporium.controller.LoginController;
-import it.uniroma2.ispw.cardemporium.dao.LoginDAO;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import it.uniroma2.ispw.cardemporium.users.Users;
-import javafx.event.ActionEvent;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.sql.Connection;
 
-import static it.uniroma2.ispw.cardemporium.business.DBFunc.connCheck;
 
-public class LoginTest {
+class LoginTest {
 
 //GUIDATO SIMONE
     LoginBean loginBean=new LoginBean();

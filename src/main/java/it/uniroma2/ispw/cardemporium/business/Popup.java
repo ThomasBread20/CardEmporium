@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.business;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.Card;
+
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -24,7 +24,7 @@ public class Popup {
                 return "no";
             }
         } catch (Exception e) {
-            throw new ExceptionSwitchpage("Popup");
+            throw new ExceptionSwitchpage("Popup failed");
         }
 
 
@@ -69,7 +69,7 @@ public class Popup {
                 return "no";
             }
         } catch (Exception e) {
-            throw new ExceptionSwitchpage("Popup");
+            throw new ExceptionSwitchpage("Popup failed");
         }
     }
 
