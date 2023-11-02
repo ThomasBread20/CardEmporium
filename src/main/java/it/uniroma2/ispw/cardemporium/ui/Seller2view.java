@@ -20,8 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
+
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -111,7 +110,7 @@ public Object verify_set() {
 
 
     @FXML
-    void Continue(ActionEvent event) throws ExceptionDBerror, ExceptionCardNotExist, SQLException, ExceptionUserAlreadyExist, CardGameException, IOException {
+    void Continue(ActionEvent event) throws ExceptionDBerror, CardGameException, IOException {
         SwitchPage page = SwitchPage.getInstance();
         String game =ExposeController.getConcreteGame((String) verify_game());
         CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(),(String) verify_set());
@@ -122,34 +121,12 @@ public Object verify_set() {
             ObservableList<Card> cards=cardBean.showCard(event);
             //Object switchpage = page.switchPageseller(game, event);
 
-            if(game=="yugioh") {
-                YugiohView yu = (YugiohView) page.switchPageseller(game, event);
-                yu.populate_table(cards);
-            } else if (game=="poke") {
-                pokemonView pv=(pokemonView)page.switchPageseller(game,event);
-                pv.populate_table(cards);
-            } else if (game=="dg") {
-                dgView dgv=(dgView)page.switchPageseller(game,event);
-                dgv.populate_table(cards);
-            } else if (game=="magic") {
-                magicView mv=(magicView) page.switchPageseller(game,event);
-                mv.populate_table(cards);
-
-            }
-
-           // .populate_table(cards);
-
 
             /*
              cb.showCard(event);
              ObservableList<Card>card=ExposeController.SearchAllCard(nameTF.getText(), (Integer) verify_version(), (String) verify_game(), (String) verify_set());
              Seller3view seller3view= SwitchPage.switchPageseller("venditore3",event);
              seller3view.populate_table(card);*/
-        } catch (ExceptionCardNotExist e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notification!");
-            alert.setHeaderText("This Card do not exist!");
-            alert.showAndWait();
         } catch (ExceptionSwitchpage e) {
             throw new RuntimeException(e);
         }

@@ -61,7 +61,7 @@ public class CardBean {
         this.game_bean = game_bean;
     }
 
-    public ObservableList<Card> showCard(ActionEvent event) throws ExceptionCardNotExist, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    public ObservableList<Card> showCard(ActionEvent event) throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
 
         SwitchPage page = SwitchPage.getInstance();
         try {
@@ -83,11 +83,13 @@ public class CardBean {
 
             }
             return obcard;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (ExceptionUserAlreadyExist e) {
+        } catch (ExceptionUserAlreadyExist | ExceptionCardNotExist e) {
             throw new RuntimeException(e);
         }
+
 
     }
 }

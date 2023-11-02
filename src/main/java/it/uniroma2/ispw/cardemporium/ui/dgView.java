@@ -8,6 +8,7 @@ import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
@@ -211,7 +212,7 @@ public class dgView implements Initializable {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (ExceptionSwitchpage e) {
+        } catch (ExceptionSwitchpage | Exceptionquantity e) {
             throw new RuntimeException(e);
         }
 

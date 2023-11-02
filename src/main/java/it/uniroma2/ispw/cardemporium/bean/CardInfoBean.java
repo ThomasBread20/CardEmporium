@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.bean;
 
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import javafx.event.ActionEvent;
 
 public class CardInfoBean {
@@ -128,20 +129,20 @@ public class CardInfoBean {
     public void setLanguage(String language) {
         this.language = language;
     }
-    public Boolean InsertCardY(ActionEvent actionEvent) throws ExceptionDBerror {
+    public Boolean InsertCardY(ActionEvent actionEvent) throws ExceptionDBerror, Exceptionquantity {
 
         ExposeController.ExposeOnMarketY(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanY,getSet());
         return true;
     }
-    public Boolean InsertCardP(ActionEvent actionEvent) throws ExceptionDBerror{
+    public Boolean InsertCardP(ActionEvent actionEvent) throws ExceptionDBerror, Exceptionquantity {
         ExposeController.ExposeOnMarketP(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanP,getSet());
         return true;
     }
-    public Boolean InsertCardDB(ActionEvent actionEvent) throws ExceptionDBerror {
+    public Boolean InsertCardDB(ActionEvent actionEvent) throws ExceptionDBerror, Exceptionquantity {
         ExposeController.ExposeOnMarketDB(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanDG,getSet());
         return true;
     }
-    public Boolean InsertCardM(ActionEvent actionEvent ) throws ExceptionDBerror {
+    public Boolean InsertCardM(ActionEvent actionEvent ) throws ExceptionDBerror, Exceptionquantity {
         ExposeController.ExposeOnMarketM(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanM,getSet());
         return true;
     }

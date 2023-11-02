@@ -28,7 +28,7 @@ public class SearchAllCardDAO {
 
     }
 
-    public ObservableList<Card> getAllCard(String Name, int ver, String gioco, String set) throws ExceptionUserAlreadyExist, SQLException, ExceptionCardNotExist, ExceptionDBerror {
+    public ObservableList<Card> getAllCard(String Name, int ver, String gioco, String set) throws  SQLException, ExceptionCardNotExist, ExceptionDBerror {
 
         Connection conn = connCheck();
 
@@ -47,7 +47,7 @@ public class SearchAllCardDAO {
             resultSet = statement.executeQuery();
         } catch (SQLException e) {
 
-            throw new ExceptionCardNotExist("");
+            throw new ExceptionDBerror("");
         }
 
         if (!resultSet.next()) {

@@ -9,10 +9,7 @@ import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.ExposeDAO;
 import it.uniroma2.ispw.cardemporium.dao.SearchAllCardDAO;
-import it.uniroma2.ispw.cardemporium.exception.CardGameException;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
+import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import javafx.collections.ObservableList;
@@ -42,10 +39,13 @@ public class ExposeController {
 
     }
 
-    public static CopiaCard ExposeOnMarketY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanY extraBeanY, String set) throws ExceptionDBerror {
+    public static CopiaCard ExposeOnMarketY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanY extraBeanY, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
+        if(quan<1){
+            throw new Exceptionquantity("no cards");
+        }
         try {
 
             Boolean result = ex.ExposeCardY(price, quan, lan, cond, id, name, versione,extraBeanY, info.getID());
@@ -78,11 +78,14 @@ public class ExposeController {
     return exposeController.card.useCard();
 
     }
-    public static CopiaCard ExposeOnMarketM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanM extraBeanM, String set) throws ExceptionDBerror {
+    public static CopiaCard ExposeOnMarketM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanM extraBeanM, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
 
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
+        if(quan<1){
+            throw new Exceptionquantity("no cards");
+        }
         try {
 
             Boolean result = ex.ExposeCardM(price, quan, lan, cond, id, name, versione,extraBeanM, info.getID());
@@ -98,10 +101,13 @@ public class ExposeController {
         return card;
     }
 
-    public static CopiaCard ExposeOnMarketDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanDG extraBeanDG, String set) throws ExceptionDBerror {
+    public static CopiaCard ExposeOnMarketDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanDG extraBeanDG, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
+        if(quan<1){
+            throw new Exceptionquantity("no cards");
+        }
         try {
 
             Boolean result = ex.ExposeCardDB(price, quan, lan, cond, id, name, versione,extraBeanDG, info.getID());
@@ -116,10 +122,13 @@ public class ExposeController {
         }
         return card;
     }
-    public static CopiaCard ExposeOnMarketP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanP extraBeanP, String set) throws ExceptionDBerror {
+    public static CopiaCard ExposeOnMarketP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanP extraBeanP, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
+        if(quan<1){
+            throw new Exceptionquantity("no cards");
+        }
         try {
 
             Boolean result = ex.ExposeCardP(price, quan, lan, cond, id, name, versione,extraBeanP, info.getID());
