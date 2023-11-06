@@ -23,7 +23,7 @@ public class ExposeDAO {
 
     }
 
-    public Boolean ExposeCardY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanY extraBeanY, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanY extraBeanY, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
         Boolean sig=extraBeanY.isSigned();
         Boolean al=extraBeanY.isAltered();
@@ -52,7 +52,7 @@ while (i++<quan) {
 
         return true;
     }
-    public Boolean ExposeCardM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanM extraBeanM, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanM extraBeanM, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
         Boolean sig=extraBeanM.isSigned();
         Boolean al=extraBeanM.isAltered();
@@ -83,7 +83,7 @@ while(i++<quan) {
 
         return true;
     }
-    public Boolean ExposeCardDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanDG extraBeanDG, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanDG extraBeanDG, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
         Boolean sig=extraBeanDG.isSigned();
         Boolean al=extraBeanDG.isAltered();
@@ -112,7 +112,7 @@ while(i++<quan) {
         }
         return true;
     }
-    public Boolean ExposeCardP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanP extraBeanP,Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanP extraBeanP, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
         Boolean sig=extraBeanP.isSigned();
         Boolean al=extraBeanP.isAltered();

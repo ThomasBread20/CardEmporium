@@ -28,7 +28,7 @@
             <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acquisti" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrello" />
-            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#Scarrello" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="LogoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
@@ -53,7 +53,7 @@
             </Text>
          </children>
       </Pane>
-      <TableView fx:id="TableList" layoutX="25.0" layoutY="116.0" onMouseClicked="#Removecard" onSort="#tablelist" prefHeight="236.0" prefWidth="550.0">
+      <TableView fx:id="TableList" layoutX="25.0" layoutY="116.0" onMouseClicked="#removecard" onSort="#tablelist" prefHeight="236.0" prefWidth="550.0">
          <columns>
             <TableColumn fx:id="id" prefWidth="31.0" text="ID" />
             <TableColumn fx:id="nome" prefWidth="234.0" text="nome" />

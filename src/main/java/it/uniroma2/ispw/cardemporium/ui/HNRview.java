@@ -80,7 +80,7 @@ public class HNRview {
         }catch (ExceptionCardNotExist e)
         {
 
-            Popup.CardNoExist();
+            Popup.cardNoExist();
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");

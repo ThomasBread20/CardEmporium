@@ -6,7 +6,6 @@ import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
-import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -72,7 +71,7 @@ public class Seller2view  implements Initializable{
 
     @FXML
     private Button profile;
-    public Object verify_game(){
+    public Object verifyGame(){
         Object str;
         Object r=choiseGame.getValue();
         if(r!=null){
@@ -83,7 +82,7 @@ public class Seller2view  implements Initializable{
         return str;
 
 }
-public Object verify_version(){
+public Object verifyVersion(){
     Object n;
     Integer version=choiceVersion.getValue();
     if(version!=null){
@@ -94,7 +93,7 @@ public Object verify_version(){
     }
     return n;
 }
-public Object verify_set() {
+public Object verifySet() {
     Object str;
     Object r = choiceSet.getValue();
     if (r != null) {
@@ -112,11 +111,11 @@ public Object verify_set() {
     @FXML
     void Continue(ActionEvent event) throws ExceptionDBerror, CardGameException, IOException {
 
-        String game =ExposeController.getConcreteGame((String) verify_game());
-        CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verify_version(), (String) verify_game(),(String) verify_set());
+        ExposeController.getConcreteGame((String) verifyGame());
+        CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verifyVersion(), (String) verifyGame(),(String) verifySet());
 
         try {
-            ObservableList<Card> cards=cardBean.showCard(event); //da cambiare valore di ritorno
+            cardBean.showCard(event); //da cambiare valore di ritorno
 
 
 
@@ -204,9 +203,8 @@ public Object verify_set() {
         choiceSet.getItems().addAll(set);
     }
 
-    public void ShoppingCart(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shoppingCart(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        SwitchPage page = SwitchPage.getInstance();
 
 
         try{
@@ -215,10 +213,10 @@ public Object verify_set() {
 
 
 
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
+            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
 
 
-            Carrelloview.modifytable(cards);
+            carrelloview.modifytable(cards);
 
 
         }catch (ExceptionCardNotExist e)

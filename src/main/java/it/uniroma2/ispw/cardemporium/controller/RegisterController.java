@@ -2,7 +2,6 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 
 
-import it.uniroma2.ispw.cardemporium.FileSystemDB.RegisterFS;
 import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
@@ -33,9 +32,9 @@ public class RegisterController {
 
         if (rand % 2 == 0) {
 
-            register.Register(username, passw, name, date, surname);
+            register.register(username, passw, name, date, surname);
         } else {
-            register.Registerfs(username, passw, name, date, surname);
+            register.registerfs(username, passw, name, date, surname);
 
         }
 

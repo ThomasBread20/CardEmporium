@@ -3,7 +3,7 @@ package it.uniroma2.ispw.cardemporium.bean;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
-import javafx.event.ActionEvent;
+//MANCA DA RAGGRUPPARE I PARAMETRI
 
 public class CardInfoBean {
     private int id;
@@ -13,12 +13,12 @@ public class CardInfoBean {
     private String set;
     private String condition;
 
-    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanDG extraBeanDG, String language) {
+    public CardInfoBean(int id, CardBean cardBean, String condition, Float price, Integer quantity, ExtraBeanDG extraBeanDG, String language) {
         this.id = id;
-        this.nome = nome;
-        this.versione = versione;
-        this.gioco = gioco;
-        this.set = set;
+        this.nome=cardBean.getName();
+        this.versione=cardBean.getVersionbean();
+        this.gioco=cardBean.getGameBean();
+        this.set=cardBean.getSetcardbean();
         this.condition = condition;
         this.price = price;
         this.quantity = quantity;
@@ -26,12 +26,12 @@ public class CardInfoBean {
         this.language = language;
     }
 
-    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanP extraBeanP, String language) {
+    public CardInfoBean(int id, CardBean cardBean, String condition, Float price, Integer quantity, ExtraBeanP extraBeanP, String language) {
         this.id = id;
-        this.nome = nome;
-        this.versione = versione;
-        this.gioco = gioco;
-        this.set = set;
+        this.nome=cardBean.getName();
+        this.versione=cardBean.getVersionbean();
+        this.gioco=cardBean.getGameBean();
+        this.set=cardBean.getSetcardbean();
         this.condition = condition;
         this.price = price;
         this.quantity = quantity;
@@ -39,12 +39,12 @@ public class CardInfoBean {
         this.language = language;
     }
 
-    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanY extraBeanY, String language) {
+    public CardInfoBean(int id, CardBean cardBean, String condition, Float price, Integer quantity, ExtraBeanY extraBeanY, String language) {
         this.id = id;
-        this.nome = nome;
-        this.versione = versione;
-        this.gioco = gioco;
-        this.set = set;
+        this.nome=cardBean.getName();
+        this.versione=cardBean.getVersionbean();
+        this.gioco=cardBean.getGameBean();
+        this.set=cardBean.getSetcardbean();
         this.condition = condition;
         this.price = price;
         this.quantity = quantity;
@@ -55,12 +55,12 @@ public class CardInfoBean {
     private Float price;
     private Integer quantity;
 
-    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, ExtraBeanM extraBeanM, String language) {
+    public CardInfoBean(int id, CardBean cardBean, String condition, Float price, Integer quantity, ExtraBeanM extraBeanM, String language) {
         this.id = id;
-        this.nome = nome;
-        this.versione = versione;
-        this.gioco = gioco;
-        this.set = set;
+        this.nome=cardBean.getName();
+        this.versione=cardBean.getVersionbean();
+        this.gioco=cardBean.getGameBean();
+        this.set=cardBean.getSetcardbean();
         this.condition = condition;
         this.price = price;
         this.quantity = quantity;
@@ -74,12 +74,13 @@ public class CardInfoBean {
     ExtraBeanM extraBeanM;
 
 
-    public CardInfoBean(int id, String nome, Integer versione, String gioco, String set, String condition, Float price, Integer quantity, String language) {
+
+    public CardInfoBean(int id, CardBean cardBean, String condition, Float price, Integer quantity, String language) {
         this.id = id;
-        this.nome = nome;
-        this.versione = versione;
-        this.gioco = gioco;
-        this.set = set;
+        this.nome=cardBean.getName();
+        this.versione=cardBean.getVersionbean();
+        this.gioco=cardBean.getGameBean();
+        this.set=cardBean.getSetcardbean();
         this.condition = condition;
         this.price = price;
         this.quantity = quantity;
@@ -129,21 +130,21 @@ public class CardInfoBean {
     public void setLanguage(String language) {
         this.language = language;
     }
-    public Boolean InsertCardY() throws ExceptionDBerror, Exceptionquantity {
+    public Boolean insertCardY() throws ExceptionDBerror, Exceptionquantity {
 
-        ExposeController.ExposeOnMarketY(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanY,getSet());
+        ExposeController.exposeOnMarketY(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanY,getSet());
         return true;
     }
-    public Boolean InsertCardP() throws ExceptionDBerror, Exceptionquantity {
-        ExposeController.ExposeOnMarketP(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanP,getSet());
+    public Boolean insertCardP() throws ExceptionDBerror, Exceptionquantity {
+        ExposeController.exposeOnMarketP(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanP,getSet());
         return true;
     }
-    public Boolean InsertCardDB() throws ExceptionDBerror, Exceptionquantity {
-        ExposeController.ExposeOnMarketDB(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanDG,getSet());
+    public Boolean insertCardDB() throws ExceptionDBerror, Exceptionquantity {
+        ExposeController.exposeOnMarketDB(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanDG,getSet());
         return true;
     }
-    public Boolean InsertCardM( ) throws ExceptionDBerror, Exceptionquantity {
-        ExposeController.ExposeOnMarketM(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanM,getSet());
+    public Boolean insertCardM( ) throws ExceptionDBerror, Exceptionquantity {
+        ExposeController.exposeOnMarketM(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanM,getSet());
         return true;
     }
 

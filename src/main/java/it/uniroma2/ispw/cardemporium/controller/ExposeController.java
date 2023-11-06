@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
-import it.uniroma2.ispw.cardemporium.Factory.CardBase;
-import it.uniroma2.ispw.cardemporium.Factory.Factory;
+import it.uniroma2.ispw.cardemporium.factory.MyCardBaseInterface;
+import it.uniroma2.ispw.cardemporium.factory.Factory;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanDG;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanM;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanP;
@@ -17,10 +17,10 @@ import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
-
+//DA SISTEMARE
 public class ExposeController {
-    private CardBase card;
-    String ex="no cards";
+    private MyCardBaseInterface card;
+
     static String ce="Card Emporium";
     public ExposeController(int type){
         Factory factory=new Factory();
@@ -32,16 +32,16 @@ public class ExposeController {
 
     }
     
-    public static ObservableList<Card> SearchAllCard(String name, int version, String game_name, String set_name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public static ObservableList<Card> searchAllCard(String name, int version, String gamename, String setname) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         SearchAllCardDAO src = new SearchAllCardDAO();
 
-        return  src.getAllCard(name, version, game_name, set_name);
+        return  src.getAllCard(name, version, gamename, setname);
 
 
     }
 
-    public static CopiaCard ExposeOnMarketY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanY extraBeanY, String set) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanY extraBeanY, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
@@ -50,10 +50,10 @@ public class ExposeController {
         }
         try {
 
-            Boolean result = ex.ExposeCardY(price, quan, lan, cond, id, name, versione,extraBeanY, info.getID());
+            Boolean result = ex.exposeCardY(price, quan, lan, cond, id, name, versione,extraBeanY, info.getID());
             System.out.println(info.getUsername());
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
-            if (result != true) {
+            if (Boolean.FALSE.equals(result) ) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(ce);
                 alert.setHeaderText("ERROR numero 1");
@@ -63,24 +63,25 @@ public class ExposeController {
         }
         return card;
     }
-    public static String getConcreteGame(String nome_gioco) {
+    public static String getConcreteGame(String nomegioco) {
         ExposeController exposeController = null;
-        if(nome_gioco.equals("Yu-gi-oh")){
+        if(nomegioco.equals("Yu-gi-oh")){
              exposeController=new ExposeController(1);
 
             
         }
-        else if(nome_gioco.equals("Pokemon")){
+        else if(nomegioco.equals("Pokemon")){
              exposeController=new ExposeController(2);
-        } else if (nome_gioco.equals("DragonBall")) {
+        } else if (nomegioco.equals("DragonBall")) {
             exposeController=new ExposeController(3);
-        } else if (nome_gioco.equals("Magic")) {
+        } else if (nomegioco.equals("Magic")) {
              exposeController=new ExposeController(4);
         }
-    return exposeController.card.useCard();
+        assert exposeController != null;
+        return exposeController.card.useCard();
 
     }
-    public static CopiaCard ExposeOnMarketM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanM extraBeanM, String set) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanM extraBeanM, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
 
         ExposeDAO ex = new ExposeDAO();
@@ -90,9 +91,9 @@ public class ExposeController {
         }
         try {
 
-            Boolean result = ex.ExposeCardM(price, quan, lan, cond, id, name, versione,extraBeanM, info.getID());
+            Boolean result = ex.exposeCardM(price, quan, lan, cond, id, name, versione,extraBeanM, info.getID());
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
-            if (result != true) {
+            if (Boolean.FALSE.equals(result) ) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(ce);
                 alert.setHeaderText("ERROR numero 2");
@@ -103,7 +104,7 @@ public class ExposeController {
         return card;
     }
 
-    public static CopiaCard ExposeOnMarketDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanDG extraBeanDG, String set) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanDG extraBeanDG, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
@@ -112,9 +113,9 @@ public class ExposeController {
         }
         try {
 
-            Boolean result = ex.ExposeCardDB(price, quan, lan, cond, id, name, versione,extraBeanDG, info.getID());
+            Boolean result = ex.exposeCardDB(price, quan, lan, cond, id, name, versione,extraBeanDG, info.getID());
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
-            if (result != true) {
+            if (Boolean.FALSE.equals(result)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(ce);
                 alert.setHeaderText("ERROR numero 3");
@@ -124,7 +125,7 @@ public class ExposeController {
         }
         return card;
     }
-    public static CopiaCard ExposeOnMarketP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanP extraBeanP, String set) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, String gioco, ExtraBeanP extraBeanP, String set) throws ExceptionDBerror, Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
@@ -133,9 +134,9 @@ public class ExposeController {
         }
         try {
 
-            Boolean result = ex.ExposeCardP(price, quan, lan, cond, id, name, versione,extraBeanP, info.getID());
+            Boolean result = ex.exposeCardP(price, quan, lan, cond, id, name, versione,extraBeanP, info.getID());
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
-            if (result != true) {
+            if (Boolean.FALSE.equals(result)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("CardEmporium");
                 alert.setHeaderText("ERROR");

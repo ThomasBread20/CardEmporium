@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.cardemporium.Factory;
+package it.uniroma2.ispw.cardemporium.factory;
 
 
 
-public class concreteCardMagic implements CardBase{
+public class ConcreteInterfaceMyCardMagic implements MyCardBaseInterface {
     boolean altered;
     boolean signed;
     boolean playset;

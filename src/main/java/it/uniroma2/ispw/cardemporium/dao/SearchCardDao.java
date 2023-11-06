@@ -11,14 +11,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
-public class SearchCardDao {
-
-
-
-
-
-
-    PreparedStatement statement = null;
+public class SearchCardDao { PreparedStatement statement = null;
     ResultSet resultSet = null;
 
 
@@ -27,36 +20,19 @@ public class SearchCardDao {
         return conn.getConn();
 
     }
-    public ObservableList<CopiaCard> getCard(String Name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCard> getCardList(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
-
-
-
-
         Connection conn = connCheck();
-
-
-
 
         String sql = "CALL `SearchCard`(?)";
 
-
-        try {
-
-            statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            statement.setString(1, Name);
-            resultSet = statement.executeQuery();
-        }catch (SQLException e) {
-
-            throw new ExceptionDBerror("");
-        }
+        statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        statement.setString(1, name);
+        resultSet = statement.executeQuery();
 
 
-        if (!resultSet.next()) {
-            throw new ExceptionCardNotExist("Card does not exists");
-        }else {
-            resultSet.beforeFirst();
+
 
             while(resultSet.next())
             {
@@ -124,5 +100,5 @@ public class SearchCardDao {
             return copiaCards;
         }
 
-    }
+
 }

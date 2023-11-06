@@ -72,7 +72,7 @@ public class CardviewNR {
 
 
     @FXML
-    void Search(ActionEvent event) throws SQLException, ExceptionDBerror, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException, ExceptionDBerror, ExceptionSwitchpage {
         try{
             ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
 
@@ -161,7 +161,7 @@ public class CardviewNR {
 
     @FXML
     void tablelist(ActionEvent event) {
-
+        // TODO document why this method is empty
     }
     public void initData1(String name, String gioco1) {
 

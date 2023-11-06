@@ -55,7 +55,6 @@ public class HomeRview {
 
     @FXML
     void Scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
-         SwitchPage page = SwitchPage.getInstance();
 
 
          try{
@@ -64,10 +63,10 @@ public class HomeRview {
 
 
 
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", event);
+            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
 
 
-            Carrelloview.modifytable(cards);
+            carrelloview.modifytable(cards);
 
 
         }catch (ExceptionCardNotExist e)
@@ -113,7 +112,7 @@ public class HomeRview {
        }catch (ExceptionCardNotExist e)
        {
 
-           Popup.CardNoExist();
+           Popup.cardNoExist();
 
        }catch ( IOException e) {
            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");

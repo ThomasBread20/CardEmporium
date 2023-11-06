@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanM;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
@@ -106,7 +107,7 @@ public class magicView implements Initializable {
         LogoutAction.logout(event);
     }
 
-    public void Shopping_Cart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
         SwitchPage page = SwitchPage.getInstance();
 
 
@@ -115,10 +116,10 @@ public class magicView implements Initializable {
             ObservableList<CopiaCardCarrello> cards = BuyCardApplicativo.searchCard1(BuyCardApplicativo.getID());
 
 
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", actionEvent);
+            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", actionEvent);
 
 
-            Carrelloview.modifytable(cards);
+            carrelloview.modifytable(cards);
 
 
         } catch (ExceptionCardNotExist e) {
@@ -153,7 +154,7 @@ public class magicView implements Initializable {
         choiceOne.getItems().addAll(language);
         choiceTwo.getItems().addAll(conditions);
     }
-    public Object verify_Lan() {
+    public Object verifyLan() {
         Object str;
         Object r = choiceOne.getValue();
         if (r != null) {
@@ -163,7 +164,7 @@ public class magicView implements Initializable {
         }
         return str;
     }
-    public Object verify_Con() {
+    public Object verifyCon() {
         Object str;
         Object r = choiceTwo.getValue();
         if (r != null) {
@@ -173,7 +174,7 @@ public class magicView implements Initializable {
         }
         return str;
     }
-    public void populate_table(ObservableList<Card> cards){
+    public void populateTable(ObservableList<Card> cards){
         card_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
         num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
@@ -186,7 +187,7 @@ public class magicView implements Initializable {
         String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
         System.out.println(name);
     }
-    public void Expose(ActionEvent actionEvent) throws Exceptionquantity {
+    public void expose(ActionEvent actionEvent) throws Exceptionquantity {
         boolean si=signed_m.isSelected();
         boolean al=altered_m.isSelected();
         boolean pl=playset_m.isSelected();
@@ -202,9 +203,10 @@ public class magicView implements Initializable {
         String game=game_name.getCellObservableValue(0).getValue();
         String set=set_name.getCellObservableValue(0).getValue();
         ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
-        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanM, (String) verify_Lan());
+        CardBean cardBean=new CardBean(name,ver,game,set);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanM, (String) verifyLan());
         try {
-            cardInfoBean.InsertCardM();
+            cardInfoBean.insertCardM();
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
             e.getCause();

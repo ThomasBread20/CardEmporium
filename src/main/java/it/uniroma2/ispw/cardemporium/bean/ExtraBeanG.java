@@ -26,6 +26,15 @@ public class ExtraBeanG {
         return foil;
     }
 
+    public ExtraBeanG(boolean altered, boolean singed, boolean firstEd, boolean reverseHolo, boolean playset) {
+        this.altered = altered;
+        this.singed = singed;
+        this.firstEd = firstEd;
+        this.reverseHolo = reverseHolo;
+        this.playset = playset;
+    }
+    public ExtraBeanG(){}
+
     public boolean isFirstEd() {
         return firstEd;
     }
@@ -46,5 +55,6 @@ public class ExtraBeanG {
         this.reverseHolo = reverseHolo;
         this.playset = playset;
     }
+
 }
 

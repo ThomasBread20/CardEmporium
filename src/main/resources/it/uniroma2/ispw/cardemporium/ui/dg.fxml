@@ -68,7 +68,7 @@
                   <TableColumn fx:id="game_name" prefWidth="103.20001220703125" text="Game" />
                </columns>
             </TableView>
-            <Button fx:id="Expose_button" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#Expose" style="-fx-background-color: #0e2c9a;" text="EXPOSE" textFill="WHITE">
+            <Button fx:id="Expose_button" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#expose" style="-fx-background-color: #0e2c9a;" text="EXPOSE" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font>

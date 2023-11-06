@@ -1,6 +1,8 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
+import it.uniroma2.ispw.cardemporium.bean.ExtraBeanG;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanP;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
@@ -29,7 +31,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class pokemonView implements Initializable {
+public class PokemonView implements Initializable {
     DataSingleton info = DataSingleton.getInstance();
     private String[]language={"Italian","French","German","English"};
     @FXML
@@ -108,8 +110,7 @@ public class pokemonView implements Initializable {
         LogoutAction.logout(event);
     }
 
-    public void Shopping_Cart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
-        SwitchPage page = SwitchPage.getInstance();
+    public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
         try {
@@ -117,10 +118,10 @@ public class pokemonView implements Initializable {
             ObservableList<CopiaCardCarrello> cards = BuyCardApplicativo.searchCard1(BuyCardApplicativo.getID());
 
 
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", actionEvent);
+            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", actionEvent);
 
 
-            Carrelloview.modifytable(cards);
+            carrelloview.modifytable(cards);
 
 
         } catch (ExceptionCardNotExist e) {
@@ -155,7 +156,7 @@ public class pokemonView implements Initializable {
         choiceOne.getItems().addAll(language);
         choiceTwo.getItems().addAll(conditions);
     }
-    public Object verify_Lan() {
+    public Object verifyLan() {
         Object str;
         Object r = choiceOne.getValue();
         if (r != null) {
@@ -165,7 +166,7 @@ public class pokemonView implements Initializable {
         }
         return str;
     }
-    public Object verify_Con() {
+    public Object verifyCon() {
         Object str;
         Object r = choiceTwo.getValue();
         if (r != null) {
@@ -175,7 +176,7 @@ public class pokemonView implements Initializable {
         }
         return str;
     }
-    public void populate_table(ObservableList<Card> cards){
+    public void populateTable(ObservableList<Card> cards){
         card_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
         num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
@@ -188,7 +189,7 @@ public class pokemonView implements Initializable {
         String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
         System.out.println(name);
     }
-    public void Expose(ActionEvent actionEvent) {
+    public void expose(ActionEvent actionEvent) {
         boolean s=signed_p.isSelected();
         boolean al=altered_p.isSelected();
         boolean fed=fedition_p.isSelected();
@@ -204,10 +205,12 @@ public class pokemonView implements Initializable {
         Integer ver=num_version.getCellObservableValue(0).getValue();
         String game=game_name.getCellObservableValue(0).getValue();
         String set=set_name.getCellObservableValue(0).getValue();
-        ExtraBeanP extraBeanP=new ExtraBeanP(al,id,name,ver,s,fed,pla,rev);
-        CardInfoBean cardInfoBean=new CardInfoBean(id,name,ver,game,set,(String) verify_Con(),prezzo,q,extraBeanP, (String) verify_Lan());
+        ExtraBeanG extraBeanG=new ExtraBeanG(al,s,fed,rev,pla);
+        ExtraBeanP extraBeanP=new ExtraBeanP(id,name,ver,extraBeanG);
+        CardBean cardBean=new CardBean(name,ver,game,set);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanP, (String) verifyLan());
         try {
-            cardInfoBean.InsertCardP();
+            cardInfoBean.insertCardP();
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (ExceptionDBerror | IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();

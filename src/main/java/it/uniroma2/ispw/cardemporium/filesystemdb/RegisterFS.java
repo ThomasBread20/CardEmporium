@@ -1,7 +1,8 @@
-package it.uniroma2.ispw.cardemporium.FileSystemDB;
+package it.uniroma2.ispw.cardemporium.filesystemdb;
 
 import it.uniroma2.ispw.cardemporium.dao.RegisterDAO;
 
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
 import java.io.*;
@@ -17,14 +18,17 @@ public  class RegisterFS implements RegisterDAO {
     int id=0;
     String []users;
     String line;
+
+
     {
         try {
             fileWriterU = new FileWriter("Utenti");
-           fileWriterC =new FileWriter("Credentials");
+            fileWriterC =new FileWriter("Credentials");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public Boolean checkUser(String us){
         String []usernames;
         String l;
@@ -52,7 +56,7 @@ public  class RegisterFS implements RegisterDAO {
     @Override
     public void addUser(String username, String pwd, String name, Date date, String cognome) throws Exception {
         if(!utenti.exists() || !credentials.exists()){
-            throw new Exception("file non esiste");
+            throw new ExceptionDBerror("file non esiste");
         }
         try {
             BufferedReader br = new BufferedReader(new FileReader(utenti));
@@ -72,7 +76,7 @@ public  class RegisterFS implements RegisterDAO {
             e.printStackTrace();
         }
         Boolean i=checkUser(username);
-        if(i==false){
+        if(Boolean.FALSE.equals(i)){
             throw new ExceptionUserAlreadyExist("utente già esistente");
         }
 

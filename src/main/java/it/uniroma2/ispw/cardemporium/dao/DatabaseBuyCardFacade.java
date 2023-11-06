@@ -26,13 +26,13 @@ public class DatabaseBuyCardFacade {
     public ObservableList<CopiaCard> searchCard(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
         searchCardDao = new SearchCardDao();
 
-            return searchCardDao.getCard(name);
+            return searchCardDao.getCardList(name);
 
     }
     public void setCard(int id, int user) throws ExceptionDBerror {
         shoppingCartDAO = new ShoppingCartDAO();
 
-        shoppingCartDAO.SetCard(id, user);
+        shoppingCartDAO.setCard(id, user);
 
     }
 

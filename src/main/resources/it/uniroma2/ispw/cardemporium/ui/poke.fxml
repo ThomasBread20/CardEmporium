@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.pokemonView">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.PokemonView">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -17,7 +17,7 @@
             <Button fx:id="profile" layoutX="196.0" mnemonicParsing="false" onAction="#goProfile" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Button layoutX="265.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Button layoutX="405.0" mnemonicParsing="false" onAction="#Shopping_Cart" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button layoutX="405.0" mnemonicParsing="false" onAction="#shoppingCart" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fx:id="profiloButton" fill="#010057" layoutX="214.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
             <Text fill="#010057" layoutX="285.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expose" />
             <Text fill="#010057" layoutX="349.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
@@ -68,7 +68,7 @@
                   <TableColumn fx:id="game_name" prefWidth="103.20001220703125" text="Game" />
                </columns>
             </TableView>
-            <Button fx:id="Expose_button" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#Expose" style="-fx-background-color: #0e2c9a;" text="EXPOSE" textFill="WHITE">
+            <Button fx:id="Expose_button" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#expose" style="-fx-background-color: #0e2c9a;" text="EXPOSE" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font>

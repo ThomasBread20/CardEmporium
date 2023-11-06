@@ -53,9 +53,7 @@ public class CopiaCardCarrello {
         return condizione;
     }
 
-    public double getprezzo() {
-        return prezzo;
-    }
+
 
     public String  getUtenteVenditore() {
         return utenteVenditore;
@@ -79,17 +77,17 @@ public class CopiaCardCarrello {
 
 
 
-    public CopiaCardCarrello(int cartaid, double Prezzo, String Utentevenditore, int CartasingolaID, String Nomecarta,String extra){
-        this.prezzo = Prezzo;
-        this.utenteVenditore = Utentevenditore;
-        this.cartaSingolaID = CartasingolaID;
-        this.nomeCarta = Nomecarta;
+    public CopiaCardCarrello(int cartaid, double prezzo, String utentevenditore, int cartasingolaID, String nomecarta,String extra){
+        this.prezzo = prezzo;
+        this.utenteVenditore = utentevenditore;
+        this.cartaSingolaID = cartasingolaID;
+        this.nomeCarta = nomecarta;
         this.cartaID = cartaid;
         this.extra = extra;
 
     }
 
-    public double getPrezzo() {
+    public double getPrice() {
         return prezzo;
     }
 

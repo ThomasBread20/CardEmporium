@@ -26,12 +26,22 @@ public class RegisterDAODB implements RegisterDAO{
         return conn.getConn();
     }
 
-    public void addUser(String username1, String passw, String name1, java.sql.Date date1, String surname1) throws ExceptionUserAlreadyExist, ExceptionDBerror, SQLException {
+    public void addUser(String username1, String passw, String name1, java.sql.Date date1, String surname1) throws ExceptionUserAlreadyExist {
 
-        Connection conn = connCheck();
+        Connection conn = null;
+        try {
+            conn = connCheck();
+            assert conn!=null;
+        } catch (ExceptionDBerror e) {
+            e.getCause();
+        }
 
         String username = username1;
-        DBFunc.register();
+        try {
+            DBFunc.register();
+        } catch (SQLException e) {
+            e.getErrorCode();
+        }
 
         String passwdBean = passw;
         String name = name1;

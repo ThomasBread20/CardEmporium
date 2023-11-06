@@ -30,7 +30,7 @@ import java.sql.SQLException;
 public class CardView {
 
     @FXML
-    private Button LogoutButton;
+    private Button logoutButton;
 
     @FXML
     private Label Nome;
@@ -83,9 +83,8 @@ public class CardView {
     @FXML
     private Button Carrello;
 
-    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        SwitchPage page = SwitchPage.getInstance();
 
 
         try{
@@ -94,7 +93,7 @@ public class CardView {
 
 
 
-            Carrelloview carrelloview = page.switchPageData1("Schermata_Carrello", event);
+            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
 
 
             carrelloview.modifytable(cards);
@@ -136,7 +135,7 @@ public class CardView {
     }
 
     @FXML
-    void Search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
 
 
@@ -170,7 +169,7 @@ public class CardView {
         }catch (ExceptionCardNotExist e)
         {
 
-            Popup.CardNoExist();
+            Popup.cardNoExist();
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
@@ -197,13 +196,13 @@ public class CardView {
 
 
     @FXML
-    void Logout(ActionEvent event) throws ExceptionSwitchpage {
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
         LogoutAction.logout(event);
 
     }
 
     @FXML
-    void Sell(ActionEvent event) throws ExceptionSwitchpage {
+    void sell(ActionEvent event) throws ExceptionSwitchpage {
 
         String role = info.getRole();
 
@@ -271,7 +270,7 @@ public class CardView {
 
 
 
-    public void ShoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
         index = TableList.getSelectionModel().getSelectedIndex();
 

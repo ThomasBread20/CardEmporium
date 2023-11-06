@@ -26,7 +26,7 @@ public class ShoppingCartDAO {
 
     }
 
-    public void SetCard(int ID, int UserID) throws ExceptionDBerror {
+    public void setCard(int id, int userID) throws ExceptionDBerror {
 
         Connection conn = connCheck();
 
@@ -36,8 +36,8 @@ public class ShoppingCartDAO {
         try {
 
             statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            statement.setInt(1, ID);
-            statement.setInt(2, UserID);
+            statement.setInt(1, id);
+            statement.setInt(2, userID);
             resultSet = statement.executeQuery();
         }catch (SQLException e) {
 
@@ -64,15 +64,14 @@ public class ShoppingCartDAO {
             throw new ExceptionDBerror("");
         }
 
-        while(resultSet.next()){
-            return resultSet.getInt("utenti_ID");
-        }
+
+
 
         return resultSet.getInt("utenti_ID");
 
     }
 
-    public void detCard(int ID) throws ExceptionDBerror {
+    public void detCard(int id) throws ExceptionDBerror {
 
         Connection conn = connCheck();
 
@@ -82,7 +81,7 @@ public class ShoppingCartDAO {
         try {
 
             statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            statement.setInt(1, ID);
+            statement.setInt(1, id);
             resultSet = statement.executeQuery();
         }catch (SQLException e) {
 
@@ -91,16 +90,16 @@ public class ShoppingCartDAO {
 
 
     }
-    public ObservableList<CopiaCardCarrello> getCard(int ID) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCardCarrello> getCard(int iD) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
-        ObservableList<CopiaCardCarrello> Cards = FXCollections.observableArrayList();
+        ObservableList<CopiaCardCarrello> cardCarrellos = FXCollections.observableArrayList();
 
 
 
         Connection conn = connCheck();
 
 
-        int cardName = ID;
+        int cardName = iD;
 
         String sql = "CALL `SearchCardbyIDuser`(?)";
 
@@ -130,8 +129,8 @@ public class ShoppingCartDAO {
                 boolean foil = resultSet.getBoolean("foil");
                 boolean alterato = resultSet.getBoolean("alterato");
                 boolean playset = resultSet.getBoolean("playset");
-                boolean first_edition = resultSet.getBoolean("first_edition");
-                boolean reverse_holo = resultSet.getBoolean("reverse_holo");
+                boolean firstedition = resultSet.getBoolean("first_edition");
+                boolean reverseholo = resultSet.getBoolean("reverse_holo");
 
 
 
@@ -153,11 +152,11 @@ public class ShoppingCartDAO {
                     stringBuilder.append("Ps");
                     stringBuilder.append(", ");
                 }
-                if (first_edition){
+                if (firstedition){
                     stringBuilder.append("Fe");
                     stringBuilder.append(", ");
                 }
-                if (reverse_holo){
+                if (reverseholo){
                     stringBuilder.append("Rh");
                     stringBuilder.append(", ");
                 }
@@ -169,11 +168,11 @@ public class ShoppingCartDAO {
 
 
 
-                Cards.add(new CopiaCardCarrello(id, prezzo, utenteVenditore, cartaSingolaID, nomeCarta, result));
+                cardCarrellos.add(new CopiaCardCarrello(id, prezzo, utenteVenditore, cartaSingolaID, nomeCarta, result));
 
 
             }
-            return Cards;
+            return cardCarrellos;
         }
 
     }

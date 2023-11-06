@@ -14,6 +14,11 @@ import javafx.collections.ObservableList;
 import java.sql.SQLException;
 
 public class ManageControllerApp {
+
+
+        private ManageControllerApp() {
+            throw new IllegalStateException("Utility class");
+        }
     static DataSingleton info = DataSingleton.getInstance();
     public static ObservableList<CopiaCard> showCards() {
 

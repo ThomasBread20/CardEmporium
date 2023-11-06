@@ -28,7 +28,7 @@ public class LoginController
         DatabaseLoReFacade login = new DatabaseLoReFacade();
 
         try{
-            return login.Login(username, passw);
+            return login.login(username, passw);
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE");
         }
@@ -43,7 +43,7 @@ public class LoginController
     }
 
     public static void createShoppingCart(){
-        Carrelloview carrelloview = new Carrelloview();
+         new Carrelloview();
     }
 
 

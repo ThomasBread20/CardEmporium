@@ -17,7 +17,9 @@ import java.sql.SQLException;
 
  public class BuyCardApplicativo {
 
-
+     private BuyCardApplicativo() {
+         throw new IllegalStateException("Utility class");
+     }
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
@@ -29,19 +31,19 @@ import java.sql.SQLException;
 
     }
 //PERCHE' TUTTE QUESTE OPERAZIONI?
-    public static void addCard(int ID) throws ExceptionDBerror {
+    public static void addCard(int iD) throws ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
             String nome = DataSingleton.getInstance().getUsername();
-            int IDuser = cards.getID(nome);
-            cards.setCard(ID, IDuser);
+            int iDuser = cards.getID(nome);
+            cards.setCard(iD, iDuser);
 
 
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE numero 2");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
     }
 
@@ -56,29 +58,30 @@ import java.sql.SQLException;
 
     }
 
-    public static int getID() throws ExceptionDBerror {
+    public static int getID() throws ExceptionDBerror, SQLException {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
-        try{
+        String nome = null;
+        try {
 
-            String nome = DataSingleton.getInstance().getUsername();
+            nome = DataSingleton.getInstance().getUsername();
             return cards.getID(nome);
 
 
-
-        }catch (ExceptionDBerror e){
+        } catch (ExceptionDBerror e) {
             throw new ExceptionDBerror("ERRORE numero 4");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getErrorCode();
         }
+        return cards.getID(nome);
     }
 
 
-    public static void removeCard(int ID) throws ExceptionDBerror {
+    public static void removeCard(int iD) throws ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
 
-            cards.detCard(ID);
+            cards.detCard(iD);
 
 
 
@@ -89,7 +92,6 @@ import java.sql.SQLException;
 
 
     public static void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
-        SwitchPage page = SwitchPage.getInstance();
         try{
 
 
@@ -97,25 +99,19 @@ import java.sql.SQLException;
 
 
 
-           CardView cardview = page.switchPageDataM1("Schermata_Carta", event);
+           CardView cardview = SwitchPage.switchPageDataM1("Schermata_Carta", event);
 
            cardview.initData1(nome, set);
            cardview.modifytable(cards);
 
-       } catch (SQLException e) {
-           throw new RuntimeException(e);
+       } catch (SQLException | ExceptionDBerror | ExceptionSwitchpage | IOException e) {
+           e.getCause();
        } catch (ExceptionCardNotExist e) {
 
-           CardView cardview = page.switchPageDataM1("Schermata_Carta", event);
+           CardView cardview = SwitchPage.switchPageDataM1("Schermata_Carta", event);
 
            cardview.initData1(nome, set);
 
-       } catch (ExceptionDBerror e) {
-           throw new RuntimeException(e);
-       } catch (ExceptionSwitchpage e ) {
-           throw new RuntimeException(e);
-       } catch (IOException e) {
-           throw new RuntimeException(e);
        }
     }
 

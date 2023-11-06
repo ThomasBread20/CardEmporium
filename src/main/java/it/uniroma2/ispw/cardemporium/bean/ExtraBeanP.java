@@ -2,29 +2,30 @@ package it.uniroma2.ispw.cardemporium.bean;
 
 public class ExtraBeanP {
     private boolean altered;
-    private int card_id;
+    private int cardid;
 
-    public int getCard_id() {
-        return card_id;
+    public int getCardid() {
+        return cardid;
     }
 
-    public void setCard_id(int card_id) {
-        this.card_id = card_id;
+    public void setCardid(int cardid) {
+        this.cardid = cardid;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public ExtraBeanP(boolean altered, int card_id, String nome, int v, boolean signed, boolean fedition, boolean playset, boolean reverse) {
-        this.altered = altered;
-        this.card_id = card_id;
+    public ExtraBeanP( int cardid, String nome, int v, ExtraBeanG extraBeanG) {
+
+        this.cardid = cardid;
         this.nome = nome;
         this.v = v;
-        this.signed = signed;
-        this.fedition = fedition;
-        this.playset = playset;
-        this.reverse = reverse;
+        this.altered=extraBeanG.isAltered();
+        this.fedition=extraBeanG.isFirstEd();
+        this.playset=extraBeanG.isPlayset();
+        this.reverse=extraBeanG.isReverseHolo();
+        this.signed=extraBeanG.isSinged();
     }
 
     public void setNome(String nome) {

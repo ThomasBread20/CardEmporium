@@ -91,8 +91,7 @@ public class Carrelloview {
 
 
 
-           /*SwitchPage page = SwitchPage.getInstance();
-           page.switchPage("Schermata_Carta", event);*/
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_Carta.fxml"));
             Parent viewRegister = loader.load();
@@ -116,7 +115,7 @@ public class Carrelloview {
         }catch (ExceptionCardNotExist e)
         {
 
-            Popup.CardNoExist();
+            Popup.cardNoExist();
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
@@ -186,7 +185,7 @@ public class Carrelloview {
 
     }
 
-    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
+    public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
 
       try{
           ShoppingController.refreshCartView(event);
@@ -200,7 +199,7 @@ public class Carrelloview {
 
 
 
-    public void Removecard(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionCardNotExist {
+    public void removecard(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionCardNotExist {
 
         int index = TableList.getSelectionModel().getSelectedIndex();
 
@@ -220,10 +219,10 @@ public class Carrelloview {
 
 
 
-                Carrelloview Carrelloview = page.switchPageDataM("Schermata_Carrello", mouseEvent);
+                Carrelloview carrelloview = page.switchPageDataM("Schermata_Carrello", mouseEvent);
 
 
-                Carrelloview.modifytable(cards);
+                carrelloview.modifytable(cards);
 
 
 
@@ -253,7 +252,7 @@ public class Carrelloview {
 
                 ShoppingController.shopping(carta.getCartaID(),value);
 
-                n++;
+
             }
             ShoppingController.refreshCartView(event);
         }catch (ExceptionDBerror | SQLException | IOException e){

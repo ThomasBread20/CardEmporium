@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.cardemporium.Factory;
+package it.uniroma2.ispw.cardemporium.factory;
 
 
 
-public class concreteCardYugioh implements CardBase{
+public class ConcreteInterfaceMyCardYugioh implements MyCardBaseInterface {
     boolean altered;
     boolean signed;
     boolean firstedition;

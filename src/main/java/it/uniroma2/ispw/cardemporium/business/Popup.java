@@ -74,7 +74,7 @@ public class Popup {
     }
 
 
-        public static void CardNoExist() throws ExceptionSwitchpage {
+        public static void cardNoExist() throws ExceptionSwitchpage {
             try {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Notification!");

@@ -91,8 +91,7 @@ public class ManageCardsView {
         }
     }
 
-    public void GoToCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
-        SwitchPage page = SwitchPage.getInstance();
+    public void goToCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
         try{
@@ -101,10 +100,10 @@ public class ManageCardsView {
 
 
 
-            Carrelloview Carrelloview = page.switchPageData1("Schermata_Carrello", actionEvent);
+            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", actionEvent);
 
 
-            Carrelloview.modifytable(cards);
+            carrelloview.modifytable(cards);
 
 
         }catch (ExceptionCardNotExist e)
@@ -129,7 +128,7 @@ public class ManageCardsView {
     }
 
 
-    public void modify_table(ObservableList<CopiaCard> copiaCards){
+    public void modifyTable(ObservableList<CopiaCard> copiaCards){
         name.setCellValueFactory(new PropertyValueFactory<>("nomeCarta"));
         lan.setCellValueFactory(new PropertyValueFactory<>("lingua"));
         cond.setCellValueFactory(new PropertyValueFactory<>("condizione"));

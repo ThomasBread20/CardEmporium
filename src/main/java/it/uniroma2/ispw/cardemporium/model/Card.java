@@ -4,7 +4,7 @@ public class Card {
   private   String name;
   private int id;
   private int version;
-  private String SetName;
+  private String setName;
   private String nomeGioco;
 
     public String getName() {
@@ -40,25 +40,21 @@ public class Card {
     public void setNomeGioco(String nomeGioco) {
         this.nomeGioco = nomeGioco;
     }
-    public Card(int idCard,String nameCard,int ver,String Game,String set){
+    public Card(int idCard,String nameCard,int ver,String game,String set){
         this.id=idCard;
         this.name=nameCard;
         this.version=ver;
-        this.nomeGioco=Game;
-        this.SetName=set;
+        this.nomeGioco=game;
+        this.setName =set;
 
 
-    }
-
-    public String getNomeGioco() {
-        return nomeGioco;
     }
 
     public String getSetName() {
-        return SetName;
+        return setName;
     }
 
     public void setSetName(String setName) {
-        this.SetName = setName;
+        this.setName = setName;
     }
 }

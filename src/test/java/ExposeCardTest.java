@@ -29,7 +29,7 @@ import java.io.IOException;
     void  searchTest() throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
 
         try {
-            ExposeController.ExposeOnMarketY(price,quan,lan,cond,id,nome,v,gioco,extraBeanY,set);
+            ExposeController.exposeOnMarketY(price,quan,lan,cond,id,nome,v,gioco,extraBeanY,set);
             Assertions.fail();
         } catch (Exceptionquantity e) {
             e.getMessage();

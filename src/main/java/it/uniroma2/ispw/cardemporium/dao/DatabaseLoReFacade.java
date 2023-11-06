@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.FileSystemDB.RegisterFS;
+import it.uniroma2.ispw.cardemporium.filesystemdb.RegisterFS;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
@@ -14,17 +14,17 @@ public class DatabaseLoReFacade {
     RegisterDAODB register;
     RegisterFS registerFS;
 
-    public void Register(String user, String password, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
+    public void register(String user, String password, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
         register = new RegisterDAODB();
 
         register.addUser(user , password ,name1, date1, surname1);
     }
-    public Users Login(String user, String pwd) throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser {
+    public Users login(String user, String pwd) throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser {
         login = new LoginDAO();
 
         return login.getUser(user, pwd);
     }
-    public void Registerfs(String user, String password, String name1, java.sql.Date date1, String surname1){
+    public void registerfs(String user, String password, String name1, java.sql.Date date1, String surname1){
         registerFS=new RegisterFS();
         try {
             registerFS.addUser(user , password ,name1, date1, surname1);

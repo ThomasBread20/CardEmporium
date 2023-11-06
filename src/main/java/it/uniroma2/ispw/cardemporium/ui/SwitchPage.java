@@ -109,7 +109,7 @@ public class SwitchPage {
         }
     }
 
-    public static pokemonView switchPagesellerP(String value,ActionEvent event) throws ExceptionSwitchpage {
+    public static PokemonView switchPagesellerP(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
 
@@ -117,7 +117,7 @@ public class SwitchPage {
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            pokemonView sellerview = loader.getController();
+            PokemonView sellerview = loader.getController();
 
 
             window.setScene(viewRegisterScene);
