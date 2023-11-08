@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.business;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+
 import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
 
 
@@ -17,7 +19,7 @@ public class DBconnection {
 
     //this is a SINGLETON
     private Connection conn;
-    private static DBconnection instance;
+    private static DBconnection bconnection;
 
 
     public Connection dbconnection() throws ExceptionDBerror {
@@ -37,7 +39,7 @@ public class DBconnection {
             Class.forName(DRIVER_CLASS_NAME);
             this.conn = DriverManager.getConnection(dburl,user,passwd);
 
-            System.out.println("connected to database");
+
 
         }catch(SQLException | IOException e){
             throw new ExceptionDBerror("");
@@ -54,13 +56,13 @@ public class DBconnection {
     }
     public static DBconnection getDBInstance(){
         try{
-            if((instance==null) || instance.getConnection().isClosed()){
-                instance=new DBconnection();
-                instance.dbconnection();
+            if((bconnection ==null) || bconnection.getConnection().isClosed()){
+                bconnection =new DBconnection();
+                bconnection.dbconnection();
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-        return instance;
+        return bconnection;
     }
 }

@@ -51,7 +51,6 @@ public class ExposeController {
         try {
 
             Boolean result = ex.exposeCardY(price, quan, lan, cond, id, name, versione,extraBeanY, info.getID());
-            System.out.println(info.getUsername());
             card = new CopiaCard(cond, price, info.getUsername(), id, name, gioco, lan, versione, set,quan);
             if (Boolean.FALSE.equals(result) ) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

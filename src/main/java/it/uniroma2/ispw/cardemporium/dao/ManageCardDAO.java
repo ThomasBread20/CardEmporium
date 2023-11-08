@@ -27,7 +27,6 @@ public class ManageCardDAO {
     public ObservableList<CopiaCard> getCards(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
         ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
         String sq = "CALL `showCards`(?)";
-        System.out.println(2);
         Connection conn = connCheck();
         try {
 

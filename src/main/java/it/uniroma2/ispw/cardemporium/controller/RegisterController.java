@@ -16,19 +16,17 @@ public class RegisterController {
     private RegisterController() throws IllegalStateException {
         throw new IllegalStateException("Utility class");
     }
+    private static Random random = new Random();
+
 
 
     public static void insertUserDao(String username, String passw, String name, java.sql.Date date, String surname) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
 
 
-        Random random=new Random();
+
 
         DatabaseLoReFacade register = new DatabaseLoReFacade();
-
-        int rand = random.nextInt();
-
-
-
+        int rand=random.nextInt();
 
         if (rand % 2 == 0) {
 

@@ -56,7 +56,7 @@ public class SearchAllCardDAO {
 
 
             Integer cardid = resultSet.getInt(1);
-            System.out.println(cardid);
+
             String cardName = resultSet.getString(2);
             int version = resultSet.getInt(3);
 

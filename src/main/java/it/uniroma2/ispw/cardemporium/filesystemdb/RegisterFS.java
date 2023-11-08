@@ -12,15 +12,15 @@ import java.sql.Date;
 public  class RegisterFS implements RegisterDAO {
     File utenti=new File("Utenti");
     File credentials=new File("Credenziali");
-    FileWriter fileWriterU;
-    FileWriter fileWriterC;
+    static FileWriter fileWriterU;
+    static FileWriter fileWriterC;
     String user="Utente";
     int id=0;
     String []users;
     String line;
 
 
-    {
+    static {
         try {
             fileWriterU = new FileWriter("Utenti");
             fileWriterC =new FileWriter("Credentials");
@@ -54,9 +54,13 @@ public  class RegisterFS implements RegisterDAO {
 
 
     @Override
-    public void addUser(String username, String pwd, String name, Date date, String cognome) throws Exception {
+    public void addUser(String username, String pwd, String name, Date date, String cognome) {
         if(!utenti.exists() || !credentials.exists()){
-            throw new ExceptionDBerror("file non esiste");
+            try {
+                throw new ExceptionDBerror("file non esiste");
+            } catch (ExceptionDBerror e) {
+                e.getCause();
+            }
         }
         try {
             BufferedReader br = new BufferedReader(new FileReader(utenti));
@@ -77,24 +81,33 @@ public  class RegisterFS implements RegisterDAO {
         }
         Boolean i=checkUser(username);
         if(Boolean.FALSE.equals(i)){
-            throw new ExceptionUserAlreadyExist("utente già esistente");
+            try {
+                throw new ExceptionUserAlreadyExist("utente già esistente");
+            } catch (ExceptionUserAlreadyExist e) {
+                e.getMessage();
+            }
         }
 
 
         //scrivo su utenti
-        fileWriterU.write(id+1);
-        fileWriterU.write(name+" ");
-        fileWriterU.write( cognome+" ");
-        fileWriterU.write(date +" ");
-        fileWriterU.write(user+" ");
-        fileWriterU.write("\n");
+        try {
+            fileWriterU.write(id+1);
+            fileWriterU.write(name+" ");
+            fileWriterU.write( cognome+" ");
+            fileWriterU.write(date +" ");
+            fileWriterU.write(user+" ");
+            fileWriterU.write("\n");
 
 
-        //scrivo su credentials
-        fileWriterC.write(username+" ");
-        fileWriterC.write(pwd+" ");
-        fileWriterC.write(id+1+" ");
-        fileWriterC.write("\n");
+            //scrivo su credentials
+            fileWriterC.write(username+" ");
+            fileWriterC.write(pwd+" ");
+            fileWriterC.write(id+1+" ");
+            fileWriterC.write("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }

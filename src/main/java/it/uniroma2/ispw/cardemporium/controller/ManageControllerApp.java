@@ -23,7 +23,6 @@ public class ManageControllerApp {
     public static ObservableList<CopiaCard> showCards() {
 
         Integer id = info.getID();
-        System.out.println(id);
         ManageCardDAO manageCardDAO = new ManageCardDAO();
         ObservableList<CopiaCard> cards = null;
 

@@ -37,7 +37,7 @@ public class LoginBean {
 
         try{
             Users user = LoginController.checkUserDao(getUsernameBean(), getPasswdBean());
-            LoginController.dataFuller(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(), user.getData(), user.getIsBanned(), user.getRole(), user.getID());
+            LoginController.dataFuller(user,user.getRole());
 
             LoginController.createShoppingCart();
 
