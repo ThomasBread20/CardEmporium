@@ -10,14 +10,14 @@ import java.sql.SQLException;
 
 public class DatabaseBuyCardFacade {
 
-    BuyCardDAO buyCardDAO;
+    BuyCardDAODB buyCardDAO;
 
     SearchCardDao searchCardDao;
 
     ShoppingCartDAO shoppingCartDAO;
 
     public void buyCard(int id, int user) throws ExceptionDBerror {
-        buyCardDAO = new BuyCardDAO();
+        buyCardDAO = new BuyCardDAODB();
 
             buyCardDAO.buyCard(id, user);
 

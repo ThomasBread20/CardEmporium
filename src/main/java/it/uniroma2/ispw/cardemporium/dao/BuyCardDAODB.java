@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class BuyCardDAO {
+public class BuyCardDAODB implements BuyCardDao{
 
 
 
