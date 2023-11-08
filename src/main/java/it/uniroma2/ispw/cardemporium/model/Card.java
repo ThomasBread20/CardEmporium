@@ -5,7 +5,7 @@ public class Card {
   private int id;
   private int version;
   private String setName;
-  private String nomeGioco;
+  private String nomegioco;
 
     public String getName() {
         return name;
@@ -31,20 +31,19 @@ public class Card {
         this.version = version;
     }
 
-
-
-    public String getnomeGioco() {
-        return nomeGioco;
+    public String getNomegioco() {
+        return nomegioco;
     }
 
-    public void setNomeGioco(String nomeGioco) {
-        this.nomeGioco = nomeGioco;
+    public void setNomegioco(String nomeGioco) {
+        this.nomegioco = nomeGioco;
     }
-    public Card(int idCard,String nameCard,int ver,String game,String set){
+
+    public Card(int idCard, String nameCard, int ver, String game, String set){
         this.id=idCard;
         this.name=nameCard;
         this.version=ver;
-        this.nomeGioco=game;
+        this.nomegioco=game;
         this.setName =set;
 
 

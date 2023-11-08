@@ -112,9 +112,12 @@ public Object verifySet() {
     void Continue(ActionEvent event) throws ExceptionDBerror, CardGameException, IOException {
 
         ExposeController.getConcreteGame((String) verifyGame());
+
         CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verifyVersion(), (String) verifyGame(),(String) verifySet());
 
         try {
+
+
             cardBean.showCard(event); //da cambiare valore di ritorno
 
 

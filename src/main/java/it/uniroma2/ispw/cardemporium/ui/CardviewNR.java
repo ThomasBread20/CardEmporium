@@ -178,9 +178,9 @@ public class CardviewNR {
 
 
         condizione.setCellValueFactory(new PropertyValueFactory<>("condizione"));
-        lingua.setCellValueFactory(new PropertyValueFactory<>("Lingua"));
+        lingua.setCellValueFactory(new PropertyValueFactory<>("lingua"));
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
-        venditore.setCellValueFactory(new PropertyValueFactory<>("UtenteVenditore"));
+        venditore.setCellValueFactory(new PropertyValueFactory<>("utenteVenditore"));
         setgioco.setCellValueFactory(new PropertyValueFactory<>("nomeSet"));
         extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
 

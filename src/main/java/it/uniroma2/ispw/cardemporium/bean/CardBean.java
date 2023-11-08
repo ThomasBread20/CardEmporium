@@ -65,17 +65,18 @@ public class CardBean {
 
         ObservableList<Card> obcard = null;
         try {
+
             obcard = ExposeController.searchAllCard(getName(), getVersionbean(), getGameBean(), getSetcardbean());
-            if (getGameBean().equals("yugioh")) {
+            if (getGameBean().equals("Yu-gi-oh")) {
                 YugiohView yu = (YugiohView) SwitchPage.switchPageseller(getGameBean(), event);
                 yu.populateTable(obcard);
-            } else if (getGameBean().equals("poke")) {
+            } else if (getGameBean().equals("Pokemon")) {
                 PokemonView pv = (PokemonView) SwitchPage.switchPageseller(getGameBean(), event);
                 pv.populateTable(obcard);
             } else if (getGameBean().equals("dg")) {
                 dgView dgv = (dgView) SwitchPage.switchPageseller(getGameBean(), event);
                 dgv.populateTable(obcard);
-            } else if (getGameBean().equals("magic")) {
+            } else if (getGameBean().equals("Magic")) {
                 magicView mv = (magicView) SwitchPage.switchPageseller(getGameBean(), event);
                 mv.populateTable(obcard);
 

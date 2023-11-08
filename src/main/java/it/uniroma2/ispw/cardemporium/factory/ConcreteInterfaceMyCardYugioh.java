@@ -10,6 +10,6 @@ public class ConcreteInterfaceMyCardYugioh implements MyCardBaseInterface {
     @Override
     public String useCard() {
 
-        return "yugioh";
+        return "Yu-gi-oh";
     }
 }

@@ -177,7 +177,7 @@ public class YugiohView implements Initializable {
         name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
         num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
         set_name.setCellValueFactory(new PropertyValueFactory<>("SetName"));
-        game_name.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
+        game_name.setCellValueFactory(new PropertyValueFactory<>("nomegioco"));
 
         tableview.setItems(cards);
     }
