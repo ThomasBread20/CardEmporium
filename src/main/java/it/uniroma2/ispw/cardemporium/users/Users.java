@@ -48,13 +48,13 @@ public abstract class Users {
 
 
 
-    protected Users(String pwd, String username, String name, String surname, Date data, boolean isBanned, int iD) {
+    protected Users(String pwd, String username, String name, String surname, Date data, int iD) {
         this.pwd = pwd;
         this.username = username;
         this.name = name;
         this.surname = surname;
         this.data = data;
-        this.isBanned = isBanned;
+        this.isBanned = true;
         this.id = iD;
     }
 

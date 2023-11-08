@@ -3,6 +3,8 @@ package it.uniroma2.ispw.cardemporium.users;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
 
+import java.util.Date;
+
 
 public class UtenteFactory {
 
@@ -11,26 +13,26 @@ public class UtenteFactory {
     }
 
 
-    public static Users getUser(Users user ) throws ExceptionBannedUser {
+    public static Users getUser(String pass, String user, String name, String surname, Date datan, String role, int iD) throws ExceptionBannedUser {
 
-        switch (user.getRole()){
+        switch (role){
             case "Utente":
 
-                  return new UtenteRegistrato(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(),user.getData(), user.getIsBanned(), user.getID());
+                  return new UtenteRegistrato(pass,user, name,  surname, datan, iD);
 
 
             case "Venditore":
 
-                return new Venditore(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(),user.getData(), user.getIsBanned(), user.getID());
+                return new Venditore(pass,user, name,  surname, datan, iD);
 
             case "Amministratore":
 
-                return   new Amministratore(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(),user.getData(), user.getIsBanned(), user.getID());
+                return   new Amministratore(pass,user, name,  surname, datan, iD);
 
 
             default:
 
-                throw new ExceptionBannedUser("invalid type: " +  user.getRole());
+                throw new ExceptionBannedUser("invalid type: " +  role);
         }
 
 

@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class UtenteRegistrato extends Users{
 
-    public UtenteRegistrato(String pwd, String username, String name, String surname, Date data, boolean isBanned, int id) {
-        super(pwd, username, name, surname, data, isBanned, id);
+    public UtenteRegistrato(String pwd, String username, String name, String surname, Date data, int id) {
+        super(pwd, username, name, surname, data, id);
         this.setRole("Utente");
     }
 
