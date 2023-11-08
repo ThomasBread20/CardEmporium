@@ -20,7 +20,6 @@ public class CopiaCard {
     public Boolean getNelCarrello() {
         return nelCarrello;
     }
-
     private int versione;
   private String nomeSet;
   private int q;
@@ -138,7 +137,7 @@ public class CopiaCard {
 
 
 
-    public double getPrice() {
+    public double getPrezzo() {
 
         return prezzo;
     }

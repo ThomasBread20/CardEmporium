@@ -64,7 +64,7 @@ public class Profiloview {
     @FXML
     private Button Carrello;
 
-    public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
 
@@ -75,6 +75,7 @@ public class Profiloview {
 
 
             Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
+
 
 
             carrelloview.modifytable(cards);

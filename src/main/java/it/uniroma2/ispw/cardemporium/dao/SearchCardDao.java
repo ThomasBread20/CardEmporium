@@ -32,14 +32,18 @@ public class SearchCardDao { PreparedStatement statement = null;
         resultSet = statement.executeQuery();
 
 
+        if(!resultSet.next()){
+            throw new ExceptionCardNotExist("Card does not exists");
 
+        }else {
 
-            while(resultSet.next())
-            {
+            resultSet.beforeFirst();
+
+            while (resultSet.next()) {
 
                 String condizione = resultSet.getString("Condizione");
                 double prezzo = resultSet.getDouble("Prezzo");
-                String  utenteVenditore = resultSet.getString("Venditore");
+                String utenteVenditore = resultSet.getString("Venditore");
                 int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
                 int cartaID = resultSet.getInt("ValueID");
                 String nomeCarta = resultSet.getString("NomeCarta");
@@ -59,27 +63,27 @@ public class SearchCardDao { PreparedStatement statement = null;
 
                 StringBuilder stringBuilder = new StringBuilder();
 
-                if (firmato){
-                        stringBuilder.append("Fir");
-                        stringBuilder.append(", ");
+                if (firmato) {
+                    stringBuilder.append("Fir");
+                    stringBuilder.append(", ");
                 }
-                if (foil){
+                if (foil) {
                     stringBuilder.append("Foil");
                     stringBuilder.append(", ");
                 }
-                if (alterato){
+                if (alterato) {
                     stringBuilder.append("Alt");
                     stringBuilder.append(", ");
                 }
-                if (playset){
+                if (playset) {
                     stringBuilder.append("Ps");
                     stringBuilder.append(", ");
                 }
-                if (firstedition){
+                if (firstedition) {
                     stringBuilder.append("Fe");
                     stringBuilder.append(", ");
                 }
-                if (reverseholo){
+                if (reverseholo) {
                     stringBuilder.append("Rh");
                     stringBuilder.append(", ");
                 }
@@ -87,18 +91,13 @@ public class SearchCardDao { PreparedStatement statement = null;
                 String result = stringBuilder.toString();
 
 
-
-
-
-
-
-
-                copiaCards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco,lingua, versione, nomeSet, carrello,result, venduto ));
+                copiaCards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco, lingua, versione, nomeSet, carrello, result, venduto));
 
 
             }
             return copiaCards;
         }
+    }
 
 
 }

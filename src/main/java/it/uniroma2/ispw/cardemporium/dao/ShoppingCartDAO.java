@@ -51,22 +51,26 @@ public class ShoppingCartDAO {
 
         Connection conn = connCheck();
 
-        String sql = "CALL `getID`(?)";
+
+        String sql = "CALL getID(?)";
+
+
 
 
         try {
 
-            statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            statement = conn.prepareStatement(sql);
+
             statement.setString(1, username);
             resultSet = statement.executeQuery();
+
+
         }catch (SQLException e) {
 
             throw new ExceptionDBerror("");
         }
 
-
-
-
+        resultSet.next();
         return resultSet.getInt("utenti_ID");
 
     }
