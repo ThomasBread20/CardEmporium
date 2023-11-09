@@ -84,22 +84,7 @@ public class CopiaCard {
 
 
 
-    public CopiaCard(String condizione1, double prezzo, String utentevenditore, int cartasingolaID, int cartaID, String nomecarta, String s, String lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto,int quantity){
-        this.condizione = condizione1;
-        this.prezzo = prezzo;
-        this.utenteVenditore = utentevenditore;
-        this.cartaSingolaID = cartasingolaID;
-        this.cartaID = cartaID;
-        this.nomeCarta = nomecarta;
-        this.nomeGioco = s;
-        this.lingua = lingua;
-        this.versione = versione;
-        this.nomeSet = setNome;
-        this.nelCarrello = carrello;
-        this.q=quantity;
-        this.extra = extra;
-        this.venduto = venduto;
-    }
+
     public CopiaCard(String condizione1, double prezzo, String utentevenditore,  int cartasingolaID, int cartaID, String nomecarta, String nomeGioco, String lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto){
         this.condizione = condizione1;
         this.prezzo = prezzo;
