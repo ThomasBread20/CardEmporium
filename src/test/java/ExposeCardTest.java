@@ -1,4 +1,6 @@
 
+import it.uniroma2.ispw.cardemporium.bean.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
@@ -25,11 +27,12 @@ import java.io.IOException;
     ExtraBeanY extraBeanY;
     String set="draghi della leggenda";
     CopiaCard card;
+    CardInfoBean cardInfoBean=new CardInfoBean(id,new CardBean(nome,v,gioco,set),cond,price,quan,extraBeanY,lan);
     @Test
     void  searchTest() throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
 
         try {
-            ExposeController.exposeOnMarketY(price,quan,lan,cond,id,nome,v,gioco,extraBeanY,set);
+            ExposeController.exposeOnMarketY(cardInfoBean);
             Assertions.fail();
         } catch (Exceptionquantity e) {
             e.getMessage();

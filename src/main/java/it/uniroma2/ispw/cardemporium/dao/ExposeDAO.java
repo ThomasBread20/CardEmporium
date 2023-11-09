@@ -1,9 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanDG;
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanM;
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanP;
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
+import it.uniroma2.ispw.cardemporium.bean.*;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
 import java.sql.Connection;
@@ -23,23 +20,23 @@ public class ExposeDAO {
 
     }
 
-    public Boolean exposeCardY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanY extraBeanY, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardY(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
-        Boolean sig=extraBeanY.isSigned();
-        boolean al=extraBeanY.isAltered();
-        Boolean fed=extraBeanY.isFedition();
+        Boolean sig= cardInfoBean.getExtraBeanY().isSigned();
+        boolean al=cardInfoBean.getExtraBeanY().isAltered();
+        Boolean fed=cardInfoBean.getExtraBeanY().isFedition();
         int i=0;
-while (i++<quan) {
+while (i++<cardInfoBean.getQuantity()) {
     String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
-        statement.setString(1, name);
-        statement.setInt(2, versione);
-        statement.setFloat(3, price);
-        statement.setString(4, cond);
-        statement.setString(5, lan);
+        statement.setString(1, cardInfoBean.getNome());
+        statement.setInt(2, cardInfoBean.getVersione());
+        statement.setFloat(3, cardInfoBean.getPrice());
+        statement.setString(4, cardInfoBean.getCondition());
+        statement.setString(5, cardInfoBean.getLanguage());
         statement.setInt(6, user);
-        statement.setInt(7, id);
+        statement.setInt(7, cardInfoBean.getId());
         statement.setBoolean(8, sig);
         statement.setBoolean(9, al);
         statement.setBoolean(10, fed);
@@ -52,24 +49,24 @@ while (i++<quan) {
 
         return true;
     }
-    public Boolean exposeCardM(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanM extraBeanM, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardM(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
-        Boolean sig=extraBeanM.isSigned();
-        Boolean al=extraBeanM.isAltered();
-        Boolean foil=extraBeanM.isFoil();
-        Boolean ps=extraBeanM.isPlayset();
+        Boolean sig=cardInfoBean.getExtraBeanM().isSigned();
+        Boolean al=cardInfoBean.getExtraBeanM().isAltered();
+        Boolean foil=cardInfoBean.getExtraBeanM().isFoil();
+        Boolean ps=cardInfoBean.getExtraBeanM().isPlayset();
         int i=0;
-while(i++<quan) {
+while(i++< cardInfoBean.getQuantity()) {
     String q = "CALL Expose_M(?,?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
-        statement.setString(1, name);
-        statement.setInt(2, versione);
-        statement.setFloat(3, price);
-        statement.setString(4, cond);
-        statement.setString(5, lan);
+        statement.setString(1, cardInfoBean.getNome());
+        statement.setInt(2, cardInfoBean.getVersione());
+        statement.setFloat(3, cardInfoBean.getPrice());
+        statement.setString(4, cardInfoBean.getCondition());
+        statement.setString(5, cardInfoBean.getLanguage());
         statement.setInt(6, user);
-        statement.setInt(7, id);
+        statement.setInt(7, cardInfoBean.getId());
         statement.setBoolean(8, sig);
         statement.setBoolean(9, al);
         statement.setBoolean(10, foil);
@@ -83,24 +80,24 @@ while(i++<quan) {
 
         return true;
     }
-    public Boolean exposeCardDB(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanDG extraBeanDG, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardDB(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
-        Boolean sig=extraBeanDG.isSigned();
-        Boolean al=extraBeanDG.isAltered();
-        Boolean foil=extraBeanDG.isFoil();
+        Boolean sig=cardInfoBean.getExtraBeanDG().isSigned();
+        Boolean al=cardInfoBean.getExtraBeanDG().isAltered();
+        Boolean foil=cardInfoBean.getExtraBeanDG().isFoil();
         int i=0;
-        while (i++<quan) {
+        while (i++<cardInfoBean.getQuantity()) {
 
             String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
             try {
                 statement = conn.prepareStatement(q);
-                statement.setString(1, name);
-                statement.setInt(2, versione);
-                statement.setFloat(3, price);
-                statement.setString(4, cond);
-                statement.setString(5, lan);
+                statement.setString(1, cardInfoBean.getNome());
+                statement.setInt(2, cardInfoBean.getVersione());
+                statement.setFloat(3, cardInfoBean.getPrice());
+                statement.setString(4, cardInfoBean.getCondition());
+                statement.setString(5, cardInfoBean.getLanguage());
                 statement.setInt(6, user);
-                statement.setInt(7, id);
+                statement.setInt(7, cardInfoBean.getId());
                 statement.setBoolean(8, sig);
                 statement.setBoolean(9, al);
                 statement.setBoolean(10, foil);
@@ -112,27 +109,27 @@ while(i++<quan) {
         }
         return true;
     }
-    public Boolean exposeCardP(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanP extraBeanP, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardP(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
-        Boolean sig=extraBeanP.isSigned();
-        Boolean al=extraBeanP.isAltered();
-        Boolean fed=extraBeanP.isFedition();
-        Boolean ps=extraBeanP.isPlayset();
-        Boolean rev=extraBeanP.isReverse();
+        Boolean sig=cardInfoBean.getExtraBeanP().isSigned();
+        Boolean al=cardInfoBean.getExtraBeanP().isAltered();
+        Boolean fed=cardInfoBean.getExtraBeanP().isFedition();
+        Boolean ps=cardInfoBean.getExtraBeanP().isPlayset();
+        Boolean rev=cardInfoBean.getExtraBeanP().isReverse();
 int i=0;
-while (i++<quan) {
+while (i++<cardInfoBean.getQuantity()) {
 
 
     String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
-        statement.setString(1, name);
-        statement.setInt(2, versione);
-        statement.setFloat(3, price);
-        statement.setString(4, cond);
-        statement.setString(5, lan);
+        statement.setString(1, cardInfoBean.getNome());
+        statement.setInt(2, cardInfoBean.getVersione());
+        statement.setFloat(3, cardInfoBean.getPrice());
+        statement.setString(4, cardInfoBean.getCondition());
+        statement.setString(5, cardInfoBean.getLanguage());
         statement.setInt(6, user);
-        statement.setInt(7, id);
+        statement.setInt(7, cardInfoBean.getId());
         statement.setBoolean(8, sig);
         statement.setBoolean(9, al);
         statement.setBoolean(10, fed);

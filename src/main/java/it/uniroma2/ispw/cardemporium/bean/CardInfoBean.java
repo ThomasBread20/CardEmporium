@@ -47,7 +47,7 @@ public class CardInfoBean {
         this.condition = condition;
         this.price = price;
         this.quantity = quantity;
-        this.extraBeanY = extraBeanY;
+        this.extraBeanY =extraBeanY;
         this.language = language;
     }
 
@@ -68,6 +68,39 @@ public class CardInfoBean {
     }
 
     ExtraBeanDG extraBeanDG;
+
+    public ExtraBeanDG getExtraBeanDG() {
+        return extraBeanDG;
+    }
+
+    public void setExtraBeanDG(ExtraBeanDG extraBeanDG) {
+        this.extraBeanDG = extraBeanDG;
+    }
+
+    public ExtraBeanY getExtraBeanY() {
+        return extraBeanY;
+    }
+
+    public void setExtraBeanY(ExtraBeanY extraBeanY) {
+        this.extraBeanY = extraBeanY;
+    }
+
+    public ExtraBeanP getExtraBeanP() {
+        return extraBeanP;
+    }
+
+    public void setExtraBeanP(ExtraBeanP extraBeanP) {
+        this.extraBeanP = extraBeanP;
+    }
+
+    public ExtraBeanM getExtraBeanM() {
+        return extraBeanM;
+    }
+
+    public void setExtraBeanM(ExtraBeanM extraBeanM) {
+        this.extraBeanM = extraBeanM;
+    }
+
     ExtraBeanY extraBeanY;
     ExtraBeanP extraBeanP;
     ExtraBeanM extraBeanM;
@@ -129,21 +162,21 @@ public class CardInfoBean {
     public void setLanguage(String language) {
         this.language = language;
     }
-    public Boolean insertCardY() throws ExceptionDBerror, Exceptionquantity {
+    public void insertCardY() throws ExceptionDBerror, Exceptionquantity {
 
-        ExposeController.exposeOnMarketY(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanY,getSet());
-        return true;
+        ExposeController.exposeOnMarketY(new CardInfoBean(getId(),new CardBean(getNome(),getVersione(),getGioco(),getSet()),getCondition(),getPrice(),getQuantity(),extraBeanY,getLanguage()));
+
     }
     public Boolean insertCardP() throws ExceptionDBerror, Exceptionquantity {
-        ExposeController.exposeOnMarketP(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanP,getSet());
+        ExposeController.exposeOnMarketP(new CardInfoBean(getId(),new CardBean(getNome(),getVersione(),getGioco(),getSet()),getCondition(),getPrice(),getQuantity(),extraBeanP,getLanguage()));
         return true;
     }
     public Boolean insertCardDB() throws ExceptionDBerror, Exceptionquantity {
-        ExposeController.exposeOnMarketDB(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanDG,getSet());
+        ExposeController.exposeOnMarketDB(new CardInfoBean(getId(),new CardBean(getNome(),getVersione(),getGioco(),getSet()),getCondition(),getPrice(),getQuantity(),extraBeanDG,getLanguage()));
         return true;
     }
     public Boolean insertCardM( ) throws ExceptionDBerror, Exceptionquantity {
-        ExposeController.exposeOnMarketM(getPrice(),getQuantity(),getLanguage(),getCondition(),getId(),getNome(),getVersione(),getGioco(),extraBeanM,getSet());
+        ExposeController.exposeOnMarketM(new CardInfoBean(getId(),new CardBean(getNome(),getVersione(),getGioco(),getSet()),getCondition(),getPrice(),getQuantity(),extraBeanM,getLanguage()));
         return true;
     }
 
