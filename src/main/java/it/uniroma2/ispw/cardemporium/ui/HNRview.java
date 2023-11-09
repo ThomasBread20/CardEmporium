@@ -58,7 +58,8 @@ public class HNRview {
 
 
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_cartaNR.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_cartaNR.fxml"));
+
             Parent viewRegister = loader.load();
             Scene viewRegisterScene = new Scene(viewRegister);
 
