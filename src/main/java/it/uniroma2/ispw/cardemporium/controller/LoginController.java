@@ -13,7 +13,6 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import javafx.event.ActionEvent;
 
 
-import java.util.Date;
 
 public class LoginController
 {

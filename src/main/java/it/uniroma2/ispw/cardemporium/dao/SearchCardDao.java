@@ -20,7 +20,7 @@ public class SearchCardDao { PreparedStatement statement = null;
         return conn.getConn();
 
     }
-    public ObservableList<CopiaCard> getCardList(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCard> getcardlist(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
         Connection conn = connCheck();
@@ -61,34 +61,7 @@ public class SearchCardDao { PreparedStatement statement = null;
                 boolean venduto = resultSet.getBoolean("venduto");
 
 
-                StringBuilder stringBuilder = new StringBuilder();
-
-                if (firmato) {
-                    stringBuilder.append("Fir");
-                    stringBuilder.append(", ");
-                }
-                if (foil) {
-                    stringBuilder.append("Foil");
-                    stringBuilder.append(", ");
-                }
-                if (alterato) {
-                    stringBuilder.append("Alt");
-                    stringBuilder.append(", ");
-                }
-                if (playset) {
-                    stringBuilder.append("Ps");
-                    stringBuilder.append(", ");
-                }
-                if (firstedition) {
-                    stringBuilder.append("Fe");
-                    stringBuilder.append(", ");
-                }
-                if (reverseholo) {
-                    stringBuilder.append("Rh");
-                    stringBuilder.append(", ");
-                }
-
-                String result = stringBuilder.toString();
+                String result = getstringBuilder(firmato, foil, alterato, playset, firstedition, reverseholo);
 
 
                 copiaCards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco, lingua, versione, nomeSet, carrello, result, venduto));
@@ -97,6 +70,39 @@ public class SearchCardDao { PreparedStatement statement = null;
             }
             return copiaCards;
         }
+    }
+
+    public String getstringBuilder(Boolean firmato, Boolean foil, Boolean alterato, Boolean playset, Boolean firstedition, Boolean reverseholo ){
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if (Boolean.TRUE.equals(firmato)) {
+            stringBuilder.append("Fir");
+            stringBuilder.append(", ");
+        }
+        if (Boolean.TRUE.equals(foil)) {
+            stringBuilder.append("Foil");
+            stringBuilder.append(", ");
+        }
+        if (Boolean.TRUE.equals(alterato)) {
+            stringBuilder.append("Alt");
+            stringBuilder.append(", ");
+        }
+        if (Boolean.TRUE.equals(playset)) {
+            stringBuilder.append("Ps");
+            stringBuilder.append(", ");
+        }
+        if (Boolean.TRUE.equals(firstedition)) {
+            stringBuilder.append("Fe");
+            stringBuilder.append(", ");
+        }
+        if (Boolean.TRUE.equals(reverseholo)) {
+            stringBuilder.append("Rh");
+            stringBuilder.append(", ");
+        }
+
+        return stringBuilder.toString();
+
     }
 
 

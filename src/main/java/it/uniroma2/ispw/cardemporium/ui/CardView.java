@@ -33,19 +33,19 @@ public class CardView {
     private Button logoutButton;
 
     @FXML
-    private Label Nome;
+    private Label nome;
 
     @FXML
-    private Button SellButton;
+    private Button sellButton;
 
     @FXML
-    private TableView<CopiaCard> TableList;
+    private TableView<CopiaCard> tableList;
 
     @FXML
     private TableColumn<CopiaCard,String> condizione;
 
     @FXML
-    private TableColumn<CopiaCard, Integer> ID;
+    private TableColumn<CopiaCard, Integer> id;
     @FXML
     private TableColumn<CopiaCard, String> lingua;
 
@@ -81,7 +81,7 @@ public class CardView {
     private Button searchbuttom;
 
     @FXML
-    private Button Carrello;
+    private Button carrello;
 
     public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
@@ -237,7 +237,7 @@ public class CardView {
     public void initData1(String name, String gioco1) {
 
 
-        Nome.setText(name);
+        nome.setText(name);
         gioco.setText(gioco1);
 
 
@@ -250,7 +250,7 @@ public class CardView {
 
 
 
-        ID.setCellValueFactory(new PropertyValueFactory<>("cartaSingolaID"));
+        id.setCellValueFactory(new PropertyValueFactory<>("cartaSingolaID"));
         condizione.setCellValueFactory(new PropertyValueFactory<>("condizione"));
         lingua.setCellValueFactory(new PropertyValueFactory<>("Lingua"));
         prezzo.setCellValueFactory(new PropertyValueFactory<>("prezzo"));
@@ -261,7 +261,7 @@ public class CardView {
 
 
 
-        TableList.setItems(card);
+        tableList.setItems(card);
 
 
 
@@ -272,7 +272,7 @@ public class CardView {
 
     public void shoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        index = TableList.getSelectionModel().getSelectedIndex();
+        index = tableList.getSelectionModel().getSelectedIndex();
 
         if(index <= -1){
             return;
@@ -283,9 +283,9 @@ public class CardView {
         if(returnValue.equals("yes")){
 
             try{
-                BuyCardApplicativo.addCard(ID.getCellData(index));
+                BuyCardApplicativo.addCard(id.getCellData(index));
 
-                BuyCardApplicativo.refreshCardView(Nome.getText(), mouseEvent,gioco.getText());
+                BuyCardApplicativo.refreshCardView(nome.getText(), mouseEvent,gioco.getText());
 
 
 

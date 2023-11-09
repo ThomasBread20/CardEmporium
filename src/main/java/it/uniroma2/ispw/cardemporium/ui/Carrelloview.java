@@ -28,19 +28,19 @@ import java.sql.SQLException;
 public class Carrelloview {
 
     @FXML
-    private Button Homebutton;
+    private Button homebutton;
 
     @FXML
-    private Button LogoutButton;
+    private Button logoutButton;
 
     @FXML
-    private Button SellButton;
+    private Button sellbutton;
 
     @FXML
     private Button carrello;
 
     @FXML
-    private TableView<CopiaCardCarrello> TableList;
+    private TableView<CopiaCardCarrello> tableView;
 
 
     @FXML
@@ -66,7 +66,7 @@ public class Carrelloview {
 
 
     @FXML
-    void Homebutton(ActionEvent event) throws ExceptionSwitchpage {
+    void homebutton(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage("schermata_home_registrato", event);
@@ -79,13 +79,13 @@ public class Carrelloview {
 
 
     @FXML
-    void Logout(ActionEvent event) throws ExceptionSwitchpage {
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
         LogoutAction.logout(event);
 
     }
 
     @FXML
-    void Search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage{
+    void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage{
         try{
             ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
 
@@ -139,12 +139,12 @@ public class Carrelloview {
         extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
 
 
-        TableList.setItems(card);
+        tableView.setItems(card);
 
 
     }
     @FXML
-    void Sell(ActionEvent event) throws ExceptionSwitchpage {
+    void sell(ActionEvent event) throws ExceptionSwitchpage {
 
 
         String role = info.getRole();
@@ -180,10 +180,8 @@ public class Carrelloview {
 
     }
 
-    @FXML
-    void tablelist(ActionEvent event) {
 
-    }
+
 
     public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
 
@@ -201,7 +199,7 @@ public class Carrelloview {
 
     public void removecard(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionCardNotExist {
 
-        int index = TableList.getSelectionModel().getSelectedIndex();
+        int index = tableView.getSelectionModel().getSelectedIndex();
 
         if(index <= -1){
             return;
@@ -263,5 +261,6 @@ public class Carrelloview {
             throw new ExceptionSwitchpage("erroreswitchpage");
         }
     }
+
 }
 

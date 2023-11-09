@@ -49,10 +49,11 @@ public class RegisterDAODB implements RegisterDAO{
         String sql = "CALL `Inserisci-Utente`(?, ?, ?, ?, ?)";
 
 
-
+        if(conn != null){
         try {
 
-            statement = conn.prepareCall(sql);
+                statement = conn.prepareCall(sql);
+
         } catch (SQLException |NullPointerException ex) {
             ex.toString();
         }
@@ -68,7 +69,7 @@ public class RegisterDAODB implements RegisterDAO{
 
         }
 
-
+    }
 
 
 

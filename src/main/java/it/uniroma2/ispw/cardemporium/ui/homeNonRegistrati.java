@@ -10,14 +10,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class HomeNonRegistrati extends Application {
+public class homeNonRegistrati extends Application {
     @Override
     public void start(Stage stage) throws IOException, ExceptionDBerror {
 
         Connection1Singelton.getInstance();
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeNonRegistrati.class.getResource("schermata home non registrato.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(homeNonRegistrati.class.getResource("schermata home non registrato.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setScene(scene);
