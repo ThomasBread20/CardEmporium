@@ -1,0 +1,20 @@
+
+l	java:S116,"PRename this field "Price" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸Òæ8¾ÿø¢º1
+t	java:S116/"SRename this field "Quantity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šéŞıÿÿÿÿ8¾ÿø¢º1
+s	java:S1161"RRename this field "card_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¢²£ÿÿÿÿÿ8¾ÿø¢º1
+u	java:S1163"TRename this field "game_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Á¢§ıÿÿÿÿ8¾ÿø¢º1
+o	java:S1165"TRename this field "name_card" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂûÜw8¾ÿø¢º1
+r	java:S1169"VRename this field "num_version" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹êìÊ8¾ÿø¢º1
+t	java:S116;"SRename this field "set_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õóÏ¯úÿÿÿÿ8¾ÿø¢º1
+u	java:S116="TRename this field "altered_p" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀˆŞŒùÿÿÿÿ8¾ÿø¢º1
+v	java:S116?"URename this field "fedition_p" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìãæ½şÿÿÿÿ8¾ÿø¢º1
+u	java:S116A"TRename this field "playset_p" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åÈıíıÿÿÿÿ8¾ÿø¢º1
+o	java:S116E"SRename this field "signed_p" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûİåü8¾ÿø¢º1
+¤
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±Ã¡ğÿÿÿÿÿ8¾ÿø¢º1
+¤
+java:S1186‘"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŸÎ€Šıÿÿÿÿ8¾ÿø¢º1
+¤
+java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®ãĞëúÿÿÿÿ8¾ÿø¢º1
+¤
+java:S1186—"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œÊØôüÿÿÿÿ8¾ÿø¢º1

@@ -48,7 +48,7 @@ public class ExposeController {
         try {
 
              boolean result=ex.exposeCardY(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getId(), cardInfoBean.getNome(), cardInfoBean.getGioco(), cardInfoBean.getLanguage(), cardInfoBean.getVersione(), cardInfoBean.getSet(),cardInfoBean.getQuantity());
+            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
             if (Boolean.FALSE.equals(result) ) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(ce);
@@ -88,7 +88,7 @@ public class ExposeController {
         try {
 
             Boolean result = ex.exposeCardM(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(), cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getId(), cardInfoBean.getNome(), cardInfoBean.getGioco(), cardInfoBean.getLanguage(), cardInfoBean.getVersione(), cardInfoBean.getSet(), cardInfoBean.getQuantity());
+            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
             if (Boolean.FALSE.equals(result) ) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(ce);
@@ -110,7 +110,7 @@ public class ExposeController {
         try {
 
             Boolean result = ex.exposeCardDB(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getId(), cardInfoBean.getNome(), cardInfoBean.getGioco(), cardInfoBean.getLanguage(), cardInfoBean.getVersione(), cardInfoBean.getSet(), cardInfoBean.getQuantity());
+            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
             if (Boolean.FALSE.equals(result)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(ce);
@@ -131,7 +131,7 @@ public class ExposeController {
         try {
 
             Boolean result = ex.exposeCardP(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(), cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getId(), cardInfoBean.getNome(), cardInfoBean.getGioco(), cardInfoBean.getLanguage(), cardInfoBean.getVersione(), cardInfoBean.getSet(), cardInfoBean.getQuantity());
+            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
             if (Boolean.FALSE.equals(result)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("CardEmporium");

@@ -115,17 +115,15 @@ public class CopiaCard {
         this.extra = extra;
         this.venduto = venduto;
     }
-    public CopiaCard(String condizione1, double prezzo, String utentevenditore, int cartaID, String nomecarta, String nomeGioco, String lingua, int versione, String setNome,int quantity){
+    public CopiaCard(String condizione1, double prezzo, String utentevenditore,  String lingua,Card card, int quantity){
         this.condizione = condizione1;
         this.q=quantity;
         this.prezzo = prezzo;
         this.utenteVenditore = utentevenditore;
-        this.cartaID = cartaID;
-        this.nomeCarta = nomecarta;
-        this.nomeGioco = nomeGioco;
+        this.card=card;
+
         this.lingua = lingua;
-        this.versione = versione;
-        this.nomeSet = setNome;
+
 
     }
 
@@ -147,4 +145,14 @@ public class CopiaCard {
     public void setQ(int q) {
         this.q = q;
     }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    Card card;
 }

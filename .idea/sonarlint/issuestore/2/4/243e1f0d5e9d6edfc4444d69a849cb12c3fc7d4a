@@ -1,0 +1,9 @@
+
+n
+java:S2095B"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(‡¸ó§ùÿÿÿÿ8È²„ûº1
+n
+java:S2095%"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¦Õè–ÿÿÿÿÿ8ó›‘§º1
+n
+java:S2677C"LUse or store the value returned from "readLine" instead of throwing it away.(†²ç÷úÿÿÿÿ8€œ‘§º1
+L	java:S106D"+Replace this use of System.out by a logger.(ïíÑØÿÿÿÿÿ8€œ‘§º1
+G	java:S106K"+Replace this use of System.out by a logger.(ö¡¹ê8€œ‘§º1
