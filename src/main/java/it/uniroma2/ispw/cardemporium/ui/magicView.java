@@ -108,7 +108,6 @@ public class magicView implements Initializable {
     }
 
     public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
-        SwitchPage page = SwitchPage.getInstance();
 
 
         try {
@@ -183,10 +182,7 @@ public class magicView implements Initializable {
 
         tableview.setItems(cards);
     }
-    public void print(){
-        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
-        System.out.println(name);
-    }
+
     public void expose(ActionEvent actionEvent) throws Exceptionquantity {
         boolean si=signed_m.isSelected();
         boolean al=altered_m.isSelected();

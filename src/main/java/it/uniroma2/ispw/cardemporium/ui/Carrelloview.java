@@ -227,7 +227,7 @@ public class Carrelloview {
 
 
             }catch(ExceptionDBerror | SQLException e){
-                System.out.println("errore db");
+                e.getCause();
             } catch (ExceptionCardNotExist e) {
                 throw new ExceptionCardNotExist("erroreswitchapgee");
             }

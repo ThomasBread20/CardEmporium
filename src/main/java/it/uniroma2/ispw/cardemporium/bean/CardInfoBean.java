@@ -3,7 +3,6 @@ package it.uniroma2.ispw.cardemporium.bean;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
-//MANCA DA RAGGRUPPARE I PARAMETRI
 
 public class CardInfoBean {
     private int id;

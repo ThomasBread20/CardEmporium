@@ -78,7 +78,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <CheckBox fx:id="signed_y" layoutX="14.0" layoutY="111.0" mnemonicParsing="false" text="Signed" />
+            <CheckBox fx:id="signed_y" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Signed" />
             <CheckBox fx:id="altered_y" layoutX="231.0" layoutY="120.0" mnemonicParsing="false" text="Altered" />
             <CheckBox fx:id="fedition_y" layoutX="409.0" layoutY="120.0" mnemonicParsing="false" text="First Edition" />
          </children>

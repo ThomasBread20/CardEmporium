@@ -182,10 +182,7 @@ public class dgView implements Initializable {
 
         tableview.setItems(cards);
     }
-    public void print(){
-        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
-        System.out.println(name);
-    }
+
     public void expose(ActionEvent actionEvent) {
         SwitchPage page=SwitchPage.getInstance();
         boolean alt=altered_dg.isSelected();

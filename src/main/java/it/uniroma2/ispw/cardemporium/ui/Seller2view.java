@@ -109,7 +109,7 @@ public Object verifySet() {
 
 
     @FXML
-    void Continue(ActionEvent event) throws ExceptionDBerror, CardGameException, IOException {
+    void Continue(ActionEvent event) throws ExceptionDBerror  {
 
         ExposeController.getConcreteGame((String) verifyGame());
 

@@ -7,14 +7,13 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import it.uniroma2.ispw.cardemporium.users.Users;
 
-import java.sql.SQLException;
 
 public class DatabaseLoReFacade {
     LoginDAO login;
     RegisterDAODB register;
     RegisterFS registerFS;
 
-    public void register(String user, String password, String name1, java.sql.Date date1, String surname1) throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
+    public void register(String user, String password, String name1, java.sql.Date date1, String surname1) throws  ExceptionUserAlreadyExist {
         register = new RegisterDAODB();
 
         register.addUser(user , password ,name1, date1, surname1);

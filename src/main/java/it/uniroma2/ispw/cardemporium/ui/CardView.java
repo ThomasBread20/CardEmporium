@@ -290,11 +290,9 @@ public class CardView {
 
 
 
-            }catch(ExceptionDBerror e){
-                System.out.println("errore db");
-
-            } catch (ExceptionCardNotExist | SQLException | IOException e) {
+            }catch(ExceptionDBerror | ExceptionCardNotExist | SQLException | IOException e){
                 e.getCause();
+
             }
 
         }

@@ -26,7 +26,7 @@ public class ExposeDAO {
     public Boolean exposeCardY(Float price, Integer quan, String lan, String cond, Integer id, String name, Integer versione, ExtraBeanY extraBeanY, Integer user)throws ExceptionDBerror {
         Connection conn = connCheck();
         Boolean sig=extraBeanY.isSigned();
-        Boolean al=extraBeanY.isAltered();
+        boolean al=extraBeanY.isAltered();
         Boolean fed=extraBeanY.isFedition();
         int i=0;
 while (i++<quan) {

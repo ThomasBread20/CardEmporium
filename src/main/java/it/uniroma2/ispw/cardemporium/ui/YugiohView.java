@@ -181,10 +181,7 @@ public class YugiohView implements Initializable {
 
         tableview.setItems(cards);
     }
-    public void print(){
-        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
-        System.out.println(name);
-    }
+
     public void expose(ActionEvent actionEvent) {
         boolean al=altered_y.isSelected();
         boolean sig=signed_y.isSelected();
