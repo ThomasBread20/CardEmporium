@@ -93,8 +93,6 @@ o
 Nsrc/main/java/it/uniroma2/ispw/cardemporium/controller/BuyCardApplicativo.java,2\f\2f1ff995ebf18e835302eeb7b9cba9461825fcc2
 ~
 Nsrc/main/java/it/uniroma2/ispw/cardemporium/controller/ShoppingController.java,9\7\97d88b8f3ae3b43d70701429c44083c827c87c29
-p
-@src/main/java/it/uniroma2/ispw/cardemporium/model/CopiaCard.java,a\5\a544a35792bc2df7b0bd1a5f07e4c98519130b13
 |
 Lsrc/main/java/it/uniroma2/ispw/cardemporium/controller/ExposeController.java,d\a\da13690516b915eace57184378afe4cc690841c4
 s
