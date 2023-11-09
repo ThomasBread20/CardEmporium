@@ -126,6 +126,7 @@ public class ExposeController {
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(cardInfoBean.getQuantity()<1){
+
             throw new Exceptionquantity(ex.toString());
         }
         try {

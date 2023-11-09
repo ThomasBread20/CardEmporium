@@ -41,7 +41,7 @@ public class dgView implements Initializable {
     @FXML
     private ChoiceBox<String> choiceTwo;
     @FXML
-    private TextField Price;
+    private TextField price;
 
     @FXML
     private TextField Quantity;
@@ -107,7 +107,7 @@ public class dgView implements Initializable {
         LogoutAction.logout(event);
     }
 
-    public void Shopping_Cart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
         try {
@@ -190,7 +190,7 @@ public class dgView implements Initializable {
         boolean foil=foil_dg.isSelected();
 
 
-        Float prezzo= Float.valueOf(Price.getText());
+        Float prezzo= Float.valueOf(price.getText());
         Integer q= Integer.valueOf(Quantity.getText());
         String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
         Integer id=card_id.getCellObservableValue(0).getValue();
