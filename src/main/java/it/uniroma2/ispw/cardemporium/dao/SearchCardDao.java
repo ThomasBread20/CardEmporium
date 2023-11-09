@@ -63,8 +63,10 @@ public class SearchCardDao { PreparedStatement statement = null;
 
                 String result = getstringBuilder(firmato, foil, alterato, playset, firstedition, reverseholo);
 
+                CopiaCard card = new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta);
+                card.cardInfo(nomeGioco, lingua, versione, nomeSet, carrello, result, venduto);
 
-                copiaCards.add(new CopiaCard(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta, nomeGioco, lingua, versione, nomeSet, carrello, result, venduto));
+                copiaCards.add(card);
 
 
             }
