@@ -100,7 +100,7 @@ public class CopiaCard {
         this.extra = extra;
         this.venduto = venduto;
     }
-    public CopiaCard(String condizione1, double prezzo, String utentevenditore, int cartasingolaID, int cartaID, String nomecarta, String nomeGioco, String lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto){
+    public CopiaCard(String condizione1, double prezzo, String utentevenditore,  int cartasingolaID, int cartaID, String nomecarta, String nomeGioco, String lingua, int versione, String setNome, boolean carrello,String extra, boolean venduto){
         this.condizione = condizione1;
         this.prezzo = prezzo;
         this.utenteVenditore = utentevenditore;
