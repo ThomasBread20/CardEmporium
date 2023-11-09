@@ -87,7 +87,7 @@ public class CopiaCardCarrello {
 
     }
 
-    public double getPrice() {
+    public double getPrezzo() {
         return prezzo;
     }
 
