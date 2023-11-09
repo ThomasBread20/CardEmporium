@@ -1,7 +1,0 @@
-
-p	java:S116"VRename this field "ButtomLogin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÖÝüýÿÿÿÿ
-s	java:S116"YRename this field "ButtomRegister" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëð¼°ûÿÿÿÿ
-i	java:S116 "ORename this field "Nome" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ž¿ûøÿÿÿÿ
-n	java:S116#"TRename this field "TableList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±§Òµýÿÿÿÿ
-P
-java:S1135¤"2Complete the task associated to this TODO comment.(˜âÅ»8Œè¼§º1
