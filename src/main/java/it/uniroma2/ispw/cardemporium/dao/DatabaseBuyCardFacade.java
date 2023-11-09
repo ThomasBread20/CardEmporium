@@ -26,7 +26,7 @@ public class DatabaseBuyCardFacade {
     public ObservableList<CopiaCard> searchCard(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
         searchCardDao = new SearchCardDao();
 
-            return searchCardDao.getCardList(name);
+            return searchCardDao.getcardlist(name);
 
     }
     public void setCard(int id, int user) throws ExceptionDBerror {

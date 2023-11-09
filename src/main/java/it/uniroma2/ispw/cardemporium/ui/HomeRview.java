@@ -37,10 +37,10 @@ public class HomeRview {
 
 
     @FXML
-    private Button LogoutButton;
+    private Button logoutButton;
 
     @FXML
-    private Button SellButton;
+    private Button sellButton;
 
     @FXML
     private Button profileButton;
@@ -51,10 +51,10 @@ public class HomeRview {
     @FXML
     private Button searchbuttom;
     @FXML
-    private Button Carrello;
+    private Button carrello;
 
     @FXML
-    void Scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
+    void scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
 
 
          try{
@@ -94,7 +94,7 @@ public class HomeRview {
 
 
     @FXML
-    void Search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
 
 
@@ -141,7 +141,7 @@ public class HomeRview {
 
 
     @FXML
-    void Logout(ActionEvent event) throws  ExceptionSwitchpage {
+    void logout(ActionEvent event) throws  ExceptionSwitchpage {
 
 
         LogoutAction.logout(event);
@@ -169,7 +169,7 @@ public class HomeRview {
     }
 
     @FXML
-    void Sell(ActionEvent event) throws  ExceptionSwitchpage {
+    void sell(ActionEvent event) throws  ExceptionSwitchpage {
 
 
         String role = info.getRole();

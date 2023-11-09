@@ -62,9 +62,9 @@ public class Profiloview {
     DataSingleton info = DataSingleton.getInstance();
 
     @FXML
-    private Button Carrello;
+    private Button carrello;
 
-    public void Scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
 
@@ -113,7 +113,7 @@ public class Profiloview {
 
 
     @FXML
-    void Search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
 
 

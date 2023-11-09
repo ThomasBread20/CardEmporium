@@ -23,16 +23,16 @@ import java.sql.SQLException;
 public class CardviewNR {
 
     @FXML
-    private Button ButtomLogin;
+    private Button buttomLogin;
 
     @FXML
-    private Button ButtomRegister;
+    private Button buttomRegister;
 
     @FXML
-    private Label Nome;
+    private Label nome;
 
     @FXML
-    private TableView<CopiaCard> TableList;
+    private TableView<CopiaCard> tableList;
 
     @FXML
     private TableColumn<CopiaCard,String> condizione;
@@ -159,13 +159,10 @@ public class CardviewNR {
         }
     }
 
-    @FXML
-    void tablelist(ActionEvent event) {
-        // TODO document why this method is empty
-    }
+
     public void initData1(String name, String gioco1) {
 
-        Nome.setText(name);
+        nome.setText(name);
         gioco.setText(gioco1);
 
 
@@ -185,7 +182,7 @@ public class CardviewNR {
         extra.setCellValueFactory(new PropertyValueFactory<>("extra"));
 
 
-        TableList.setItems(card);
+        tableList.setItems(card);
     }
 
 }

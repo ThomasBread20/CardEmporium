@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="Base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.HNRview">
+<Pane fx:id="base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.HNRview">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -19,9 +19,9 @@
                </font>
             </Text>
             <Text fill="#010057" layoutX="454.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrati" />
-            <Button fx:id="ButtomRegister" layoutX="444.0" mnemonicParsing="false" onAction="#register" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="buttomRegister" layoutX="444.0" mnemonicParsing="false" onAction="#register" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="403.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
-            <Button fx:id="ButtomLogin" layoutX="375.0" mnemonicParsing="false" onAction="#login" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="buttomLogin" layoutX="375.0" mnemonicParsing="false" onAction="#login" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
          </children>
       </Pane>
       <Text fill="#010057" layoutX="80.0" layoutY="93.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Più vendute!" wrappingWidth="80.21875">
@@ -40,7 +40,7 @@
          <children>
             <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
             <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca" />
-            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#Search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
             <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
                <items>
                   <MenuItem mnemonicParsing="false" text="Yu gi oh" />

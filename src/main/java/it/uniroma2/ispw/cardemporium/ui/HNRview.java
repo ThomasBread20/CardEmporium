@@ -30,13 +30,13 @@ import java.sql.SQLException;
 public class HNRview {
 
     @FXML
-    private Pane Base;
+    private Pane base;
 
     @FXML
-    private Button ButtomLogin;
+    private Button buttomLogin;
 
     @FXML
-    private Button ButtomRegister;
+    private Button buttomRegister;
 
     @FXML
     private TextField researchBar;
@@ -51,7 +51,7 @@ public class HNRview {
 
 
     @FXML
-    void Search(ActionEvent event) throws SQLException,ExceptionDBerror, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException,ExceptionDBerror, ExceptionSwitchpage {
         try{
             ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
 
