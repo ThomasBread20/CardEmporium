@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
+
 import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
