@@ -1,10 +1,8 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
 import it.uniroma2.ispw.cardemporium.controller.RegisterController;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class RegisterBean {
@@ -93,7 +91,7 @@ public class RegisterBean {
     }
 
 
-    public void beaninsertuserdao() throws SQLException, ExceptionUserAlreadyExist, ExceptionDBerror {
+    public void beaninsertuserdao() throws  ExceptionUserAlreadyExist {
 
         RegisterController.insertUserDao(getUsernameBean(), getPasswdBean(), getNameBean(), getDateBean(), getCognomeBean());
 
