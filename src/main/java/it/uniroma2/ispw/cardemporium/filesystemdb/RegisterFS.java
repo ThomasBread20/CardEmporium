@@ -25,7 +25,7 @@ public  class RegisterFS implements RegisterDAO {
             fileWriterU = new FileWriter("Utenti");
             fileWriterC =new FileWriter("Credentials");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
     }
 
@@ -45,7 +45,7 @@ public  class RegisterFS implements RegisterDAO {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
         return true;
     }
@@ -77,7 +77,7 @@ public  class RegisterFS implements RegisterDAO {
             }
             br.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
         Boolean i=checkUser(username);
         if(Boolean.FALSE.equals(i)){
@@ -105,7 +105,7 @@ public  class RegisterFS implements RegisterDAO {
             fileWriterC.write(id+1+" ");
             fileWriterC.write("\n");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
 
 
