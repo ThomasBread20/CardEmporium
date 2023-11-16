@@ -181,8 +181,6 @@ public class RegisterView {
             } catch (ExceptionUserAlreadyExist e) {
                 labelError.setTextFill(Color.TOMATO);
                 labelError.setText("User already exist... Please try again");
-            } catch (ExceptionDBerror e) {
-                throw new ExceptionDBerror("errore login db");
             }
         } else{
             labelError.setTextFill(Color.TOMATO);
