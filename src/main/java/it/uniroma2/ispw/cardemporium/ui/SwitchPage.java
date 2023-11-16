@@ -20,12 +20,20 @@ import java.io.IOException;
 public class SwitchPage {
     static String xml=".fxml";
 
+    private static SwitchPage instance = null;
 
-    private static final SwitchPage instance = new SwitchPage();
 
-    public static SwitchPage getInstance(){
+
+
+    public static synchronized SwitchPage getInstance(){
+        if(SwitchPage.instance == null){
+            SwitchPage.instance = new SwitchPage();
+        }
         return instance;
+
     }
+
+
     public void switchPage(String value, ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
@@ -33,8 +41,6 @@ public class SwitchPage {
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-
 
             window.setScene(viewRegisterScene);
             window.show();
