@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
@@ -20,7 +19,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 
 
@@ -147,7 +145,7 @@ public class RegisterView {
 
     }
 
-    public void registerButton(ActionEvent event) throws SQLException, IOException, ExceptionDBerror {
+    public void registerButton(ActionEvent event) throws  IOException {
 
 
         if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {

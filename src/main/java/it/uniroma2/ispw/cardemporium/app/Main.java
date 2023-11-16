@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.app;
 
-import it.uniroma2.ispw.cardemporium.ui.homeNonRegistrati;
+import it.uniroma2.ispw.cardemporium.ui.HomeNonRegistrati;
 
 import javafx.application.Application;
 
@@ -21,7 +21,7 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         logger.log(Level.INFO,"Welcome to CardEmporium."+"\n"+"Please press 1 to get the CLI or 2 to get the JavaFX interface:");
         int choose = Integer.parseInt(reader.readLine());
-        if(choose==2) Application.launch(homeNonRegistrati.class, args);
+        if(choose==2) Application.launch(HomeNonRegistrati.class, args);
 
     }
 

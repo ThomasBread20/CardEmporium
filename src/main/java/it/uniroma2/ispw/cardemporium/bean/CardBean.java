@@ -74,10 +74,10 @@ public class CardBean {
                 PokemonView pv = (PokemonView) SwitchPage.switchPageseller(getGameBean(), event);
                 pv.populateTable(obcard);
             } else if (getGameBean().equals("dg")) {
-                dgView dgv = (dgView) SwitchPage.switchPageseller(getGameBean(), event);
+                Dgview dgv = (Dgview) SwitchPage.switchPageseller(getGameBean(), event);
                 dgv.populateTable(obcard);
             } else if (getGameBean().equals("Magic")) {
-                magicView mv = (magicView) SwitchPage.switchPageseller(getGameBean(), event);
+                MagicView mv = (MagicView) SwitchPage.switchPageseller(getGameBean(), event);
                 mv.populateTable(obcard);
 
 

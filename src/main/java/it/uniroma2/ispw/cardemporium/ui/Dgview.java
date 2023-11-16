@@ -22,7 +22,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,7 +29,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class dgView implements Initializable {
+public class Dgview implements Initializable {
 
     DataSingleton info = DataSingleton.getInstance();
     private String[]language={"Italian","French","German","English"};
@@ -44,25 +43,25 @@ public class dgView implements Initializable {
     private TextField price;
 
     @FXML
-    private TextField Quantity;
+    private TextField quan;
     @FXML
-    private TableColumn<Card, Integer> card_id;
+    private TableColumn<Card, Integer> cardid;
     @FXML
-    private TableColumn<Card,String> game_name;
+    private TableColumn<Card,String> gamename;
     @FXML
-    private TableColumn<Card,String> name_card;
+    private TableColumn<Card,String> nameCard;
     @FXML
     private TableView<Card> tableview;
     @FXML
-    private TableColumn<Card,Integer> num_version;
+    private TableColumn<Card,Integer> ver;
     @FXML
-    private TableColumn<Card,String> set_name;
+    private TableColumn<Card,String> setname;
     @FXML
-    private CheckBox altered_dg;
+    private CheckBox altereddg;
     @FXML
-    private CheckBox signed_dg;
+    private CheckBox signeddg;
     @FXML
-    private CheckBox foil_dg;
+    private CheckBox foildg;
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
         try {
@@ -107,7 +106,7 @@ public class dgView implements Initializable {
         LogoutAction.logout(event);
     }
 
-    public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shoppinCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
         try {
@@ -133,20 +132,10 @@ public class dgView implements Initializable {
 
 
         } catch (SQLException e) {
-            e.getErrorCode();
+            e.getCause();
         }
     }
-    public void getQuantitiy(ActionEvent actionEvent) {
-    }
 
-    public void getPrice(ActionEvent actionEvent) {
-    }
-
-    public void getCond(MouseEvent mouseEvent) {
-    }
-
-    public void getLang(MouseEvent mouseEvent) {
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -174,32 +163,32 @@ public class dgView implements Initializable {
         return str;
     }
     public void populateTable(ObservableList<Card> cards){
-        card_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
-        num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
-        set_name.setCellValueFactory(new PropertyValueFactory<>("SetName"));
-        game_name.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
+        cardid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCard.setCellValueFactory(new PropertyValueFactory<>("name"));
+        ver.setCellValueFactory(new PropertyValueFactory<>("version"));
+        setname.setCellValueFactory(new PropertyValueFactory<>("SetName"));
+        gamename.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
 
         tableview.setItems(cards);
     }
 
     public void expose(ActionEvent actionEvent) {
         SwitchPage page=SwitchPage.getInstance();
-        boolean alt=altered_dg.isSelected();
-        boolean sig=signed_dg.isSelected();
-        boolean foil=foil_dg.isSelected();
+        boolean alt= altereddg.isSelected();
+        boolean sig= signeddg.isSelected();
+        boolean foil= foildg.isSelected();
 
 
         Float prezzo= Float.valueOf(price.getText());
-        Integer q= Integer.valueOf(Quantity.getText());
-        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
-        Integer id=card_id.getCellObservableValue(0).getValue();
+        Integer q= Integer.valueOf(quan.getText());
+        String name= String.valueOf(nameCard.getCellObservableValue(0).getValue());
+        Integer id= cardid.getCellObservableValue(0).getValue();
 
-        Integer ver=num_version.getCellObservableValue(0).getValue();
-        String game=game_name.getCellObservableValue(0).getValue();
-        String set=set_name.getCellObservableValue(0).getValue();
-        ExtraBeanDG extraBeanDG=new ExtraBeanDG(sig,alt,foil,id,ver,name);
-        CardBean cardBean=new CardBean(name,ver,game,set);
+        Integer version= this.ver.getCellObservableValue(0).getValue();
+        String game= gamename.getCellObservableValue(0).getValue();
+        String set= setname.getCellObservableValue(0).getValue();
+        ExtraBeanDG extraBeanDG=new ExtraBeanDG(sig,alt,foil,id,version,name);
+        CardBean cardBean=new CardBean(name,version,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanDG, (String) verifyLan());
 
         try {

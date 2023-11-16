@@ -74,7 +74,7 @@ public class Sellerview {
         window.show();
     }
     @FXML
-    void Expose(ActionEvent event) throws ExceptionSwitchpage {
+    void expose(ActionEvent event) throws ExceptionSwitchpage {
         try {
             SwitchPage page = SwitchPage.getInstance();
             page.switchPage("venditore2", event);
