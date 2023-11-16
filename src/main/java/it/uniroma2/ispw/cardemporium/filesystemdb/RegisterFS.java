@@ -6,10 +6,16 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public  class RegisterFS implements RegisterDAO {
+    Logger logger=Logger.getLogger(RegisterFS.class.getName());
     File utenti=new File("Utenti");
     File credentials=new File("Credenziali");
     static FileWriter fileWriterU;
@@ -25,7 +31,7 @@ public  class RegisterFS implements RegisterDAO {
             fileWriterU = new FileWriter("Utenti");
             fileWriterC =new FileWriter("Credentials");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
     }
 
@@ -33,8 +39,8 @@ public  class RegisterFS implements RegisterDAO {
         String []usernames;
         String l;
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(credentials));
+        try
+                (BufferedReader br = Files.newBufferedReader(Path.of("Credenziali"), Charset.defaultCharset())){
             while((l= br.readLine())!=null){
                 usernames=l.split(" ");
                 if(usernames[0].equals(us)){
@@ -45,7 +51,7 @@ public  class RegisterFS implements RegisterDAO {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
         return true;
     }
@@ -62,22 +68,25 @@ public  class RegisterFS implements RegisterDAO {
                 e.getCause();
             }
         }
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(utenti));
-            if (br.readLine() == null) {
-                System.out.println("File is empty");
-
-            }
-            else {
+        line=null;
+        try (
+            BufferedReader br = new BufferedReader(new FileReader(utenti))){
+            if ((line=br.readLine()) != null) {
                 line=br.readLine();
                 users=line.split(" ");
                 id= Integer.parseInt(users[0]);
-                System.out.println(id);
+
+
 
             }
-            br.close();
+            else {
+                logger.log(Level.INFO,"File is empty");
+
+
+            }
+
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
         Boolean i=checkUser(username);
         if(Boolean.FALSE.equals(i)){
@@ -105,7 +114,7 @@ public  class RegisterFS implements RegisterDAO {
             fileWriterC.write(id+1+" ");
             fileWriterC.write("\n");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
 
 

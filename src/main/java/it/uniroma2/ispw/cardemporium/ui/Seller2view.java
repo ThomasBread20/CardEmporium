@@ -55,15 +55,12 @@ public class Seller2view  implements Initializable{
     private ChoiceBox<String> choiceSet;
 
 
-    @FXML
-    private Button Back;
-
-    @FXML
-    private Button Continue;
 
 
-    @FXML
-    private Button Search;
+
+
+
+
 
     @FXML
     private Button goHome;
@@ -109,7 +106,7 @@ public Object verifySet() {
 
 
     @FXML
-    void Continue(ActionEvent event) throws ExceptionDBerror  {
+    void submit(ActionEvent event) throws ExceptionDBerror  {
 
         ExposeController.getConcreteGame((String) verifyGame());
 

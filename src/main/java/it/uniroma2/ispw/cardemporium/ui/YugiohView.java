@@ -22,7 +22,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,28 +39,28 @@ public class YugiohView implements Initializable {
     @FXML
     private ChoiceBox<String> choiceTwo;
     @FXML
-    private TextField Price;
+    private TextField price;
 
     @FXML
-    private TextField Quantity;
+    private TextField quan;
     @FXML
-    private TableColumn<Card, Integer> card_id;
+    private TableColumn<Card, Integer> cardid;
     @FXML
-    private TableColumn<Card,String> game_name;
+    private TableColumn<Card,String> gameName;
     @FXML
-    private TableColumn<Card,String> name_card;
+    private TableColumn<Card,String> nameCard;
     @FXML
     private TableView<Card> tableview;
     @FXML
-    private TableColumn<Card,Integer> num_version;
+    private TableColumn<Card,Integer> vers;
     @FXML
-    private TableColumn<Card,String> set_name;
+    private TableColumn<Card,String> setName;
     @FXML
-    private CheckBox altered_y;
+    private CheckBox alteredy;
     @FXML
-    private CheckBox fedition_y;
+    private CheckBox feditiony;
     @FXML
-    private CheckBox signed_y;
+    private CheckBox signedy;
 
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
@@ -106,7 +105,7 @@ public class YugiohView implements Initializable {
         LogoutAction.logout(event);
     }
 
-    public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
         try {
@@ -135,17 +134,7 @@ public class YugiohView implements Initializable {
             e.getErrorCode();
         }
     }
-        public void getQuantitiy(ActionEvent actionEvent) {
-        }
 
-        public void getPrice(ActionEvent actionEvent) {
-        }
-
-        public void getCond(MouseEvent mouseEvent) {
-        }
-
-        public void getLang(MouseEvent mouseEvent) {
-        }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -173,29 +162,29 @@ public class YugiohView implements Initializable {
         return str;
     }
     public void populateTable(ObservableList<Card> cards){
-        card_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
-        num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
-        set_name.setCellValueFactory(new PropertyValueFactory<>("SetName"));
-        game_name.setCellValueFactory(new PropertyValueFactory<>("nomegioco"));
+        cardid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCard.setCellValueFactory(new PropertyValueFactory<>("name"));
+        vers.setCellValueFactory(new PropertyValueFactory<>("version"));
+        setName.setCellValueFactory(new PropertyValueFactory<>("SetName"));
+        gameName.setCellValueFactory(new PropertyValueFactory<>("nomegioco"));
 
         tableview.setItems(cards);
     }
 
     public void expose(ActionEvent actionEvent) {
-        boolean al=altered_y.isSelected();
-        boolean sig=signed_y.isSelected();
-        boolean f=fedition_y.isSelected();
+        boolean al= alteredy.isSelected();
+        boolean sig= signedy.isSelected();
+        boolean f= feditiony.isSelected();
         SwitchPage page=SwitchPage.getInstance();
         
-        Float prezzo= Float.valueOf(Price.getText());
-        Integer q= Integer.valueOf(Quantity.getText());
-        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
-        Integer id=card_id.getCellObservableValue(0).getValue();
+        Float prezzo= Float.valueOf(price.getText());
+        Integer q= Integer.valueOf(quan.getText());
+        String name= String.valueOf(nameCard.getCellObservableValue(0).getValue());
+        Integer id= cardid.getCellObservableValue(0).getValue();
 
-        Integer ver=num_version.getCellObservableValue(0).getValue();
-        String game=game_name.getCellObservableValue(0).getValue();
-        String set=set_name.getCellObservableValue(0).getValue();
+        Integer ver= vers.getCellObservableValue(0).getValue();
+        String game= gameName.getCellObservableValue(0).getValue();
+        String set= setName.getCellObservableValue(0).getValue();
         ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
         CardBean cardBean=new CardBean(name,ver,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanY, (String) verifyLan());

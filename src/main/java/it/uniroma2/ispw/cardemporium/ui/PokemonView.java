@@ -23,7 +23,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,32 +40,32 @@ public class PokemonView implements Initializable {
     @FXML
     private ChoiceBox<String> choiceTwo;
     @FXML
-    private TextField Price;
+    private TextField price;
 
     @FXML
-    private TextField Quantity;
+    private TextField quantity;
     @FXML
-    private TableColumn<Card, Integer> card_id;
+    private TableColumn<Card, Integer> cardId;
     @FXML
-    private TableColumn<Card,String> game_name;
+    private TableColumn<Card,String> gamename;
     @FXML
-    private TableColumn<Card,String> name_card;
+    private TableColumn<Card,String> namecard;
     @FXML
     private TableView<Card> tableview;
     @FXML
-    private TableColumn<Card,Integer> num_version;
+    private TableColumn<Card,Integer> version;
     @FXML
-    private TableColumn<Card,String> set_name;
+    private TableColumn<Card,String> setname;
     @FXML
-    private CheckBox altered_p;
+    private CheckBox alteredp;
     @FXML
-    private CheckBox fedition_p;
+    private CheckBox feditionp;
     @FXML
-    private CheckBox playset_p;
+    private CheckBox playsetp;
     @FXML
     private CheckBox reverseh;
     @FXML
-    private CheckBox signed_p;
+    private CheckBox signedp;
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
         try {
@@ -139,17 +138,9 @@ public class PokemonView implements Initializable {
             e.getErrorCode();
         }
     }
-    public void getQuantitiy(ActionEvent actionEvent) {
-    }
 
-    public void getPrice(ActionEvent actionEvent) {
-    }
 
-    public void getCond(MouseEvent mouseEvent) {
-    }
 
-    public void getLang(MouseEvent mouseEvent) {
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -177,31 +168,31 @@ public class PokemonView implements Initializable {
         return str;
     }
     public void populateTable(ObservableList<Card> cards){
-        card_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        name_card.setCellValueFactory(new PropertyValueFactory<>("name"));
-        num_version.setCellValueFactory(new PropertyValueFactory<>("version"));
-        set_name.setCellValueFactory(new PropertyValueFactory<>("SetName"));
-        game_name.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
+        cardId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        namecard.setCellValueFactory(new PropertyValueFactory<>("name"));
+        version.setCellValueFactory(new PropertyValueFactory<>("version"));
+        setname.setCellValueFactory(new PropertyValueFactory<>("SetName"));
+        gamename.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
 
         tableview.setItems(cards);
     }
 
     public void expose(ActionEvent actionEvent) {
-        boolean s=signed_p.isSelected();
-        boolean al=altered_p.isSelected();
-        boolean fed=fedition_p.isSelected();
-        boolean pla=playset_p.isSelected();
+        boolean s= signedp.isSelected();
+        boolean al= alteredp.isSelected();
+        boolean fed= feditionp.isSelected();
+        boolean pla= playsetp.isSelected();
         boolean rev=reverseh.isSelected();
         SwitchPage page=SwitchPage.getInstance();
 
-        Float prezzo= Float.valueOf(Price.getText());
-        Integer q= Integer.valueOf(Quantity.getText());
-        String name= String.valueOf(name_card.getCellObservableValue(0).getValue());
-        Integer id=card_id.getCellObservableValue(0).getValue();
+        Float prezzo= Float.valueOf(price.getText());
+        Integer q= Integer.valueOf(quantity.getText());
+        String name= String.valueOf(namecard.getCellObservableValue(0).getValue());
+        Integer id= cardId.getCellObservableValue(0).getValue();
 
-        Integer ver=num_version.getCellObservableValue(0).getValue();
-        String game=game_name.getCellObservableValue(0).getValue();
-        String set=set_name.getCellObservableValue(0).getValue();
+        Integer ver= version.getCellObservableValue(0).getValue();
+        String game= gamename.getCellObservableValue(0).getValue();
+        String set= setname.getCellObservableValue(0).getValue();
         ExtraBeanG extraBeanG=new ExtraBeanG(al,s,fed,rev,pla);
         ExtraBeanP extraBeanP=new ExtraBeanP(id,name,ver,extraBeanG);
         CardBean cardBean=new CardBean(name,ver,game,set);

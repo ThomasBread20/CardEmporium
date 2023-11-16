@@ -134,7 +134,7 @@ public class SwitchPage {
             throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View4");
         }
     }
-    public static magicView switchPagesellerM(String value,ActionEvent event) throws ExceptionSwitchpage {
+    public static MagicView switchPagesellerM(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
 
@@ -142,7 +142,7 @@ public class SwitchPage {
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            magicView sellerview = loader.getController();
+            MagicView sellerview = loader.getController();
 
 
             window.setScene(viewRegisterScene);
@@ -154,7 +154,7 @@ public class SwitchPage {
             throw new ExceptionSwitchpage("switch page Schermata_Seller3 Login View");
         }
     }
-    public static dgView switchPagesellerDG(String value,ActionEvent event) throws ExceptionSwitchpage {
+    public static Dgview switchPagesellerDG(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
 
@@ -162,7 +162,7 @@ public class SwitchPage {
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            dgView sellerview = loader.getController();
+            Dgview sellerview = loader.getController();
 
 
             window.setScene(viewRegisterScene);
