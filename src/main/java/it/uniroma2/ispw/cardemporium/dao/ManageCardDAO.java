@@ -45,15 +45,15 @@ public class ManageCardDAO {
             int v = resultSet.getInt(2);
             String nset = resultSet.getString(3);
             String cond = resultSet.getString(4);
-            int q = resultSet.getInt(5);
-            String lang = resultSet.getString(6);
-            Double price = resultSet.getDouble(7);
-            boolean firmato = resultSet.getBoolean(8);
-            boolean foil = resultSet.getBoolean(9);
-            boolean alterato = resultSet.getBoolean(10);
-            boolean playset = resultSet.getBoolean(11);
-            boolean firstedition = resultSet.getBoolean(12);
-            boolean reverseholo = resultSet.getBoolean(13);
+
+            String lang = resultSet.getString(5);
+            Double price = resultSet.getDouble(6);
+            boolean firmato = resultSet.getBoolean(7);
+            boolean foil = resultSet.getBoolean(8);
+            boolean alterato = resultSet.getBoolean(9);
+            boolean playset = resultSet.getBoolean(10);
+            boolean firstedition = resultSet.getBoolean(11);
+            boolean reverseholo = resultSet.getBoolean(12);
 
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -85,7 +85,7 @@ public class ManageCardDAO {
 
             String result = stringBuilder.toString();
 
-            copiaCards.add(new CopiaCard(cond, price, nome, result, lang, v, nset, q));
+            copiaCards.add(new CopiaCard(cond, price, nome, result, lang, v, nset));
 
 
         }

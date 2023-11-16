@@ -54,7 +54,7 @@ public class CopiaCard {
         return cartaID;
     }
 
-    public CopiaCard(String condizione, double prezzo, String nomeCarta, String extra, String lingua, int versione, String nomeSet, int q) {
+    public CopiaCard(String condizione, double prezzo, String nomeCarta, String extra, String lingua, int versione, String nomeSet) {
         this.condizione = condizione;
         this.prezzo = prezzo;
         this.nomeCarta = nomeCarta;
@@ -62,7 +62,7 @@ public class CopiaCard {
         this.lingua = lingua;
         this.versione = versione;
         this.nomeSet = nomeSet;
-        this.q = q;
+
     }
 
     public String getNomeCarta() {
