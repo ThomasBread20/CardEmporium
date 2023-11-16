@@ -24,7 +24,7 @@ public class ExposeController {
         try {
             this.card=factory.createCard(type);
         } catch (CardGameException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
 
     }
