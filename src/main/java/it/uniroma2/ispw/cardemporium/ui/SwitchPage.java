@@ -30,6 +30,7 @@ public class SwitchPage {
             SwitchPage.instance = new SwitchPage();
         }
         return instance;
+
     }
 
 
