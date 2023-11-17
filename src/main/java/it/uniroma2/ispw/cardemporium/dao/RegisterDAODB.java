@@ -3,7 +3,6 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 import it.uniroma2.ispw.cardemporium.business.DBFunc;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
 
@@ -17,7 +16,7 @@ public class RegisterDAODB implements RegisterDAO{
     ResultSet resultSet = null;
 
 
-    private Connection connCheck() throws ExceptionDBerror {
+    private Connection connCheck()  {
 
         Connection1Singelton conn = Connection1Singelton.getInstance();
         return conn.getConn();
@@ -29,7 +28,7 @@ public class RegisterDAODB implements RegisterDAO{
         try {
             conn = connCheck();
             assert conn!=null;
-        } catch (ExceptionDBerror |NullPointerException e) {
+        } catch (NullPointerException e) {
             e.getCause();
         }
 

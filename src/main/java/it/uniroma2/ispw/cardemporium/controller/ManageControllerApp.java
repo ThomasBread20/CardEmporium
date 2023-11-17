@@ -3,7 +3,6 @@ package it.uniroma2.ispw.cardemporium.controller;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.ManageCardDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 
@@ -33,7 +32,7 @@ public class ManageControllerApp {
 
         } catch (SQLException e) {
             e.getErrorCode();
-        } catch (ExceptionCardNotExist | ExceptionDBerror e) {
+        } catch (ExceptionCardNotExist e) {
             e.getCause();
         }
 

@@ -38,24 +38,20 @@ public class ExposeController {
 
     }
 
-    public static CopiaCard exposeOnMarketY(CardInfoBean cardInfoBean) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketY(CardInfoBean cardInfoBean) throws Exceptionquantity   {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(cardInfoBean.getQuantity()<1){
             throw new Exceptionquantity(ex.toString());
         }
-        try {
 
-             boolean result=ex.exposeCardY(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
-            if (Boolean.FALSE.equals(result) ) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(ce);
-                alert.setHeaderText("ERROR numero 1");
-            }
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE numero 1.1");
+        boolean result=ex.exposeCardY(cardInfoBean, info.getID());
+        card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        if (Boolean.FALSE.equals(result) ) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(ce);
+            alert.setHeaderText("ERROR numero 1");
         }
         return card;
     }
@@ -77,7 +73,7 @@ public class ExposeController {
         return exposeController.card.useCard();
 
     }
-    public static CopiaCard exposeOnMarketM(CardInfoBean cardInfoBean) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketM(CardInfoBean cardInfoBean) throws  Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
 
         ExposeDAO ex = new ExposeDAO();
@@ -85,43 +81,35 @@ public class ExposeController {
         if(cardInfoBean.getQuantity()<1){
             throw new Exceptionquantity(ex.toString());
         }
-        try {
 
-            Boolean result = ex.exposeCardM(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
-            if (Boolean.FALSE.equals(result) ) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(ce);
-                alert.setHeaderText("ERROR numero 2");
-            }
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE numero 2.1");
+        Boolean result = ex.exposeCardM(cardInfoBean, info.getID());
+        card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        if (Boolean.FALSE.equals(result) ) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(ce);
+            alert.setHeaderText("ERROR numero 2");
         }
         return card;
     }
 
-    public static CopiaCard exposeOnMarketDB(CardInfoBean cardInfoBean) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketDB(CardInfoBean cardInfoBean) throws Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
         if(cardInfoBean.getQuantity()<1){
             throw new Exceptionquantity(ex.toString());
         }
-        try {
 
-            Boolean result = ex.exposeCardDB(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
-            if (Boolean.FALSE.equals(result)) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(ce);
-                alert.setHeaderText("ERROR numero 3");
-            }
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE numero 3.1");
+        Boolean result = ex.exposeCardDB(cardInfoBean, info.getID());
+        card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        if (Boolean.FALSE.equals(result)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(ce);
+            alert.setHeaderText("ERROR numero 3");
         }
         return card;
     }
-    public static CopiaCard exposeOnMarketP(CardInfoBean cardInfoBean) throws ExceptionDBerror, Exceptionquantity {
+    public static CopiaCard exposeOnMarketP(CardInfoBean cardInfoBean) throws  Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
@@ -129,17 +117,13 @@ public class ExposeController {
 
             throw new Exceptionquantity(ex.toString());
         }
-        try {
 
-            Boolean result = ex.exposeCardP(cardInfoBean, info.getID());
-            card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
-            if (Boolean.FALSE.equals(result)) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("CardEmporium");
-                alert.setHeaderText("ERROR");
-            }
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("ERRORE");
+        Boolean result = ex.exposeCardP(cardInfoBean, info.getID());
+        card = new CopiaCard(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        if (Boolean.FALSE.equals(result)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("CardEmporium");
+            alert.setHeaderText("ERROR");
         }
         return card;
     }

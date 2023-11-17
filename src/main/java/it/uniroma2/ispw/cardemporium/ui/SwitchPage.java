@@ -20,7 +20,7 @@ import java.io.IOException;
 public class SwitchPage {
     static String xml=".fxml";
 
-    private static SwitchPage instance = null;
+    private static SwitchPage instance;
 
 
 
@@ -32,6 +32,7 @@ public class SwitchPage {
         return instance;
 
     }
+    private SwitchPage (){}
 
 
     public void switchPage(String value, ActionEvent event) throws IOException, ExceptionSwitchpage {

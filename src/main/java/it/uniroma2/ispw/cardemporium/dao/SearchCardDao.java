@@ -3,7 +3,6 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,12 +14,12 @@ public class SearchCardDao { PreparedStatement statement = null;
     ResultSet resultSet = null;
 
 
-    private Connection connCheck() throws ExceptionDBerror {
+    private Connection connCheck()  {
         Connection1Singelton conn = Connection1Singelton.getInstance();
         return conn.getConn();
 
     }
-    public ObservableList<CopiaCard> getcardlist(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCard> getcardlist(String name) throws ExceptionCardNotExist, SQLException {
 
         ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
         Connection conn = connCheck();

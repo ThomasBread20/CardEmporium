@@ -18,7 +18,7 @@ public class BuyCardDAODB implements BuyCardDao{
     ResultSet resultSet = null;
 
 
-    private Connection connCheck() throws ExceptionDBerror {
+    private Connection connCheck()  {
         Connection1Singelton conn = Connection1Singelton.getInstance();
         return conn.getConn();
 

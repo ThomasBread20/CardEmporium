@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
 import it.uniroma2.ispw.cardemporium.bean.*;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,13 +13,13 @@ public class ExposeDAO {
     PreparedStatement statement = null;
     ResultSet resultSet = null;
 
-    private Connection connCheck() throws ExceptionDBerror {
+    private Connection connCheck()  {
         Connection1Singelton conn = Connection1Singelton.getInstance();
         return conn.getConn();
 
     }
 
-    public Boolean exposeCardY(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardY(CardInfoBean cardInfoBean, Integer user) {
         Connection conn = connCheck();
         Boolean sig= cardInfoBean.getExtraBeanY().isSigned();
         boolean al=cardInfoBean.getExtraBeanY().isAltered();
@@ -49,7 +48,7 @@ while (i++<cardInfoBean.getQuantity()) {
 
         return true;
     }
-    public Boolean exposeCardM(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardM(CardInfoBean cardInfoBean, Integer user) {
         Connection conn = connCheck();
         Boolean sig=cardInfoBean.getExtraBeanM().isSigned();
         Boolean al=cardInfoBean.getExtraBeanM().isAltered();
@@ -80,7 +79,7 @@ while(i++< cardInfoBean.getQuantity()) {
 
         return true;
     }
-    public Boolean exposeCardDB(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardDB(CardInfoBean cardInfoBean, Integer user) {
         Connection conn = connCheck();
         Boolean sig=cardInfoBean.getExtraBeanDG().isSigned();
         Boolean al=cardInfoBean.getExtraBeanDG().isAltered();
@@ -109,7 +108,7 @@ while(i++< cardInfoBean.getQuantity()) {
         }
         return true;
     }
-    public Boolean exposeCardP(CardInfoBean cardInfoBean, Integer user)throws ExceptionDBerror {
+    public Boolean exposeCardP(CardInfoBean cardInfoBean, Integer user) {
         Connection conn = connCheck();
         Boolean sig=cardInfoBean.getExtraBeanP().isSigned();
         Boolean al=cardInfoBean.getExtraBeanP().isAltered();

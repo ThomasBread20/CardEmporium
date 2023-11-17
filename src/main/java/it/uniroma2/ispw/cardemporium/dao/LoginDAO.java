@@ -24,7 +24,7 @@ public class LoginDAO {
     ResultSet resultSet = null;
 
 
-    private Connection connCheck() throws ExceptionDBerror {
+    private Connection connCheck()  {
         Connection1Singelton conn = Connection1Singelton.getInstance();
         return conn.getConn();
 
