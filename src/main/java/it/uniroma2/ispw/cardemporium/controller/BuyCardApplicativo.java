@@ -20,7 +20,7 @@ import java.sql.SQLException;
      private BuyCardApplicativo() {
          throw new IllegalStateException("Utility class");
      }
-    public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
+    public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         return cards.searchCard(name);
 
@@ -87,7 +87,7 @@ import java.sql.SQLException;
     }
 
 
-    public static void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    public static void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, IOException, ExceptionSwitchpage {
         try{
 
 
@@ -100,7 +100,7 @@ import java.sql.SQLException;
            cardview.initData1(nome, set);
            cardview.modifytable(cards);
 
-       } catch (SQLException | ExceptionDBerror | ExceptionSwitchpage | IOException e) {
+       } catch (SQLException | ExceptionSwitchpage | IOException e) {
            e.getCause();
        } catch (ExceptionCardNotExist e) {
 
