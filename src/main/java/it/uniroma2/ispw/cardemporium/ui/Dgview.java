@@ -195,7 +195,7 @@ public class Dgview implements Initializable {
 
             cardInfoBean.insertCardDB();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage | Exceptionquantity e) {
+        } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();
         }
 

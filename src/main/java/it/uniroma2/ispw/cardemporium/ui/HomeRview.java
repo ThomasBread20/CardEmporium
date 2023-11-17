@@ -119,13 +119,6 @@ public class HomeRview {
        }
 
 
-       catch (ExceptionDBerror  e) {
-           throw new ExceptionDBerror("value");
-
-
-       }
-
-
     }
 
 

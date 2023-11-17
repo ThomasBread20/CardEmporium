@@ -113,7 +113,7 @@ public class Profiloview {
 
 
     @FXML
-    void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException, IOException, ExceptionSwitchpage {
 
 
 
@@ -153,13 +153,6 @@ public class Profiloview {
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-
-
-        catch (ExceptionDBerror  e) {
-            throw new ExceptionDBerror("value");
-
-
         }
 
 

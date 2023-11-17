@@ -122,13 +122,6 @@ public class Carrelloview {
         }
 
 
-        catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("value");
-
-
-        }
-
-
     }
     public void modifytable(ObservableList<CopiaCardCarrello> card) {
 

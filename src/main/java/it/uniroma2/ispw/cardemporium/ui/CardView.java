@@ -176,13 +176,6 @@ public class CardView {
         }
 
 
-        catch (ExceptionDBerror  e) {
-            throw new ExceptionDBerror("value");
-
-
-        }
-
-
     }
 
     Integer index;

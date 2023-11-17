@@ -72,7 +72,7 @@ public class CardviewNR {
 
 
     @FXML
-    void search(ActionEvent event) throws SQLException, ExceptionDBerror, ExceptionSwitchpage {
+    void search(ActionEvent event) throws SQLException, ExceptionSwitchpage {
         try{
             ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
 
@@ -109,13 +109,6 @@ public class CardviewNR {
 
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-
-
-        catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("value");
-
-
         }
 
 

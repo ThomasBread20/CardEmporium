@@ -19,7 +19,7 @@ public class DBconnection {
 
     //this is a SINGLETON
     private Connection conn;
-    private static DBconnection bconnection;
+    private static DBconnection bconnection=null;
 
 
     public Connection dbconnection() throws ExceptionDBerror {

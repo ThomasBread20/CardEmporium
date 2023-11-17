@@ -200,7 +200,7 @@ public class PokemonView implements Initializable {
         try {
             cardInfoBean.insertCardP();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage | Exceptionquantity e) {
+        } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();
         }
 

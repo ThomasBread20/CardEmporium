@@ -89,13 +89,6 @@ public class HNRview {
         }
 
 
-        catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("value");
-
-
-        }
-
-
     }
 
 

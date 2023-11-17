@@ -193,7 +193,7 @@ public class MagicView implements Initializable {
         try {
             cardInfoBean.insertCardM();
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
+        } catch (IOException | ExceptionSwitchpage e) {
             e.getCause();
         }
 
