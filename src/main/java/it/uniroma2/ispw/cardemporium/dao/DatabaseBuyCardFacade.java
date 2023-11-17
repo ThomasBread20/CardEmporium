@@ -23,7 +23,7 @@ public class DatabaseBuyCardFacade {
 
     }
 
-    public ObservableList<CopiaCard> searchCard(String name) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCard> searchCard(String name) throws ExceptionCardNotExist, SQLException {
         searchCardDao = new SearchCardDao();
 
             return searchCardDao.getcardlist(name);

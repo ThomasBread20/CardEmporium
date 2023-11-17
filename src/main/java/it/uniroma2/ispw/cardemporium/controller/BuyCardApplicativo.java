@@ -22,12 +22,7 @@ import java.sql.SQLException;
      }
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
-        try{
-            return cards.searchCard(name);
-
-        }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE nuumero 1");
-        }
+        return cards.searchCard(name);
 
     }
 //PERCHE' TUTTE QUESTE OPERAZIONI?
