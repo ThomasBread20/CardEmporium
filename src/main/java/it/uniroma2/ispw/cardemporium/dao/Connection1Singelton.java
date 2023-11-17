@@ -13,16 +13,26 @@ public class Connection1Singelton {
 
     private static Connection1Singelton instance;
 
-    public static Connection1Singelton getInstance() throws ExceptionDBerror {
-        if(instance != null){
-            return instance;
-        }
-        try{
+    static {
+        try {
             instance = new Connection1Singelton();
-            return instance;
         } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("errore login db");
+            e.getMessage();
         }
+        try {
+            instance = new Connection1Singelton();
+        } catch (ExceptionDBerror e) {
+            e.getMessage();
+        }
+
+    }
+
+
+    public static Connection1Singelton getInstance()  {
+
+            return instance;
+
+
     }
 
 

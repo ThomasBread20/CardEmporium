@@ -14,11 +14,18 @@ public class DataSingleton {
 
     private int userID;
 
-    private static final DataSingleton instance = new DataSingleton();
+    private static  DataSingleton  instance =null;
+
+
+
 
     public static DataSingleton getInstance(){
+        if(instance==null){
+            instance=new DataSingleton();
+        }
         return instance;
     }
+    private DataSingleton(){}
 
     public void users(String pwd, String username, String name, String surname, Date data, boolean isBanned, int userID) {
         this.pwd = pwd;
