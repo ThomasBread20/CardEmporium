@@ -2,6 +2,9 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
 public class LoginCli extends CliManager {
@@ -36,5 +39,16 @@ public class LoginCli extends CliManager {
 
 
 
-    public void login(){}
+    public void login(){
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            CliPrinter.printMessage("Username:");
+            String us=reader.readLine();
+            CliPrinter.printMessage("Password:");
+            String pwd=reader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
