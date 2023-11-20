@@ -17,12 +17,12 @@
             <Button fx:id="homeButtom" mnemonicParsing="false" onAction="#sitename1" opacity="0.0" prefHeight="32.0" prefWidth="154.0" />
             <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
             <Button fx:id="profileButton" layoutX="196.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expose" />
+            <Text fill="#010057" layoutX="284.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expose" />
             <Button fx:id="sellButton" layoutX="265.0" mnemonicParsing="false" onAction="#sell" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
+            <Text fill="#010057" layoutX="346.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping Cart" />
-            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Text fill="#010057" layoutX="413.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping Cart" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="logoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>

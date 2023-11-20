@@ -16,13 +16,13 @@
             <Button fx:id="homebutton" layoutY="-5.0" mnemonicParsing="false" onAction="#homebutton" opacity="0.0" prefHeight="38.0" prefWidth="151.0" />
             <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
             <Button fx:id="profileButton" layoutX="196.0" mnemonicParsing="false" onAction="#profileButton" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="300.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expose" />
+            <Text fill="#010057" layoutX="284.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expose" />
             <Button fx:id="sellbutton" layoutX="265.0" mnemonicParsing="false" onAction="#sell" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="362.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
-            <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="434.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping cart" />
-            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
-            <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
+            <Text fill="#010057" layoutX="346.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
+            <Button layoutX="335.0" layoutY="1.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Text fill="#010057" layoutX="413.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping cart" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
+            <Text fill="#010057" layoutX="548.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="logoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
       </Pane>
@@ -60,6 +60,6 @@
             <Font name="System Bold" size="39.0" />
          </font>
       </Label>
-      <Button fx:id="buy1" layoutX="513.0" layoutY="80.0" mnemonicParsing="false" onAction="#buy" text="Buy!" />
+      <Button fx:id="buy1" layoutX="536.0" layoutY="80.0" mnemonicParsing="false" onAction="#buy" text="Buy!" />
    </children>
 </Pane>

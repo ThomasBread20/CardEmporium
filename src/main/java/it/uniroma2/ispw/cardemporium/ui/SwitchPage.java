@@ -49,8 +49,6 @@ public class SwitchPage {
         } catch (IOException e) {
             throw new ExceptionSwitchpage("error switch page ");
         }
-
-
     }
 
     public static CardView switchPageData(String value, ActionEvent event) throws IOException, ExceptionSwitchpage {
