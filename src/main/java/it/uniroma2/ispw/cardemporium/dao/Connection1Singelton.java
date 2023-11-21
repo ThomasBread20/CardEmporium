@@ -11,7 +11,7 @@ public class Connection1Singelton {
 
     Connection conn = null;
 
-    private static Connection1Singelton instance;
+    private static Connection1Singelton instance=null;
 
     static {
         try {
@@ -19,11 +19,7 @@ public class Connection1Singelton {
         } catch (ExceptionDBerror e) {
             e.getMessage();
         }
-        try {
-            instance = new Connection1Singelton();
-        } catch (ExceptionDBerror e) {
-            e.getMessage();
-        }
+
 
     }
 
