@@ -24,6 +24,7 @@ import java.io.IOException;
 
 public class LoginView {
 
+    public Text errorMessage;
     @FXML
     private Pane loginPane;
 
@@ -33,8 +34,7 @@ public class LoginView {
     @FXML
     private Text cardemp;
 
-    @FXML
-    private Label errorMessage;
+
 
     @FXML
     private Button iscrivitiB;
@@ -77,7 +77,7 @@ public class LoginView {
 
     public void changeLabel(String name){
 
-        errorMessage.setTextFill(Color.GREEN);
+        errorMessage.setFill(Color.GREEN);
         errorMessage.setText(name);
 
     }
@@ -104,11 +104,11 @@ public class LoginView {
 
 
         } catch (ExceptionUserNotExist e) {
-            errorMessage.setTextFill(Color.TOMATO);
+            errorMessage.setFill(Color.TOMATO);
             errorMessage.setText("Enter Correct Username/Password");
 
         } catch (ExceptionBannedUser e) {
-            errorMessage.setTextFill(Color.TOMATO);
+            errorMessage.setFill(Color.TOMATO);
             errorMessage.setText("This user is banned.");
 
         } catch (ExceptionDBerror | IOException | ExceptionSwitchpage e) {
