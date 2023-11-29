@@ -38,8 +38,10 @@ public class DatabaseBuyCardFacade {
 
     public int getID(String username) throws ExceptionDBerror, SQLException {
         shoppingCartDAO = new ShoppingCartDAO();
-
+        //System.out.println("ciao");
+        //System.out.println(username);
         return shoppingCartDAO.getID(username);
+
 
     }
 

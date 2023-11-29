@@ -4,7 +4,7 @@ import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 
 import java.util.Scanner;
 
-public class CliManager {
+public abstract class CliManager {
 
     public int verifyChioce(int a,int b) {
 
@@ -20,4 +20,6 @@ public class CliManager {
         }
 return choice;
     }
+
+    public abstract void start() throws Exception;
 }

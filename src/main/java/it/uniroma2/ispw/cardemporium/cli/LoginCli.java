@@ -24,7 +24,7 @@ ActionEvent event;
                         login(event);
                         break;
                     case 2:
-                        new SignUpCli();
+                        new SignUpCli().start();
                         break;
                     case 3:
                         System.exit(0);
@@ -65,13 +65,13 @@ ActionEvent event;
 
             String pwd=reader.readLine();
             loginBean.setPasswdBean(pwd);
+            System.out.println("male mo");
+            //non fa operazione di login perché manca l'evento
             loginBean.result(event);
-        } catch (IOException | ExceptionDBerror e) {
+            CliPrinter.printMessage("male");
+        } catch (IOException | ExceptionDBerror | ExceptionUserNotExist e) {
             e.getMessage();
-        } catch (ExceptionUserNotExist e) {
-
-            logger.log(Level.INFO,"User don't exists");
-        }  catch (ExceptionBannedUser e) {
+        } catch (ExceptionBannedUser e) {
             e.getMessage();
             logger.log(Level.INFO,"Banned user");
 
