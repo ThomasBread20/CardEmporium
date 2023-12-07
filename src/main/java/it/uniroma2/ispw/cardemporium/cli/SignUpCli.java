@@ -1,26 +1,27 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
-import com.mysql.cj.result.SqlDateValueFactory;
+
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
-import it.uniroma2.ispw.cardemporium.controller.RegisterController;
+
+import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Date;
+
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Locale;
+
 
 
 public class SignUpCli extends CliManager{
     @Override
-    public void start() throws InvalidChioceException {
+    public void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist {
 
         while(true){
             int choice=showMenu();
@@ -89,7 +90,7 @@ public class SignUpCli extends CliManager{
             registerValue.beaninsertuserdao();
 
         } catch (IOException | ParseException e) {
-            throw new RuntimeException(e);
+            e.getMessage();
         } catch (ExceptionUserAlreadyExist e) {
             CliPrinter.printMessage("user already exists");
         }

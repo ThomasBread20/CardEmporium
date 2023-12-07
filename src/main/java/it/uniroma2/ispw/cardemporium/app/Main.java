@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.app;
 
 import it.uniroma2.ispw.cardemporium.cli.LoginCli;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.ui.HomeNonRegistrati;
 
 import javafx.application.Application;
@@ -27,6 +28,8 @@ public class Main {
             try {
                 loginCLI.start();
             } catch (Exception e) {
+                e.getMessage();
+            } catch (ExceptionCardNotExist e) {
                 throw new RuntimeException(e);
             }
         }

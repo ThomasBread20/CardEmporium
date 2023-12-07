@@ -1,6 +1,5 @@
 package it.uniroma2.ispw.cardemporium.business;
 
-import java.util.logging.Logger;
 
 public class CliPrinter {
     private CliPrinter() {

@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class UserNotSellerTest {
+class UserNotSellerTest {
     String user = "Utente";
     @Test
     void NotSeller() throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser {

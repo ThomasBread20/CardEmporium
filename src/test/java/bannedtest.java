@@ -3,17 +3,13 @@ import it.uniroma2.ispw.cardemporium.controller.LoginController;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
-import it.uniroma2.ispw.cardemporium.users.Users;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 
-
-class Bannedtest {
+class bannedtest {
 
 
     LoginBean loginBean=new LoginBean();

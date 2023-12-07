@@ -24,7 +24,8 @@ import java.io.IOException;
 
 public class LoginView {
 
-    public Text errorMessage;
+    @FXML
+    private Text errorMessage;
     @FXML
     private Pane loginPane;
 
@@ -137,7 +138,7 @@ public class LoginView {
     }
 
     @FXML
-    public void sitename(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    public void sitename(ActionEvent event) throws  ExceptionSwitchpage {
 
 
         try {

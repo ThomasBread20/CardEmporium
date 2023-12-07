@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class SearchCardTest {
+ class SearchCardTest {
 
 
     String cardname = "topolino";

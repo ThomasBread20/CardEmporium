@@ -6,9 +6,7 @@ import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 
@@ -26,7 +24,7 @@ public class Shoppingcart extends CliManager {
         while(true){
             try{
                 ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
-                PrintCard(cards);
+                printCard(cards);
                 int choice=showMenu();
 
             switch (choice) {
@@ -43,23 +41,19 @@ public class Shoppingcart extends CliManager {
                     break;
 
                 case 2:
-                    try{
-
+                    try {
 
                         int value = inf.getID();
-                        while(!cards.isEmpty()) {
+                        while (!cards.isEmpty()) {
                             int n = 0;
                             CopiaCardCarrello carta = cards.get(n);
 
 
                             cards.remove(n);
 
-                            ShoppingController.shopping(carta.getCartaID(),value);
+                            ShoppingController.shopping(carta.getCartaID(), value);
                             CliPrinter.printMessage("Congratulation, your the shopping has ended successfully \n");
-
-
                         }
-
                     }catch (ExceptionDBerror e){
                         throw new ExceptionDBerror("ERRORE");
                     }
@@ -76,7 +70,7 @@ public class Shoppingcart extends CliManager {
 
             }
             }catch(ExceptionDBerror e ){
-
+                e.getMessage();
             }
         }
 
@@ -92,7 +86,7 @@ public class Shoppingcart extends CliManager {
         return verifyChioce(1,4);
     }
 
-    public void PrintCard(ObservableList<CopiaCardCarrello> cards) throws ExceptionCardNotExist, SQLException, IOException {
+    public void printCard(ObservableList<CopiaCardCarrello> cards)  {
 
 
 
@@ -102,7 +96,7 @@ public class Shoppingcart extends CliManager {
             CliPrinter.printMessage(item.getCartaSingolaID() +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() + "\n");
         }
     }
-    public boolean controllo(int name, ObservableList<CopiaCardCarrello> cards) throws ExceptionCardNotExist, SQLException {
+    public boolean controllo(int name, ObservableList<CopiaCardCarrello> cards)  {
         for(CopiaCardCarrello item : cards){
             if(name == item.getCartaSingolaID()){
                 return true;

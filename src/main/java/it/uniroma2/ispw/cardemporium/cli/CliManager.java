@@ -2,7 +2,11 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public abstract class CliManager {
@@ -22,5 +26,5 @@ public abstract class CliManager {
 return choice;
     }
 
-    public abstract void start() throws Exception, ExceptionCardNotExist;
+    public abstract void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist;
 }

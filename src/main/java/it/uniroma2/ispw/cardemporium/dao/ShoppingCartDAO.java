@@ -71,7 +71,6 @@ public class ShoppingCartDAO {
         }
 
         resultSet.next();
-        System.out.println(resultSet.getInt("utenti_ID"));
         return resultSet.getInt("utenti_ID");
 
 

@@ -29,7 +29,7 @@ public class SearchcardPage extends CliManager{
                     CliPrinter.printMessage("no cards are avaiable with this name, return to home page \n");
                     new HomePage().start();
                 }
-                PrintCard(cards);
+                printCard(cards);
 
                 int choice = showMenu();
                 switch (choice) {
@@ -84,7 +84,7 @@ public class SearchcardPage extends CliManager{
         return verifyChioce(1,4);
     }
 
-    public void PrintCard(ObservableList<CopiaCard> cards) throws ExceptionCardNotExist, SQLException, IOException {
+    public void printCard(ObservableList<CopiaCard> cards) throws ExceptionCardNotExist {
 
 
 
@@ -95,7 +95,7 @@ public class SearchcardPage extends CliManager{
         }
     }
 
-        public boolean controllo(int name, ObservableList<CopiaCard> cards) throws ExceptionCardNotExist, SQLException {
+        public boolean controllo(int name, ObservableList<CopiaCard> cards) throws ExceptionCardNotExist {
         for(CopiaCard item : cards){
             if(name == item.getCartaSingolaID()){
                 return true;

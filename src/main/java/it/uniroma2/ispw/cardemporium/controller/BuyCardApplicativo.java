@@ -45,7 +45,6 @@ import java.sql.SQLException;
     public static ObservableList<CopiaCardCarrello> searchCard1(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
          DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
-            System.out.println("qui");
             return cards.getCard(id);
 
         }catch (ExceptionDBerror e){

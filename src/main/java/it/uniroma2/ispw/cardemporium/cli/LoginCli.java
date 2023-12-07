@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 public class LoginCli extends CliManager {
 ActionEvent event;
-    public void start() throws Exception {
+    public void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist {
         while (true) {
             int choice;
             try {
@@ -24,7 +24,7 @@ ActionEvent event;
                 choice = menu();
                 switch (choice) {
                     case 1:
-                        login(event);
+                        login();
                         break;
                     case 2:
                         new SignUpCli().start();
@@ -56,7 +56,7 @@ ActionEvent event;
 
 
 
-    public void login(ActionEvent event) throws ExceptionSwitchpage {
+    public void login()  {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         LoginBean loginBean=new LoginBean();
         Logger logger=Logger.getLogger(LoginCli.class.getName());
@@ -86,12 +86,8 @@ ActionEvent event;
             e.getMessage();
             logger.log(Level.INFO,"Banned user");
 
-        } catch (ExceptionCardNotExist e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidChioceException e) {
-            throw new RuntimeException(e);
+        } catch (ExceptionCardNotExist | SQLException | InvalidChioceException e) {
+            e.getMessage();
         }
     }
 }
