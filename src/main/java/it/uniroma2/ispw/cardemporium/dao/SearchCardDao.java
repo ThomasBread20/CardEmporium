@@ -36,7 +36,7 @@ public class SearchCardDao { PreparedStatement statement = null;
 
         }else {
 
-            //resultSet.beforeFirst();
+            resultSet.beforeFirst();
 
             while (resultSet.next()) {
 

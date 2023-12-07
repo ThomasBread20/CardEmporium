@@ -2,12 +2,15 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.*;
+import it.uniroma2.ispw.cardemporium.users.Users;
 import javafx.event.ActionEvent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,21 +63,35 @@ ActionEvent event;
         try {
             CliPrinter.printMessage("Username:");
             String us=reader.readLine();
-            loginBean.setPasswdBean(us);
+            loginBean.setUsernameBean(us);
             CliPrinter.printMessage("Password:");
 
             String pwd=reader.readLine();
             loginBean.setPasswdBean(pwd);
-            System.out.println("male mo");
-            //non fa operazione di login perché manca l'evento
-            loginBean.result(event);
-            CliPrinter.printMessage("male");
-        } catch (IOException | ExceptionDBerror | ExceptionUserNotExist e) {
+            Users user = LoginController.checkUserDao(us, pwd);
+            LoginController.dataFuller(user,user.getRole());
+            LoginController.createShoppingCart();
+
+
+
+            new HomePage().start();
+
+
+        } catch (IOException | ExceptionDBerror e) {
             e.getMessage();
-        } catch (ExceptionBannedUser e) {
+        } catch (ExceptionUserNotExist e) {
+
+            logger.log(Level.INFO,"User don't exists");
+        }  catch (ExceptionBannedUser e) {
             e.getMessage();
             logger.log(Level.INFO,"Banned user");
 
+        } catch (ExceptionCardNotExist e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (InvalidChioceException e) {
+            throw new RuntimeException(e);
         }
     }
 }

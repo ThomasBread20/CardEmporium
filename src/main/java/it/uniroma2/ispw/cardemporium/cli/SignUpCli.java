@@ -3,6 +3,7 @@ package it.uniroma2.ispw.cardemporium.cli;
 import com.mysql.cj.result.SqlDateValueFactory;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 
@@ -54,14 +55,14 @@ public class SignUpCli extends CliManager{
     }
 
     public void signup(){
-        RegisterBean registerBean=new RegisterBean();
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CliPrinter.printMessage("Name: ");
         try {
             String name = reader.readLine();
             CliPrinter.printMessage("Lastname: ");
             String last = reader.readLine();
-            CliPrinter.printMessage("Date of birth ");
+            CliPrinter.printMessage("Date of birth(dd-mm-yyyy) ");
             String d= reader.readLine();
             SimpleDateFormat sdf1 = new SimpleDateFormat("dd-mm-yyyy");
             java.util.Date date = sdf1.parse(d);
@@ -76,13 +77,17 @@ public class SignUpCli extends CliManager{
             if (!pass.equals(conf)){
                 CliPrinter.printMessage("The password are differnt, insert them again.");
             }
-            registerBean.setCognomeBean(last);
-            registerBean.setPasswdBean(pass);
-            registerBean.setDateBean(date1.toLocalDate());
-            registerBean.setUsernameBean(username);
-            registerBean.setNameBean(name);
 
-            registerBean.beaninsertuserdao();
+            RegisterBean registerValue=new RegisterBean();
+            registerValue.setUsernameBean( username);
+            registerValue.setPasswdBean(pass);
+            registerValue.setNameBean(name);
+            registerValue.setCognomeBean(last);
+            registerValue.setDateBean(date1.toLocalDate());
+
+
+            registerValue.beaninsertuserdao();
+
         } catch (IOException | ParseException e) {
             throw new RuntimeException(e);
         } catch (ExceptionUserAlreadyExist e) {

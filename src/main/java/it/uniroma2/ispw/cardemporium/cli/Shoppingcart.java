@@ -1,0 +1,114 @@
+package it.uniroma2.ispw.cardemporium.cli;
+
+import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.ShoppingController;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
+import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
+import javafx.collections.ObservableList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+public class Shoppingcart extends CliManager {
+
+    public void start() throws InvalidChioceException, IOException, ExceptionCardNotExist, SQLException, ExceptionDBerror {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        DataSingleton inf = DataSingleton.getInstance();
+
+        while(true){
+            try{
+                ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+                PrintCard(cards);
+                int choice=showMenu();
+
+            switch (choice) {
+                case 1:
+                    CliPrinter.printMessage("whitch card do you want to remove?\n");
+                    String name1 = reader.readLine();
+                    if(controllo(Integer.parseInt(name1), cards)){
+                        BuyCardApplicativo.removeCard(Integer.parseInt(name1));
+                    }else{
+                        CliPrinter.printMessage("you do not have a card with this id in your shopping cart\n");
+                        CliPrinter.printMessage("choose another card\n");
+                    }
+
+                    break;
+
+                case 2:
+                    try{
+
+
+                        int value = inf.getID();
+                        while(!cards.isEmpty()) {
+                            int n = 0;
+                            CopiaCardCarrello carta = cards.get(n);
+
+
+                            cards.remove(n);
+
+                            ShoppingController.shopping(carta.getCartaID(),value);
+
+
+                        }
+
+                    }catch (ExceptionDBerror e){
+                        throw new ExceptionDBerror("ERRORE");
+                    }
+
+                    break;
+                case 3:
+                    new HomePage().start();
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+                default:
+                    throw new InvalidChioceException("invalid choice");
+
+            }
+            }catch(ExceptionDBerror e ){
+
+            }
+        }
+
+    }
+    public int showMenu(){
+        CliPrinter.printMessage("what do you want to do?\n");
+        CliPrinter.printMessage("1) remove a card\n");
+        CliPrinter.printMessage("2) shop all the cards\n");
+        CliPrinter.printMessage("3) return to home page\n");
+        CliPrinter.printMessage("4) quit\n");
+
+
+        return verifyChioce(1,4);
+    }
+
+    public void PrintCard(ObservableList<CopiaCardCarrello> cards) throws ExceptionCardNotExist, SQLException, IOException {
+
+
+
+
+        CliPrinter.printMessage("ID ,Nome ,seller ,price  ,extra\n");
+        for(CopiaCardCarrello item : cards){
+            CliPrinter.printMessage(item.getCartaSingolaID() +  " " + item.getUtenteVenditore()+ " "  + item.getPrezzo() +" " + item.getExtra() + "\n");
+        }
+    }
+    public boolean controllo(int name, ObservableList<CopiaCardCarrello> cards) throws ExceptionCardNotExist, SQLException {
+        for(CopiaCardCarrello item : cards){
+            if(name == item.getCartaSingolaID()){
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+

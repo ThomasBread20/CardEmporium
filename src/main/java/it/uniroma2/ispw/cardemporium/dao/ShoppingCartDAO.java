@@ -129,7 +129,7 @@ public class ShoppingCartDAO {
                 int id = resultSet.getInt("Carta_SingolaID");
                 double prezzo = resultSet.getDouble("copiacarta_Prezzo");
                 String  utenteVenditore = resultSet.getString("NomeVenditore");
-                int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
+                int cartaSingolaID = resultSet.getInt("CartaC_SingolaID");
                 String nomeCarta = resultSet.getString("NomeCarta");
                 boolean firmato = resultSet.getBoolean("firmato");
                 boolean foil = resultSet.getBoolean("foil");

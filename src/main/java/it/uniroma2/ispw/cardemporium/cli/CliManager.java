@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 
 import java.util.Scanner;
 
@@ -21,5 +22,5 @@ public abstract class CliManager {
 return choice;
     }
 
-    public abstract void start() throws Exception;
+    public abstract void start() throws Exception, ExceptionCardNotExist;
 }
