@@ -55,6 +55,7 @@ public class Shoppingcart extends CliManager {
                             cards.remove(n);
 
                             ShoppingController.shopping(carta.getCartaID(),value);
+                            CliPrinter.printMessage("Congratulation, your the shopping has ended successfully \n");
 
 
                         }
@@ -98,7 +99,7 @@ public class Shoppingcart extends CliManager {
 
         CliPrinter.printMessage("ID ,Nome ,seller ,price  ,extra\n");
         for(CopiaCardCarrello item : cards){
-            CliPrinter.printMessage(item.getCartaSingolaID() +  " " + item.getUtenteVenditore()+ " "  + item.getPrezzo() +" " + item.getExtra() + "\n");
+            CliPrinter.printMessage(item.getCartaSingolaID() +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() + "\n");
         }
     }
     public boolean controllo(int name, ObservableList<CopiaCardCarrello> cards) throws ExceptionCardNotExist, SQLException {

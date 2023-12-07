@@ -89,9 +89,9 @@ public class SearchcardPage extends CliManager{
 
 
 
-        CliPrinter.printMessage("ID ,Condition  ,seller ,price  ,language   ,set    ,extra\n");
+        CliPrinter.printMessage("ID - Condition  - seller - price  - language  - set   - extra\n");
         for(CopiaCard item : cards){
-            CliPrinter.printMessage(item.getCartaSingolaID() + " " +item.getCondizione() + " " + item.getUtenteVenditore()+ " "  + item.getPrezzo() + " " + item.getLingua() + " " + item.getNomeSet() + " " + item.getExtra() + "\n");
+            CliPrinter.printMessage(item.getCartaSingolaID() + "-" +item.getCondizione() + "-" + item.getUtenteVenditore()+ "-"  + item.getPrezzo() + "-" + item.getLingua() + "-" + item.getNomeSet() + "-"+ item.getExtra() + "\n");
         }
     }
 

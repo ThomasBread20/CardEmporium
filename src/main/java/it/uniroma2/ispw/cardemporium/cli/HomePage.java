@@ -1,9 +1,12 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
+import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,6 +14,7 @@ import java.sql.SQLException;
 public class HomePage extends CliManager {
     public void start() throws InvalidChioceException, IOException, ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
+        DataSingleton info = DataSingleton.getInstance();
 
         while(true){
             int choice=showMenu();
@@ -21,8 +25,17 @@ public class HomePage extends CliManager {
                     break;
 
                 case 2:
+                    String role = info.getRole();
+                    if (role.equals("Venditore")) {
 
-                    break;
+                        CliPrinter.printMessage("bravo, sto ancora lavornado a sta roba, attendi stupido\n");
+
+
+                    }else{
+                        CliPrinter.printMessage("You are not a seller! Became a seller for sell your cards!\n");
+                    }
+
+                        break;
                 case 3:
                     new Shoppingcart().start();
 
