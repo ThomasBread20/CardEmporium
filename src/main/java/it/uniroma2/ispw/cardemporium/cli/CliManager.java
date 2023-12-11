@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.exception.CardGameException;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public abstract class CliManager {
 
-    public int verifyChioce(int a,int b) {
+    public static int verifyChioce(int a, int b) {
 
 
         Scanner input = new Scanner(System.in);
@@ -26,5 +27,5 @@ public abstract class CliManager {
 return choice;
     }
 
-    public abstract void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist;
+    public abstract void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist, CardGameException;
 }

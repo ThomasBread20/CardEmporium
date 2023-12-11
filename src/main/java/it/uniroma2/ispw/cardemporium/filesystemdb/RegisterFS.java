@@ -29,7 +29,7 @@ public  class RegisterFS implements RegisterDAO {
     static {
         try {
             fileWriterU = new FileWriter("Utenti");
-            fileWriterC =new FileWriter("Credentials");
+            fileWriterC =new FileWriter("Credentiali");
         } catch (IOException e) {
             e.getCause();
         }

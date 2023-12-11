@@ -34,7 +34,7 @@ public class Shoppingcart extends CliManager {
                     if(controllo(Integer.parseInt(name1), cards)){
                         BuyCardApplicativo.removeCard(Integer.parseInt(name1));
                     }else{
-                        CliPrinter.printMessage("you do not have a card with this id in your shopping cart\n");
+                        CliPrinter.printMessage("you do not have a card with this id in your shopping cart");
                         CliPrinter.printMessage("choose another card\n");
                     }
 
@@ -77,9 +77,9 @@ public class Shoppingcart extends CliManager {
     }
     public int showMenu(){
         CliPrinter.printMessage("what do you want to do?\n");
-        CliPrinter.printMessage("1) remove a card\n");
-        CliPrinter.printMessage("2) shop all the cards\n");
-        CliPrinter.printMessage("3) return to home page\n");
+        CliPrinter.printMessage("1) remove a card");
+        CliPrinter.printMessage("2) shop all the cards");
+        CliPrinter.printMessage("3) return to home page");
         CliPrinter.printMessage("4) quit\n");
 
 
@@ -93,8 +93,9 @@ public class Shoppingcart extends CliManager {
 
         CliPrinter.printMessage("ID ,Nome ,seller ,price  ,extra\n");
         for(CopiaCardCarrello item : cards){
-            CliPrinter.printMessage(item.getCartaSingolaID() +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() + "\n");
+            CliPrinter.printMessage(item.getCartaSingolaID() +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() );
         }
+        CliPrinter.printMessage("\n");
     }
     public boolean controllo(int name, ObservableList<CopiaCardCarrello> cards)  {
         for(CopiaCardCarrello item : cards){
