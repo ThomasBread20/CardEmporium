@@ -27,10 +27,8 @@ public class Main {
         if(choose==1){
             try {
                 loginCLI.start();
-            } catch (Exception e) {
+            } catch (Exception | ExceptionCardNotExist e) {
                 e.getMessage();
-            } catch (ExceptionCardNotExist e) {
-                throw new RuntimeException(e);
             }
         }
 

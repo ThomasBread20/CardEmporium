@@ -2,7 +2,6 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanDG;
 import it.uniroma2.ispw.cardemporium.bean.ExtraBeanM;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
@@ -38,7 +37,7 @@ public class ExposeM implements Expose{
             game=card1.getNomegioco();
         }
 
-        int choice_lan;
+        int choiceLan;
         try {
 
             CliPrinter.printMessage("Is your card an altered card? [y/n]");
@@ -76,8 +75,8 @@ public class ExposeM implements Expose{
             choice=Expose.menu();
             condition=Expose.choiceCond(choice);
             cardBean=new CardBean(name,ver,game,set);
-            choice_lan=Expose.menu_lan();
-            lan=Expose.choiceLang(choice_lan);
+            choiceLan=Expose.menuLan();
+            lan=Expose.choiceLang(choiceLan);
             CliPrinter.printMessage("Quantity: ");
             quantity= Integer.parseInt(reader.readLine());
             CliPrinter.printMessage("Price: ");

@@ -45,7 +45,7 @@ public interface Expose {
         CliPrinter.printMessage("5)Poor");
         return verifyChioce(1,5);
     }
-    static int menu_lan(){
+    static int menuLan(){
         CliPrinter.printMessage("Language:");
         CliPrinter.printMessage("1)Italian");
         CliPrinter.printMessage("2)French");

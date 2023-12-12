@@ -36,7 +36,7 @@ public class SellerMenù extends CliManager{
             }
             } catch (InvalidChioceException | IOException | ExceptionCardNotExist | SQLException | ExceptionDBerror |
                      CardGameException e) {
-                        throw new RuntimeException(e);
+                        e.getMessage();
             }
         }
     }

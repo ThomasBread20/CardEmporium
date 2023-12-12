@@ -35,7 +35,7 @@ public class ExposeDG implements Expose{
             game=card1.getNomegioco();
         }
 
-        int choice_lan;
+        int choiceLan;
         try {
 
             CliPrinter.printMessage("Is your card an altered card? [y/n]");
@@ -67,8 +67,8 @@ public class ExposeDG implements Expose{
             choice=Expose.menu();
             condition=Expose.choiceCond(choice);
             cardBean=new CardBean(name,ver,game,set);
-            choice_lan=Expose.menu_lan();
-            lan=Expose.choiceLang(choice_lan);
+            choiceLan=Expose.menuLan();
+            lan=Expose.choiceLang(choiceLan);
             CliPrinter.printMessage("Quantity: ");
             quantity= Integer.parseInt(reader.readLine());
             CliPrinter.printMessage("Price: ");

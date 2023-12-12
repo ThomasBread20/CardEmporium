@@ -39,7 +39,7 @@ public class ExposeY implements Expose{
                 game=card1.getNomegioco();
             }
             System.out.println(name);
-            int choice_lan;
+            int choiceLan;
 
             try {
                 CliPrinter.printMessage("Is your card a first edition? [y/n]");
@@ -73,8 +73,8 @@ public class ExposeY implements Expose{
                 condition=Expose.choiceCond(choice);
 
                 cardBean=new CardBean(name,ver,game,set);
-                choice_lan=Expose.menu_lan();
-                lan=Expose.choiceLang(choice_lan);
+                choiceLan=Expose.menuLan();
+                lan=Expose.choiceLang(choiceLan);
                 CliPrinter.printMessage("Quantity: ");
                 quantity= Integer.parseInt(reader.readLine());
                 CliPrinter.printMessage("Price: ");

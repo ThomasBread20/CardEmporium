@@ -53,7 +53,7 @@ public class ExposeCardCli extends CliManager{
             }
             else throw new CardGameException("Invalid name");
         } catch (IOException | InvalidChioceException | ExceptionCardNotExist | SQLException | ExceptionDBerror e) {
-            throw new RuntimeException(e);
+            e.getMessage();
         }
 
     }
