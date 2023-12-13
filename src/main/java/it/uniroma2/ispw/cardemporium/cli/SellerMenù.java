@@ -34,6 +34,7 @@ public class SellerMenù extends CliManager{
                 default: throw new InvalidChioceException("invalid choice");
 
             }
+            break;
             } catch (InvalidChioceException | IOException | ExceptionCardNotExist | SQLException | ExceptionDBerror |
                      CardGameException e) {
                         e.getMessage();

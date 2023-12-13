@@ -10,7 +10,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
-public class SearchCardDao { PreparedStatement statement = null;
+public class SearchCardDao {
     ResultSet resultSet = null;
 
 
@@ -20,11 +20,15 @@ public class SearchCardDao { PreparedStatement statement = null;
 
     }
     public ObservableList<CopiaCard> getcardlist(String name) throws ExceptionCardNotExist, SQLException {
-
+        PreparedStatement statement;
         ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
         Connection conn = connCheck();
 
-        String sql = "CALL `SearchCard`(?)";
+        String sql =
+                "\tselect *\n" +
+                "    from carte\n" +
+                "    where NomeCarta = ? and nel_carrello = 0;\n" +
+                "\n" ;
 
         statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         statement.setString(1, name);
