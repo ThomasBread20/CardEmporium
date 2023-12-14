@@ -82,7 +82,7 @@ ActionEvent event;
             e.getMessage();
         } catch (ExceptionUserNotExist e) {
 
-            logger.log(Level.INFO,"User don't exists");
+            CliPrinter.printMessage("User don't exists");
             e.getMessage();
         }  catch (ExceptionBannedUser e) {
             e.getMessage();

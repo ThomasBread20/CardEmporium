@@ -6,12 +6,12 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.sql.SQLException;
 
-public class SellerMenù extends CliManager{
+public class SellerMenu extends CliManager{
     public void start(){
 
         while(true){

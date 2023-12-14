@@ -38,7 +38,7 @@ public class ExposeY implements Expose{
                 set=card1.getSetName();
                 game=card1.getNomegioco();
             }
-            System.out.println(name);
+
             int choiceLan;
 
             try {

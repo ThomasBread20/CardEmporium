@@ -28,7 +28,7 @@ public class HomePage extends CliManager {
                     String role = info.getRole();
                     if (role.equals("Venditore")) {
 
-                        new SellerMenù().start();
+                        new SellerMenu().start();
 
 
                     }else{
