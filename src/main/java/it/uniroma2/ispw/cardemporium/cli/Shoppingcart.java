@@ -41,7 +41,7 @@ public class Shoppingcart extends CliManager {
                     break;
 
                 case 2:
-                    try {
+
 
                         int value = inf.getID();
                         while (!cards.isEmpty()) {
@@ -54,9 +54,7 @@ public class Shoppingcart extends CliManager {
                             ShoppingController.shopping(carta.getCartaID(), value);
                             CliPrinter.printMessage("Congratulation, your the shopping has ended successfully \n");
                         }
-                    }catch (ExceptionDBerror e){
-                        throw new ExceptionDBerror("ERRORE");
-                    }
+
 
                     break;
                 case 3:

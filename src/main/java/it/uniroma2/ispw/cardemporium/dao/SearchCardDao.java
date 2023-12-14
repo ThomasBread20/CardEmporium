@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 
 
+import it.uniroma2.ispw.cardemporium.business.DBconstants;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import javafx.collections.FXCollections;
@@ -9,6 +10,8 @@ import javafx.collections.ObservableList;
 
 
 import java.sql.*;
+
+
 
 public class SearchCardDao {
     ResultSet resultSet = null;
@@ -24,13 +27,9 @@ public class SearchCardDao {
         ObservableList<CopiaCard> copiaCards = FXCollections.observableArrayList();
         Connection conn = connCheck();
 
-        String sql =
-                "\tselect *\n" +
-                "    from carte\n" +
-                "    where NomeCarta = ? and nel_carrello = 0;\n" +
-                "\n" ;
 
-        statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+        statement = conn.prepareCall(DBconstants.getSql(), ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         statement.setString(1, name);
         resultSet = statement.executeQuery();
 
