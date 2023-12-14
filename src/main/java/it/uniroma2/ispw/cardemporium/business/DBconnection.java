@@ -45,7 +45,7 @@ public class DBconnection {
             throw new ExceptionDBerror("");
 
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
 
         return null;
@@ -61,7 +61,7 @@ public class DBconnection {
                 bconnection.dbconnection();
             }
         }catch (Exception e){
-            e.printStackTrace();
+            e.getCause();
         }
         return bconnection;
     }
