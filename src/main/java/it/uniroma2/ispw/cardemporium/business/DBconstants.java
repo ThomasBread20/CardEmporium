@@ -3,9 +3,9 @@ package it.uniroma2.ispw.cardemporium.business;
 public class DBconstants {
     private DBconstants(){}
     public static final String DRIVER_CLASS_NAME="com.mysql.cj.jdbc.Driver";
-    static final String sql="SELECT * FROM carte WHERE NomeCarta = ? and nel_carrello = 0;";
+    static final String SQL="SELECT * FROM carte WHERE NomeCarta = ? and nel_carrello = 0;";
     public static String getSql(){
-        return sql;
+        return SQL;
     }
 
 
