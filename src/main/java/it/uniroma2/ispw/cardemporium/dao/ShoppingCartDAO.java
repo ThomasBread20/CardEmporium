@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
 
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.FXCollections;
@@ -95,7 +94,7 @@ public class ShoppingCartDAO {
 
 
     }
-    public ObservableList<CopiaCardCarrello> getCard(int iD) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public ObservableList<CopiaCardCarrello> getCard(int iD) throws  SQLException, ExceptionDBerror {
 
         ObservableList<CopiaCardCarrello> cardCarrellos = FXCollections.observableArrayList();
 
@@ -104,15 +103,13 @@ public class ShoppingCartDAO {
         Connection conn = connCheck();
 
 
-        int cardName = iD;
-
         String sql = "CALL `SearchCardbyIDuser`(?)";
 
 
         try {
 
             statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            statement.setInt(1,cardName);
+            statement.setInt(1, iD);
             resultSet = statement.executeQuery();
         }catch (SQLException e) {
 

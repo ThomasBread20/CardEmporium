@@ -41,11 +41,9 @@ public class DataSingleton {
     public Integer getID() {
         return userID;
     }
-    public String getPwd() {
-        return pwd;
-    }
 
-    public boolean getIsbanned(){return isBanned;}
+
+
 
 
     public String getUsername() {

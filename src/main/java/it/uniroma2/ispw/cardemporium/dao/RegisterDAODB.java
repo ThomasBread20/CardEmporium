@@ -10,10 +10,9 @@ import java.sql.*;
 
 public class RegisterDAODB implements RegisterDAO{
 
-    boolean result;
+
 
     PreparedStatement statement = null;
-    ResultSet resultSet = null;
 
 
     private Connection connCheck()  {
@@ -32,17 +31,11 @@ public class RegisterDAODB implements RegisterDAO{
             e.getCause();
         }
 
-        String username = username1;
         try {
             DBFunc.register();
         } catch (SQLException |NullPointerException e) {
             e.getCause();
         }
-
-        String passwdBean = passw;
-        String name = name1;
-        Date date = date1;
-        String surname = surname1;
 
 
         String sql = "CALL `Inserisci-Utente`(?, ?, ?, ?, ?)";
@@ -57,11 +50,11 @@ public class RegisterDAODB implements RegisterDAO{
             ex.toString();
         }
         try {
-            statement.setString(1, username);
-            statement.setString(2, passwdBean);
-            statement.setString(3, name);
-            statement.setString(4, surname);
-            statement.setDate(5, date);
+            statement.setString(1, username1);
+            statement.setString(2, passw);
+            statement.setString(3, name1);
+            statement.setString(4, surname1);
+            statement.setDate(5, date1);
             statement.executeQuery();
         } catch (SQLException ex) {
             throw new ExceptionUserAlreadyExist("");

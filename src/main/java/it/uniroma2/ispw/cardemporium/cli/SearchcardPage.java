@@ -36,7 +36,7 @@ public class SearchcardPage extends CliManager{
                     case 1:
                         CliPrinter.printMessage("whitch card do you want? (inster the Card ID)\n");
                         String name = reader.readLine();
-                        if (controllo(Integer.valueOf(name), cards)) {
+                        if (controllo(Integer.parseInt(name), cards)) {
                             CliPrinter.printMessage("do you want to add the " + name + " card? yes/no \n");
                             String name2 = reader.readLine();
                             if (name2.equals("yes")) {

@@ -4,13 +4,9 @@ public class ExtraBeanP {
     private boolean altered;
     private int cardid;
 
-    public int getCardid() {
-        return cardid;
-    }
 
-    public void setCardid(int cardid) {
-        this.cardid = cardid;
-    }
+
+
 
     public String getNome() {
         return nome;
@@ -32,13 +28,9 @@ public class ExtraBeanP {
         this.nome = nome;
     }
 
-    public int getV() {
-        return v;
-    }
 
-    public void setV(int v) {
-        this.v = v;
-    }
+
+
 
     private String nome;
     private int v;
@@ -71,9 +63,7 @@ public class ExtraBeanP {
         return fedition;
     }
 
-    public void setFedition(boolean fedition) {
-        this.fedition = fedition;
-    }
+
 
     public boolean isPlayset() {
         return playset;
@@ -87,9 +77,6 @@ public class ExtraBeanP {
         return reverse;
     }
 
-    public void setReverse(boolean reverse) {
-        this.reverse = reverse;
-    }
 
     private boolean signed;
     private boolean fedition;

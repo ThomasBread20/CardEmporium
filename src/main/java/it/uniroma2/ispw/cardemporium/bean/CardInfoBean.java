@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
-import it.uniroma2.ispw.cardemporium.controller.ExposeController;
-import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
+
 
 public class CardInfoBean {
     private int id;
@@ -72,33 +71,25 @@ public class CardInfoBean {
         return extraBeanDG;
     }
 
-    public void setExtraBeanDG(ExtraBeanDG extraBeanDG) {
-        this.extraBeanDG = extraBeanDG;
-    }
+
 
     public ExtraBeanY getExtraBeanY() {
         return extraBeanY;
     }
 
-    public void setExtraBeanY(ExtraBeanY extraBeanY) {
-        this.extraBeanY = extraBeanY;
-    }
+
 
     public ExtraBeanP getExtraBeanP() {
         return extraBeanP;
     }
 
-    public void setExtraBeanP(ExtraBeanP extraBeanP) {
-        this.extraBeanP = extraBeanP;
-    }
+
 
     public ExtraBeanM getExtraBeanM() {
         return extraBeanM;
     }
 
-    public void setExtraBeanM(ExtraBeanM extraBeanM) {
-        this.extraBeanM = extraBeanM;
-    }
+
 
     ExtraBeanY extraBeanY;
     ExtraBeanP extraBeanP;
@@ -185,17 +176,13 @@ public class CardInfoBean {
         return versione;
     }
 
-    public void setVersione(Integer versione) {
-        this.versione = versione;
-    }
+
 
     public String getGioco() {
         return gioco;
     }
 
-    public void setGioco(String gioco) {
-        this.gioco = gioco;
-    }
+
 
     public String getSet() {
         return set;

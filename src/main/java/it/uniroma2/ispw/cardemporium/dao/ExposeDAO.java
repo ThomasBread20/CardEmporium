@@ -4,14 +4,12 @@ import it.uniroma2.ispw.cardemporium.bean.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
 
 public class ExposeDAO {
     PreparedStatement statement = null;
-    ResultSet resultSet = null;
 
     private Connection connCheck()  {
         Connection1Singelton conn = Connection1Singelton.getInstance();

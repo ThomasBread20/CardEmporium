@@ -17,9 +17,7 @@ public class CopiaCard {
 
   private Boolean nelCarrello;
 
-    public Boolean getNelCarrello() {
-        return nelCarrello;
-    }
+
     private int versione;
   private String nomeSet;
   private int q;
@@ -32,9 +30,7 @@ public class CopiaCard {
         return nomeSet;
     }
 
-    public void setLingua(String lingua) {
-        this.lingua = lingua;
-    }
+
 
     public String getCondizione() {
         return condizione;
@@ -50,9 +46,7 @@ public class CopiaCard {
         return cartaSingolaID;
     }
 
-    public int getCartaID() {
-        return cartaID;
-    }
+
 
     public CopiaCard(String condizione, double prezzo, String nomeCarta, String extra, String lingua, int versione, String nomeSet) {
         this.condizione = condizione;
@@ -76,9 +70,7 @@ public class CopiaCard {
         return extra;
     }
 
-    public boolean isVenduto() {
-        return venduto;
-    }
+
 
     private boolean venduto;
 
@@ -126,13 +118,9 @@ public class CopiaCard {
         return lingua;
     }
 
-    public int getQ() {
-        return q;
-    }
 
-    public void setQ(int q) {
-        this.q = q;
-    }
+
+
 
     public Card getCard() {
         return card;

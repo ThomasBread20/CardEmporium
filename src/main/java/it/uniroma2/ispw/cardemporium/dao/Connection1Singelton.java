@@ -9,7 +9,7 @@ import java.sql.Connection;
 
 public class Connection1Singelton {
 
-    Connection conn = null;
+    Connection conn;
 
     private static Connection1Singelton instance=null;
 

@@ -1,16 +1,9 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
-import it.uniroma2.ispw.cardemporium.controller.ExposeController;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.Card;
-import it.uniroma2.ispw.cardemporium.ui.*;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 
 
-import java.sql.SQLException;
+
+
 
 public class CardBean {
     private String namebean;
@@ -40,25 +33,19 @@ public class CardBean {
         return setcardbean;
     }
 
-    public void setSetcardbean(String setcardbean) {
-        this.setcardbean = setcardbean;
-    }
+
 
     public int getVersionbean() {
         return versionbean;
     }
 
-    public void setVersionbean(int versionbean) {
-        this.versionbean = versionbean;
-    }
+
 
     public String getGameBean() {
         return gamebean;
     }
 
-    public void setGamebean(String gamebean) {
-        this.gamebean = gamebean;
-    }
+
 
 
 }

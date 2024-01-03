@@ -7,7 +7,7 @@ import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
 public class DBFunc {
 
     static PreparedStatement statement = null;
-    ResultSet resultSet = null;
+
 
 
     public static Connection connCheck()
@@ -27,9 +27,7 @@ public class DBFunc {
         statement.execute();
 
 
-        String sql3 = SQL3;
-
-            statement = conn.prepareStatement(sql3);
+        statement = conn.prepareStatement(SQL3);
             statement.execute();
 
     }

@@ -148,7 +148,7 @@ public class Carrelloview {
 
     }
 
-    Stage stage;
+
 
     DataSingleton info = DataSingleton.getInstance();
     @FXML
@@ -198,7 +198,7 @@ public class Carrelloview {
             return;
         }
 
-        String returnValue = Popup.shoppingcart();
+        String returnValue = Popup.removeCardFromSC();
 
         if(returnValue.equals("yes")){
 

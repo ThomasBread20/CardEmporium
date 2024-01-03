@@ -14,7 +14,7 @@ import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
-//DA SISTEMARE
+
 public class ExposeController {
     private MyCardBaseInterface card;
 

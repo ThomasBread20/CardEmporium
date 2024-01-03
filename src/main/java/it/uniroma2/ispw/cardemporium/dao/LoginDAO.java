@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 public class LoginDAO {
 
-    boolean result;
+
 
     PreparedStatement statement = null;
     ResultSet resultSet = null;
@@ -34,20 +34,18 @@ public class LoginDAO {
 
     public Users getUser(String username1, String passw1) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
 
-        String username = username1;
-        String password = passw1;
         String sql = "SELECT * FROM credenziali WHERE Username = ? and PasswordUtente = ? ";
         Connection conn = connCheck();
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, username);
-            statement.setString(2, password);
+            statement.setString(1, username1);
+            statement.setString(2, passw1);
             resultSet = statement.executeQuery();
             if (!resultSet.next()) {
                 throw new ExceptionUserNotExist("User does not exists");
             }
 
-            int id = 0;
+            int id;
             id = resultSet.getInt("utenti_ID");
 
 
@@ -61,8 +59,8 @@ public class LoginDAO {
             if (resultSet.getBoolean("IsBanned")) {
                 throw new ExceptionBannedUser("The User is Banned");
             } else {
-                return  UtenteFactory.getUser(password,
-                        username,
+                return  UtenteFactory.getUser(passw1,
+                        username1,
                         resultSet.getString("Nome"),
                         resultSet.getString("Cognome"),
                         resultSet.getDate("DataNascita"),

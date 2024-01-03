@@ -133,10 +133,8 @@ public class RegisterView {
 
 
     boolean checkPassword(String pass1, String pass2){
-        String firstPass = pass1;
-        String secPass = pass2;
 
-        if(firstPass.compareTo(secPass) != 0 ){
+        if(pass1.compareTo(pass2) != 0 ){
             ripetiPasswordTextField.clear();
             return false;
         }

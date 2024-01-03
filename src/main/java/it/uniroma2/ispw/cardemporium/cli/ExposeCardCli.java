@@ -1,12 +1,12 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
-import it.uniroma2.ispw.cardemporium.bean.*;
+
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;

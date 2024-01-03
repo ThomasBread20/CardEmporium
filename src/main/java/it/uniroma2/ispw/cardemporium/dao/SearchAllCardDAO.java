@@ -17,7 +17,6 @@ import java.sql.SQLException;
 
 
 public class SearchAllCardDAO {
-    boolean result;
 
     PreparedStatement statement = null;
     ResultSet resultSet = null;

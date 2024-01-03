@@ -16,7 +16,7 @@ public abstract class CliManager {
 
 
         Scanner input = new Scanner(System.in);
-        int choice = 0;
+        int choice;
         while (true) {
             CliPrinter.printMessage("Please enter a choice: ");
             choice = input.nextInt();

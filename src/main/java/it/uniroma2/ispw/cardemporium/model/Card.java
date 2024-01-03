@@ -35,9 +35,7 @@ public class Card {
         return nomegioco;
     }
 
-    public void setNomegioco(String nomeGioco) {
-        this.nomegioco = nomeGioco;
-    }
+
 
     public Card(int idCard, String nameCard, int ver, String game, String set){
         this.id=idCard;
@@ -53,7 +51,5 @@ public class Card {
         return setName;
     }
 
-    public void setSetName(String setName) {
-        this.setName = setName;
-    }
+
 }

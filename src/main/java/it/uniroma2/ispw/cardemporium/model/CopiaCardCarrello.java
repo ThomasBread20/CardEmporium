@@ -37,21 +37,6 @@ public class CopiaCardCarrello {
     private int versione;
   private String nomeSet;
 
-    public int getVersione() {
-        return versione;
-    }
-
-    public String getNomeSet() {
-        return nomeSet;
-    }
-
-    public void setLingua(String lingua) {
-        this.lingua = lingua;
-    }
-
-    public String getCondizione() {
-        return condizione;
-    }
 
 
 
@@ -70,9 +55,7 @@ public class CopiaCardCarrello {
     public String getNomeCarta() {
         return nomeCarta;
     }
-    public String getNomeGioco() {
-        return nomeGioco;
-    }
+
 
 
 
@@ -91,7 +74,4 @@ public class CopiaCardCarrello {
         return prezzo;
     }
 
-    public String getLingua() {
-        return lingua;
-    }
 }

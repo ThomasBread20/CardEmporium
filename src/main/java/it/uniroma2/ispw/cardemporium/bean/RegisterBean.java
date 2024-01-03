@@ -1,7 +1,5 @@
 package it.uniroma2.ispw.cardemporium.bean;
 
-import it.uniroma2.ispw.cardemporium.controller.RegisterController;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
 import java.time.LocalDate;
 
@@ -65,22 +63,13 @@ public class RegisterBean {
 
     public void setDateBean(LocalDate dateBean) {
 
-        java.sql.Date d = java.sql.Date.valueOf(dateBean);
-
-        this.dateBean = d;
+        this.dateBean = java.sql.Date.valueOf(dateBean);
     }
 
 
 
-    public String getSecondaPassword() {
 
-        return secondaPassword;
-    }
 
-    public void setSecondaPassword(String secondaPassword) {
-
-        this.secondaPassword = secondaPassword;
-    }
 
     public void setRole(String ruolo){
         this.role = ruolo;
@@ -91,9 +80,5 @@ public class RegisterBean {
     }
 
 
-    public void beaninsertuserdao() throws  ExceptionUserAlreadyExist {
 
-        RegisterController.insertUserDao(getUsernameBean(), getPasswdBean(), getNameBean(), getDateBean(), getCognomeBean());
-
-    }
 }

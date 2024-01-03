@@ -181,7 +181,6 @@ public class CardView {
     Integer index;
 
 
-    Stage stage;
 
     DataSingleton info = DataSingleton.getInstance();
 
@@ -263,7 +262,7 @@ public class CardView {
 
 
 
-    public void shoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void shoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage {
 
         index = tableList.getSelectionModel().getSelectedIndex();
 

@@ -47,14 +47,7 @@ public class ExtraBeanG {
         return playset;
     }
 
-    public void setAll(boolean altered, boolean singed, boolean foil, boolean firstEd, boolean reverseHolo, boolean playset) {
-        this.altered = altered;
-        this.singed = singed;
-        this.foil = foil;
-        this.firstEd = firstEd;
-        this.reverseHolo = reverseHolo;
-        this.playset = playset;
-    }
+
 
 }
 

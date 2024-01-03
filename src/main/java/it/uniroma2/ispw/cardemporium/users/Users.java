@@ -7,9 +7,7 @@ public abstract class Users {
     private String pwd;
     private String username;
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -27,13 +25,8 @@ public abstract class Users {
         this.surname = surname;
     }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
 
-    public void setBanned(boolean banned) {
-        isBanned = banned;
-    }
+
 
     private int id;
     private String name;

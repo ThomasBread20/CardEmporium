@@ -45,13 +45,8 @@ public class ExtraBeanDG {
         this.id = id;
     }
 
-    public int getV() {
-        return v;
-    }
 
-    public void setV(int v) {
-        this.v = v;
-    }
+
 
     public String getN() {
         return n;

@@ -112,7 +112,7 @@ public Object verifySet() {
         ExposeController.getConcreteGame((String) verifyGame());
 
         CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verifyVersion(), (String) verifyGame(),(String) verifySet());
-        ObservableList<Card> obcard = null;
+        ObservableList<Card> obcard;
         try {
 
 
