@@ -28,7 +28,7 @@ public class HomePage extends CliManager {
                     String role = info.getRole();
                     if (role.equals("Venditore")) {
 
-                        CliPrinter.printMessage("bravo, sto ancora lavornado a sta roba, attendi stupido\n");
+                        new SellerMenu().start();
 
 
                     }else{
@@ -53,11 +53,12 @@ public class HomePage extends CliManager {
     }
 
     public int showMenu(){
-        CliPrinter.printMessage("what do you want to do?\n");
-        CliPrinter.printMessage("1) Search a Card\n");
-        CliPrinter.printMessage("2) Sell a card\n");
-        CliPrinter.printMessage("3) View the Shopping Cart\n");
+        CliPrinter.printMessage("what do you want to do?");
+        CliPrinter.printMessage("1) Search a Card");
+        CliPrinter.printMessage("2) Sell a card");
+        CliPrinter.printMessage("3) View the Shopping Cart");
         CliPrinter.printMessage("4) Quit\n");
+
         return verifyChioce(1,4);
     }
 }

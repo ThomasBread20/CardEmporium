@@ -35,6 +35,7 @@ ActionEvent event;
                     default:
                         throw new InvalidChioceException("invalid choice");
                 }
+                break;
             } catch (InvalidChioceException e) {
                 e.getMessage();
             }
@@ -77,17 +78,16 @@ ActionEvent event;
             new HomePage().start();
 
 
-        } catch (IOException | ExceptionDBerror e) {
+        } catch (IOException | ExceptionDBerror | ExceptionCardNotExist | SQLException | InvalidChioceException e) {
             e.getMessage();
         } catch (ExceptionUserNotExist e) {
 
-            logger.log(Level.INFO,"User don't exists");
+            CliPrinter.printMessage("User don't exists");
+            e.getMessage();
         }  catch (ExceptionBannedUser e) {
             e.getMessage();
             logger.log(Level.INFO,"Banned user");
 
-        } catch (ExceptionCardNotExist | SQLException | InvalidChioceException e) {
-            e.getMessage();
         }
     }
 }

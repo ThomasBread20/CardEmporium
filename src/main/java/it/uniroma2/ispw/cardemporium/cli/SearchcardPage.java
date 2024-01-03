@@ -93,6 +93,7 @@ public class SearchcardPage extends CliManager{
         for(CopiaCard item : cards){
             CliPrinter.printMessage(item.getCartaSingolaID() + "-" +item.getCondizione() + "-" + item.getUtenteVenditore()+ "-"  + item.getPrezzo() + "-" + item.getLingua() + "-" + item.getNomeSet() + "-"+ item.getExtra() + "\n");
         }
+        CliPrinter.printMessage("\n");
     }
 
         public boolean controllo(int name, ObservableList<CopiaCard> cards) throws ExceptionCardNotExist {
