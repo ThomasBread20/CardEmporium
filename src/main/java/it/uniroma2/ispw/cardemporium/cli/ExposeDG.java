@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.bean.*;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.controller.InsertCardController;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 import it.uniroma2.ispw.cardemporium.model.Card;
@@ -74,7 +75,7 @@ public class ExposeDG implements Expose{
             CliPrinter.printMessage("Price: ");
             price= Float.valueOf(reader.readLine());
             cardInfoBean=new CardInfoBean(id,cardBean,condition,price,quantity,extraBeanDG,lan);
-            cardInfoBean.insertCardP();
+            InsertCardController.insertCardDB(cardInfoBean);
             CliPrinter.printMessage("everything was fine");
 
 
