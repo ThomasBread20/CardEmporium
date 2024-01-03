@@ -4,6 +4,7 @@ package it.uniroma2.ispw.cardemporium.cli;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 
+import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
@@ -13,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -87,7 +89,7 @@ public class SignUpCli extends CliManager{
             registerValue.setDateBean(date1.toLocalDate());
 
 
-            registerValue.beaninsertuserdao();
+            RegisterController.insertUserDao(username, pass, name, Date.valueOf(date1.toLocalDate()), last);
 
         } catch (IOException | ParseException e) {
             e.getMessage();

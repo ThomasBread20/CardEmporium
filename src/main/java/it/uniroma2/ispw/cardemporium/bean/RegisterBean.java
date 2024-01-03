@@ -29,7 +29,7 @@ public class RegisterBean {
         this.passwdBean = passwdBean;
     }
 
-    public String getUsernameBean() {
+    public  String getUsernameBean() {
         return usernameBean;
     }
 
@@ -91,4 +91,9 @@ public class RegisterBean {
     }
 
 
+    public void beaninsertuserdao() throws  ExceptionUserAlreadyExist {
+
+        RegisterController.insertUserDao(getUsernameBean(), getPasswdBean(), getNameBean(), getDateBean(), getCognomeBean());
+
+    }
 }
