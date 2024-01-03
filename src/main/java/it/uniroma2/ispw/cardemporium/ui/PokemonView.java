@@ -7,6 +7,7 @@ import it.uniroma2.ispw.cardemporium.bean.ExtraBeanP;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.InsertCardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -198,7 +199,7 @@ public class PokemonView implements Initializable {
         CardBean cardBean=new CardBean(name,ver,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanP, (String) verifyLan());
         try {
-            cardInfoBean.insertCardP();
+            InsertCardController.insertCardP(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();

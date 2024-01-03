@@ -6,6 +6,7 @@ import it.uniroma2.ispw.cardemporium.bean.ExtraBeanDG;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.InsertCardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -193,7 +194,7 @@ public class Dgview implements Initializable {
 
         try {
 
-            cardInfoBean.insertCardDB();
+            InsertCardController.insertCardDB(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();

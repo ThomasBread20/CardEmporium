@@ -33,26 +33,6 @@ public class LoginBean {
         this.usernameBean = usernameBean;
     }
 
-    public void result( ActionEvent event) throws ExceptionDBerror, ExceptionUserNotExist, ExceptionBannedUser, IOException, ExceptionSwitchpage {
 
-        try{
-            Users user = LoginController.checkUserDao(getUsernameBean(), getPasswdBean());
-            LoginController.dataFuller(user,user.getRole());
-
-            LoginController.createShoppingCart();
-
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage(user.getHomePage(), event);
-
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("");
-        } catch (ExceptionSwitchpage e) {
-            throw new ExceptionSwitchpage("");
-        }
-
-
-
-
-    }
 
 }

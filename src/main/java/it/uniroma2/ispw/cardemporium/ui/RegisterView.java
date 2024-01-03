@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 
+import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
@@ -161,8 +162,8 @@ public class RegisterView {
 
 
 
+                RegisterController.insertUserDao(registerValue.getUsernameBean(), registerValue.getPasswdBean(), registerValue.getNameBean(), registerValue.getDateBean(), registerValue.getCognomeBean());
 
-                registerValue.beaninsertuserdao();
 
 
 

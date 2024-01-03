@@ -6,6 +6,7 @@ import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
+import it.uniroma2.ispw.cardemporium.model.Card;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -111,16 +112,31 @@ public Object verifySet() {
         ExposeController.getConcreteGame((String) verifyGame());
 
         CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verifyVersion(), (String) verifyGame(),(String) verifySet());
-
+        ObservableList<Card> obcard = null;
         try {
 
 
-            cardBean.showCard(event); //da cambiare valore di ritorno
+
+                obcard = ExposeController.searchAllCard(cardBean.getName(), cardBean.getVersionbean(), cardBean.getGameBean(), cardBean.getSetcardbean());
+                if (cardBean.getGameBean().equals("Yu-gi-oh")) {
+                    YugiohView yu = (YugiohView) SwitchPage.switchPageseller(cardBean.getGameBean(), event);
+                    yu.populateTable(obcard);
+                } else if (cardBean.getGameBean().equals("Pokemon")) {
+                    PokemonView pv = (PokemonView) SwitchPage.switchPageseller(cardBean.getGameBean(), event);
+                    pv.populateTable(obcard);
+                } else if (cardBean.getGameBean().equals("dg")) {
+                    Dgview dgv = (Dgview) SwitchPage.switchPageseller(cardBean.getGameBean(), event);
+                    dgv.populateTable(obcard);
+                } else if (cardBean.getGameBean().equals("Magic")) {
+                    MagicView mv = (MagicView) SwitchPage.switchPageseller(cardBean.getGameBean(), event);
+                    mv.populateTable(obcard);
+                }
 
 
 
 
-        } catch (ExceptionSwitchpage e) {
+
+        } catch (ExceptionSwitchpage |ExceptionCardNotExist |SQLException e) {
             e.getCause();
         }
 

@@ -91,9 +91,4 @@ public class RegisterBean {
     }
 
 
-    public void beaninsertuserdao() throws  ExceptionUserAlreadyExist {
-
-        RegisterController.insertUserDao(getUsernameBean(), getPasswdBean(), getNameBean(), getDateBean(), getCognomeBean());
-
-    }
 }

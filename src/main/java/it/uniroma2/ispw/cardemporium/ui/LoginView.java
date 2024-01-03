@@ -1,10 +1,12 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
+import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
+import it.uniroma2.ispw.cardemporium.users.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -101,7 +103,22 @@ public class LoginView {
 
         try {
 
-            loginInfo.result(event);
+            try{
+                Users user = LoginController.checkUserDao(loginInfo.getUsernameBean(), loginInfo.getPasswdBean());
+                LoginController.dataFuller(user,user.getRole());
+
+                LoginController.createShoppingCart();
+
+                SwitchPage page = SwitchPage.getInstance();
+                page.switchPage(user.getHomePage(), event);
+
+            } catch (ExceptionDBerror e) {
+                throw new ExceptionDBerror("");
+            } catch (ExceptionSwitchpage e) {
+                throw new ExceptionSwitchpage("");
+            }
+
+
 
 
         } catch (ExceptionUserNotExist e) {

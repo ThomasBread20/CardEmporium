@@ -6,6 +6,7 @@ import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.InsertCardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
@@ -189,7 +190,7 @@ public class YugiohView implements Initializable {
         CardBean cardBean=new CardBean(name,ver,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanY, (String) verifyLan());
         try {
-            cardInfoBean.insertCardY();
+            InsertCardController.insertCardY(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();
