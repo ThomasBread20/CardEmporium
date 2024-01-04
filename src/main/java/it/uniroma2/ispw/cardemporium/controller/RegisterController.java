@@ -27,11 +27,12 @@ public class RegisterController {
         int rand=random.nextInt();
 
         if (rand % 2 == 0) {
-
-            register.register(username, passw, name, date, surname);
-        } else {
             register.registerfs(username, passw, name, date, surname);
 
+
+        } else {
+
+            register.register(username, passw, name, date, surname);
         }
 
 
