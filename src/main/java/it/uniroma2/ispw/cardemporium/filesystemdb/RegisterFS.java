@@ -48,6 +48,7 @@ public  class RegisterFS implements RegisterDAO {
         }
 
     }
+    String line;
     public int getID(){
         int newid = 0;
         try {
@@ -55,16 +56,16 @@ public  class RegisterFS implements RegisterDAO {
 
             br = new BufferedReader(new FileReader(FILE_NAME1));
 
-            while (( br.readLine()) != null) {
+            while (( line=br.readLine()) != null) {
                 newid++;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         } finally {
             try {
                 if (br != null)br.close();
             } catch (IOException ex) {
-                ex.printStackTrace();
+                ex.getCause();
             }
         }
         return newid;
