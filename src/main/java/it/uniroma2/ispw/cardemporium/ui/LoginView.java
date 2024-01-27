@@ -102,7 +102,7 @@ public class LoginView {
 
         try {
 
-            try{
+
                 Users user = LoginController.checkUserDao(loginInfo.getUsernameBean(), loginInfo.getPasswdBean());
                 LoginController.dataFuller(user,user.getRole());
 
@@ -110,13 +110,6 @@ public class LoginView {
 
                 SwitchPage page = SwitchPage.getInstance();
                 page.switchPage(user.getHomePage(), event);
-
-            } catch (ExceptionDBerror e) {
-                throw new ExceptionDBerror("");
-            } catch (ExceptionSwitchpage e) {
-                throw new ExceptionSwitchpage("");
-            }
-
 
 
 
