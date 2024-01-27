@@ -15,15 +15,15 @@ public  class RegisterFS implements RegisterDAO {
 
     BufferedReader br;
 
-    String FILE_NAME="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Credenziali";
-    String FILE_NAME1="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Utenti";
-    BufferedWriter fileWriter;
-    BufferedWriter fileWriter1;
+    static String fileName ="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Credenziali";
+    static String fileName1 ="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Utenti";
+    static BufferedWriter fileWriter;
+    static BufferedWriter fileWriter1;
 
-    {
+   static  {
         try {
-            fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
-            fileWriter1 = new BufferedWriter(new FileWriter(FILE_NAME1,true));
+            fileWriter = new BufferedWriter(new FileWriter(fileName,true));
+            fileWriter1 = new BufferedWriter(new FileWriter(fileName1,true));
 
         } catch (IOException e) {
             e.getMessage();
@@ -54,7 +54,7 @@ public  class RegisterFS implements RegisterDAO {
         try {
 
 
-            br = new BufferedReader(new FileReader(FILE_NAME1));
+            br = new BufferedReader(new FileReader(fileName1));
 
             while (( line=br.readLine()) != null) {
                 newid++;

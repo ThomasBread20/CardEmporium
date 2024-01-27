@@ -7,7 +7,9 @@ import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
 public class DBFunc {
 
     static PreparedStatement statement = null;
-
+    private DBFunc() {
+        throw new IllegalStateException("Utility class");
+    }
 
 
     public static Connection connCheck()
