@@ -5,7 +5,7 @@ package it.uniroma2.ispw.cardemporium.filesystemdb;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 
 import java.io.*;
-import java.util.logging.Logger;
+
 
 public class ShopcardFS {
 
