@@ -9,20 +9,25 @@ import java.util.logging.Logger;
 
 public class ShopcardFS {
 
-    Logger logger=Logger.getLogger(ShopcardFS.class.getName());
-    File shop=new File("shop");
 
-    String line;
 
-    String []shopping;
 
-    static FileWriter fileWriterU;
 
-    static {
+    BufferedReader br;
+
+    static String fileName ="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Shop";
+
+    static BufferedWriter fileWriter;
+
+
+
+    static  {
         try {
-            fileWriterU = new FileWriter("shop", true);
+            fileWriter = new BufferedWriter(new FileWriter(fileName,true));
+
+
         } catch (IOException e) {
-            e.getCause();
+            e.getMessage();
         }
     }
 
@@ -30,16 +35,13 @@ public class ShopcardFS {
 
 
 
-        line=null;
-
         try {
-            System.out.println(id + " "+  value.getCartaSingolaID() + " " + value.getNomeCarta()+" " + value.getUtenteVenditore()+" " + value.getPrezzo() +" " +"\n" );
-            fileWriterU.write(id +" ");
-            fileWriterU.write(value.getCartaSingolaID());
-            fileWriterU.write(value.getNomeCarta()+" ");
-            fileWriterU.write( value.getUtenteVenditore()+" ");
-            fileWriterU.write(value.getPrezzo() +" ");
-            fileWriterU.write("\n");
+            fileWriter.write(id +" ");
+            fileWriter.write(value.getNomeCarta()+" ");
+            fileWriter.write( value.getUtenteVenditore()+" ");
+            fileWriter.write(value.getPrezzo() +" ");
+            fileWriter.newLine();
+            fileWriter.close();
 
 
         } catch (IOException e) {
