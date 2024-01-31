@@ -10,7 +10,9 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
-public class SearchCardDao { PreparedStatement statement = null;
+public class SearchCardDao {
+
+    PreparedStatement statement = null;
     ResultSet resultSet = null;
 
 

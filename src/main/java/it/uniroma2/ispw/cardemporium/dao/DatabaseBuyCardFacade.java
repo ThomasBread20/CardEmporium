@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.dao;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.filesystemdb.ShopcardFS;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
@@ -15,6 +16,10 @@ public class DatabaseBuyCardFacade {
     SearchCardDao searchCardDao;
 
     ShoppingCartDAO shoppingCartDAO;
+
+    ShopcardFS shopcardFS;
+
+
 
     public void buyCard(int id, int user) throws ExceptionDBerror {
         buyCardDAO = new BuyCardDAODB();
@@ -57,4 +62,11 @@ public class DatabaseBuyCardFacade {
         return shoppingCartDAO.getCard(id);
 
     }
+    public void addCard(CopiaCardCarrello value, int id) throws ExceptionDBerror {
+        shopcardFS = new ShopcardFS();
+
+        shopcardFS.addcard(value, id);
+
+    }
+
 }
