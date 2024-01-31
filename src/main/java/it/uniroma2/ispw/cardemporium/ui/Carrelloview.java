@@ -8,6 +8,7 @@ import it.uniroma2.ispw.cardemporium.controller.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.filesystemdb.ShopcardFS;
 import it.uniroma2.ispw.cardemporium.model.CopiaCard;
 import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
 import javafx.collections.ObservableList;
@@ -148,7 +149,7 @@ public class Carrelloview {
 
     }
 
-
+    Stage stage;
 
     DataSingleton info = DataSingleton.getInstance();
     @FXML
@@ -198,7 +199,7 @@ public class Carrelloview {
             return;
         }
 
-        String returnValue = Popup.removeCardFromSC();
+        String returnValue = Popup.shoppingcart();
 
         if(returnValue.equals("yes")){
 
@@ -242,6 +243,9 @@ public class Carrelloview {
                 cards.remove(n);
 
                 ShoppingController.shopping(carta.getCartaID(),value);
+
+                ShoppingController.shoppingFS(carta);
+
 
 
             }
