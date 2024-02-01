@@ -31,13 +31,11 @@ public class ShoppingController {
 
     public static void shoppingFS(CopiaCardCarrello value) throws ExceptionDBerror {
         DatabaseBuyCardFacade shop = new DatabaseBuyCardFacade();
-        try{
+
             shop.addCard(value, value.getCartaID());
 
 
-        }catch (ExceptionDBerror e){
-            throw new ExceptionDBerror("ERRORE");
-        }
+
     }
 
 
