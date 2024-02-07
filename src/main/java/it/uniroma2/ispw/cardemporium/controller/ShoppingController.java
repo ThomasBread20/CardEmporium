@@ -29,7 +29,7 @@ public class ShoppingController {
         }
     }
 
-    public static void shoppingFS(CopiaCardCarrello value) throws ExceptionDBerror {
+    public static void shoppingFS(CopiaCardCarrello value)  {
         DatabaseBuyCardFacade shop = new DatabaseBuyCardFacade();
 
             shop.addCard(value, value.getCartaID());
