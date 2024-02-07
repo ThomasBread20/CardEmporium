@@ -62,7 +62,7 @@ public class DatabaseBuyCardFacade {
         return shoppingCartDAO.getCard(id);
 
     }
-    public void addCard(CopiaCardCarrello value, int id) throws ExceptionDBerror {
+    public void addCard(CopiaCardCarrello value, int id){
         shopcardFS = new ShopcardFS();
 
         shopcardFS.addcard(value, id);

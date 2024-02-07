@@ -33,7 +33,6 @@ public  class RegisterFS implements RegisterDAO {
 
     @Override
     public void addUser(String username, String pwd, String name, Date date, String cognome) throws ExceptionUserAlreadyExist {
-        System.out.println(6);
         try {
 
             int id=getID()+1;
