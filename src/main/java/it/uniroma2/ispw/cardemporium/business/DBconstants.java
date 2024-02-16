@@ -8,7 +8,7 @@ public class DBconstants {
         return SQL;
     }
 
-
+    public static String NAME="Card Emporium";
     public static final String SQL3 = """
                 CREATE  PROCEDURE `Inserisci-Utente`(in Var_username varchar(45), in Var_Password varchar(45), in var_nome varchar(45), in Var_cognome varchar(45), in Var_data DATE)
                 BEGIN
