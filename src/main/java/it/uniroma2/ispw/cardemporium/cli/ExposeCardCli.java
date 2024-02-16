@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 
+import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
@@ -37,10 +38,10 @@ public class ExposeCardCli extends CliManager{
 
             CliPrinter.printMessage("Write the set's name: ");
             String set= reader.readLine();
+            CardBean cardBean=new CardBean(name,ver,game,set);
+            ExposeController exposeController=new ExposeController();
 
-
-
-           card=ExposeController.searchAllCard(name,ver,game,set);
+           card=exposeController.searchAllCard(cardBean);
 
             if(game.equals("Yu-gi-oh")){
                 new ExposeY().expose(card);

@@ -191,10 +191,10 @@ public class Dgview implements Initializable {
         ExtraBeanDG extraBeanDG=new ExtraBeanDG(sig,alt,foil,id,version,name);
         CardBean cardBean=new CardBean(name,version,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanDG, (String) verifyLan());
-
+        InsertCardController insertCardController=new InsertCardController();
         try {
 
-            InsertCardController.insertCardDB(cardInfoBean);
+            insertCardController.insertCardDB(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();

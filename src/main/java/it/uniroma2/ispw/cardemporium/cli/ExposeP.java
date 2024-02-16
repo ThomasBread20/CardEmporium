@@ -82,7 +82,7 @@ public class ExposeP implements Expose{
             int choice;
             ExtraBeanG extraBeanG=new ExtraBeanG(al,si,fed,rh,ps);
             extraBeanP =new ExtraBeanP(id,name,ver,extraBeanG);
-
+            InsertCardController insertCardController=new InsertCardController();
             String condition;
             choice= Expose.menu();
             condition=Expose.choiceCond(choice);
@@ -94,7 +94,7 @@ public class ExposeP implements Expose{
             CliPrinter.printMessage("Price: ");
             price= Float.valueOf(reader.readLine());
             cardInfoBean=new CardInfoBean(id,cardBean,condition,price,quantity,extraBeanP,lan);
-            InsertCardController.insertCardP(cardInfoBean);
+            insertCardController.insertCardP(cardInfoBean);
             CliPrinter.printMessage("everything was fine");
 
 

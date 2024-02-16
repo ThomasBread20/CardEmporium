@@ -28,17 +28,18 @@ public class ExposeController {
         }
 
     }
+    public ExposeController(){}
     
-    public static ObservableList<Card> searchAllCard(String name, int version, String gamename, String setname) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
+    public  ObservableList<Card> searchAllCard(CardBean cardBean) throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         SearchAllCardDAO src = new SearchAllCardDAO();
 
-        return  src.getAllCard(name, version, gamename, setname);
+        return  src.getAllCard(cardBean);
 
 
     }
 
-    public static CopiaCard exposeOnMarketY(CardInfoBean cardInfoBean) throws Exceptionquantity   {
+    public  CopiaCard exposeOnMarketY(CardInfoBean cardInfoBean) throws Exceptionquantity   {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
@@ -55,7 +56,7 @@ public class ExposeController {
         }
         return card;
     }
-    public static String getConcreteGame(String nomegioco) {
+    public  String getConcreteGame(String nomegioco) {
         ExposeController exposeController = null;
         if(nomegioco.equals("Yu-gi-oh")){
              exposeController=new ExposeController(1);
@@ -73,7 +74,7 @@ public class ExposeController {
         return exposeController.card.useCard();
 
     }
-    public static CopiaCard exposeOnMarketM(CardInfoBean cardInfoBean) throws  Exceptionquantity {
+    public  CopiaCard exposeOnMarketM(CardInfoBean cardInfoBean) throws  Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
 
         ExposeDAO ex = new ExposeDAO();
@@ -92,7 +93,7 @@ public class ExposeController {
         return card;
     }
 
-    public static CopiaCard exposeOnMarketDB(CardInfoBean cardInfoBean) throws Exceptionquantity {
+    public  CopiaCard exposeOnMarketDB(CardInfoBean cardInfoBean) throws Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;
@@ -109,7 +110,7 @@ public class ExposeController {
         }
         return card;
     }
-    public static CopiaCard exposeOnMarketP(CardInfoBean cardInfoBean) throws  Exceptionquantity {
+    public  CopiaCard exposeOnMarketP(CardInfoBean cardInfoBean) throws  Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
         CopiaCard card;

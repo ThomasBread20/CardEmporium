@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 
 public class ExposeY implements Expose{
     CardBean cardBean;
+    InsertCardController insertCardController=new InsertCardController();
     @Override
     public void expose(ObservableList<Card> card) {
 
@@ -81,7 +82,7 @@ public class ExposeY implements Expose{
                 CliPrinter.printMessage("Price: ");
                 price= Float.valueOf(reader.readLine());
                 cardInfoBean=new CardInfoBean(id,cardBean,condition,price,quantity,extraBeanY,lan);
-                InsertCardController.insertCardY(cardInfoBean);
+                insertCardController.insertCardY(cardInfoBean);
                 CliPrinter.printMessage("everything was fine");
 
 

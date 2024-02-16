@@ -190,7 +190,7 @@ public class PokemonView implements Initializable {
         Integer q= Integer.valueOf(quantity.getText());
         String name= String.valueOf(namecard.getCellObservableValue(0).getValue());
         Integer id= cardId.getCellObservableValue(0).getValue();
-
+        InsertCardController insertCardController=new InsertCardController();
         Integer ver= version.getCellObservableValue(0).getValue();
         String game= gamename.getCellObservableValue(0).getValue();
         String set= setname.getCellObservableValue(0).getValue();
@@ -199,7 +199,7 @@ public class PokemonView implements Initializable {
         CardBean cardBean=new CardBean(name,ver,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanP, (String) verifyLan());
         try {
-            InsertCardController.insertCardP(cardInfoBean);
+            insertCardController.insertCardP(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();

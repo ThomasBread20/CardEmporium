@@ -108,8 +108,8 @@ public Object verifySet() {
 
     @FXML
     void submit(ActionEvent event) throws ExceptionDBerror  {
-
-        ExposeController.getConcreteGame((String) verifyGame());
+        ExposeController exposeController=new ExposeController();
+        exposeController.getConcreteGame((String) verifyGame());
 
         CardBean cardBean=new CardBean(nameTF.getText(), (Integer) verifyVersion(), (String) verifyGame(),(String) verifySet());
         ObservableList<Card> obcard;
@@ -117,7 +117,7 @@ public Object verifySet() {
 
 
 
-                obcard = ExposeController.searchAllCard(cardBean.getName(), cardBean.getVersionbean(), cardBean.getGameBean(), cardBean.getSetcardbean());
+                obcard = exposeController.searchAllCard(cardBean.getName(), cardBean.getVersionbean(), cardBean.getGameBean(), cardBean.getSetcardbean());
                 if (cardBean.getGameBean().equals("Yu-gi-oh")) {
                     YugiohView yu = (YugiohView) SwitchPage.switchPageseller(cardBean.getGameBean(), event);
                     yu.populateTable(obcard);

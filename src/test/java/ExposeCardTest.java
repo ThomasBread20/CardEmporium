@@ -27,12 +27,13 @@ import java.io.IOException;
     ExtraBeanY extraBeanY;
     String set="draghi della leggenda";
     CopiaCard card;
+    ExposeController exposeController=new ExposeController();
     CardInfoBean cardInfoBean=new CardInfoBean(id,new CardBean(nome,v,gioco,set),cond,price,quan,extraBeanY,lan);
     @Test
     void  searchTest() throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
 
         try {
-            ExposeController.exposeOnMarketY(cardInfoBean);
+            exposeController.exposeOnMarketY(cardInfoBean);
             Assertions.fail();
         } catch (Exceptionquantity e) {
             e.getMessage();

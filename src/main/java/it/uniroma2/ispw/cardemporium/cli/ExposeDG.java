@@ -61,7 +61,7 @@ public class ExposeDG implements Expose{
             }else foil=false;
 
             int choice;
-
+            InsertCardController insertCardController=new InsertCardController();
             extraBeanDG=new ExtraBeanDG(si,al,foil,id,ver,name);
 
             String condition;
@@ -75,7 +75,7 @@ public class ExposeDG implements Expose{
             CliPrinter.printMessage("Price: ");
             price= Float.valueOf(reader.readLine());
             cardInfoBean=new CardInfoBean(id,cardBean,condition,price,quantity,extraBeanDG,lan);
-            InsertCardController.insertCardDB(cardInfoBean);
+            insertCardController.insertCardDB(cardInfoBean);
             CliPrinter.printMessage("everything was fine");
 
 

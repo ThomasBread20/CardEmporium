@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
 
+import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
@@ -27,9 +28,13 @@ public class SearchAllCardDAO {
 
     }
 
-    public ObservableList<Card> getAllCard(String name, int ver, String gioco, String set) throws  SQLException, ExceptionCardNotExist, ExceptionDBerror {
+    public ObservableList<Card> getAllCard(CardBean cardBean) throws  SQLException, ExceptionCardNotExist, ExceptionDBerror {
 
         Connection conn = connCheck();
+        String name= cardBean.getName();
+        Integer ver= cardBean.getVersionbean();
+        String gioco= cardBean.getGameBean();
+        String set=cardBean.getSetcardbean();
 
         ObservableList<Card> cards = FXCollections.observableArrayList();
 

@@ -182,7 +182,7 @@ public class YugiohView implements Initializable {
         Integer q= Integer.valueOf(quan.getText());
         String name= String.valueOf(nameCard.getCellObservableValue(0).getValue());
         Integer id= cardid.getCellObservableValue(0).getValue();
-
+        InsertCardController insertCardController=new InsertCardController();
         Integer ver= vers.getCellObservableValue(0).getValue();
         String game= gameName.getCellObservableValue(0).getValue();
         String set= setName.getCellObservableValue(0).getValue();
@@ -190,7 +190,7 @@ public class YugiohView implements Initializable {
         CardBean cardBean=new CardBean(name,ver,game,set);
         CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanY, (String) verifyLan());
         try {
-            InsertCardController.insertCardY(cardInfoBean);
+            insertCardController.insertCardY(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();
