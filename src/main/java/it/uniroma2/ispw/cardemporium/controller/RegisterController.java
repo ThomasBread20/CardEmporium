@@ -11,14 +11,14 @@ import java.security.SecureRandom;
 public class RegisterController {
 
 
-    private RegisterController() throws IllegalStateException {
+    public RegisterController() throws IllegalStateException {
         throw new IllegalStateException("Utility class");
     }
     private static SecureRandom random = new SecureRandom();
 
 
 
-    public static void insertUserDao(String username, String passw, String name, java.sql.Date date, String surname) throws  ExceptionUserAlreadyExist {
+    public void insertUserDao(String username, String passw, String name, java.sql.Date date, String surname) throws  ExceptionUserAlreadyExist {
 
 
 

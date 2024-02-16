@@ -17,7 +17,7 @@ import java.sql.SQLException;
 
  public class BuyCardApplicativo {
 
-     private BuyCardApplicativo() {
+     public BuyCardApplicativo() {
          throw new IllegalStateException("Utility class");
      }
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist {
@@ -26,7 +26,7 @@ import java.sql.SQLException;
 
     }
 //PERCHE' TUTTE QUESTE OPERAZIONI?
-    public static void addCard(int iD) throws ExceptionDBerror {
+    public  void addCard(int iD) throws ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
@@ -42,7 +42,7 @@ import java.sql.SQLException;
         }
     }
 
-    public static ObservableList<CopiaCardCarrello> searchCard1(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
+    public ObservableList<CopiaCardCarrello> searchCard1(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
          DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
             return cards.getCard(id);
@@ -53,7 +53,7 @@ import java.sql.SQLException;
 
     }
 
-    public static int getID() throws ExceptionDBerror, SQLException {
+    public int getID() throws ExceptionDBerror, SQLException {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         String nome = null;
         try {
@@ -71,7 +71,7 @@ import java.sql.SQLException;
     }
 
 
-    public static void removeCard(int iD) throws ExceptionDBerror {
+    public void removeCard(int iD) throws ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
 
@@ -86,7 +86,7 @@ import java.sql.SQLException;
     }
 
 
-    public static void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, IOException, ExceptionSwitchpage {
+    public void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, IOException, ExceptionSwitchpage {
         try{
 
 

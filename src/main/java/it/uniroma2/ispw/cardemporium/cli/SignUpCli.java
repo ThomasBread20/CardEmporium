@@ -8,6 +8,7 @@ import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
+import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 
 import java.io.BufferedReader;
@@ -23,7 +24,7 @@ import java.text.SimpleDateFormat;
 
 public class SignUpCli extends CliManager{
     @Override
-    public void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist {
+    public void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist, IllegalStateException {
 
         while(true){
             int choice=showMenu();
@@ -57,8 +58,9 @@ public class SignUpCli extends CliManager{
         return verifyChioce(1,3);
     }
 
-    public void signup(){
+    public void signup() throws IllegalStateException {
 
+        RegisterController register = new RegisterController();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CliPrinter.printMessage("Name: ");
         try {
@@ -89,7 +91,7 @@ public class SignUpCli extends CliManager{
             registerValue.setDateBean(date1.toLocalDate());
 
 
-            RegisterController.insertUserDao(username, pass, name, Date.valueOf(date1.toLocalDate()), last);
+            register.insertUserDao(username, pass, name, Date.valueOf(date1.toLocalDate()), last);
 
         } catch (IOException | ParseException e) {
             e.getMessage();

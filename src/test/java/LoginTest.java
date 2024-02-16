@@ -21,8 +21,9 @@ class LoginTest {
     void loginTest() throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser, IOException, ExceptionSwitchpage {
         loginBean.setUsernameBean("Thomas");
         loginBean.setPasswdBean("Thomas2");
+        LoginController login = new LoginController();
 
-        Users user= LoginController.checkUserDao(loginBean.getUsernameBean(),loginBean.getPasswdBean());
+        Users user= login.checkUserDao(loginBean.getUsernameBean(),loginBean.getPasswdBean());
         try {
             Assertions.assertEquals("Thomas", user.getUsername());
         }catch (Exception e){

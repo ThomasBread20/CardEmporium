@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 public class ShoppingController {
 
-    private ShoppingController() {
+    public ShoppingController() {
         throw new IllegalStateException("Utility class");
     }
     public static void shopping(int id, int user) throws ExceptionDBerror {
@@ -29,7 +29,7 @@ public class ShoppingController {
         }
     }
 
-    public static void shoppingFS(CopiaCardCarrello value)  {
+    public void shoppingFS(CopiaCardCarrello value)  {
         DatabaseBuyCardFacade shop = new DatabaseBuyCardFacade();
 
             shop.addCard(value, value.getCartaID());
@@ -40,12 +40,13 @@ public class ShoppingController {
 
 
 
-    public static void refreshCartView(ActionEvent event) throws ExceptionCardNotExist, SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    public void refreshCartView(ActionEvent event) throws ExceptionCardNotExist, SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
 
         try{
+            BuyCardApplicativo card = new BuyCardApplicativo();
 
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            ObservableList<CopiaCardCarrello> cards =  card.searchCard1( card.getID());
             Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
 
 

@@ -40,7 +40,8 @@ public class SearchcardPage extends CliManager{
                             CliPrinter.printMessage("do you want to add the " + name + " card? yes/no \n");
                             String name2 = reader.readLine();
                             if (name2.equals("yes")) {
-                                BuyCardApplicativo.addCard(Integer.parseInt(name));
+                                BuyCardApplicativo carta = new BuyCardApplicativo();
+                                carta.addCard(Integer.parseInt(name));
                             }
 
                         } else {

@@ -89,7 +89,11 @@ public class CardView {
 
         try{
 
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            BuyCardApplicativo carta =  new BuyCardApplicativo();
+
+
+
+            ObservableList<CopiaCardCarrello> cards =  carta.searchCard1( carta.getID());
 
 
 
@@ -264,6 +268,8 @@ public class CardView {
 
     public void shoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage {
 
+        BuyCardApplicativo card =  new BuyCardApplicativo();
+
         index = tableList.getSelectionModel().getSelectedIndex();
 
         if(index <= -1){
@@ -275,9 +281,10 @@ public class CardView {
         if(returnValue.equals("yes")){
 
             try{
-                BuyCardApplicativo.addCard(id.getCellData(index));
+                BuyCardApplicativo carta = new BuyCardApplicativo();
+                carta.addCard(id.getCellData(index));
 
-                BuyCardApplicativo.refreshCardView(nome.getText(), mouseEvent,gioco.getText());
+                card.refreshCardView(nome.getText(), mouseEvent,gioco.getText());
 
 
 

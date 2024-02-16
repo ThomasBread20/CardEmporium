@@ -179,8 +179,9 @@ public class Carrelloview {
 
     public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
 
+        ShoppingController card = new ShoppingController();
       try{
-          ShoppingController.refreshCartView(event);
+          card.refreshCartView(event);
       }catch (ExceptionSwitchpage e){
           throw new ExceptionSwitchpage("erroreswitchpage");
       }catch (ExceptionDBerror e) {
@@ -204,10 +205,11 @@ public class Carrelloview {
         if(returnValue.equals("yes")){
 
             try{
-                BuyCardApplicativo.removeCard(id.getCellData(index));
+                BuyCardApplicativo carta = new BuyCardApplicativo();
+                carta.removeCard(id.getCellData(index));
                 SwitchPage page = SwitchPage.getInstance();
 
-                ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+                ObservableList<CopiaCardCarrello> cards =  carta.searchCard1( carta.getID());
 
 
 
@@ -231,9 +233,11 @@ public class Carrelloview {
 
     public void buy(ActionEvent event) throws ExceptionDBerror, ExceptionSwitchpage, ExceptionCardNotExist {
 
+        ShoppingController card = new ShoppingController();
         try{
+            BuyCardApplicativo carta1 = new BuyCardApplicativo();
 
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            ObservableList<CopiaCardCarrello> cards =  carta1.searchCard1( carta1.getID());
             int value = inf.getID();
             while(!cards.isEmpty()) {
                 int n = 0;
@@ -244,12 +248,13 @@ public class Carrelloview {
 
                 ShoppingController.shopping(carta.getCartaID(),value);
 
-                ShoppingController.shoppingFS(carta);
+                card.shoppingFS(carta);
 
 
 
             }
-            ShoppingController.refreshCartView(event);
+
+            card.refreshCartView(event);
         }catch (ExceptionDBerror | SQLException | IOException e){
             throw new ExceptionDBerror("ERRORE");
         } catch (ExceptionCardNotExist e) {

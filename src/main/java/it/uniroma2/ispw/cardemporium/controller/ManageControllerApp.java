@@ -15,11 +15,11 @@ import java.sql.SQLException;
 public class ManageControllerApp {
 
 
-        private ManageControllerApp() {
+        public ManageControllerApp() {
             throw new IllegalStateException("Utility class");
         }
     static DataSingleton info = DataSingleton.getInstance();
-    public static ObservableList<CopiaCard> showCards() {
+    public ObservableList<CopiaCard> showCards() {
 
         Integer id = info.getID();
         ManageCardDAO manageCardDAO = new ManageCardDAO();

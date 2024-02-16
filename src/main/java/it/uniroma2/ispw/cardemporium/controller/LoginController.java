@@ -23,7 +23,7 @@ public class LoginController
         event = evento;
     }
 
-    public static Users checkUserDao(String username, String passw) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
+    public Users checkUserDao(String username, String passw) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
         DatabaseLoReFacade login = new DatabaseLoReFacade();
 
         try{
@@ -34,14 +34,14 @@ public class LoginController
     }
 
 
-    public static void dataFuller(Users user, String role){
+    public void dataFuller(Users user, String role){
         DataSingleton info = DataSingleton.getInstance();
         info.users(user.getPwd(), user.getUsername(), user.getName(), user.getSurname(), user.getData(), user.getIsBanned(), user.getID());
         info.setRole(role);
 
     }
 
-    public static void createShoppingCart(){
+    public void createShoppingCart(){
 
         new Carrelloview();
     }

@@ -4,6 +4,7 @@ import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.exception.CardGameException;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 
 import java.io.IOException;
@@ -27,5 +28,5 @@ public abstract class CliManager {
 return choice;
     }
 
-    public abstract void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist, CardGameException;
+    public abstract void start() throws InvalidChioceException, IOException, SQLException, ExceptionDBerror, ExceptionCardNotExist, CardGameException, IllegalStateException;
 }

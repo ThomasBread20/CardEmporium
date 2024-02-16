@@ -86,9 +86,12 @@ public class Sellerview {
 
     public void manage(ActionEvent event) throws ExceptionSwitchpage {
         try {
+
+            ManageControllerApp app =  new ManageControllerApp();
             SwitchPage page = SwitchPage.getInstance();
 
-            ObservableList<CopiaCard>cards=ManageControllerApp.showCards();
+
+            ObservableList<CopiaCard>cards=app.showCards();
             ManageCardsView manageCardsView=page.switchPageMC("schermata_venditore_Visualizza_vendite", event);
             manageCardsView.modifyTable(cards);
 

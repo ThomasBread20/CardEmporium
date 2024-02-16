@@ -11,9 +11,11 @@ public class ManageCardCli {
    ObservableList<CopiaCard>copiaCards=null;
     public void start() {
 
+        ManageControllerApp app =  new ManageControllerApp();
+
         CliPrinter.printMessage("ID - Name - Version - Condition - price  - language  - set   - extra\n");
 
-        copiaCards=ManageControllerApp.showCards();
+        copiaCards=app.showCards();
         for(CopiaCard copiaCard :copiaCards){
             CliPrinter.printMessage(copiaCard.getCartaSingolaID()+" - "+copiaCard.getNomeCarta()+" - "+copiaCard.getVersione()+" - "+copiaCard.getCondizione()+" - "+copiaCard.getPrezzo()+" - "+copiaCard.getLingua()+" - "+copiaCard.getNomeSet()+" - "+copiaCard.getExtra());
         }

@@ -4,6 +4,7 @@ import it.uniroma2.ispw.cardemporium.bean.LoginBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.*;
+import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
 import it.uniroma2.ispw.cardemporium.users.Users;
 
 import java.io.BufferedReader;
@@ -35,7 +36,7 @@ public class LoginCli extends CliManager {
                         throw new InvalidChioceException("invalid choice");
                 }
                 break;
-            } catch (InvalidChioceException e) {
+            } catch (InvalidChioceException | IllegalStateException e) {
                 e.getMessage();
             }
         }
@@ -60,6 +61,7 @@ public class LoginCli extends CliManager {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         LoginBean loginBean=new LoginBean();
         Logger logger=Logger.getLogger(LoginCli.class.getName());
+        LoginController login =  new LoginController();
         try {
             CliPrinter.printMessage("Username:");
             String us=reader.readLine();
@@ -68,9 +70,9 @@ public class LoginCli extends CliManager {
 
             String pwd=reader.readLine();
             loginBean.setPasswdBean(pwd);
-            Users user = LoginController.checkUserDao(us, pwd);
-            LoginController.dataFuller(user,user.getRole());
-            LoginController.createShoppingCart();
+            Users user = login.checkUserDao(us, pwd);
+            login.dataFuller(user,user.getRole());
+            login.createShoppingCart();
 
 
 

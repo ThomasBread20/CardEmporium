@@ -4,6 +4,7 @@ import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
+import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -144,9 +145,9 @@ public class RegisterView {
 
     }
 
-    public void registerButton(ActionEvent event) throws  IOException {
+    public void registerButton(ActionEvent event) throws IOException, IllegalStateException {
 
-
+        RegisterController register = new RegisterController();
         if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {
 
             try {
@@ -160,7 +161,7 @@ public class RegisterView {
 
 
 
-                RegisterController.insertUserDao(registerValue.getUsernameBean(), registerValue.getPasswdBean(), registerValue.getNameBean(), registerValue.getDateBean(), registerValue.getCognomeBean());
+                register.insertUserDao(registerValue.getUsernameBean(), registerValue.getPasswdBean(), registerValue.getNameBean(), registerValue.getDateBean(), registerValue.getCognomeBean());
 
 
 

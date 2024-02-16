@@ -17,10 +17,10 @@ class BannedTest {
     void loginTest() throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser {
         loginBean.setUsernameBean("Letizia");
         loginBean.setPasswdBean("leti");
-
+        LoginController login = new LoginController();
 
         try {
-            LoginController.checkUserDao(loginBean.getUsernameBean(),loginBean.getPasswdBean());
+            login.checkUserDao(loginBean.getUsernameBean(),loginBean.getPasswdBean());
             Assertions.fail();
         }catch (ExceptionBannedUser e){
             e.getMessage();

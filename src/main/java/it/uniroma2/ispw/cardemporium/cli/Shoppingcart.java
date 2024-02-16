@@ -20,10 +20,11 @@ public class Shoppingcart extends CliManager {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         DataSingleton inf = DataSingleton.getInstance();
+        BuyCardApplicativo carta = new BuyCardApplicativo();
 
         while(true){
             try{
-                ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+                ObservableList<CopiaCardCarrello> cards =  carta.searchCard1( carta.getID());
                 printCard(cards);
                 int choice=showMenu();
 
@@ -32,7 +33,8 @@ public class Shoppingcart extends CliManager {
                     CliPrinter.printMessage("whitch card do you want to remove?\n");
                     String name1 = reader.readLine();
                     if(controllo(Integer.parseInt(name1), cards)){
-                        BuyCardApplicativo.removeCard(Integer.parseInt(name1));
+
+                        carta.removeCard(Integer.parseInt(name1));
                     }else{
                         CliPrinter.printMessage("you do not have a card with this id in your shopping cart");
                         CliPrinter.printMessage("choose another card\n");
@@ -46,12 +48,12 @@ public class Shoppingcart extends CliManager {
                         int value = inf.getID();
                         while (!cards.isEmpty()) {
                             int n = 0;
-                            CopiaCardCarrello carta = cards.get(n);
+                            CopiaCardCarrello carta1 = cards.get(n);
 
 
                             cards.remove(n);
 
-                            ShoppingController.shopping(carta.getCartaID(), value);
+                            ShoppingController.shopping(carta1.getCartaID(), value);
                             CliPrinter.printMessage("Congratulation, your the shopping has ended successfully \n");
                         }
 
