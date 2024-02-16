@@ -221,11 +221,11 @@ public Object verifySet() {
 
     public void shoppingCart(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-
+        BuyCardApplicativo view = new BuyCardApplicativo();
 
         try{
 
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            ObservableList<CopiaCardCarrello> cards =  view.searchCard1( view.getID());
 
 
 

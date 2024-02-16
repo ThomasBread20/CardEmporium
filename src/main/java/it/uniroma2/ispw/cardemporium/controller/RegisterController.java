@@ -11,8 +11,7 @@ import java.security.SecureRandom;
 public class RegisterController {
 
 
-    public RegisterController() throws IllegalStateException {
-        throw new IllegalStateException("Utility class");
+    public RegisterController() {
     }
     private static SecureRandom random = new SecureRandom();
 

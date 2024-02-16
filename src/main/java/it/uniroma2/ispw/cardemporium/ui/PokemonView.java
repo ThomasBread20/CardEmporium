@@ -112,10 +112,10 @@ public class PokemonView implements Initializable {
 
     public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
-
+        BuyCardApplicativo view = new BuyCardApplicativo();
         try {
 
-            ObservableList<CopiaCardCarrello> cards = BuyCardApplicativo.searchCard1(BuyCardApplicativo.getID());
+            ObservableList<CopiaCardCarrello> cards = view.searchCard1(view.getID());
 
 
             Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", actionEvent);

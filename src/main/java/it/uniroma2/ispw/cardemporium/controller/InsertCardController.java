@@ -6,7 +6,6 @@ import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 
 public class InsertCardController {
     public InsertCardController() {
-        throw new IllegalStateException("Utility class");
     }
     ExposeController exposeController;
     public void insertCardY(CardInfoBean cardInfoBean) throws Exceptionquantity {

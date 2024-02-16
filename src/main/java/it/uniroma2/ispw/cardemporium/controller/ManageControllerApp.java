@@ -16,7 +16,7 @@ public class ManageControllerApp {
 
 
         public ManageControllerApp() {
-            throw new IllegalStateException("Utility class");
+
         }
     static DataSingleton info = DataSingleton.getInstance();
     public ObservableList<CopiaCard> showCards() {

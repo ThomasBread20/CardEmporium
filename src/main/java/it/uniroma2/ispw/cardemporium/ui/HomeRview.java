@@ -56,10 +56,11 @@ public class HomeRview {
     @FXML
     void scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
 
+        BuyCardApplicativo view = new BuyCardApplicativo();
 
          try{
 
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            ObservableList<CopiaCardCarrello> cards =  view.searchCard1( view.getID());
 
 
 
@@ -96,10 +97,10 @@ public class HomeRview {
     @FXML
     void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
-
+        BuyCardApplicativo view = new BuyCardApplicativo();
 
        try{
-           ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
+           ObservableList<CopiaCard> cards =  view.searchCard(researchBar.getText());
 
 
 

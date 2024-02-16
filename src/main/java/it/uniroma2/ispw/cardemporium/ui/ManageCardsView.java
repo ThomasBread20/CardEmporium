@@ -93,10 +93,11 @@ public class ManageCardsView {
 
     public void goToCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
+        BuyCardApplicativo view = new BuyCardApplicativo();
 
         try{
 
-            ObservableList<CopiaCardCarrello> cards =  BuyCardApplicativo.searchCard1( BuyCardApplicativo.getID());
+            ObservableList<CopiaCardCarrello> cards =  view.searchCard1( view.getID());
 
 
 

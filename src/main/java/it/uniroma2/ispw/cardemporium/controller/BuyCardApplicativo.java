@@ -18,7 +18,6 @@ import java.sql.SQLException;
  public class BuyCardApplicativo {
 
      public BuyCardApplicativo() {
-         throw new IllegalStateException("Utility class");
      }
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();

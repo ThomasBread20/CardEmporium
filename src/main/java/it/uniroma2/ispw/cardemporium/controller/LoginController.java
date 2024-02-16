@@ -17,6 +17,8 @@ import javafx.event.ActionEvent;
 public class LoginController
 {
 
+    public LoginController() {
+    }
     ActionEvent event;
 
     public void setEvent(ActionEvent evento){
