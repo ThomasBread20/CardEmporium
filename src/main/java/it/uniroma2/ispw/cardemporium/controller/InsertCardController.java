@@ -2,7 +2,6 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 import it.uniroma2.ispw.cardemporium.bean.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.cli.Expose;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 
 public class InsertCardController {
