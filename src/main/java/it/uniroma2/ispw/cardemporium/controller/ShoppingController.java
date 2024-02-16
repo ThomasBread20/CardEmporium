@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class ShoppingController {
 
     public ShoppingController() {
-
+        //constructor
     }
     public static void shopping(int id, int user) throws ExceptionDBerror {
         DatabaseBuyCardFacade shop = new DatabaseBuyCardFacade();

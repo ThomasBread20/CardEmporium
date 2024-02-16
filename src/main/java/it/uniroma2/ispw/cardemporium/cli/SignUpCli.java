@@ -58,7 +58,7 @@ public class SignUpCli extends CliManager{
         return verifyChioce(1,3);
     }
 
-    public void signup() throws IllegalStateException {
+    public void signup()  {
 
         RegisterController register = new RegisterController();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -99,14 +99,14 @@ public class LoginView {
         LoginBean loginInfo = new LoginBean();
         loginInfo.setUsernameBean(username);
         loginInfo.setPasswdBean(passwd);
-        LoginController login = new LoginController();
+        LoginController loginController = new LoginController();
         try {
 
 
-                Users user = login.checkUserDao(loginInfo.getUsernameBean(), loginInfo.getPasswdBean());
-                login.dataFuller(user,user.getRole());
+                Users user = loginController.checkUserDao(loginInfo.getUsernameBean(), loginInfo.getPasswdBean());
+                loginController.dataFuller(user,user.getRole());
 
-                login.createShoppingCart();
+                loginController.createShoppingCart();
 
                 SwitchPage page = SwitchPage.getInstance();
                 page.switchPage(user.getHomePage(), event);

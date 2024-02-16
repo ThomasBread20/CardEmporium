@@ -18,6 +18,7 @@ public class LoginController
 {
 
     public LoginController() {
+        //constructor
     }
     ActionEvent event;
 

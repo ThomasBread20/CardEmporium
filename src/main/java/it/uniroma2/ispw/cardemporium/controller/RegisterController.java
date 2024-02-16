@@ -4,7 +4,6 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
-import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
 
 import java.security.SecureRandom;
 
@@ -12,6 +11,7 @@ public class RegisterController {
 
 
     public RegisterController() {
+        //constructor
     }
     private static SecureRandom random = new SecureRandom();
 

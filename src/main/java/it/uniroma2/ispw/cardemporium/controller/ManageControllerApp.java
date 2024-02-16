@@ -17,7 +17,7 @@ public class ManageControllerApp {
 
 
         public ManageControllerApp() {
-
+            //constructor
         }
     static DataSingleton info = DataSingleton.getInstance();
     public ObservableList<CopiaCard> showCards() {

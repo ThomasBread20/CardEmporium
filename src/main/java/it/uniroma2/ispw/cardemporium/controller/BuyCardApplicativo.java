@@ -18,6 +18,7 @@ import java.sql.SQLException;
  public class BuyCardApplicativo {
 
      public BuyCardApplicativo() {
+         //constructor
      }
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();

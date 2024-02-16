@@ -97,10 +97,10 @@ public class HomeRview {
     @FXML
     void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
-        BuyCardApplicativo view = new BuyCardApplicativo();
+
 
        try{
-           ObservableList<CopiaCard> cards =  view.searchCard(researchBar.getText());
+           ObservableList<CopiaCard> cards = BuyCardApplicativo.searchCard(researchBar.getText());
 
 
 

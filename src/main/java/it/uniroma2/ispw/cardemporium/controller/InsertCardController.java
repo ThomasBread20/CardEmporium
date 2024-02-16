@@ -6,6 +6,7 @@ import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 
 public class InsertCardController {
     public InsertCardController() {
+        //constructor
     }
     ExposeController exposeController;
     public void insertCardY(CardInfoBean cardInfoBean) throws Exceptionquantity {

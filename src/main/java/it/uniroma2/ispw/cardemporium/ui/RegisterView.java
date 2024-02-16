@@ -147,7 +147,7 @@ public class RegisterView {
 
     public void registerButton(ActionEvent event) throws IOException, IllegalStateException {
 
-        RegisterController register = new RegisterController();
+        RegisterController registerController = new RegisterController();
         if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {
 
             try {
@@ -161,7 +161,7 @@ public class RegisterView {
 
 
 
-                register.insertUserDao(registerValue.getUsernameBean(), registerValue.getPasswdBean(), registerValue.getNameBean(), registerValue.getDateBean(), registerValue.getCognomeBean());
+                registerController.insertUserDao(registerValue.getUsernameBean(), registerValue.getPasswdBean(), registerValue.getNameBean(), registerValue.getDateBean(), registerValue.getCognomeBean());
 
 
 
