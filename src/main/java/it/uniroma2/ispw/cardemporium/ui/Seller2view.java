@@ -117,7 +117,7 @@ public Object verifySet() {
 
 
 
-                obcard = exposeController.searchAllCard(cardBean.getName(), cardBean.getVersionbean(), cardBean.getGameBean(), cardBean.getSetcardbean());
+                obcard = exposeController.searchAllCard(cardBean);
                 if (cardBean.getGameBean().equals("Yu-gi-oh")) {
                     YugiohView yu = (YugiohView) SwitchPage.switchPageseller(cardBean.getGameBean(), event);
                     yu.populateTable(obcard);
