@@ -1,10 +1,6 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 
-
-
-
-
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +12,8 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+
+//rendere questa classe astratta
 
 public class SwitchPage {
     static String xml=".fxml";
@@ -81,7 +79,7 @@ public class SwitchPage {
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           YugiohView sellerview = loader.getController();
+            YugiohView sellerview = loader.getController();
 
 
             window.setScene(viewRegisterScene);

@@ -85,7 +85,7 @@ public class CardView {
 
     public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-
+        //spostare questa cosa su un controller
 
         try{
 
@@ -141,7 +141,7 @@ public class CardView {
     @FXML
     void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
-
+        //spostare questa cosa su un controller
 
         try{
             ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
@@ -209,6 +209,8 @@ public class CardView {
 
     @FXML
     void profileButton(ActionEvent event) throws IOException {
+
+        //spostare questa cosa su un controller
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
         Parent viewRegister = loader.load();
         Scene viewRegisterScene = new Scene(viewRegister);
@@ -231,7 +233,7 @@ public class CardView {
 
 
     public void initData1(String name, String gioco1) {
-
+        //spostare questa cosa su un controller
 
         nome.setText(name);
         gioco.setText(gioco1);
@@ -244,7 +246,7 @@ public class CardView {
 
     public void modifytable(ObservableList<CopiaCard> card){
 
-
+        //spostare questa cosa su un controller
 
         id.setCellValueFactory(new PropertyValueFactory<>("cartaSingolaID"));
         condizione.setCellValueFactory(new PropertyValueFactory<>("condizione"));
@@ -267,6 +269,8 @@ public class CardView {
 
 
     public void shoppingCART(MouseEvent mouseEvent) throws ExceptionSwitchpage {
+
+        //lo shopping deve solamente prendere l'imput, spostare le azioni sul controller (buycardapplicativo)
 
         BuyCardApplicativo card =  new BuyCardApplicativo();
 

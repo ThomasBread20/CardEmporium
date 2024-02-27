@@ -55,7 +55,7 @@ public class HomeRview {
 
     @FXML
     void scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
-
+        //lo scarrello deve solamente prendere l'imput, spostare le azioni sul controller (switch page)
         BuyCardApplicativo view = new BuyCardApplicativo();
 
          try{
@@ -97,10 +97,11 @@ public class HomeRview {
     @FXML
     void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
-
+        //lo scarrello deve solamente prendere l'imput, spostare le azioni sul controller (switch page)
+        BuyCardApplicativo view = new BuyCardApplicativo();
 
        try{
-           ObservableList<CopiaCard> cards = BuyCardApplicativo.searchCard(researchBar.getText());
+           ObservableList<CopiaCard> cards =  view.searchCard(researchBar.getText());
 
 
 
@@ -144,6 +145,7 @@ public class HomeRview {
     @FXML
     void profileButton(ActionEvent event) throws IOException {
 
+        //lo scarrello deve solamente prendere l'imput, spostare le azioni sul controller (switch page)
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
         Parent viewRegister = loader.load();
         Scene viewRegisterScene = new Scene(viewRegister);
@@ -164,7 +166,7 @@ public class HomeRview {
 
     @FXML
     void sell(ActionEvent event) throws  ExceptionSwitchpage {
-
+    //parte di simone
 
         String role = info.getRole();
 

@@ -20,12 +20,15 @@ import java.sql.SQLException;
      public BuyCardApplicativo() {
          //constructor
      }
+     //cerca una carta da mostrare in CardView
     public static ObservableList<CopiaCard> searchCard(String name) throws SQLException, ExceptionCardNotExist {
-        DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
+
+         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
+
         return cards.searchCard(name);
 
     }
-//PERCHE' TUTTE QUESTE OPERAZIONI?
+    //inserisce una carta nel carrello
     public  void addCard(int iD) throws ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
@@ -42,6 +45,8 @@ import java.sql.SQLException;
         }
     }
 
+
+    //lista le carte che vanno sul carrello
     public ObservableList<CopiaCardCarrello> searchCard1(int id) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
          DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
@@ -53,6 +58,7 @@ import java.sql.SQLException;
 
     }
 
+    //prende l'id di una carta
     public int getID() throws ExceptionDBerror, SQLException {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         String nome = null;
@@ -71,21 +77,18 @@ import java.sql.SQLException;
     }
 
 
+    //rimuove una carta dal carrello
     public void removeCard(int iD) throws ExceptionDBerror {
         DatabaseBuyCardFacade cards = new DatabaseBuyCardFacade();
         try{
-
-
             cards.detCard(iD);
-
-
 
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE numero 5");
         }
     }
 
-
+    //ricarica il carrello
     public void refreshCardView(String nome, MouseEvent event, String set) throws ExceptionCardNotExist, SQLException, IOException, ExceptionSwitchpage {
         try{
 

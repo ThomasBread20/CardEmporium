@@ -54,11 +54,9 @@ public class HNRview {
     @FXML
     void search(ActionEvent event) throws SQLException,ExceptionDBerror, ExceptionSwitchpage {
         try{
+            //rifare, fare questa operazione al controller, la view deve solamente passare il researchbar.gettext
             ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar.getText());
-
-
-
-
+            //fare un controller per lo switch page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_cartaNR.fxml"));
 
             Parent viewRegister = loader.load();
@@ -67,17 +65,12 @@ public class HNRview {
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             CardviewNR cardView = loader.getController();
 
-
-
             cardView.initData1(cards.get(0).getNomeCarta(), cards.get(0).getNomeGioco());
             cardView.modifytable(cards);
 
 
             window.setScene(viewRegisterScene);
             window.show();
-
-
-
 
         }catch (ExceptionCardNotExist e)
         {
@@ -94,7 +87,6 @@ public class HNRview {
 
     @FXML
     public void login(ActionEvent event) throws IOException, ExceptionSwitchpage {
-
 
         try {
             SwitchPage page = SwitchPage.getInstance();
