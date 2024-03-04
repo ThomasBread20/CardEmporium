@@ -2,12 +2,12 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
-import it.uniroma2.ispw.cardemporium.controller.ShoppingController;
+import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
-import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
+import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
@@ -24,7 +24,7 @@ public class Shoppingcart extends CliManager {
 
         while(true){
             try{
-                ObservableList<CopiaCardCarrello> cards =  carta.searchCard1( carta.getID());
+                ObservableList<CarrelloEntity> cards =  carta.searchCard1( carta.getID());
                 printCard(cards);
                 int choice=showMenu();
 
@@ -48,7 +48,7 @@ public class Shoppingcart extends CliManager {
                         int value = inf.getID();
                         while (!cards.isEmpty()) {
                             int n = 0;
-                            CopiaCardCarrello carta1 = cards.get(n);
+                            CarrelloEntity carta1 = cards.get(n);
 
 
                             cards.remove(n);
@@ -86,19 +86,19 @@ public class Shoppingcart extends CliManager {
         return verifyChioce(1,4);
     }
 
-    public void printCard(ObservableList<CopiaCardCarrello> cards)  {
+    public void printCard(ObservableList<CarrelloEntity> cards)  {
 
 
 
 
         CliPrinter.printMessage("ID ,Nome ,seller ,price  ,extra\n");
-        for(CopiaCardCarrello item : cards){
+        for(CarrelloEntity item : cards){
             CliPrinter.printMessage(item.getCartaSingolaID() +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() );
         }
         CliPrinter.printMessage("\n");
     }
-    public boolean controllo(int name, ObservableList<CopiaCardCarrello> cards)  {
-        for(CopiaCardCarrello item : cards){
+    public boolean controllo(int name, ObservableList<CarrelloEntity> cards)  {
+        for(CarrelloEntity item : cards){
             if(name == item.getCartaSingolaID()){
                 return true;
             }

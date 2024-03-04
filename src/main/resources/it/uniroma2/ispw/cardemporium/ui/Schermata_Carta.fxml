@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.CardView">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.thomas.CardView">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -21,7 +21,7 @@
             <Text fill="#010057" layoutX="346.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="413.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping Cart" />
-            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#openCarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="logoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
@@ -30,7 +30,7 @@
          <children>
             <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
             <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchCard" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
             <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
               <items>
                 <MenuItem mnemonicParsing="false" text="Yu gi oh" />
@@ -78,7 +78,7 @@
             </Label>
          </children>
       </GridPane>
-      <TableView fx:id="tableList" layoutX="25.0" layoutY="145.0" onMouseClicked="#shoppingCART" prefHeight="236.0" prefWidth="550.0">
+      <TableView fx:id="tableList" layoutX="25.0" layoutY="145.0" onMouseClicked="#putCardIntoCart" prefHeight="236.0" prefWidth="550.0">
         <columns>
             <TableColumn fx:id="id" prefWidth="27.0" text="ID" />
             <TableColumn fx:id="condizione" prefWidth="113.0" text="Condition" />

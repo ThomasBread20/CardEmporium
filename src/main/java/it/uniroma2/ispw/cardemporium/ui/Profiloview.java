@@ -3,12 +3,14 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
-import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
-import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
+import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
+import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,13 +66,13 @@ public class Profiloview {
     @FXML
     private Button carrello;
 
-    public void scarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void openCarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
         BuyCardApplicativo view = new BuyCardApplicativo();
 
         try{
 
-            ObservableList<CopiaCardCarrello> cards =  view.searchCard1( view.getID());
+            ObservableList<CarrelloEntity> cards =  view.searchCard1( view.getID());
 
 
 
@@ -118,7 +120,7 @@ public class Profiloview {
 
 
         try{
-            ObservableList<CopiaCard> cards =  BuyCardApplicativo.searchCard(researchBar1.getText());
+            ObservableList<CardEntity> cards =  BuyCardApplicativo.searchCard(researchBar1.getText());
 
 
 

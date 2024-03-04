@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.filesystemdb;
 
 
 
-import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
+import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
 
 import java.io.*;
 
@@ -31,7 +31,7 @@ public class ShopcardFS {
         }
     }
 
-    public void addcard(CopiaCardCarrello value, int id){
+    public void addcard(CarrelloEntity value, int id){
 
 
 

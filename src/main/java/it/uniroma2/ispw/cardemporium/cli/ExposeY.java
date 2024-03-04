@@ -1,11 +1,11 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
-import it.uniroma2.ispw.cardemporium.bean.CardBean;
-import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 
-import it.uniroma2.ispw.cardemporium.controller.InsertCardController;
+import it.uniroma2.ispw.cardemporium.controller.simone.InsertCardController;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 import it.uniroma2.ispw.cardemporium.model.Card;

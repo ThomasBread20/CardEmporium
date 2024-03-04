@@ -3,11 +3,13 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
-import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.*;
 
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
-import it.uniroma2.ispw.cardemporium.model.CopiaCardCarrello;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
+import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
+import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,13 +56,13 @@ public class HomeRview {
     private Button carrello;
 
     @FXML
-    void scarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
+    void openCarrello(ActionEvent event) throws IOException, ExceptionSwitchpage, ExceptionDBerror {
         //lo scarrello deve solamente prendere l'imput, spostare le azioni sul controller (switch page)
         BuyCardApplicativo view = new BuyCardApplicativo();
 
          try{
 
-            ObservableList<CopiaCardCarrello> cards =  view.searchCard1( view.getID());
+            ObservableList<CarrelloEntity> cards =  view.searchCard1( view.getID());
 
 
 
@@ -95,13 +97,13 @@ public class HomeRview {
 
 
     @FXML
-    void search(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void searchCard(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage {
 
         //lo scarrello deve solamente prendere l'imput, spostare le azioni sul controller (switch page)
         BuyCardApplicativo view = new BuyCardApplicativo();
 
        try{
-           ObservableList<CopiaCard> cards =  view.searchCard(researchBar.getText());
+           ObservableList<CardEntity> cards =  view.searchCard(researchBar.getText());
 
 
 
@@ -165,7 +167,7 @@ public class HomeRview {
     }
 
     @FXML
-    void sell(ActionEvent event) throws  ExceptionSwitchpage {
+    void sellCard(ActionEvent event) throws  ExceptionSwitchpage {
     //parte di simone
 
         String role = info.getRole();

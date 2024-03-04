@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.CardviewNR">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.thomas.CardviewNR">
    <children>
       <Pane layoutY="32.0" prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #190082;">
          <children>
             <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
             <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchCard" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
             <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
               <items>
                 <MenuItem mnemonicParsing="false" text="Yu gi oh" />

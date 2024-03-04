@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.Carrelloview">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -21,7 +28,7 @@
             <Text fill="#010057" layoutX="346.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
             <Button layoutX="335.0" layoutY="1.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="413.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping cart" />
-            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#openCarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="logoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
@@ -30,7 +37,7 @@
          <children>
             <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
             <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchCard" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
             <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
               <items>
                 <MenuItem mnemonicParsing="false" text="Yu gi oh" />
@@ -46,7 +53,7 @@
             </Text>
          </children>
       </Pane>
-      <TableView fx:id="tableView" layoutX="25.0" layoutY="116.0" onMouseClicked="#removecard" prefHeight="236.0" prefWidth="550.0">
+      <TableView fx:id="tableView" layoutX="25.0" layoutY="116.0" onMouseClicked="#removeCardFromCart" prefHeight="236.0" prefWidth="550.0">
          <columns>
             <TableColumn fx:id="id" prefWidth="31.0" text="ID" />
             <TableColumn fx:id="nome" prefWidth="234.0" text="name" />
@@ -60,6 +67,20 @@
             <Font name="System Bold" size="39.0" />
          </font>
       </Label>
-      <Button fx:id="buy1" layoutX="536.0" layoutY="80.0" mnemonicParsing="false" onAction="#buy" text="Buy!" />
+      <Button fx:id="buy1" layoutX="536.0" layoutY="80.0" mnemonicParsing="false" onAction="#buyAllCardIntoCart" text="Buy!" />
+      <Pane layoutX="25.0" layoutY="354.0" prefHeight="32.0" prefWidth="220.0">
+         <children>
+            <Text layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prize:">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text layoutX="77.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PrizeNumber">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </Pane>

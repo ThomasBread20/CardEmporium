@@ -2,6 +2,9 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.ui.Simone.*;
+import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
+import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -71,7 +74,7 @@ public class SwitchPage {
     }
 
     }
-    public static YugiohView switchPagesellerY(String value,ActionEvent event) throws ExceptionSwitchpage {
+    public static YugiohView switchPagesellerY(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
 
@@ -197,7 +200,7 @@ public class SwitchPage {
         }
 
     }
-    public ManageCardsView switchPageMC(String value,ActionEvent event) throws ExceptionSwitchpage {
+    public ManageCardsView switchPageMC(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value+ xml));
 

@@ -17,11 +17,11 @@
             <Text fill="#010057" layoutX="224.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
             <Button fx:id="profileButton" layoutX="196.0" mnemonicParsing="false" onAction="#profileButton" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="284.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expose" />
-            <Button fx:id="sellButton" layoutX="265.0" mnemonicParsing="false" onAction="#sell" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
+            <Button fx:id="sellButton" layoutX="265.0" mnemonicParsing="false" onAction="#sellCard" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="346.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping" />
             <Button layoutX="335.0" mnemonicParsing="false" opacity="0.19" prefHeight="32.0" prefWidth="70.0" />
             <Text fill="#010057" layoutX="413.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping Cart" />
-            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#scarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
+            <Button fx:id="carrello" layoutX="405.0" mnemonicParsing="false" onAction="#openCarrello" opacity="0.19" prefHeight="32.0" prefWidth="88.0" />
             <Text fill="#010057" layoutX="548.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
             <Button fx:id="logoutButton" focusTraversable="false" layoutX="535.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logout" opacity="0.21" prefHeight="32.0" prefWidth="63.0" />
          </children>
@@ -30,7 +30,7 @@
          <children>
             <TextField fx:id="researchBar" layoutX="147.0" layoutY="2.0" prefHeight="25.0" prefWidth="306.0" promptText="Type your Card Name" />
             <Text layoutX="414.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
+            <Button fx:id="searchbuttom" layoutX="404.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchCard" opacity="0.19" prefHeight="25.0" prefWidth="49.0" />
             <MenuButton layoutX="-4.0" mnemonicParsing="false" opacity="0.48" prefHeight="32.0" prefWidth="88.0">
               <items>
                 <MenuItem mnemonicParsing="false" text="Yu gi oh" />

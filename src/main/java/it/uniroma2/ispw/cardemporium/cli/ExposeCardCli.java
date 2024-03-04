@@ -1,9 +1,9 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 
-import it.uniroma2.ispw.cardemporium.bean.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
-import it.uniroma2.ispw.cardemporium.controller.ExposeController;
+import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.model.Card;
 import javafx.collections.ObservableList;

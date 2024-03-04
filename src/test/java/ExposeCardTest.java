@@ -1,12 +1,12 @@
 
-import it.uniroma2.ispw.cardemporium.bean.CardBean;
-import it.uniroma2.ispw.cardemporium.bean.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.bean.ExtraBeanY;
-import it.uniroma2.ispw.cardemporium.controller.ExposeController;
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanY;
+import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ import java.io.IOException;
     String gioco="Yu-gi-oh";
     ExtraBeanY extraBeanY;
     String set="draghi della leggenda";
-    CopiaCard card;
+    CardEntity card;
     ExposeController exposeController=new ExposeController();
     CardInfoBean cardInfoBean=new CardInfoBean(id,new CardBean(nome,v,gioco,set),cond,price,quan,extraBeanY,lan);
     @Test

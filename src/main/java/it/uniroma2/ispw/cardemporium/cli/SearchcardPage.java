@@ -1,11 +1,11 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
-import it.uniroma2.ispw.cardemporium.controller.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
@@ -24,7 +24,7 @@ public class SearchcardPage extends CliManager{
         while (true) {
             try {
 
-                ObservableList<CopiaCard> cards = BuyCardApplicativo.searchCard(name1);
+                ObservableList<CardEntity> cards = BuyCardApplicativo.searchCard(name1);
                 if(cards.isEmpty()){
                     CliPrinter.printMessage("no cards are avaiable with this name, return to home page \n");
                     new HomePage().start();
@@ -85,20 +85,20 @@ public class SearchcardPage extends CliManager{
         return verifyChioce(1,4);
     }
 
-    public void printCard(ObservableList<CopiaCard> cards) throws ExceptionCardNotExist {
+    public void printCard(ObservableList<CardEntity> cards) throws ExceptionCardNotExist {
 
 
 
 
         CliPrinter.printMessage("ID - Condition  - seller - price  - language  - set   - extra\n");
-        for(CopiaCard item : cards){
+        for(CardEntity item : cards){
             CliPrinter.printMessage(item.getCartaSingolaID() + "-" +item.getCondizione() + "-" + item.getUtenteVenditore()+ "-"  + item.getPrezzo() + "-" + item.getLingua() + "-" + item.getNomeSet() + "-"+ item.getExtra() + "\n");
         }
         CliPrinter.printMessage("\n");
     }
 
-        public boolean controllo(int name, ObservableList<CopiaCard> cards) throws ExceptionCardNotExist {
-        for(CopiaCard item : cards){
+        public boolean controllo(int name, ObservableList<CardEntity> cards) throws ExceptionCardNotExist {
+        for(CardEntity item : cards){
             if(name == item.getCartaSingolaID()){
                 return true;
             }

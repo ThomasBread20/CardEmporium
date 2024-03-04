@@ -2,10 +2,10 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 import it.uniroma2.ispw.cardemporium.bean.UserBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.dao.ManageCardDAO;
+import it.uniroma2.ispw.cardemporium.dao.simone.ManageCardDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 
-import it.uniroma2.ispw.cardemporium.model.CopiaCard;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
 
 import javafx.collections.ObservableList;
 
@@ -20,11 +20,11 @@ public class ManageControllerApp {
             //constructor
         }
     static DataSingleton info = DataSingleton.getInstance();
-    public ObservableList<CopiaCard> showCards() {
+    public ObservableList<CardEntity> showCards() {
         UserBean userBean=new UserBean(info.getID());
 
         ManageCardDAO manageCardDAO = new ManageCardDAO();
-        ObservableList<CopiaCard> cards = null;
+        ObservableList<CardEntity> cards = null;
 
         try {
 
