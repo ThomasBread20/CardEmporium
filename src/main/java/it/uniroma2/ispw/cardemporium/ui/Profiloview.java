@@ -163,10 +163,10 @@ public class Profiloview {
     }
 
     @FXML
-    void logout(ActionEvent event) throws  ExceptionSwitchpage {
+    void logout() throws ExceptionSwitchpage {
 
 
-        LogoutAction.logout(event);
+        LogoutAction.logout();
     }
 
     public void sitename1(ActionEvent event) throws IOException, ExceptionSwitchpage {

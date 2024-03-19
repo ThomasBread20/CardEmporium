@@ -21,14 +21,13 @@ public class Shoppingcart extends CliManager {
     public void start() throws InvalidChioceException, IOException, ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        DataSingleton inf = DataSingleton.getInstance();
         ShoppingController carta = new ShoppingController();
         CouponInformationBean beanCoupon = new CouponInformationBean();
         CardInformationBean bean = new CardInformationBean();
 
         while(true){
             try{
-                List<CardInformationBean> cards =  carta.getListofcardIntoShoppingCart(bean);
+                List<CardInformationBean> cards =  carta.getListofcardIntoShoppingCart();
                 printCard(cards);
                 int choice=showMenu();
 
@@ -58,7 +57,6 @@ public class Shoppingcart extends CliManager {
                         {
                             beanCoupon.setShipping("posta1");
                             totalPrize = carta.returnShippingfromEntity("posta1");
-                            System.out.println(totalPrize);
                         } else if (name2.equals("2")) {
                             beanCoupon.setShipping("posta4");
                             totalPrize += carta.returnShippingfromEntity("posta4");
@@ -82,7 +80,7 @@ public class Shoppingcart extends CliManager {
                         totalPrize = carta.returnCouponfromEntity(coupon.get(Integer.parseInt(name3) -1 ));
 
 
-                        showMenu1(beanCoupon, totalPrize);
+                        showMenu1( totalPrize);
 
                         String result = reader.readLine();
 
@@ -127,7 +125,7 @@ public class Shoppingcart extends CliManager {
         return verifyChioce(1,4);
     }
 
-    public void showMenu1(CouponInformationBean beanCoupon, double totalprize){
+    public void showMenu1(double totalprize){
 
         CliPrinter.printMessage("that's the total prize: \n");
         CliPrinter.printMessage(totalprize + " \n");

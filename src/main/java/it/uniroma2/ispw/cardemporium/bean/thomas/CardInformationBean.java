@@ -1,11 +1,6 @@
 package it.uniroma2.ispw.cardemporium.bean.thomas;
 
 
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class CardInformationBean {
@@ -51,9 +46,6 @@ public class CardInformationBean {
         this.cartaID = cartaID;
     }
 
-    public CardInformationBean() {
-
-    }
 
     public String getNomeCarta() {
         return nomeCarta;
@@ -79,7 +71,7 @@ public class CardInformationBean {
         return iduser;
     }
 
-    public void CardInformationBeaninfo(String nameCard, int idCard, int sellerId, String sellerName, double prize) {
+    public void cardInformationBeaninfo(String nameCard, int idCard, int sellerId, String sellerName, double prize) {
         this.nomeCarta = nameCard;
         this.cartaSingolaID = idCard;
         this.iDvenditore = sellerId;
@@ -87,7 +79,7 @@ public class CardInformationBean {
         this.prezzo = prize;
     }
 
-    public void CardInformationBeaninfo2(int cartaID, String nomeGioco, String nomeSet, String condizione, String lingua, int versione, String extra, boolean venduto, Boolean nelCarrello) {
+    public void cardInformationBeaninfo2(int cartaID, String nomeGioco, String nomeSet, String condizione, String lingua, int versione, String extra) {
         this.cartaID = cartaID;
         this.nomeGioco = nomeGioco;
         this.nomeSet = nomeSet;
@@ -95,6 +87,10 @@ public class CardInformationBean {
         this.lingua = lingua;
         this.versione = versione;
         this.extra = extra;
+
+    }
+
+    public void setVendutoAndCarrello(boolean venduto, Boolean nelCarrello){
         this.venduto = venduto;
         this.nelCarrello = nelCarrello;
     }

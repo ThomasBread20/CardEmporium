@@ -1,12 +1,8 @@
 package it.uniroma2.ispw.cardemporium.filesystemdb;
 
 
-
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
-
 import java.io.*;
-import java.util.List;
+
 
 
 public class ShopcardFS {

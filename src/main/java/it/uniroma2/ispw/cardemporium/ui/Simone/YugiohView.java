@@ -100,8 +100,10 @@ public class YugiohView implements Initializable {
         }
     }
     @FXML
-    void logout(ActionEvent event) throws ExceptionSwitchpage {
-        LogoutAction.logout(event);
+    void logout() throws ExceptionSwitchpage {
+
+
+        LogoutAction.logout();
     }
 
     public void shCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {

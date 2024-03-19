@@ -57,7 +57,7 @@ public class HomeRview {
 
             ShoppingController carta =  new ShoppingController();
 
-            bean.setLista(carta.getListofcardIntoShoppingCart(bean));
+            bean.setLista(carta.getListofcardIntoShoppingCart());
             SwitchPageContr.getInstance().SwitchCarrelo(bean);
 
 
@@ -112,7 +112,7 @@ public class HomeRview {
     void logout(ActionEvent event) throws  ExceptionSwitchpage {
 
 
-        LogoutAction.logout(event);
+        LogoutAction.logout();
     }
 
     @FXML

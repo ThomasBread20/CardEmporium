@@ -101,8 +101,10 @@ public class Dgview implements Initializable {
         }
     }
     @FXML
-    void logout(ActionEvent event) throws ExceptionSwitchpage {
-        LogoutAction.logout(event);
+    void logout() throws ExceptionSwitchpage {
+
+
+        LogoutAction.logout();
     }
 
     public void shoppinCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {

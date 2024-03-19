@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class LogoutAction {
 
-    public static void logout(ActionEvent event) throws ExceptionSwitchpage {
+    public static void logout() throws ExceptionSwitchpage {
         String returnValue = Popup.logout();
 
         if(returnValue.equals("yes")){

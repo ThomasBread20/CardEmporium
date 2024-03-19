@@ -76,8 +76,10 @@ public class ManageCardsView {
         }
     }
 
-    public void logout(ActionEvent actionEvent) throws ExceptionSwitchpage {
-        LogoutAction.logout(actionEvent);
+    void logout() throws ExceptionSwitchpage {
+
+
+        LogoutAction.logout();
     }
 
     public void goback(ActionEvent actionEvent) throws ExceptionSwitchpage {

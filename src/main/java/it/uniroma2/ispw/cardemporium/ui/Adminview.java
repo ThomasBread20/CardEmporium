@@ -42,10 +42,9 @@ public class Adminview {
     }
 
     @FXML
-    void logoutAdmin(ActionEvent event) throws  ExceptionSwitchpage {
+    void logout() throws ExceptionSwitchpage {
 
 
-        LogoutAction.logout(event);
+        LogoutAction.logout();
     }
-
 }

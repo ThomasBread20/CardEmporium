@@ -12,7 +12,6 @@ import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPageContr;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -95,7 +94,7 @@ public class CardView {
 
 
 
-            bean.setLista(carta.getListofcardIntoShoppingCart(bean));
+            bean.setLista(carta.getListofcardIntoShoppingCart());
             SwitchPageContr.getInstance().SwitchCarrelo(bean);
 
 
@@ -159,7 +158,7 @@ public class CardView {
 
     @FXML
     void logout(ActionEvent event) throws ExceptionSwitchpage {
-        LogoutAction.logout(event);
+        LogoutAction.logout();
 
     }
 
@@ -252,8 +251,9 @@ public class CardView {
             try{
                 CardInformationBean infoCard = new CardInformationBean();
                 CardController carta = new CardController();
-                infoCard.CardInformationBeaninfo(cards.get(index).getNomeCarta(),cards.get(index).getCartaSingolaID(),cards.get(index).getiDvenditore(),cards.get(index).getUtenteVenditore(),cards.get(index).getPrezzo() );
-                infoCard.CardInformationBeaninfo2(cards.get(index).getCartaID(),cards.get(index).getNomeGioco(),cards.get(index).getNomeSet(),cards.get(index).getCondizione(),cards.get(index).getLingua(),cards.get(index).getVersione(),cards.get(index).getExtra(),false , true);
+                infoCard.cardInformationBeaninfo(cards.get(index).getNomeCarta(),cards.get(index).getCartaSingolaID(),cards.get(index).getiDvenditore(),cards.get(index).getUtenteVenditore(),cards.get(index).getPrezzo() );
+                infoCard.cardInformationBeaninfo2(cards.get(index).getCartaID(),cards.get(index).getNomeGioco(),cards.get(index).getNomeSet(),cards.get(index).getCondizione(),cards.get(index).getLingua(),cards.get(index).getVersione(),cards.get(index).getExtra());
+                infoCard.setVendutoAndCarrello(false , true);
                 carta.addCard(infoCard);
 
 

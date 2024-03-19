@@ -26,6 +26,7 @@ public class ShoppingController {
         //constructor
     }
 
+    static String firstCoupon = "FirstCoupon";
 
 
     public void searchCardByIDUser() throws SQLException, ExceptionDBerror {
@@ -42,7 +43,7 @@ public class ShoppingController {
         }
     }
 
-    public List<CardInformationBean> getListofcardIntoShoppingCart(CardInformationBean bean) throws SQLException, ExceptionCardNotExist, ExceptionDBerror {
+    public List<CardInformationBean> getListofcardIntoShoppingCart() throws ExceptionCardNotExist {
         List<CardEntity> listaCarte = CarrelloEntity.getInstance().getCardIntoCart();
         List<CardInformationBean> bean1 = new ArrayList<CardInformationBean>();
 
@@ -80,12 +81,10 @@ public class ShoppingController {
                     carrello.buyCard(cards.get(value).getCartaSingolaID(), user);
                     carrelloFS.addcard(cards.get(value).getNomeCarta(),cards.get(value).getUtenteVenditore(),cards.get(value).getPrezzo(), user);
                 }
-                if( couponinfo.getType().equals("FirstCoupon")){
+                if( couponinfo.getType().equals(firstCoupon)){
 
                     carrello.modifyCouponStatus(user);
                     CarrelloEntity.getInstance().removeFirstfromCouponList();
-
-                }else{
 
                 }
                 CarrelloEntity.getInstance().clearCarrello();
@@ -138,7 +137,7 @@ public class ShoppingController {
     }
 
 
-    public List<String> returnCouponorShipping(int i) throws  ExceptionDBerror {
+    public List<String> returnCouponorShipping(int i)  {
         List<String> coupon = new ArrayList<String>();
 
         if (i == 1) {
@@ -181,10 +180,11 @@ public class ShoppingController {
         switch (i){
             case "NoCoupon" : CarrelloEntity.getInstance().setPrizeCoupon("NoCoupon");
             break;
-            case "FirstCoupon" : CarrelloEntity.getInstance().setPrizeCoupon("FirstCoupon");
+            case "FirstCoupon" : CarrelloEntity.getInstance().setPrizeCoupon(firstCoupon);
             break;
             case "Coupon5" : CarrelloEntity.getInstance().setPrizeCoupon("Coupon5");
             break;
+            default : break;
         }
         return CarrelloEntity.getInstance().getTotalprizecoupon();
     }

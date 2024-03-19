@@ -166,9 +166,10 @@ public class Carrelloview {
 
 
     @FXML
-    void logout(ActionEvent event) throws ExceptionSwitchpage {
-        LogoutAction.logout(event);
+    void logout() throws ExceptionSwitchpage {
 
+
+        LogoutAction.logout();
     }
 
     @FXML
@@ -259,7 +260,7 @@ public class Carrelloview {
 
             ShoppingController carta =  new ShoppingController();
 
-            bean.setLista(carta.getListofcardIntoShoppingCart(bean));
+            bean.setLista(carta.getListofcardIntoShoppingCart());
             SwitchPageContr.getInstance().SwitchCarrelo(bean);
 
 

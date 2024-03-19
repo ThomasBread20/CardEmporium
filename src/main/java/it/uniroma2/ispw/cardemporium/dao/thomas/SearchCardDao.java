@@ -30,9 +30,10 @@ public class SearchCardDao {
 
         Connection conn = connCheck();
 
-        String sql = "select *\n" +
-                "    from carte\n" +
-                "    where NomeCarta = ? and nel_carrello = 0;";
+        String sql = """
+                   select *\n
+                   from carte\n
+                 where NomeCarta = ? and nel_carrello = 0;""";
 
         statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         statement.setString(1, name);

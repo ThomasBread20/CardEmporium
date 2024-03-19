@@ -43,8 +43,9 @@ public class SearchcardPage extends CliManager{
                             CliPrinter.printMessage("do you want to add the " + name + " card? yes/no \n");
                             String name2 = reader.readLine();
                             if (name2.equals("yes")) {
-                                bean.CardInformationBeaninfo(cards.get(value).getNomeCarta(),cards.get(value).getCartaSingolaID(),cards.get(value).getiDvenditore(),cards.get(value).getUtenteVenditore(),cards.get(value).getPrezzo() );
-                                bean.CardInformationBeaninfo2(cards.get(value).getCartaID(),cards.get(value).getNomeGioco(),cards.get(value).getNomeSet(),cards.get(value).getCondizione(),cards.get(value).getLingua(),cards.get(value).getVersione(),cards.get(value).getExtra(),false , true);
+                                bean.cardInformationBeaninfo(cards.get(value).getNomeCarta(),cards.get(value).getCartaSingolaID(),cards.get(value).getiDvenditore(),cards.get(value).getUtenteVenditore(),cards.get(value).getPrezzo() );
+                                bean.cardInformationBeaninfo2(cards.get(value).getCartaID(),cards.get(value).getNomeGioco(),cards.get(value).getNomeSet(),cards.get(value).getCondizione(),cards.get(value).getLingua(),cards.get(value).getVersione(),cards.get(value).getExtra());
+                                bean.setVendutoAndCarrello(false , true);
                                 controller.addCard(bean);
                             }
 
@@ -107,8 +108,10 @@ public class SearchcardPage extends CliManager{
             if( name <= cards.size())
             {
                 return true;
+            }else{
+                return false;
             }
 
-        return false;
+
     }
 }

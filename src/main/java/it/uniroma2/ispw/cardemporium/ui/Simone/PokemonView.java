@@ -105,7 +105,7 @@ public class PokemonView implements Initializable {
     }
     @FXML
     void logout(ActionEvent event) throws ExceptionSwitchpage {
-        LogoutAction.logout(event);
+        LogoutAction.logout();
     }
 
     public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {

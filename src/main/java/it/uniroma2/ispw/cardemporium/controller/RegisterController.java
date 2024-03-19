@@ -29,7 +29,6 @@ public class RegisterController {
 
 
         DatabaseLoReFacade register = new DatabaseLoReFacade();
-        //int rand=random.nextInt();
 
         register.register(username, passw, name, date, surname);
         register.registerfs(username, passw, name, date, surname);

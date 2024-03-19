@@ -149,10 +149,11 @@ public Object verifySet() {
 
 
     @FXML
-    void logout(ActionEvent event) throws ExceptionSwitchpage {
-        LogoutAction.logout(event);
-    }
+    void logout() throws ExceptionSwitchpage {
 
+
+        LogoutAction.logout();
+    }
     DataSingleton info = DataSingleton.getInstance();
 
 

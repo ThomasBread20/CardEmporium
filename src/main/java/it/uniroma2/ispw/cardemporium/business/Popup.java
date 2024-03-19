@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Popup {
 
-
+    static String cardEmporium = "CardEmporium";
     public static String logout() throws ExceptionSwitchpage {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -61,7 +61,7 @@ public class Popup {
         try {
             if(i == 1){
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("CardEmporium");
+                alert.setTitle(cardEmporium);
                 alert.setHeaderText("Do you want to put this card in your Shopping Cart?");
 
                 if (alert.showAndWait().orElse(null) == ButtonType.OK) {
@@ -71,7 +71,7 @@ public class Popup {
                 }
             }else{
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("CardEmporium");
+                alert.setTitle(cardEmporium);
                 alert.setHeaderText("Do you want to buy all cards in your Shopping Cart?");
 
                 if (alert.showAndWait().orElse(null) == ButtonType.OK) {
@@ -104,7 +104,7 @@ public class Popup {
     public static String removeCardFromSC() throws ExceptionSwitchpage {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("CardEmporium");
+            alert.setTitle(cardEmporium);
             alert.setHeaderText("Do you want to remove this card from your Shopping Cart?");
 
             if (alert.showAndWait().orElse(null) == ButtonType.OK) {

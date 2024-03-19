@@ -35,10 +35,9 @@ public class ShoppingCartDAO {
 
         int idCard = bean.getCartaSingolaID();
 
-        //String sql = "insert into carrello(IDvenditore, NomeVenditore, CartaC_SingolaID, copiacarta_Prezzo, NomeCarta, IDutente)";
+
         String sql = "CALL putCardintoShoppingCart(?,?,?,?,?,?)";
 
-        String sql2 =   "update copiacarta SET nel_Carrello = 1 WHERE Carta_SingolaID = ?;";
 
         try {
 
@@ -107,9 +106,10 @@ public class ShoppingCartDAO {
         Connection conn = connCheck();
 
 
-        String sql = "select Carta_SingolaID, copiacarta_Prezzo, NomeVenditore, IDvenditore, carta_ValueID, NomeCarta, Lingua, carta_Versione,Condizione, firmato, foil, alterato, playset, first_edition, reverse_holo\n" +
-                "    from carrello join copiacarta on carrello.CartaC_SingolaID = copiacarta.Carta_SingolaID\n" +
-                "    where IDutente = ?;";
+        String sql = """
+                select Carta_SingolaID, copiacarta_Prezzo, NomeVenditore, IDvenditore, carta_ValueID, NomeCarta, Lingua, carta_Versione,Condizione, firmato, foil, alterato, playset, first_edition, reverse_holo\n
+                  from carrello join copiacarta on carrello.CartaC_SingolaID = copiacarta.Carta_SingolaID\n
+                   where IDutente = ?;""";
 
 
         try {
