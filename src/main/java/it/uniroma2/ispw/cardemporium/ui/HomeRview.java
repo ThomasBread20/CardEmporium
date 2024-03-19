@@ -63,7 +63,6 @@ public class HomeRview {
 
         }catch (ExceptionCardNotExist | IOException e) {
 
-            e.printStackTrace();
             throw new ExceptionSwitchpage("switch page Carrello");
 
 
