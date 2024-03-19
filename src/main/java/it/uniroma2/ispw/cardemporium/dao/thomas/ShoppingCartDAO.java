@@ -1,16 +1,19 @@
 package it.uniroma2.ispw.cardemporium.dao.thomas;
 
 
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
+import it.uniroma2.ispw.cardemporium.controller.thomas.cardinfo;
 import it.uniroma2.ispw.cardemporium.dao.Connection1Singelton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShoppingCartDAO {
 
@@ -26,18 +29,26 @@ public class ShoppingCartDAO {
 
     }
 
-    public void setCard(int id, int userID) throws ExceptionDBerror {
+    public void putCardintoShoppingCart(cardinfo bean) throws ExceptionDBerror {
 
         Connection conn = connCheck();
 
-        String sql = "CALL `PutCardIntoShoppingCart`(?,?)";
+        int idCard = bean.getCartaSingolaID();
 
+        //String sql = "insert into carrello(IDvenditore, NomeVenditore, CartaC_SingolaID, copiacarta_Prezzo, NomeCarta, IDutente)";
+        String sql = "CALL putCardintoShoppingCart(?,?,?,?,?,?)";
+
+        String sql2 =   "update copiacarta SET nel_Carrello = 1 WHERE Carta_SingolaID = ?;";
 
         try {
 
             statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            statement.setInt(1, id);
-            statement.setInt(2, userID);
+            statement.setInt(1, bean.getiDvenditore());
+            statement.setString(2, bean.getUtenteVenditore());
+            statement.setInt(3, idCard);
+            statement.setDouble(4, bean.getPrezzo());
+            statement.setString(5, bean.getNomeCarta());
+            statement.setInt(6, bean.getIduser());
             resultSet = statement.executeQuery();
         }catch (SQLException e) {
 
@@ -47,34 +58,25 @@ public class ShoppingCartDAO {
 
     }
 
-    public int getID(String username) throws ExceptionDBerror, SQLException {
+    public void updateCard(cardinfo bean) throws ExceptionDBerror {
 
         Connection conn = connCheck();
 
-
-        String sql = "CALL getID(?)";
-
+        int idCard = bean.getCartaSingolaID();
 
 
-
+        String sql2 =   "CALL updateCardIntoShoppingCart(?)";
         try {
-
-            statement = conn.prepareStatement(sql);
-
-            statement.setString(1, username);
+            statement = conn.prepareCall(sql2, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            statement.setInt(1, idCard);
             resultSet = statement.executeQuery();
-
-
         }catch (SQLException e) {
 
             throw new ExceptionDBerror("");
         }
-
-        resultSet.next();
-        return resultSet.getInt("utenti_ID");
-
-
     }
+
+
 
     public void detCard(int id) throws ExceptionDBerror {
 
@@ -95,16 +97,19 @@ public class ShoppingCartDAO {
 
 
     }
-    public ObservableList<CarrelloEntity> getCard(int iD) throws  SQLException, ExceptionDBerror {
+    public void getCardbyIdUser(int iD) throws  SQLException, ExceptionDBerror {
 
-        ObservableList<CarrelloEntity> cardCarrellos = FXCollections.observableArrayList();
 
+
+        List<CardEntity> cardCarrellos = new ArrayList<CardEntity>() ;
 
 
         Connection conn = connCheck();
 
 
-        String sql = "CALL `SearchCardbyIDuser`(?)";
+        String sql = "select Carta_SingolaID, copiacarta_Prezzo, NomeVenditore, IDvenditore, carta_ValueID, NomeCarta, Lingua, carta_Versione,Condizione, firmato, foil, alterato, playset, first_edition, reverse_holo\n" +
+                "    from carrello join copiacarta on carrello.CartaC_SingolaID = copiacarta.Carta_SingolaID\n" +
+                "    where IDutente = ?;";
 
 
         try {
@@ -122,18 +127,21 @@ public class ShoppingCartDAO {
 
             while(resultSet.next())
             {
-
-                int id = resultSet.getInt("Carta_SingolaID");
+                String condizione = resultSet.getString("Condizione");
+                int versione = resultSet.getInt("carta_Versione");
+                int cartaSingolaID = resultSet.getInt("Carta_SingolaID");
                 double prezzo = resultSet.getDouble("copiacarta_Prezzo");
                 String  utenteVenditore = resultSet.getString("NomeVenditore");
-                int cartaSingolaID = resultSet.getInt("CartaC_SingolaID");
+                int cartaSingolaIDc = resultSet.getInt("carta_ValueID");
                 String nomeCarta = resultSet.getString("NomeCarta");
+                String lingua = resultSet.getString("Lingua");
                 boolean firmato = resultSet.getBoolean("firmato");
                 boolean foil = resultSet.getBoolean("foil");
                 boolean alterato = resultSet.getBoolean("alterato");
                 boolean playset = resultSet.getBoolean("playset");
                 boolean firstedition = resultSet.getBoolean("first_edition");
                 boolean reverseholo = resultSet.getBoolean("reverse_holo");
+                int idseller = resultSet.getInt("IDvenditore");
 
 
 
@@ -171,12 +179,55 @@ public class ShoppingCartDAO {
 
 
 
-                cardCarrellos.add(new CarrelloEntity(id, prezzo, utenteVenditore, cartaSingolaID, nomeCarta, result));
-
+                CardEntity card = new CardEntity(cartaSingolaID, cartaSingolaIDc, condizione, prezzo, nomeCarta, result, lingua, versione, utenteVenditore, idseller);
+                cardCarrellos.add((card));
 
             }
-            return cardCarrellos;
+
+            CarrelloEntity.getInstance().setCardIntoCart(cardCarrellos);
+            CarrelloEntity.getInstance().setPrize();
+
+
         }
+
+    public void buyCard(int id, int user) throws ExceptionDBerror {
+        Connection conn = connCheck();
+
+        String sql = "CALL `shopping`(?,?)";
+
+        try {
+
+            statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            statement.setInt(1, id);
+            statement.setInt(2, user);
+
+            resultSet = statement.executeQuery();
+        }catch (SQLException e) {
+
+            throw new ExceptionDBerror("");
+        }
+
+
+    }
+
+    public void modifyCouponStatus(int id) throws ExceptionDBerror {
+        Connection conn = connCheck();
+
+        String sql = "CALL updateCoupon(?)";
+
+        try {
+
+            statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            statement.setInt(1, id);
+
+            resultSet = statement.executeQuery();
+        }catch (SQLException e) {
+
+            throw new ExceptionDBerror("");
+        }
+
+
+    }
 
     }
 

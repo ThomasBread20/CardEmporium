@@ -1,22 +1,18 @@
 package it.uniroma2.ispw.cardemporium.ui.Simone;
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanG;
 import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanP;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.simone.InsertCardController;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
-import it.uniroma2.ispw.cardemporium.model.Card;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.simone.Card;
 import it.uniroma2.ispw.cardemporium.ui.Profiloview;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
-import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +27,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PokemonView implements Initializable {
@@ -73,7 +68,7 @@ public class PokemonView implements Initializable {
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("venditore2", event);
 
         } catch (ExceptionSwitchpage | IOException e) {
@@ -102,7 +97,7 @@ public class PokemonView implements Initializable {
     @FXML
     void goHome(ActionEvent event) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_home_registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata home");
@@ -115,13 +110,13 @@ public class PokemonView implements Initializable {
 
     public void shoppingCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        BuyCardApplicativo view = new BuyCardApplicativo();
+        /*CardController view = new CardController();
         try {
 
             ObservableList<CarrelloEntity> cards = view.searchCard1(view.getID());
 
 
-            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", actionEvent);
+            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", actionEvent);
 
 
             carrelloview.modifytable(cards);
@@ -140,7 +135,7 @@ public class PokemonView implements Initializable {
 
         } catch (SQLException e) {
             e.getErrorCode();
-        }
+        }*/
     }
 
 
@@ -187,8 +182,7 @@ public class PokemonView implements Initializable {
         boolean fed= feditionp.isSelected();
         boolean pla= playsetp.isSelected();
         boolean rev=reverseh.isSelected();
-        SwitchPage page=SwitchPage.getInstance();
-
+        SwitchPage page = new SwitchPage();
         Float prezzo= Float.valueOf(price.getText());
         Integer q= Integer.valueOf(quantity.getText());
         String name= String.valueOf(namecard.getCellObservableValue(0).getValue());

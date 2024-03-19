@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.controller.simone;
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.business.DBconstants;
 import it.uniroma2.ispw.cardemporium.factorySimone.MyCardBaseInterface;
 import it.uniroma2.ispw.cardemporium.factorySimone.Factory;
@@ -9,8 +9,8 @@ import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.simone.ExposeDAO;
 import it.uniroma2.ispw.cardemporium.dao.simone.SearchAllCardDAO;
 import it.uniroma2.ispw.cardemporium.exception.*;
-import it.uniroma2.ispw.cardemporium.model.Card;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
+import it.uniroma2.ispw.cardemporium.model.simone.Card;
+import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
@@ -41,7 +41,7 @@ public class ExposeController {
 
     }
 
-    public CardEntity exposeOnMarketY(CardInfoBean cardInfoBean) throws Exceptionquantity   {
+    public CardEntitySImo exposeOnMarketY(CardInfoBean cardInfoBean) throws Exceptionquantity   {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
 
@@ -50,7 +50,7 @@ public class ExposeController {
         }
 
         boolean result=ex.exposeCardY(cardInfoBean, info.getID());
-       CardEntity c = new CardEntity(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        CardEntitySImo c = new CardEntitySImo(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
         if (Boolean.FALSE.equals(result) ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(DBconstants.NAME);
@@ -76,17 +76,17 @@ public class ExposeController {
         return exposeController.card.useCard();
 
     }
-    public CardEntity exposeOnMarketM(CardInfoBean cardInfoBean) throws  Exceptionquantity {
+    public CardEntitySImo exposeOnMarketM(CardInfoBean cardInfoBean) throws  Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
 
         ExposeDAO ex = new ExposeDAO();
-        CardEntity ca;
+        CardEntitySImo ca;
         if(cardInfoBean.getQuantity()<1){
             throw new Exceptionquantity(ex.toString());
         }
 
         Boolean result = ex.exposeCardM(cardInfoBean, info.getID());
-        ca = new CardEntity(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        ca = new CardEntitySImo(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
         if (Boolean.FALSE.equals(result) ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(DBconstants.NAME);
@@ -95,16 +95,16 @@ public class ExposeController {
         return ca;
     }
 
-    public CardEntity exposeOnMarketDB(CardInfoBean cardInfoBean) throws Exceptionquantity {
+    public CardEntitySImo exposeOnMarketDB(CardInfoBean cardInfoBean) throws Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
-        CardEntity c;
+        CardEntitySImo c;
         if(cardInfoBean.getQuantity()<1){
             throw new Exceptionquantity(ex.toString());
         }
 
         Boolean result = ex.exposeCardDB(cardInfoBean, info.getID());
-        c= new CardEntity(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        c= new CardEntitySImo(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
         if (Boolean.FALSE.equals(result)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(DBconstants.NAME);
@@ -112,17 +112,17 @@ public class ExposeController {
         }
         return c;
     }
-    public CardEntity exposeOnMarketP(CardInfoBean cardInfoBean) throws  Exceptionquantity {
+    public CardEntitySImo exposeOnMarketP(CardInfoBean cardInfoBean) throws  Exceptionquantity {
         DataSingleton info = DataSingleton.getInstance();
         ExposeDAO ex = new ExposeDAO();
-        CardEntity ca;
+        CardEntitySImo ca;
         if(cardInfoBean.getQuantity()<1){
 
             throw new Exceptionquantity(ex.toString());
         }
 
         Boolean result = ex.exposeCardP(cardInfoBean, info.getID());
-        ca = new CardEntity(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
+        ca = new CardEntitySImo(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
         if (Boolean.FALSE.equals(result)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(DBconstants.NAME);

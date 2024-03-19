@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.model;
+package it.uniroma2.ispw.cardemporium.model.simone;
 
 public class Card {
   private   String name;

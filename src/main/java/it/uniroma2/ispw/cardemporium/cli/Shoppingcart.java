@@ -1,30 +1,34 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
+import it.uniroma2.ispw.cardemporium.bean.thomas.CouponInformationBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
-import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.util.List;
+
 public class Shoppingcart extends CliManager {
 
     public void start() throws InvalidChioceException, IOException, ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         DataSingleton inf = DataSingleton.getInstance();
-        BuyCardApplicativo carta = new BuyCardApplicativo();
+        ShoppingController carta = new ShoppingController();
+        CouponInformationBean beanCoupon = new CouponInformationBean();
+        CardInformationBean bean = new CardInformationBean();
 
         while(true){
             try{
-                ObservableList<CarrelloEntity> cards =  carta.searchCard1( carta.getID());
+                List<CardInformationBean> cards =  carta.getListofcardIntoShoppingCart(bean);
                 printCard(cards);
                 int choice=showMenu();
 
@@ -32,9 +36,10 @@ public class Shoppingcart extends CliManager {
                 case 1:
                     CliPrinter.printMessage("whitch card do you want to remove?\n");
                     String name1 = reader.readLine();
+                    int value = Integer.parseInt(name1)-1;
                     if(controllo(Integer.parseInt(name1), cards)){
-
-                        carta.removeCard(Integer.parseInt(name1));
+                        bean.setCartaSingolaID(cards.get(value).getCartaSingolaID());
+                        carta.removeCard(bean, value);
                     }else{
                         CliPrinter.printMessage("you do not have a card with this id in your shopping cart");
                         CliPrinter.printMessage("choose another card\n");
@@ -44,21 +49,57 @@ public class Shoppingcart extends CliManager {
 
                 case 2:
 
+                        double totalPrize = 0;
+                        CliPrinter.printMessage("Select a shipping method: \n");
+                        CliPrinter.printMessage("1)posta1\n");
+                        CliPrinter.printMessage("2)posta4\n");
+                        String name2 = reader.readLine();
+                        if(name2.equals("1"))
+                        {
+                            beanCoupon.setShipping("posta1");
+                            totalPrize = carta.returnShippingfromEntity("posta1");
+                            System.out.println(totalPrize);
+                        } else if (name2.equals("2")) {
+                            beanCoupon.setShipping("posta4");
+                            totalPrize += carta.returnShippingfromEntity("posta4");
+                        }else{
+                            CliPrinter.printMessage("Invalid Choice \n");
+                            break;
+                        }
 
-                        int value = inf.getID();
-                        while (!cards.isEmpty()) {
-                            int n = 0;
-                            CarrelloEntity carta1 = cards.get(n);
-
-
-                            cards.remove(n);
-
-                            ShoppingController.shopping(carta1.getCartaID(), value);
-                            CliPrinter.printMessage("Congratulation, your the shopping has ended successfully \n");
+                    CliPrinter.printMessage("Select a Coupon: \n");
+                        List<String>  coupon = carta.returnCouponorShipping(0);
+                        int value1 = 0;
+                        for(int i = 0; i < coupon.size(); i++) {
+                            value1 = i + 1;
+                            CliPrinter.printMessage(value1 + ")" + coupon.get(i) + "\n");
                         }
 
 
-                    break;
+                        String name3 = reader.readLine();
+
+                        beanCoupon.setType(coupon.get(Integer.parseInt(name3) -1 ));
+                        totalPrize = carta.returnCouponfromEntity(coupon.get(Integer.parseInt(name3) -1 ));
+
+
+                        showMenu1(beanCoupon, totalPrize);
+
+                        String result = reader.readLine();
+
+                        if(result.equals("yes"))
+                        {
+                            bean.setLista(cards);
+                            carta.shopping(bean, beanCoupon);
+                            break;
+                        }else if(result.equals("no"))
+                        {
+                            break;
+                        }else
+                        {
+                            CliPrinter.printMessage("invalid choice \n");
+                            break;
+                        }
+
                 case 3:
                     new HomePage().start();
                     break;
@@ -86,19 +127,28 @@ public class Shoppingcart extends CliManager {
         return verifyChioce(1,4);
     }
 
-    public void printCard(ObservableList<CarrelloEntity> cards)  {
+    public void showMenu1(CouponInformationBean beanCoupon, double totalprize){
+
+        CliPrinter.printMessage("that's the total prize: \n");
+        CliPrinter.printMessage(totalprize + " \n");
+
+        CliPrinter.printMessage("(yes/no)\n");
 
 
 
+    }
 
+    public void printCard( List<CardInformationBean> cards)  {
+        int value = 1;
         CliPrinter.printMessage("ID ,Nome ,seller ,price  ,extra\n");
-        for(CarrelloEntity item : cards){
-            CliPrinter.printMessage(item.getCartaSingolaID() +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() );
+        for(CardInformationBean item : cards){
+            CliPrinter.printMessage(value +  "-" + item.getNomeCarta() +  "-"+ item.getUtenteVenditore()+ "-"  + item.getPrezzo() +"-" + item.getExtra() );
+            value++;
         }
         CliPrinter.printMessage("\n");
     }
-    public boolean controllo(int name, ObservableList<CarrelloEntity> cards)  {
-        for(CarrelloEntity item : cards){
+    public boolean controllo(int name, List<CardInformationBean> cards)  {
+        for(CardInformationBean item : cards){
             if(name == item.getCartaSingolaID()){
                 return true;
             }

@@ -2,10 +2,7 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
 import it.uniroma2.ispw.cardemporium.controller.LoginController;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
+import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +18,8 @@ import javafx.scene.text.Text;
 
 
 import java.io.IOException;
+import java.lang.UnsupportedOperationException;
+import java.sql.SQLException;
 
 
 public class LoginView {
@@ -108,7 +107,7 @@ public class LoginView {
 
                 loginController.createShoppingCart();
 
-                SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
                 page.switchPage(user.getHomePage(), event);
 
 
@@ -125,6 +124,10 @@ public class LoginView {
             throw new ExceptionDBerror("value");
 
 
+        } catch (ExceptionCardNotExist e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -136,7 +139,7 @@ public class LoginView {
 
 
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata registrazione", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
@@ -151,7 +154,7 @@ public class LoginView {
 
 
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata home non registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");

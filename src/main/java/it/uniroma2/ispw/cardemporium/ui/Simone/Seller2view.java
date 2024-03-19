@@ -1,16 +1,13 @@
 package it.uniroma2.ispw.cardemporium.ui.Simone;
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
 import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
-import it.uniroma2.ispw.cardemporium.model.Card;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.simone.Card;
 import it.uniroma2.ispw.cardemporium.ui.Profiloview;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
-import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -164,7 +161,7 @@ public Object verifySet() {
 
     public void goHome(ActionEvent actionEvent) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_home_registrato", actionEvent);
         } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata home");
@@ -192,7 +189,7 @@ public Object verifySet() {
 
     public void goback(ActionEvent actionEvent) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_venditore1", actionEvent);
         } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata seller");
@@ -224,7 +221,7 @@ public Object verifySet() {
 
     public void shoppingCart(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        BuyCardApplicativo view = new BuyCardApplicativo();
+        /*CardController view = new CardController();
 
         try{
 
@@ -232,7 +229,7 @@ public Object verifySet() {
 
 
 
-            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
+            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", event);
 
 
             carrelloview.modifytable(cards);
@@ -255,7 +252,7 @@ public Object verifySet() {
 
         } catch (SQLException e) {
             e.getErrorCode();
-        }
+        }*/
 
     }
 

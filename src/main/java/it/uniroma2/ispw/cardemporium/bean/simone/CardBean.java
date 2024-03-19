@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.bean.thomas;
+package it.uniroma2.ispw.cardemporium.bean.simone;
 
 
 

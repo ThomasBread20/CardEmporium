@@ -4,7 +4,7 @@ import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.ManageControllerApp;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
+import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import it.uniroma2.ispw.cardemporium.ui.Profiloview;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import javafx.collections.ObservableList;
@@ -45,7 +45,7 @@ public class Sellerview {
     public void homeRegistrato(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_home_registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
@@ -78,7 +78,7 @@ public class Sellerview {
     @FXML
     void expose(ActionEvent event) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("venditore2", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page seller 2");
@@ -90,10 +90,10 @@ public class Sellerview {
         try {
 
             ManageControllerApp app =  new ManageControllerApp();
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
 
 
-            ObservableList<CardEntity>cards=app.showCards();
+            ObservableList<CardEntitySImo>cards=app.showCards();
             ManageCardsView manageCardsView=page.switchPageMC("schermata_venditore_Visualizza_vendite", event);
             manageCardsView.modifyTable(cards);
 

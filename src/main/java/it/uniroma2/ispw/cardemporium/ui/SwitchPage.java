@@ -1,10 +1,13 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.ui.Simone.*;
 import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
 import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,31 +18,22 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.List;
 
 //rendere questa classe astratta
 
 public class SwitchPage {
     static String xml=".fxml";
 
-    private static SwitchPage instance;
-
-
-
-
-    public static synchronized SwitchPage getInstance(){
-        if(SwitchPage.instance == null){
-            SwitchPage.instance = new SwitchPage();
-        }
-        return instance;
-
-    }
-    private SwitchPage (){}
 
 
     public void switchPage(String value, ActionEvent event) throws IOException, ExceptionSwitchpage {
 
+
         try {
-            Parent viewRegister = FXMLLoader.load(getClass().getResource(value + xml));
+            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
+
+            Parent viewRegister = loader.load();
             Scene viewRegisterScene = new Scene(viewRegister);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -47,33 +41,14 @@ public class SwitchPage {
             window.setScene(viewRegisterScene);
             window.show();
 
-        } catch (IOException e) {
-            throw new ExceptionSwitchpage("error switch page ");
+        }
+        catch ( IOException e) {
+            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
         }
     }
 
-    public static CardView switchPageData(String value, ActionEvent event) throws IOException, ExceptionSwitchpage {
-
-       try {
-           FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value +xml));
-
-           Parent viewRegister = loader.load();
-           Scene viewRegisterScene = new Scene(viewRegister);
-
-           Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           CardView cardView = loader.getController();
 
 
-           window.setScene(viewRegisterScene);
-           window.show();
-
-           return cardView;
-       }
-    catch ( IOException e) {
-        throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-    }
-
-    }
     public static YugiohView switchPagesellerY(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
@@ -177,29 +152,6 @@ public class SwitchPage {
     }
 
 
-
-    public static Carrelloview switchPageData1(String value, ActionEvent event) throws IOException, ExceptionSwitchpage {
-
-        try {
-            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
-
-            Parent viewRegister = loader.load();
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Carrelloview carrelloview = loader.getController();
-
-
-            window.setScene(viewRegisterScene);
-            window.show();
-
-            return carrelloview;
-        }
-        catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page carrello Login View7");
-        }
-
-    }
     public ManageCardsView switchPageMC(String value, ActionEvent event) throws ExceptionSwitchpage {
         try {
             FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value+ xml));
@@ -226,51 +178,8 @@ public class SwitchPage {
 
 
 
-    public Carrelloview switchPageDataM(String schermataCarrello, javafx.scene.input.MouseEvent mouseEvent) throws ExceptionSwitchpage {
-
-        try {
-            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(schermataCarrello + xml));
-
-            Parent viewRegister = loader.load();
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-            Carrelloview carrelloview = loader.getController();
 
 
-            window.setScene(viewRegisterScene);
-            window.show();
 
-            return carrelloview;
-        }
-        catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View9");
-        }
-
-    }
-
-
-    public static CardView switchPageDataM1(String value, javafx.scene.input.MouseEvent event) throws IOException, ExceptionSwitchpage{
-
-        try {
-            FXMLLoader loader = new FXMLLoader(SwitchPage.class.getResource(value + xml));
-
-            Parent viewRegister = loader.load();
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            CardView cardView = loader.getController();
-
-
-            window.setScene(viewRegisterScene);
-            window.show();
-
-            return cardView;
-        }
-        catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View10");
-        }
-
-    }
 
 }

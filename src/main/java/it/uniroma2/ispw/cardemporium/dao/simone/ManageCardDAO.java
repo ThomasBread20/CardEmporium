@@ -5,6 +5,7 @@ import it.uniroma2.ispw.cardemporium.bean.UserBean;
 import it.uniroma2.ispw.cardemporium.dao.Connection1Singelton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
+import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -25,8 +26,8 @@ public class ManageCardDAO {
     }
 
 
-    public ObservableList<CardEntity> getCards(UserBean userBean) throws SQLException, ExceptionCardNotExist {
-        ObservableList<CardEntity> copiaCards = FXCollections.observableArrayList();
+    public ObservableList<CardEntitySImo> getCards(UserBean userBean) throws SQLException, ExceptionCardNotExist {
+        ObservableList<CardEntitySImo> copiaCards = FXCollections.observableArrayList();
         String sq = "CALL `showCards`(?)";
         Connection conn = connCheck();
         Integer id=userBean.getId();
@@ -87,7 +88,7 @@ public class ManageCardDAO {
 
             String result = stringBuilder.toString();
 
-            copiaCards.add(new CardEntity(cond, price, nome, result, lang, v, nset));
+            copiaCards.add(new CardEntitySImo(cond, price, nome, result, lang, v, nset));
 
 
         }

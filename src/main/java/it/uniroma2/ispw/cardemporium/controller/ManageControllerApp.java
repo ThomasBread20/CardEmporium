@@ -7,6 +7,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
 
+import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import javafx.collections.ObservableList;
 
 
@@ -20,11 +21,11 @@ public class ManageControllerApp {
             //constructor
         }
     static DataSingleton info = DataSingleton.getInstance();
-    public ObservableList<CardEntity> showCards() {
+    public ObservableList<CardEntitySImo> showCards() {
         UserBean userBean=new UserBean(info.getID());
 
         ManageCardDAO manageCardDAO = new ManageCardDAO();
-        ObservableList<CardEntity> cards = null;
+        ObservableList<CardEntitySImo> cards = null;
 
         try {
 

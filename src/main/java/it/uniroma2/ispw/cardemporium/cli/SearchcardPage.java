@@ -1,17 +1,17 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
+import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
-import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
+import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.util.List;
 
 public class SearchcardPage extends CliManager{
     public void start() throws InvalidChioceException, IOException, ExceptionCardNotExist, SQLException, ExceptionDBerror {
@@ -19,12 +19,14 @@ public class SearchcardPage extends CliManager{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CliPrinter.printMessage("Type the Card name:\n");
         String name1 = reader.readLine();
-
+        CardInformationBean bean = new CardInformationBean();
+        bean.setNomeCarta(name1);
+        CardController controller = new CardController();
 
         while (true) {
             try {
 
-                ObservableList<CardEntity> cards = BuyCardApplicativo.searchCard(name1);
+                List<CardInformationBean> cards = controller.searchCard(bean);
                 if(cards.isEmpty()){
                     CliPrinter.printMessage("no cards are avaiable with this name, return to home page \n");
                     new HomePage().start();
@@ -36,12 +38,14 @@ public class SearchcardPage extends CliManager{
                     case 1:
                         CliPrinter.printMessage("whitch card do you want? (inster the Card ID)\n");
                         String name = reader.readLine();
+                        int value = Integer.parseInt(name)-1;
                         if (controllo(Integer.parseInt(name), cards)) {
                             CliPrinter.printMessage("do you want to add the " + name + " card? yes/no \n");
                             String name2 = reader.readLine();
                             if (name2.equals("yes")) {
-                                BuyCardApplicativo carta = new BuyCardApplicativo();
-                                carta.addCard(Integer.parseInt(name));
+                                bean.CardInformationBeaninfo(cards.get(value).getNomeCarta(),cards.get(value).getCartaSingolaID(),cards.get(value).getiDvenditore(),cards.get(value).getUtenteVenditore(),cards.get(value).getPrezzo() );
+                                bean.CardInformationBeaninfo2(cards.get(value).getCartaID(),cards.get(value).getNomeGioco(),cards.get(value).getNomeSet(),cards.get(value).getCondizione(),cards.get(value).getLingua(),cards.get(value).getVersione(),cards.get(value).getExtra(),false , true);
+                                controller.addCard(bean);
                             }
 
                         } else {
@@ -51,9 +55,9 @@ public class SearchcardPage extends CliManager{
 
                         break;
                     case 2:
-                        CliPrinter.printMessage("Type the Card name: \n");
-                        name1 = reader.readLine();
 
+                        CliPrinter.printMessage("Type the Card name:\n");
+                        bean.setNomeCarta(reader.readLine());
                         break;
                     case 3:
                         new HomePage().start();
@@ -85,24 +89,25 @@ public class SearchcardPage extends CliManager{
         return verifyChioce(1,4);
     }
 
-    public void printCard(ObservableList<CardEntity> cards) throws ExceptionCardNotExist {
+    public void printCard(List<CardInformationBean> cards) throws ExceptionCardNotExist {
 
 
-
+        int value = 1;
 
         CliPrinter.printMessage("ID - Condition  - seller - price  - language  - set   - extra\n");
-        for(CardEntity item : cards){
-            CliPrinter.printMessage(item.getCartaSingolaID() + "-" +item.getCondizione() + "-" + item.getUtenteVenditore()+ "-"  + item.getPrezzo() + "-" + item.getLingua() + "-" + item.getNomeSet() + "-"+ item.getExtra() + "\n");
+        for(CardInformationBean item : cards){
+            CliPrinter.printMessage(value + "-" +item.getCondizione() + "-" + item.getUtenteVenditore()+ "-"  + item.getPrezzo() + "-" + item.getLingua() + "-" + item.getNomeSet() + "-"+ item.getExtra() + "\n");
+            value++;
         }
         CliPrinter.printMessage("\n");
     }
 
-        public boolean controllo(int name, ObservableList<CardEntity> cards) throws ExceptionCardNotExist {
-        for(CardEntity item : cards){
-            if(name == item.getCartaSingolaID()){
+        public boolean controllo(int name, List<CardInformationBean> cards) throws ExceptionCardNotExist {
+
+            if( name <= cards.size())
+            {
                 return true;
             }
-        }
 
         return false;
     }

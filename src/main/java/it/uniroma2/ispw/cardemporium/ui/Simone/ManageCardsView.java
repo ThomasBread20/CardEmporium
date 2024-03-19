@@ -2,15 +2,11 @@ package it.uniroma2.ispw.cardemporium.ui.Simone;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import it.uniroma2.ispw.cardemporium.ui.Profiloview;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
-import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,11 +20,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class ManageCardsView {
     @FXML
-    private TableView<CardEntity> cardlistTable;
+    private TableView<CardEntitySImo> cardlistTable;
 
     @FXML
     private TableColumn<?, ?> cond;
@@ -74,7 +69,7 @@ public class ManageCardsView {
 
     public void gohome(ActionEvent actionEvent) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_home_registrato", actionEvent);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata home");
@@ -87,7 +82,7 @@ public class ManageCardsView {
 
     public void goback(ActionEvent actionEvent) throws ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_venditore1", actionEvent);
         } catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata seller");
@@ -96,7 +91,7 @@ public class ManageCardsView {
 
     public void goToCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        BuyCardApplicativo view = new BuyCardApplicativo();
+        /*CardController view = new CardController();
 
         try{
 
@@ -104,7 +99,7 @@ public class ManageCardsView {
 
 
 
-            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", actionEvent);
+            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", actionEvent);
 
 
             carrelloview.modifytable(cards);
@@ -127,12 +122,12 @@ public class ManageCardsView {
 
         } catch (SQLException e) {
             e.getErrorCode();
-        }
+        }*/
 
     }
 
 
-    public void modifyTable(ObservableList<CardEntity> copiaCards){
+    public void modifyTable(ObservableList<CardEntitySImo> copiaCards){
         name.setCellValueFactory(new PropertyValueFactory<>("nomeCarta"));
         lan.setCellValueFactory(new PropertyValueFactory<>("lingua"));
         cond.setCellValueFactory(new PropertyValueFactory<>("condizione"));

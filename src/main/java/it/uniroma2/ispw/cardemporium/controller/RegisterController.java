@@ -2,6 +2,7 @@ package it.uniroma2.ispw.cardemporium.controller;
 
 
 
+import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
@@ -17,22 +18,22 @@ public class RegisterController {
 
 
 
-    public void insertUserDao(String username, String passw, String name, java.sql.Date date, String surname) throws  ExceptionUserAlreadyExist {
+    public void insertUserDao(RegisterBean registerValue) throws  ExceptionUserAlreadyExist {
 
 
+        String username = registerValue.getUsernameBean();
+        String passw = registerValue.getPasswdBean();
+        String name = registerValue.getNameBean();
+        java.sql.Date date = registerValue.getDateBean();
+        String surname= registerValue.getCognomeBean();
 
 
         DatabaseLoReFacade register = new DatabaseLoReFacade();
-        int rand=random.nextInt();
+        //int rand=random.nextInt();
 
-        if (rand % 2 == 0) {
-            register.registerfs(username, passw, name, date, surname);
+        register.register(username, passw, name, date, surname);
+        register.registerfs(username, passw, name, date, surname);
 
-
-        } else {
-
-            register.register(username, passw, name, date, surname);
-        }
 
 
     }

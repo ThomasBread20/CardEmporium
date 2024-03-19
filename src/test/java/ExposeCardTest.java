@@ -1,5 +1,5 @@
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;

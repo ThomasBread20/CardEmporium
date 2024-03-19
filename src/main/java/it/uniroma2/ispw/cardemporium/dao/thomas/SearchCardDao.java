@@ -5,11 +5,11 @@ package it.uniroma2.ispw.cardemporium.dao.thomas;
 import it.uniroma2.ispw.cardemporium.dao.Connection1Singelton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchCardDao {
 
@@ -22,12 +22,17 @@ public class SearchCardDao {
         return conn.getConn();
 
     }
-    public ObservableList<CardEntity> getcardlist(String name) throws ExceptionCardNotExist, SQLException {
 
-        ObservableList<CardEntity> copiaCards = FXCollections.observableArrayList();
+    //questo dao genera una lista di cardentity
+    public List<CardEntity> getcardlist(String name) throws ExceptionCardNotExist, SQLException {
+
+        List<CardEntity> listaCarte = new ArrayList<CardEntity>() ;
+
         Connection conn = connCheck();
 
-        String sql = "CALL `SearchCard`(?)";
+        String sql = "select *\n" +
+                "    from carte\n" +
+                "    where NomeCarta = ? and nel_carrello = 0;";
 
         statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         statement.setString(1, name);
@@ -41,6 +46,7 @@ public class SearchCardDao {
 
             resultSet.beforeFirst();
 
+            CardEntity card = null;
             while (resultSet.next()) {
 
                 String condizione = resultSet.getString("Condizione");
@@ -61,18 +67,18 @@ public class SearchCardDao {
                 boolean firstedition = resultSet.getBoolean("first_edition");
                 boolean reverseholo = resultSet.getBoolean("reverse_holo");
                 boolean venduto = resultSet.getBoolean("venduto");
+                int iDseller = resultSet.getInt("IDseller");
 
 
                 String result = getstringBuilder(firmato, foil, alterato, playset, firstedition, reverseholo);
 
-                CardEntity card = new CardEntity(condizione, prezzo, utenteVenditore, cartaSingolaID, cartaID, nomeCarta);
-                card.cardInfo(nomeGioco, lingua, versione, nomeSet, carrello, result, venduto);
-
-                copiaCards.add(card);
-
+                card = new CardEntity(cartaSingolaID, cartaID, condizione, prezzo, nomeCarta, result, lingua, versione, utenteVenditore,iDseller);
+                card.venduto(venduto, carrello);
+                card.setCarta(nomeGioco, nomeSet);
+                listaCarte.add(card);
 
             }
-            return copiaCards;
+            return listaCarte;
         }
     }
 

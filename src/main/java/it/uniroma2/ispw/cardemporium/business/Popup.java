@@ -40,7 +40,7 @@ public class Popup {
 
         if (role.equals("Venditore")) {
             try {
-                SwitchPage page = SwitchPage.getInstance();
+                SwitchPage page = new SwitchPage();
                 page.switchPage("schermata_venditore1", event);
             }catch (ExceptionSwitchpage | IOException e) {
                 throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
@@ -57,16 +57,28 @@ public class Popup {
 
     }
 
-    public static String shoppingcart() throws ExceptionSwitchpage {
+    public static String shoppingcart(int i) throws ExceptionSwitchpage {
         try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("CardEmporium");
-            alert.setHeaderText("Do you want to put this card in your Shopping Cart?");
+            if(i == 1){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("CardEmporium");
+                alert.setHeaderText("Do you want to put this card in your Shopping Cart?");
 
-            if (alert.showAndWait().orElse(null) == ButtonType.OK) {
-                return "yes";
-            } else {
-                return "no";
+                if (alert.showAndWait().orElse(null) == ButtonType.OK) {
+                    return "yes";
+                } else {
+                    return "no";
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("CardEmporium");
+                alert.setHeaderText("Do you want to buy all cards in your Shopping Cart?");
+
+                if (alert.showAndWait().orElse(null) == ButtonType.OK) {
+                    return "yes";
+                } else {
+                    return "no";
+                }
             }
         } catch (Exception e) {
             throw new ExceptionSwitchpage("Popup failed");

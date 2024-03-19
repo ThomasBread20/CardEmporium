@@ -1,10 +1,13 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
 
+import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 
+import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
+import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
 import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
@@ -12,6 +15,7 @@ import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
 import javafx.event.ActionEvent;
 
+import java.sql.SQLException;
 
 
 public class LoginController
@@ -44,9 +48,10 @@ public class LoginController
 
     }
 
-    public void createShoppingCart(){
+    public void createShoppingCart() throws ExceptionCardNotExist, SQLException, ExceptionDBerror {
 
-        new Carrelloview();
+        ShoppingController carrello = new ShoppingController();
+        carrello.searchCardByIDUser();
     }
 
 

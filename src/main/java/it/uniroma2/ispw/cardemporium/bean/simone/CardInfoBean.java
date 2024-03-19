@@ -1,8 +1,6 @@
 package it.uniroma2.ispw.cardemporium.bean.simone;
 
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
-
 public class CardInfoBean {
     private int id;
     private String nome;

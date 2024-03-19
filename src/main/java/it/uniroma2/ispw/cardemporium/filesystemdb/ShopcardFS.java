@@ -2,9 +2,11 @@ package it.uniroma2.ispw.cardemporium.filesystemdb;
 
 
 
+import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
 
 import java.io.*;
+import java.util.List;
 
 
 public class ShopcardFS {
@@ -31,15 +33,14 @@ public class ShopcardFS {
         }
     }
 
-    public void addcard(CarrelloEntity value, int id){
-
+    public void addcard(String name, String sellername, Double prize, int id){
 
 
         try {
             fileWriter.write(id +" ");
-            fileWriter.write(value.getNomeCarta()+" ");
-            fileWriter.write( value.getUtenteVenditore()+" ");
-            fileWriter.write(value.getPrezzo() +" ");
+            fileWriter.write(name+" ");
+            fileWriter.write( sellername+" ");
+            fileWriter.write(prize +" ");
             fileWriter.newLine();
             fileWriter.close();
 

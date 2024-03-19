@@ -161,21 +161,10 @@ public class RegisterView {
 
 
 
-                registerController.insertUserDao(registerValue.getUsernameBean(), registerValue.getPasswdBean(), registerValue.getNameBean(), registerValue.getDateBean(), registerValue.getCognomeBean());
+                registerController.insertUserDao(registerValue);
 
 
-
-
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata login.fxml"));
-                Parent viewRegister = loader.load();
-                Scene viewRegisterScene = new Scene(viewRegister);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                LoginView loginView = loader.getController();
-                loginView.changeLabel("Register successfully complete! Switch To Login Page");
-                window.setScene(viewRegisterScene);
-                window.show();
-
+                SwitchPageContr.getInstance().SwitchLogout(2);
             } catch (ExceptionUserAlreadyExist e) {
                 labelError.setTextFill(Color.TOMATO);
                 labelError.setText("User already exist... Please try again");
@@ -191,9 +180,8 @@ public class RegisterView {
     public void tornaLogin(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("schermata login", event);
-        }catch (ExceptionSwitchpage | IOException e) {
+           SwitchPageContr.getInstance().SwitchLogout(1);
+        }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
 
@@ -202,11 +190,11 @@ public class RegisterView {
     @FXML//switch page
     public void sitename(ActionEvent event) throws  ExceptionSwitchpage {
         try {
-            SwitchPage page = SwitchPage.getInstance();
-            page.switchPage("schermata home non registrato", event);
-        }catch (ExceptionSwitchpage | IOException e) {
-            throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
+            SwitchPageContr.getInstance().SwitchHomePage();
+        }catch (IOException e) {
+            throw new ExceptionSwitchpage("switch page schermata non registrazione Login View");
         }
+
 
 
 

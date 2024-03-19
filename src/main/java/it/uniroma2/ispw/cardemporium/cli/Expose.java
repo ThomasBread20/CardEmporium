@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
-import it.uniroma2.ispw.cardemporium.model.Card;
+import it.uniroma2.ispw.cardemporium.model.simone.Card;
 import javafx.collections.ObservableList;
 
 import static it.uniroma2.ispw.cardemporium.cli.CliManager.verifyChioce;

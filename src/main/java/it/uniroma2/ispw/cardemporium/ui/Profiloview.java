@@ -3,24 +3,12 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
-import it.uniroma2.ispw.cardemporium.controller.thomas.BuyCardApplicativo;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
-import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
-import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -68,7 +56,7 @@ public class Profiloview {
 
     public void openCarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        BuyCardApplicativo view = new BuyCardApplicativo();
+        /*CardController view = new CardController();
 
         try{
 
@@ -76,7 +64,7 @@ public class Profiloview {
 
 
 
-            Carrelloview carrelloview = SwitchPage.switchPageData1("Schermata_Carrello", event);
+            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", event);
 
 
 
@@ -100,7 +88,7 @@ public class Profiloview {
 
         } catch (SQLException e) {
             e.getErrorCode();
-        }
+        }*/
 
     }
 
@@ -119,8 +107,8 @@ public class Profiloview {
 
 
 
-        try{
-            ObservableList<CardEntity> cards =  BuyCardApplicativo.searchCard(researchBar1.getText());
+       /* try{
+            ObservableList<CardEntity> cards =  CardController.searchCard(researchBar1.getText());
 
 
 
@@ -156,7 +144,7 @@ public class Profiloview {
         }catch ( IOException e) {
             throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
         }
-
+*/
 
     }
 
@@ -184,7 +172,7 @@ public class Profiloview {
     public void sitename1(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPage page = SwitchPage.getInstance();
+            SwitchPage page = new SwitchPage();
             page.switchPage("schermata_home_registrato", event);
         }catch (ExceptionSwitchpage | IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");

@@ -15,13 +15,8 @@ public class HomeNonRegistrati extends Application {
     public void start(Stage stage) throws IOException, ExceptionDBerror {
 
         Connection1Singelton.getInstance();
-
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeNonRegistrati.class.getResource("schermata home non registrato.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        stage.setScene(scene);
-        stage.show();
+        SwitchPageContr.getInstance().SwitchPageContr1(stage);
+        SwitchPageContr.getInstance().SwitchHomePage();
     }
 
     public static void main(String[] args) {

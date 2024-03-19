@@ -91,7 +91,7 @@ public class SignUpCli extends CliManager{
             registerValue.setDateBean(date1.toLocalDate());
 
 
-            register.insertUserDao(username, pass, name, Date.valueOf(date1.toLocalDate()), last);
+            register.insertUserDao(registerValue);
 
         } catch (IOException | ParseException e) {
             e.getMessage();

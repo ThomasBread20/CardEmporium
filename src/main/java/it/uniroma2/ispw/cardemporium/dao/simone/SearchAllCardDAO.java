@@ -1,12 +1,12 @@
 package it.uniroma2.ispw.cardemporium.dao.simone;
 
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardBean;
+import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.dao.Connection1Singelton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
-import it.uniroma2.ispw.cardemporium.model.Card;
+import it.uniroma2.ispw.cardemporium.model.simone.Card;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
