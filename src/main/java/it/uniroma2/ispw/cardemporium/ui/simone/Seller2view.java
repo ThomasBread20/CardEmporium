@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.ui.Simone;
+package it.uniroma2.ispw.cardemporium.ui.simone;
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
@@ -218,43 +218,6 @@ public Object verifySet() {
         choiceVersion.getItems().addAll(v);
         choiseGame.getItems().addAll(games);
         choiceSet.getItems().addAll(set);
-    }
-
-    public void shoppingCart(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
-
-        /*CardController view = new CardController();
-
-        try{
-
-            ObservableList<CarrelloEntity> cards =  view.searchCard1( view.getID());
-
-
-
-            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", event);
-
-
-            carrelloview.modifytable(cards);
-
-
-        }catch (ExceptionCardNotExist e)
-        {
-
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-
-
-        }catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-
-
-        catch (ExceptionDBerror  e) {
-            throw new ExceptionDBerror("value");
-
-
-        } catch (SQLException e) {
-            e.getErrorCode();
-        }*/
-
     }
 
 

@@ -7,7 +7,6 @@ import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -53,7 +52,7 @@ public class HNRview {
             bean.setNomeCarta(researchBar.getText());
             List<CardInformationBean> listCard = view.searchCard(bean);
             bean.setLista(listCard);
-            SwitchPageContr.getInstance().SwitchCardViewNR(bean);
+            SwitchPageContr.getInstance().switchCardViewNR(bean);
         }catch (ExceptionCardNotExist e)
         {
             Popup.cardNoExist();

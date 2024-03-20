@@ -5,7 +5,6 @@ import it.uniroma2.ispw.cardemporium.business.Popup;
 import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPage;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPageContr;
 import javafx.collections.FXCollections;
@@ -83,7 +82,7 @@ public class CardviewNR {
             bean.setNomeCarta(researchBar.getText());
             List<CardInformationBean> listCard = view.searchCard(bean);
             bean.setLista(listCard);
-            SwitchPageContr.getInstance().SwitchCardViewNR(bean);
+            SwitchPageContr.getInstance().switchCardViewNR(bean);
         }catch (ExceptionCardNotExist e)
         {
             Popup.cardNoExist();
@@ -101,7 +100,7 @@ public class CardviewNR {
     void homebutton(ActionEvent event) throws ExceptionSwitchpage {
 
         try {
-            SwitchPageContr.getInstance().SwitchHomePage();
+            SwitchPageContr.getInstance().switchHomePage();
         }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata non registrazione Login View");
         }
@@ -113,7 +112,7 @@ public class CardviewNR {
     public void login(ActionEvent event) throws IOException, ExceptionSwitchpage {
 
         try {
-            SwitchPageContr.getInstance().SwitchLogout(1);
+            SwitchPageContr.getInstance().switchLogout(1);
         }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
@@ -147,7 +146,7 @@ public class CardviewNR {
 
         tableList.getItems().clear();
 
-        CardInformationBean bean = new CardInformationBean();
+
         cards = translateListINtoObserve(listaCarte);
 
 
@@ -164,7 +163,7 @@ public class CardviewNR {
 
     public List<CardInformationBean> translateObserveIntoList(ObservableList<CardInformationBean> cards)
     {
-        List<CardInformationBean> listaCarte = new ArrayList<CardInformationBean>();
+        List<CardInformationBean> listaCarte = new ArrayList<>();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }
@@ -174,7 +173,7 @@ public class CardviewNR {
 
     public ObservableList<CardInformationBean> translateListINtoObserve(List<CardInformationBean> cards)
     {
-        ObservableList<CardInformationBean> listaCarte = FXCollections.observableArrayList();;
+        ObservableList<CardInformationBean> listaCarte = FXCollections.observableArrayList();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }

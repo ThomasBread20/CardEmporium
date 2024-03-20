@@ -1,13 +1,11 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.ui.Simone.*;
-import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
-import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
-import javafx.collections.ObservableList;
+
+import it.uniroma2.ispw.cardemporium.ui.simone.*;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,7 +16,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
-import java.util.List;
+
 
 //rendere questa classe astratta
 

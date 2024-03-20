@@ -52,7 +52,7 @@ public class CardController {
          try{
              bean.setIduser(DataSingleton.getInstance().getID());
              ShoppingCartDAO addCard = new ShoppingCartDAO();
-             cardinfo info = new cardinfo();
+             CardInfo info = new CardInfo();
              info.setiDvenditore(bean.getiDvenditore());
              info.setUtenteVenditore(bean.getUtenteVenditore());
              info.setCartaSingolaID(bean.getCartaSingolaID());
@@ -61,7 +61,9 @@ public class CardController {
              info.setIduser(bean.getIduser());
              addCard.putCardintoShoppingCart(info);
              addCard.updateCard(info);
-             CardEntity card = new CardEntity(bean.getCartaSingolaID(), bean.getCartaID(),bean.getCondizione(), bean.getPrezzo(),bean.getNomeCarta(),bean.getExtra(),bean.getLingua(),bean.getVersione(),bean.getUtenteVenditore(),bean.getiDvenditore());
+             CardEntity card = new CardEntity(bean.getCartaSingolaID(), bean.getCartaID(),bean.getCondizione(), bean.getPrezzo(),bean.getNomeCarta());
+             card.setSellerUser(bean.getUtenteVenditore(),bean.getiDvenditore());
+             card.setExtrainfo(bean.getExtra(),bean.getLingua(),bean.getVersione());
              CarrelloEntity.getInstance().getCardIntoCart().add(card);
              CarrelloEntity.getInstance().addPrize(bean.getPrezzo());
 

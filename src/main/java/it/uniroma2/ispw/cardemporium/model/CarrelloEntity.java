@@ -1,8 +1,8 @@
 package it.uniroma2.ispw.cardemporium.model;
 
 
-import it.uniroma2.ispw.cardemporium.factoryThomas.FactoryCoupon;
-import it.uniroma2.ispw.cardemporium.factoryThomas.FactoryShipping;
+import it.uniroma2.ispw.cardemporium.factorythomas.FactoryCoupon;
+import it.uniroma2.ispw.cardemporium.factorythomas.FactoryShipping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,18 +19,16 @@ public class CarrelloEntity {
         }
         private Double prize = 0.00;
 
-        private CarrelloEntity carrello;
 
         private List<CardEntity> cardIntoCart;
 
-        private List<String> couponList = new ArrayList<String>();
+        private List<String> couponList = new ArrayList<>();
 
         public void removeFirstfromCouponList(){
                 couponList.remove("FirstCoupon");
 
         }
 
-        private FactoryCoupon prizeCoupon;
 
         private double totalprize = 0.00;
 
@@ -104,11 +102,6 @@ public class CarrelloEntity {
         }
 
         public Double getPrize() {
-
-                return prize;
-        }
-
-        public Double getCouponPrize(){
 
                 return prize;
         }

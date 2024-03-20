@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.factorySimone;
+package it.uniroma2.ispw.cardemporium.factorysimone;
 
 import it.uniroma2.ispw.cardemporium.exception.CardGameException;
 

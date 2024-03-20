@@ -30,7 +30,7 @@ public class CouponInformationBean {
         return shipping;
     }
 
-    public void CouponInformationBean1(String prize, String type) {
+    public void couponinformationbean1(String prize, String type) {
         this.prize = prize;
         this.type = type;
     }
@@ -60,7 +60,7 @@ public class CouponInformationBean {
 
     public List<String > translateObserveIntoList(ObservableList<String > cards)
     {
-        List<String> listaCarte = new ArrayList<String>();
+        List<String> listaCarte = new ArrayList<>();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }
@@ -69,7 +69,7 @@ public class CouponInformationBean {
 
     public ObservableList<String> translateListINtoObserve(List<String> cards)
     {
-        ObservableList<String> listaCarte = FXCollections.observableArrayList();;
+        ObservableList<String> listaCarte = FXCollections.observableArrayList();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }

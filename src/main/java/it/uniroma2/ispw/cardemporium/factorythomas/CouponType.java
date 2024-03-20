@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.factoryThomas;
+package it.uniroma2.ispw.cardemporium.factorythomas;
 
 public class CouponType {
 

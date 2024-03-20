@@ -4,11 +4,9 @@ import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.bean.thomas.CouponInformationBean;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.thomas.CouponDao;
-import it.uniroma2.ispw.cardemporium.dao.thomas.SearchCardDao;
 import it.uniroma2.ispw.cardemporium.dao.thomas.ShoppingCartDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;
 import it.uniroma2.ispw.cardemporium.filesystemdb.ShopcardFS;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
@@ -27,6 +25,8 @@ public class ShoppingController {
     }
 
     static String firstCoupon = "FirstCoupon";
+    static String posta1 = "posta1";
+    static String posta4 = "posta4";
 
 
     public void searchCardByIDUser() throws SQLException, ExceptionDBerror {
@@ -45,7 +45,7 @@ public class ShoppingController {
 
     public List<CardInformationBean> getListofcardIntoShoppingCart() throws ExceptionCardNotExist {
         List<CardEntity> listaCarte = CarrelloEntity.getInstance().getCardIntoCart();
-        List<CardInformationBean> bean1 = new ArrayList<CardInformationBean>();
+        List<CardInformationBean> bean1 = new ArrayList<>();
 
 
         for(int value = 0; value < listaCarte.size(); value++){
@@ -109,7 +109,7 @@ public class ShoppingController {
             CarrelloEntity.getInstance().removePrize(listaCarte.get(indexCard).getPrezzo());
             listaCarte.remove(indexCard);
 
-            List<CardInformationBean> bean1 = new ArrayList<CardInformationBean>();
+            List<CardInformationBean> bean1 = new ArrayList<>();
             for(int value = 0; value < listaCarte.size(); value++){
                 CardInformationBean beancopy = new CardInformationBean();
                 beancopy.setNomeCarta(listaCarte.get(value).getNomeCarta());
@@ -138,11 +138,11 @@ public class ShoppingController {
 
 
     public List<String> returnCouponorShipping(int i)  {
-        List<String> coupon = new ArrayList<String>();
+        List<String> coupon = new ArrayList<>();
 
         if (i == 1) {
-            coupon.add("posta1");
-            coupon.add("posta4");
+            coupon.add(posta1);
+            coupon.add(posta4);
             return coupon;
 
         } else if (i == 0) {
@@ -160,9 +160,9 @@ public class ShoppingController {
     if( i != null)
     {
         switch (i){
-            case "posta1" : CarrelloEntity.getInstance().setPrizeShipping("posta1");
+            case "posta1" : CarrelloEntity.getInstance().setPrizeShipping(posta1);
                 break;
-            case "posta4" : CarrelloEntity.getInstance().setPrizeShipping("posta4");
+            case "posta4" : CarrelloEntity.getInstance().setPrizeShipping(posta4);
                 break;
             default : break;
         }

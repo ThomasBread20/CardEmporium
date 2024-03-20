@@ -21,15 +21,22 @@ public class CardEntity {
 
 
 
-    public CardEntity(int cartasingolaid,int cartaID, String condizione, double prezzo, String nomeCarta, String extra, String lingua, int versione, String utentevenditore, int idvenditore) {
+    public CardEntity(int cartasingolaid,int cartaID, String condizione, double prezzo, String nomeCarta) {
         this.cartaSingolaID= cartasingolaid;
         this.cartaID = cartaID;
         this.condizione = condizione;
         this.prezzo = prezzo;
         this.nomeCarta = nomeCarta;
+    }
+    public void setExtrainfo( String extra, String lingua, int versione)
+    {
         this.extra = extra;
         this.lingua = lingua;
         this.versione = versione;
+    }
+
+    public void setSellerUser( String utentevenditore, int idvenditore)
+    {
         this.utenteVenditore = utentevenditore;
         this.iDvenditore = idvenditore;
     }

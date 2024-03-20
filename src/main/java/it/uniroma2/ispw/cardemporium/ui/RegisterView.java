@@ -4,21 +4,18 @@ import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.controller.RegisterController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
-import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
+
 import it.uniroma2.ispw.cardemporium.exception.UnsupportedOperationException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -145,7 +142,7 @@ public class RegisterView {
 
     }
 
-    public void registerButton(ActionEvent event) throws IOException, IllegalStateException {
+    public void registerButton() throws IOException {
 
         RegisterController registerController = new RegisterController();
         if (checkPassword(passwordTextField.getText(), ripetiPasswordTextField.getText())) {
@@ -164,7 +161,7 @@ public class RegisterView {
                 registerController.insertUserDao(registerValue);
 
 
-                SwitchPageContr.getInstance().SwitchLogout(2);
+                SwitchPageContr.getInstance().switchLogout(2);
             } catch (ExceptionUserAlreadyExist e) {
                 labelError.setTextFill(Color.TOMATO);
                 labelError.setText("User already exist... Please try again");
@@ -177,10 +174,10 @@ public class RegisterView {
 
 
     //switch page
-    public void tornaLogin(ActionEvent event) throws IOException, ExceptionSwitchpage {
+    public void tornaLogin() throws  ExceptionSwitchpage {
 
         try {
-           SwitchPageContr.getInstance().SwitchLogout(1);
+           SwitchPageContr.getInstance().switchLogout(1);
         }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
@@ -190,7 +187,7 @@ public class RegisterView {
     @FXML//switch page
     public void sitename(ActionEvent event) throws  ExceptionSwitchpage {
         try {
-            SwitchPageContr.getInstance().SwitchHomePage();
+            SwitchPageContr.getInstance().switchHomePage();
         }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata non registrazione Login View");
         }

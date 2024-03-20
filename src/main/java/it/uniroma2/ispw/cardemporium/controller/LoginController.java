@@ -7,8 +7,6 @@ import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
-import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import it.uniroma2.ispw.cardemporium.users.Users;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;

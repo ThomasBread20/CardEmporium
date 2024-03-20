@@ -18,7 +18,6 @@ import javafx.scene.text.Text;
 
 
 import java.io.IOException;
-import java.lang.UnsupportedOperationException;
 import java.sql.SQLException;
 
 
@@ -83,10 +82,7 @@ public class LoginView {
 
     }
 
-    @FXML
-    void changeScreenButtonPushed(ActionEvent event) {
-        throw new UnsupportedOperationException("");
-    }
+
 
     @FXML
     void loginB(ActionEvent event) throws  ExceptionDBerror {
@@ -124,10 +120,9 @@ public class LoginView {
             throw new ExceptionDBerror("value");
 
 
-        } catch (ExceptionCardNotExist e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        } catch (SQLException | ExceptionCardNotExist e) {
+            throw new ExceptionDBerror("error");
         }
     }
 

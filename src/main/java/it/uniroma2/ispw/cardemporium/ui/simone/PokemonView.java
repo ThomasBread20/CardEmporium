@@ -1,8 +1,9 @@
-package it.uniroma2.ispw.cardemporium.ui.Simone;
+package it.uniroma2.ispw.cardemporium.ui.simone;
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanDG;
+import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanG;
+import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanP;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.simone.InsertCardController;
@@ -28,8 +29,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Dgview implements Initializable {
-
+public class PokemonView implements Initializable {
     DataSingleton info = DataSingleton.getInstance();
     private String[]language={"Italian","French","German","English"};
     @FXML
@@ -42,25 +42,29 @@ public class Dgview implements Initializable {
     private TextField price;
 
     @FXML
-    private TextField quan;
+    private TextField quantity;
     @FXML
-    private TableColumn<Card, Integer> cardid;
+    private TableColumn<Card, Integer> cardId;
     @FXML
     private TableColumn<Card,String> gamename;
     @FXML
-    private TableColumn<Card,String> nameCard;
+    private TableColumn<Card,String> namecard;
     @FXML
     private TableView<Card> tableview;
     @FXML
-    private TableColumn<Card,Integer> ver;
+    private TableColumn<Card,Integer> version;
     @FXML
     private TableColumn<Card,String> setname;
     @FXML
-    private CheckBox altereddg;
+    private CheckBox alteredp;
     @FXML
-    private CheckBox signeddg;
+    private CheckBox feditionp;
     @FXML
-    private CheckBox foildg;
+    private CheckBox playsetp;
+    @FXML
+    private CheckBox reverseh;
+    @FXML
+    private CheckBox signedp;
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
         try {
@@ -71,7 +75,6 @@ public class Dgview implements Initializable {
             throw new ExceptionSwitchpage("switch page schermata venditore2");
         }
     }
-
     @FXML
     void goProfile(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("schermata_utenteProfilo.fxml"));
@@ -101,43 +104,13 @@ public class Dgview implements Initializable {
         }
     }
     @FXML
-    void logout() throws ExceptionSwitchpage {
-
-
+    void logout(ActionEvent event) throws ExceptionSwitchpage {
         LogoutAction.logout();
     }
 
-    public void shoppinCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
 
-       /* CardController view = new CardController();
 
-        try {
-
-            ObservableList<CarrelloEntity> cards = view.searchCard1(view.getID());
-
-
-            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", actionEvent);
-
-
-            carrelloview.modifytable(cards);
-
-
-        } catch (ExceptionCardNotExist e) {
-
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-
-
-        } catch (IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("value");
-
-
-        } catch (SQLException e) {
-            e.getCause();
-        }*/
-    }
 
 
     @Override
@@ -166,9 +139,9 @@ public class Dgview implements Initializable {
         return str;
     }
     public void populateTable(ObservableList<Card> cards){
-        cardid.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameCard.setCellValueFactory(new PropertyValueFactory<>("name"));
-        ver.setCellValueFactory(new PropertyValueFactory<>("version"));
+        cardId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        namecard.setCellValueFactory(new PropertyValueFactory<>("name"));
+        version.setCellValueFactory(new PropertyValueFactory<>("version"));
         setname.setCellValueFactory(new PropertyValueFactory<>("SetName"));
         gamename.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
 
@@ -176,27 +149,26 @@ public class Dgview implements Initializable {
     }
 
     public void expose(ActionEvent actionEvent) {
+        boolean s= signedp.isSelected();
+        boolean al= alteredp.isSelected();
+        boolean fed= feditionp.isSelected();
+        boolean pla= playsetp.isSelected();
+        boolean rev=reverseh.isSelected();
         SwitchPage page = new SwitchPage();
-        boolean alt= altereddg.isSelected();
-        boolean sig= signeddg.isSelected();
-        boolean foil= foildg.isSelected();
-
-
         Float prezzo= Float.valueOf(price.getText());
-        Integer q= Integer.valueOf(quan.getText());
-        String name= String.valueOf(nameCard.getCellObservableValue(0).getValue());
-        Integer id= cardid.getCellObservableValue(0).getValue();
-
-        Integer version= this.ver.getCellObservableValue(0).getValue();
+        Integer q= Integer.valueOf(quantity.getText());
+        String name= String.valueOf(namecard.getCellObservableValue(0).getValue());
+        Integer id= cardId.getCellObservableValue(0).getValue();
+        InsertCardController insertCardController=new InsertCardController();
+        Integer ver= version.getCellObservableValue(0).getValue();
         String game= gamename.getCellObservableValue(0).getValue();
         String set= setname.getCellObservableValue(0).getValue();
-        ExtraBeanDG extraBeanDG=new ExtraBeanDG(sig,alt,foil,id,version,name);
-        CardBean cardBean=new CardBean(name,version,game,set);
-        CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanDG, (String) verifyLan());
-        InsertCardController insertCardController=new InsertCardController();
+        ExtraBeanG extraBeanG=new ExtraBeanG(al,s,fed,rev,pla);
+        ExtraBeanP extraBeanP=new ExtraBeanP(id,name,ver,extraBeanG);
+        CardBean cardBean=new CardBean(name,ver,game,set);
+        CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanP, (String) verifyLan());
         try {
-
-            insertCardController.insertCardDB(cardInfoBean);
+            insertCardController.insertCardP(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
         } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
             e.getCause();
@@ -205,4 +177,3 @@ public class Dgview implements Initializable {
 
     }
 }
-

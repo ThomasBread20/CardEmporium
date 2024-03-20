@@ -8,7 +8,6 @@ import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -58,7 +57,7 @@ public class HomeRview {
             ShoppingController carta =  new ShoppingController();
 
             bean.setLista(carta.getListofcardIntoShoppingCart());
-            SwitchPageContr.getInstance().SwitchCarrelo(bean);
+            SwitchPageContr.getInstance().switchCarrelo(bean);
 
 
         }catch (ExceptionCardNotExist | IOException e) {
@@ -86,7 +85,7 @@ public class HomeRview {
             bean.setNomeCarta(researchBar.getText());
             List<CardInformationBean> listCard = view.searchCard(bean);
             bean.setLista(listCard);
-            SwitchPageContr.getInstance().SwitchCardView(bean);
+            SwitchPageContr.getInstance().switchCardView(bean);
         }catch (ExceptionCardNotExist e)
         {
             Popup.cardNoExist();
@@ -117,6 +116,7 @@ public class HomeRview {
 
     @FXML
     void profileButton(ActionEvent event) throws IOException {
+        //profile buttom
     }
 
     @FXML

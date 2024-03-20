@@ -3,7 +3,7 @@ package it.uniroma2.ispw.cardemporium.ui;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.business.Popup;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.scene.control.*;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 public class Profiloview {
 
@@ -54,43 +54,7 @@ public class Profiloview {
     @FXML
     private Button carrello;
 
-    public void openCarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        /*CardController view = new CardController();
-
-        try{
-
-            ObservableList<CarrelloEntity> cards =  view.searchCard1( view.getID());
-
-
-
-            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", event);
-
-
-
-            carrelloview.modifytable(cards);
-
-
-        }catch (ExceptionCardNotExist e)
-        {
-
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-
-
-        }catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-
-
-        catch (ExceptionDBerror  e) {
-            throw new ExceptionDBerror("value");
-
-
-        } catch (SQLException e) {
-            e.getErrorCode();
-        }*/
-
-    }
 
 
     public void initData(String user, String name, String surname, String born, String role) {
@@ -101,52 +65,6 @@ public class Profiloview {
         ruolo.setText(role);
     }
 
-
-    @FXML
-    void search(ActionEvent event) throws SQLException, IOException, ExceptionSwitchpage {
-
-
-
-       /* try{
-            ObservableList<CardEntity> cards =  CardController.searchCard(researchBar1.getText());
-
-
-
-
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Schermata_Carta.fxml"));
-            Parent viewRegister = loader.load();
-            Scene viewRegisterScene = new Scene(viewRegister);
-
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            CardView cardView = loader.getController();
-
-
-
-            cardView.initData1(cards.get(0).getNomeCarta(), cards.get(0).getNomeGioco());
-            cardView.modifytable(cards);
-
-
-            window.setScene(viewRegisterScene);
-            window.show();
-
-
-
-
-        }catch (ExceptionCardNotExist e)
-        {
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notification!");
-            alert.setHeaderText("This Card do not exist!");
-            alert.showAndWait();
-
-        }catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-*/
-
-    }
 
 
 

@@ -14,7 +14,7 @@ public class RegisterController {
     public RegisterController() {
         //constructor
     }
-    private static SecureRandom random = new SecureRandom();
+
 
 
 

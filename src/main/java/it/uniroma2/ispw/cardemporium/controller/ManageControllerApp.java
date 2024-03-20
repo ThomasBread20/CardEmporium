@@ -5,7 +5,6 @@ import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.simone.ManageCardDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
 
 import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import javafx.collections.ObservableList;

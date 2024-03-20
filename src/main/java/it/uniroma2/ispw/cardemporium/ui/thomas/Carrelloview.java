@@ -79,16 +79,16 @@ public class Carrelloview {
     @FXML
     private Text prize2;
 
-    private Text errorCoupon;
+
 
     ObservableList<CardInformationBean> cards = FXCollections.observableArrayList();
 
     CouponInformationBean couponinfo = new CouponInformationBean();
 
-    public void modifyChoiceBox() throws ExceptionDBerror {
+    public void modifyChoiceBox()  {
 
             ShoppingController couponct = new ShoppingController();
-            double prizeCouponvalue = 0.00;
+
             ObservableList<String> shippingType = FXCollections.observableArrayList(couponct.returnCouponorShipping(1));
             shipping.setItems(shippingType);
             prize.setText("0");
@@ -123,30 +123,26 @@ public class Carrelloview {
         } );
     }
 
-    public void buyAllCardIntoCart(ActionEvent event) throws  ExceptionSwitchpage {
+    public void buyAllCardIntoCart() throws  ExceptionSwitchpage {
 
 
         String returnValue = Popup.shoppingcart(2);
         CardInformationBean bean = new CardInformationBean();
         List<CardInformationBean> carte = translateObserveIntoList(cards);
         bean.setLista(carte);
-
         if(returnValue.equals("yes")){
 
             try{
-                ShoppingController carta = new ShoppingController();
 
-                carta.shopping(bean, couponinfo);
+
+                ShoppingController.shopping(bean, couponinfo);
 
                 carte.clear();
 
-               /* shipping.setValue(null);
-                coupon.setValue(null);*/
+
                 modifytable(carte);
             }catch(ExceptionDBerror e){
                 e.getCause();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
             }
 
         }
@@ -156,7 +152,7 @@ public class Carrelloview {
     @FXML
     void homebutton(ActionEvent event) throws ExceptionSwitchpage {
         try {
-            SwitchPageContr.getInstance().SwitchHomeRegisterPage();
+            SwitchPageContr.getInstance().switchHomeRegisterPage();
         }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
@@ -180,7 +176,7 @@ public class Carrelloview {
             cards.removeAll();
             bean.setNomeCarta(researchBar.getText());
             bean.setLista(view.searchCard(bean));
-            SwitchPageContr.getInstance().SwitchCardView(bean);
+            SwitchPageContr.getInstance().switchCardView(bean);
         }catch (ExceptionCardNotExist e)
         {
             Popup.cardNoExist();
@@ -190,7 +186,7 @@ public class Carrelloview {
 
 
     }
-    public void modifytable(List<CardInformationBean> carrello) throws SQLException, ExceptionDBerror {
+    public void modifytable(List<CardInformationBean> carrello){
 
 
         tableView.getItems().clear();
@@ -214,7 +210,7 @@ public class Carrelloview {
 
     public List<CardInformationBean> translateObserveIntoList(ObservableList<CardInformationBean> cards)
     {
-        List<CardInformationBean> listaCarte = new ArrayList<CardInformationBean>();
+        List<CardInformationBean> listaCarte = new ArrayList<>();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }
@@ -224,7 +220,7 @@ public class Carrelloview {
 
     public ObservableList<CardInformationBean> translateListINtoObserve(List<CardInformationBean> cards)
     {
-        ObservableList<CardInformationBean> listaCarte = FXCollections.observableArrayList();;
+        ObservableList<CardInformationBean> listaCarte = FXCollections.observableArrayList();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }
@@ -247,13 +243,13 @@ public class Carrelloview {
     DataSingleton info = DataSingleton.getInstance();
     @FXML
     void profileButton(ActionEvent event) throws IOException {
-
+        //profilo
     }
 
 
 
 
-    public void openCarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
+    public void openCarrello() throws ExceptionSwitchpage, ExceptionDBerror, ExceptionCardNotExist, SQLException, IOException {
         CardInformationBean bean = new CardInformationBean();
         try{
 
@@ -261,7 +257,7 @@ public class Carrelloview {
             ShoppingController carta =  new ShoppingController();
 
             bean.setLista(carta.getListofcardIntoShoppingCart());
-            SwitchPageContr.getInstance().SwitchCarrelo(bean);
+            SwitchPageContr.getInstance().switchCarrelo(bean);
 
 
 
@@ -281,7 +277,7 @@ public class Carrelloview {
 
 
 
-    public void removeCardFromCart(MouseEvent mouseEvent) throws ExceptionSwitchpage, ExceptionCardNotExist {
+    public void removeCardFromCart() throws ExceptionSwitchpage, ExceptionCardNotExist {
 
         int index = tableView.getSelectionModel().getSelectedIndex();
         CardInformationBean bean = new CardInformationBean();
@@ -301,7 +297,7 @@ public class Carrelloview {
                 List<CardInformationBean> card = carta.removeCard(bean, index);
                 modifytable(card);
 
-            }catch(ExceptionDBerror|SQLException e){
+            }catch(ExceptionDBerror e){
                 e.getCause();
             }
         }

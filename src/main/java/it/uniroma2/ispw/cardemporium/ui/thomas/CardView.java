@@ -84,7 +84,7 @@ public class CardView {
 
     ObservableList<CardInformationBean> cards = FXCollections.observableArrayList();
 
-    public void openCarrello(ActionEvent event) throws ExceptionSwitchpage, ExceptionDBerror {
+    public void openCarrello() throws ExceptionSwitchpage, ExceptionDBerror {
 
         CardInformationBean bean = new CardInformationBean();
         try{
@@ -95,7 +95,7 @@ public class CardView {
 
 
             bean.setLista(carta.getListofcardIntoShoppingCart());
-            SwitchPageContr.getInstance().SwitchCarrelo(bean);
+            SwitchPageContr.getInstance().switchCarrelo(bean);
 
 
 
@@ -122,7 +122,7 @@ public class CardView {
     @FXML
     void  homeButton1(ActionEvent event) throws ExceptionSwitchpage {
         try {
-            SwitchPageContr.getInstance().SwitchHomeRegisterPage();
+            SwitchPageContr.getInstance().switchHomeRegisterPage();
         }catch (IOException e) {
             throw new ExceptionSwitchpage("switch page schermata registrazione Login View");
         }
@@ -137,7 +137,7 @@ public class CardView {
             bean.setNomeCarta(researchBar.getText());
             List<CardInformationBean> listCard = view.searchCard(bean);
             bean.setLista(listCard);
-            SwitchPageContr.getInstance().SwitchCardView(bean);
+            SwitchPageContr.getInstance().switchCardView(bean);
         }catch (ExceptionCardNotExist e)
         {
             Popup.cardNoExist();
@@ -174,7 +174,7 @@ public class CardView {
 
     @FXML
     void profileButton(ActionEvent event) throws IOException {
-
+        //profilobuttom
     }
 
 
@@ -213,7 +213,7 @@ public class CardView {
 
     public List<CardInformationBean> translateObserveIntoList(ObservableList<CardInformationBean> cards)
     {
-        List<CardInformationBean> listaCarte = new ArrayList<CardInformationBean>();
+        List<CardInformationBean> listaCarte = new ArrayList<>();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }
@@ -223,7 +223,7 @@ public class CardView {
 
     public ObservableList<CardInformationBean> translateListINtoObserve(List<CardInformationBean> cards)
     {
-        ObservableList<CardInformationBean> listaCarte = FXCollections.observableArrayList();;
+        ObservableList<CardInformationBean> listaCarte = FXCollections.observableArrayList();
         for(int value = 0; value < cards.size(); value++){
             listaCarte.add(cards.get(value));
         }
@@ -233,10 +233,10 @@ public class CardView {
 
 
 
-    public void putCardIntoCart(MouseEvent mouseEvent) throws ExceptionSwitchpage {
+    public void putCardIntoCart() throws ExceptionSwitchpage {
 
-        List<CardInformationBean> carte = new ArrayList<CardInformationBean>();
-        CardController card =  new CardController();
+        List<CardInformationBean> carte = new ArrayList<>();
+
 
         index = tableList.getSelectionModel().getSelectedIndex();
 

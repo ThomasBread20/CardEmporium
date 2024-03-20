@@ -3,7 +3,6 @@ package it.uniroma2.ispw.cardemporium.cli;
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.bean.thomas.CouponInformationBean;
 import it.uniroma2.ispw.cardemporium.business.CliPrinter;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;

@@ -105,12 +105,7 @@ public class SearchcardPage extends CliManager{
 
         public boolean controllo(int name, List<CardInformationBean> cards) throws ExceptionCardNotExist {
 
-            if( name <= cards.size())
-            {
-                return true;
-            }else{
-                return false;
-            }
+            return name <= cards.size();
 
 
     }

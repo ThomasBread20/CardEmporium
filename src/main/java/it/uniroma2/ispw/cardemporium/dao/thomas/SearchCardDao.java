@@ -26,13 +26,13 @@ public class SearchCardDao {
     //questo dao genera una lista di cardentity
     public List<CardEntity> getcardlist(String name) throws ExceptionCardNotExist, SQLException {
 
-        List<CardEntity> listaCarte = new ArrayList<CardEntity>() ;
+        List<CardEntity> listaCarte = new ArrayList<>() ;
 
         Connection conn = connCheck();
 
         String sql = """
-                   select *\n
-                   from carte\n
+                   select *
+                   from carte
                  where NomeCarta = ? and nel_carrello = 0;""";
 
         statement = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -73,7 +73,9 @@ public class SearchCardDao {
 
                 String result = getstringBuilder(firmato, foil, alterato, playset, firstedition, reverseholo);
 
-                card = new CardEntity(cartaSingolaID, cartaID, condizione, prezzo, nomeCarta, result, lingua, versione, utenteVenditore,iDseller);
+                card = new CardEntity(cartaSingolaID, cartaID, condizione, prezzo, nomeCarta);
+                card.setSellerUser(utenteVenditore,iDseller);
+                card.setExtrainfo(result, lingua, versione);
                 card.venduto(venduto, carrello);
                 card.setCarta(nomeGioco, nomeSet);
                 listaCarte.add(card);

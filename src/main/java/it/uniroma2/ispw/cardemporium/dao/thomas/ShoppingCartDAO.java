@@ -1,8 +1,7 @@
 package it.uniroma2.ispw.cardemporium.dao.thomas;
 
 
-import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
-import it.uniroma2.ispw.cardemporium.controller.thomas.cardinfo;
+import it.uniroma2.ispw.cardemporium.controller.thomas.CardInfo;
 import it.uniroma2.ispw.cardemporium.dao.Connection1Singelton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
@@ -29,7 +28,7 @@ public class ShoppingCartDAO {
 
     }
 
-    public void putCardintoShoppingCart(cardinfo bean) throws ExceptionDBerror {
+    public void putCardintoShoppingCart(CardInfo bean) throws ExceptionDBerror {
 
         Connection conn = connCheck();
 
@@ -57,7 +56,7 @@ public class ShoppingCartDAO {
 
     }
 
-    public void updateCard(cardinfo bean) throws ExceptionDBerror {
+    public void updateCard(CardInfo bean) throws ExceptionDBerror {
 
         Connection conn = connCheck();
 
@@ -100,15 +99,15 @@ public class ShoppingCartDAO {
 
 
 
-        List<CardEntity> cardCarrellos = new ArrayList<CardEntity>() ;
+        List<CardEntity> cardCarrellos = new ArrayList<>() ;
 
 
         Connection conn = connCheck();
 
 
         String sql = """
-                select Carta_SingolaID, copiacarta_Prezzo, NomeVenditore, IDvenditore, carta_ValueID, NomeCarta, Lingua, carta_Versione,Condizione, firmato, foil, alterato, playset, first_edition, reverse_holo\n
-                  from carrello join copiacarta on carrello.CartaC_SingolaID = copiacarta.Carta_SingolaID\n
+                select Carta_SingolaID, copiacarta_Prezzo, NomeVenditore, IDvenditore, carta_ValueID, NomeCarta, Lingua, carta_Versione,Condizione, firmato, foil, alterato, playset, first_edition, reverse_holo
+                  from carrello join copiacarta on carrello.CartaC_SingolaID = copiacarta.Carta_SingolaID
                    where IDutente = ?;""";
 
 
@@ -179,7 +178,9 @@ public class ShoppingCartDAO {
 
 
 
-                CardEntity card = new CardEntity(cartaSingolaID, cartaSingolaIDc, condizione, prezzo, nomeCarta, result, lingua, versione, utenteVenditore, idseller);
+                CardEntity card = new CardEntity(cartaSingolaID, cartaSingolaIDc, condizione, prezzo, nomeCarta);
+                card.setSellerUser(utenteVenditore,idseller);
+                card.setExtrainfo(result, lingua, versione);
                 cardCarrellos.add((card));
 
             }

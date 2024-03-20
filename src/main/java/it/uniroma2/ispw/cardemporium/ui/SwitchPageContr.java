@@ -2,12 +2,12 @@ package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
+
 import it.uniroma2.ispw.cardemporium.ui.thomas.CardView;
 import it.uniroma2.ispw.cardemporium.ui.thomas.CardviewNR;
 import it.uniroma2.ispw.cardemporium.ui.thomas.Carrelloview;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -20,7 +20,7 @@ public class SwitchPageContr {
 
         private Stage stage;
 
-        public void SwitchPageContr1(Stage primaryStage){
+        public void switchPageContr1(Stage primaryStage){
             this.stage = primaryStage;
             primaryStage.show();
         }
@@ -37,7 +37,7 @@ public class SwitchPageContr {
         enum Pages {
             CARTPAGE,
             HOMEPAGE
-        };
+        }
 
 
 
@@ -48,7 +48,7 @@ public class SwitchPageContr {
             stage.setScene(scene);
             stage.show();
         }
-        public void SwitchCarrelo( CardInformationBean bean) throws IOException, SQLException, ExceptionDBerror {
+        public void switchCarrelo(CardInformationBean bean) throws IOException, SQLException, ExceptionDBerror {
             List<CardInformationBean> copiaCard = bean.getLista();
             FXMLLoader loader = new FXMLLoader(SwitchPageContr.class.getResource("Schermata_Carrello.fxml"));
             Parent viewRegister = loader.load();
@@ -60,7 +60,7 @@ public class SwitchPageContr {
             stage.show();
         }
 
-    public void SwitchCardView( CardInformationBean bean) throws IOException {
+    public void switchCardView(CardInformationBean bean) throws IOException {
         FXMLLoader loader = new FXMLLoader(SwitchPageContr.class.getResource("Schermata_Carta.fxml"));
         Parent viewRegister = loader.load();
         CardView cardView = loader.getController();
@@ -74,7 +74,7 @@ public class SwitchPageContr {
     }
 
 
-    public void SwitchHomePage() throws IOException {
+    public void switchHomePage() throws IOException {
 
 
         FXMLLoader loader = new FXMLLoader(SwitchPageContr.class.getResource("schermata home non registrato.fxml"));
@@ -86,7 +86,7 @@ public class SwitchPageContr {
 
     }
 
-    public void SwitchHomeRegisterPage() throws IOException {
+    public void switchHomeRegisterPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(SwitchPageContr.class.getResource("Schermata_home_registrato.fxml"));
         Parent viewRegister = loader.load();
         Scene viewRegisterScene = new Scene(viewRegister);
@@ -94,7 +94,7 @@ public class SwitchPageContr {
         stage.setTitle("Home Page");
         stage.show();
     }
-    public void SwitchLogout(int i) throws IOException {
+    public void switchLogout(int i) throws IOException {
         if(i == 1){
             FXMLLoader loader = new FXMLLoader(SwitchPageContr.class.getResource("schermataLogin.fxml"));
             Parent viewRegister = loader.load();
@@ -116,7 +116,7 @@ public class SwitchPageContr {
     }
 
 
-    public void SwitchCardViewNR( CardInformationBean bean) throws IOException {
+    public void switchCardViewNR(CardInformationBean bean) throws IOException {
         FXMLLoader loader = new FXMLLoader(SwitchPageContr.class.getResource("schermata_cartaNR.fxml"));
         Parent viewRegister = loader.load();
         CardviewNR cardView = loader.getController();

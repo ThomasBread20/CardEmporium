@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.ui.Simone;
+package it.uniroma2.ispw.cardemporium.ui.simone;
 
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;

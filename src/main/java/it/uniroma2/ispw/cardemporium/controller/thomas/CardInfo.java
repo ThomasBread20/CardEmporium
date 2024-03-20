@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.controller.thomas;
 
-public class cardinfo {
+public class CardInfo {
     private int cartaID;
 
     private String nomeCarta;

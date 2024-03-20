@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.cardemporium.ui.Simone;
+package it.uniroma2.ispw.cardemporium.ui.simone;
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
-import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanY;
+import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanM;
 import it.uniroma2.ispw.cardemporium.business.DataSingleton;
 import it.uniroma2.ispw.cardemporium.business.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.simone.InsertCardController;
@@ -28,22 +28,22 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class YugiohView implements Initializable {
+public class MagicView implements Initializable {
     DataSingleton info = DataSingleton.getInstance();
-    private final String[]language={"Italian","French","German","English"};
+    private String[]language={"Italian","French","German","English"};
     @FXML
     private ChoiceBox<String> choiceOne;
 
-    private  final String[]conditions={"Near mint","Excellent","Good","Light played","Poor"};
+    private String[]conditions={"Near mint","Excellent","Good","Light played","Poor"};
     @FXML
     private ChoiceBox<String> choiceTwo;
     @FXML
     private TextField price;
 
     @FXML
-    private TextField quan;
+    private TextField quantity;
     @FXML
-    private TableColumn<Card, Integer> cardid;
+    private TableColumn<Card, Integer> idCard;
     @FXML
     private TableColumn<Card,String> gameName;
     @FXML
@@ -51,16 +51,17 @@ public class YugiohView implements Initializable {
     @FXML
     private TableView<Card> tableview;
     @FXML
-    private TableColumn<Card,Integer> vers;
+    private TableColumn<Card,Integer> version;
     @FXML
     private TableColumn<Card,String> setName;
     @FXML
-    private CheckBox alteredy;
+    private CheckBox alteredm;
     @FXML
-    private CheckBox feditiony;
+    private CheckBox signedm;
     @FXML
-    private CheckBox signedy;
-
+    private CheckBox foilm;
+    @FXML
+    private CheckBox playsetm;
     @FXML
     void goback(ActionEvent event) throws ExceptionSwitchpage {
         try {
@@ -106,36 +107,7 @@ public class YugiohView implements Initializable {
         LogoutAction.logout();
     }
 
-    public void shCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        /*CardController view = new CardController();
-
-        try {
-
-            ObservableList<CarrelloEntity> cards = view.searchCard1(view.getID());
-
-
-            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", actionEvent);
-
-
-            carrelloview.modifytable(cards);
-
-
-        } catch (ExceptionCardNotExist e) {
-
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-
-
-        } catch (IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        } catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("value");
-
-
-        } catch (SQLException e) {
-            e.getErrorCode();
-        }*/
-    }
 
 
     @Override
@@ -164,39 +136,41 @@ public class YugiohView implements Initializable {
         return str;
     }
     public void populateTable(ObservableList<Card> cards){
-        cardid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idCard.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCard.setCellValueFactory(new PropertyValueFactory<>("name"));
-        vers.setCellValueFactory(new PropertyValueFactory<>("version"));
+        version.setCellValueFactory(new PropertyValueFactory<>("version"));
         setName.setCellValueFactory(new PropertyValueFactory<>("SetName"));
-        gameName.setCellValueFactory(new PropertyValueFactory<>("nomegioco"));
+        gameName.setCellValueFactory(new PropertyValueFactory<>("nomeGioco"));
 
         tableview.setItems(cards);
     }
 
-    public void expose(ActionEvent actionEvent) {
-        boolean al= alteredy.isSelected();
-        boolean sig= signedy.isSelected();
-        boolean f= feditiony.isSelected();
+    public void expose(ActionEvent actionEvent) throws Exceptionquantity {
+        boolean si= signedm.isSelected();
+        boolean al= alteredm.isSelected();
+        boolean pl= playsetm.isSelected();
+        boolean f= foilm.isSelected();
         SwitchPage page = new SwitchPage();
-        
+
         Float prezzo= Float.valueOf(price.getText());
-        Integer q= Integer.valueOf(quan.getText());
+        Integer q= Integer.valueOf(quantity.getText());
         String name= String.valueOf(nameCard.getCellObservableValue(0).getValue());
-        Integer id= cardid.getCellObservableValue(0).getValue();
+        Integer id= idCard.getCellObservableValue(0).getValue();
         InsertCardController insertCardController=new InsertCardController();
-        Integer ver= vers.getCellObservableValue(0).getValue();
+        Integer ver= version.getCellObservableValue(0).getValue();
         String game= gameName.getCellObservableValue(0).getValue();
         String set= setName.getCellObservableValue(0).getValue();
-        ExtraBeanY extraBeanY=new ExtraBeanY(id,ver,name,al,sig,f);
+        ExtraBeanM extraBeanM=new ExtraBeanM(si,al,f,pl,id,ver,name);
         CardBean cardBean=new CardBean(name,ver,game,set);
-        CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanY, (String) verifyLan());
+        CardInfoBean cardInfoBean=new CardInfoBean(id,cardBean,(String) verifyCon(),prezzo,q,extraBeanM, (String) verifyLan());
         try {
-            insertCardController.insertCardY(cardInfoBean);
+            insertCardController.insertCardM(cardInfoBean);
             page.switchPage("schermata_venditore1",actionEvent);
-        } catch (IOException | ExceptionSwitchpage | Exceptionquantity e) {
+        } catch (IOException | ExceptionSwitchpage e) {
             e.getCause();
         }
 
 
     }
 }
+
