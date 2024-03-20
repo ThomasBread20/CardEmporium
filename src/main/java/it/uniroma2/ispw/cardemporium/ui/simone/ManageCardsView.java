@@ -91,42 +91,7 @@ public class ManageCardsView {
         }
     }
 
-    public void goToCart(ActionEvent actionEvent) throws ExceptionSwitchpage, ExceptionDBerror {
 
-        /*CardController view = new CardController();
-
-        try{
-
-            ObservableList<CarrelloEntity> cards =  view.searchCard1( view.getID());
-
-
-
-            Carrelloview carrelloview = SwitchPage.switchPageShoppingCart("Schermata_Carrello", actionEvent);
-
-
-            carrelloview.modifytable(cards);
-
-
-        }catch (ExceptionCardNotExist e)
-        {
-
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View1");
-
-
-        }catch ( IOException e) {
-            throw new ExceptionSwitchpage("switch page Schermata_Carta Login View");
-        }
-
-
-        catch (ExceptionDBerror e) {
-            throw new ExceptionDBerror("value");
-
-
-        } catch (SQLException e) {
-            e.getErrorCode();
-        }*/
-
-    }
 
 
     public void modifyTable(ObservableList<CardEntitySImo> copiaCards){

@@ -1,10 +1,5 @@
 package it.uniroma2.ispw.cardemporium.factorythomas;
 
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
-
-import java.util.List;
-
 public class FactoryCoupon {
 
 
