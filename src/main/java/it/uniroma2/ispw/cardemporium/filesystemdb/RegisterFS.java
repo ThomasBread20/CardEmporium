@@ -13,7 +13,7 @@ import java.sql.Date;
 
 public  class RegisterFS implements RegisterDAO {
 
-    BufferedReader br;
+
 
     static String fileName ="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Credenziali";
     static String fileName1 ="src/main/java/it/uniroma2/ispw/cardemporium/filesystemdb/Utenti";
@@ -51,22 +51,13 @@ public  class RegisterFS implements RegisterDAO {
     String line;
     public int getID(){
         int newid = 0;
-        try {
-
-
-            br = new BufferedReader(new FileReader(fileName1));
-
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName1))){
             while (( line=br.readLine()) != null) {
                 newid++;
+
             }
         } catch (IOException e) {
             e.getMessage();
-        } finally {
-            try {
-                if (br != null)br.close();
-            } catch (IOException ex) {
-                ex.getCause();
-            }
         }
         return newid;
     }

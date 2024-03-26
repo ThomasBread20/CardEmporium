@@ -32,17 +32,7 @@ public class Shoppingcart extends CliManager {
 
             switch (choice) {
                 case 1:
-                    CliPrinter.printMessage("whitch card do you want to remove?\n");
-                    String name1 = reader.readLine();
-                    int value = Integer.parseInt(name1)-1;
-                    if(controllo(Integer.parseInt(name1), cards)){
-                        bean.setCartaSingolaID(cards.get(value).getCartaSingolaID());
-                        carta.removeCard(bean, value);
-                    }else{
-                        CliPrinter.printMessage("you do not have a card with this id in your shopping cart");
-                        CliPrinter.printMessage("choose another card\n");
-                    }
-
+                    case1(reader, cards);
                     break;
 
                 case 2:
@@ -52,17 +42,8 @@ public class Shoppingcart extends CliManager {
                         CliPrinter.printMessage("1)posta1\n");
                         CliPrinter.printMessage("2)posta4\n");
                         String name2 = reader.readLine();
-                        if(name2.equals("1"))
-                        {
-                            beanCoupon.setShipping("posta1");
-                            totalPrize = carta.returnShippingfromEntity("posta1");
-                        } else if (name2.equals("2")) {
-                            beanCoupon.setShipping("posta4");
-                            totalPrize += carta.returnShippingfromEntity("posta4");
-                        }else{
-                            CliPrinter.printMessage("Invalid Choice \n");
-                            break;
-                        }
+
+                        totalPrize += menu2( name2);
 
                     CliPrinter.printMessage("Select a Coupon: \n");
                         List<String>  coupon = carta.returnCouponorShipping(0);
@@ -76,7 +57,7 @@ public class Shoppingcart extends CliManager {
                         String name3 = reader.readLine();
 
                         beanCoupon.setType(coupon.get(Integer.parseInt(name3) -1 ));
-                        totalPrize = carta.returnCouponfromEntity(coupon.get(Integer.parseInt(name3) -1 ));
+                        totalPrize += carta.returnCouponfromEntity(coupon.get(Integer.parseInt(name3) -1 ));
 
 
                         showMenu1( totalPrize);
@@ -86,7 +67,7 @@ public class Shoppingcart extends CliManager {
                         if(result.equals("yes"))
                         {
                             bean.setLista(cards);
-                            carta.shopping(bean, beanCoupon);
+                            ShoppingController.shopping(bean, beanCoupon);
                             break;
                         }else if(result.equals("no"))
                         {
@@ -112,6 +93,36 @@ public class Shoppingcart extends CliManager {
             }
         }
 
+    }
+
+    public double menu2(String name2){
+        ShoppingController carta = new ShoppingController();
+        CouponInformationBean beanCoupon = new CouponInformationBean();
+        double totalPrize = 0;
+        if(name2.equals("1"))
+        {
+            beanCoupon.setShipping("posta1");
+            totalPrize += carta.returnShippingfromEntity("posta1");
+        } else if (name2.equals("2")) {
+            beanCoupon.setShipping("posta4");
+            totalPrize += carta.returnShippingfromEntity("posta4");
+        }
+        return totalPrize;
+    }
+
+    public void case1(BufferedReader reader,  List<CardInformationBean> cards ) throws IOException, ExceptionDBerror {
+        ShoppingController carta = new ShoppingController();
+        CardInformationBean bean = new CardInformationBean();
+        CliPrinter.printMessage("whitch card do you want to remove?\n");
+        String name1 = reader.readLine();
+        int value = Integer.parseInt(name1)-1;
+        if(controllo(Integer.parseInt(name1), cards)){
+            bean.setCartaSingolaID(cards.get(value).getCartaSingolaID());
+            carta.removeCard(bean, value);
+        }else{
+            CliPrinter.printMessage("you do not have a card with this id in your shopping cart");
+            CliPrinter.printMessage("choose another card\n");
+        }
     }
     public int showMenu(){
         CliPrinter.printMessage("what do you want to do?\n");
