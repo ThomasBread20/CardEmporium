@@ -84,8 +84,9 @@ public class ExposeController {
         if(cardInfoBean.getQuantity()<1){
             throw new Exceptionquantity(ex.toString());
         }
-
         Boolean result = ex.exposeCardM(cardInfoBean, info.getID());
+
+
         ca = new CardEntitySImo(cardInfoBean.getCondition(),cardInfoBean.getPrice(), info.getUsername(), cardInfoBean.getLanguage(),new Card(cardInfoBean.getId(),cardInfoBean.getNome(),cardInfoBean.getVersione(),cardInfoBean.getGioco(),cardInfoBean.getSet()), cardInfoBean.getQuantity());
         if (Boolean.FALSE.equals(result) ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

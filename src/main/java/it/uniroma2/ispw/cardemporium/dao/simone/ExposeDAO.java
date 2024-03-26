@@ -53,8 +53,8 @@ public class ExposeDAO {
         Boolean al=cardInfoBean.getExtraBeanM().isAltered();
         Boolean foil=cardInfoBean.getExtraBeanM().isFoil();
         Boolean ps=cardInfoBean.getExtraBeanM().isPlayset();
-        int i=0;
-        for(i = 0; i < cardInfoBean.getQuantity(); i++ ) {
+
+
     String q = "CALL Expose_M(?,?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
@@ -74,7 +74,7 @@ public class ExposeDAO {
     } catch (SQLException e) {
         e.getErrorCode();
     }
-}
+
 
         return true;
     }
@@ -83,8 +83,8 @@ public class ExposeDAO {
         Boolean sig=cardInfoBean.getExtraBeanDG().isSigned();
         Boolean al=cardInfoBean.getExtraBeanDG().isAltered();
         Boolean foil=cardInfoBean.getExtraBeanDG().isFoil();
-        int i=0;
-        for(i = 0; i < cardInfoBean.getQuantity(); i++ )  {
+
+
 
             String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
             try {
@@ -104,7 +104,7 @@ public class ExposeDAO {
             } catch (SQLException e) {
                 e.getErrorCode();
             }
-        }
+
         return true;
     }
     public Boolean exposeCardP(CardInfoBean cardInfoBean, Integer user) {
@@ -114,8 +114,6 @@ public class ExposeDAO {
         Boolean fed=cardInfoBean.getExtraBeanP().isFedition();
         Boolean ps=cardInfoBean.getExtraBeanP().isPlayset();
         Boolean rev=cardInfoBean.getExtraBeanP().isReverse();
-int i=0;
-        for(i = 0; i < cardInfoBean.getQuantity(); i++ )  {
 
 
     String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -138,7 +136,7 @@ int i=0;
     } catch (SQLException e) {
         e.getErrorCode();
     }
-}
+
 
         return true;
     }
