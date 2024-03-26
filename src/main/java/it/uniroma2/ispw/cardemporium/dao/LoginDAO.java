@@ -34,7 +34,7 @@ public class LoginDAO {
 
     public Users getUser(String username1, String passw1) throws ExceptionBannedUser, ExceptionUserNotExist, ExceptionDBerror {
 
-        String sql = "SELECT * FROM credenziali WHERE Username = ? and PasswordUtente = ? ";
+        String sql = "SELECT utenti_ID FROM credenziali WHERE Username = ? and PasswordUtente = ? ";
         Connection conn = connCheck();
         try {
             statement = conn.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class LoginDAO {
             id = resultSet.getInt("utenti_ID");
 
 
-            String sql2 = "SELECT * FROM utenti JOIN credenziali WHERE ID = ?;";
+            String sql2 = "SELECT Nome, Cognome,DataNascita,Ruolo, ID,IsBanned  FROM utenti JOIN credenziali WHERE ID = ?;";
 
 
             statement = conn.prepareStatement(sql2);

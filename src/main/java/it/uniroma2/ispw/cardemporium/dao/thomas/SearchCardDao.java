@@ -31,7 +31,7 @@ public class SearchCardDao {
         Connection conn = connCheck();
 
         String sql = """
-                   select *
+                   select Condizione, Prezzo, Venditore, Carta_SingolaID, ValueID, NomeCarta, setcarte_NomeGioco, versione, NomeSet, Lingua, nel_carrello,firmato,foil,alterato,playset,first_edition,reverse_holo,venduto,IDseller
                    from carte
                  where NomeCarta = ? and nel_carrello = 0;""";
 
