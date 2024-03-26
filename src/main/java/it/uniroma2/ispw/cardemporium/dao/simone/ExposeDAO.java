@@ -23,8 +23,8 @@ public class ExposeDAO {
         Boolean sig= cardInfoBean.getExtraBeanY().isSigned();
         boolean al=cardInfoBean.getExtraBeanY().isAltered();
         Boolean fed=cardInfoBean.getExtraBeanY().isFedition();
-        int i=0;
-while (i++<cardInfoBean.getQuantity()) {
+        int i;
+        for(i = 0; i < cardInfoBean.getQuantity(); i++ ) {
     String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
@@ -54,7 +54,7 @@ while (i++<cardInfoBean.getQuantity()) {
         Boolean foil=cardInfoBean.getExtraBeanM().isFoil();
         Boolean ps=cardInfoBean.getExtraBeanM().isPlayset();
         int i=0;
-while(i++< cardInfoBean.getQuantity()) {
+        for(i = 0; i < cardInfoBean.getQuantity(); i++ ) {
     String q = "CALL Expose_M(?,?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
@@ -84,7 +84,7 @@ while(i++< cardInfoBean.getQuantity()) {
         Boolean al=cardInfoBean.getExtraBeanDG().isAltered();
         Boolean foil=cardInfoBean.getExtraBeanDG().isFoil();
         int i=0;
-        while (i++<cardInfoBean.getQuantity()) {
+        for(i = 0; i < cardInfoBean.getQuantity(); i++ )  {
 
             String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
             try {
@@ -115,7 +115,7 @@ while(i++< cardInfoBean.getQuantity()) {
         Boolean ps=cardInfoBean.getExtraBeanP().isPlayset();
         Boolean rev=cardInfoBean.getExtraBeanP().isReverse();
 int i=0;
-while (i++<cardInfoBean.getQuantity()) {
+        for(i = 0; i < cardInfoBean.getQuantity(); i++ )  {
 
 
     String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?,?,?)";

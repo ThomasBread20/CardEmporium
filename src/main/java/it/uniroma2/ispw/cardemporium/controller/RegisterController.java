@@ -6,7 +6,6 @@ import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.dao.DatabaseLoReFacade;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 
-import java.security.SecureRandom;
 
 public class RegisterController {
 
