@@ -23,8 +23,8 @@ public class ExposeDAO {
         Boolean sig= cardInfoBean.getExtraBeanY().isSigned();
         boolean al=cardInfoBean.getExtraBeanY().isAltered();
         Boolean fed=cardInfoBean.getExtraBeanY().isFedition();
-        int i;
-        for(i = 0; i < cardInfoBean.getQuantity(); i++ ) {
+
+
     String q = "CALL Expose_Y(?,?,?,?,?,?,?,?,?,?)";
     try {
         statement = conn.prepareStatement(q);
@@ -43,7 +43,7 @@ public class ExposeDAO {
     } catch (SQLException e) {
         e.getErrorCode();
     }
-}
+
 
         return true;
     }
@@ -136,8 +136,6 @@ public class ExposeDAO {
     } catch (SQLException e) {
         e.getErrorCode();
     }
-
-
         return true;
     }
 
