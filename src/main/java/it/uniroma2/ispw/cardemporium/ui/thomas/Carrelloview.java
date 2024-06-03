@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -100,8 +101,6 @@ public class Carrelloview {
                 couponinfo.setShipping(shipping.getValue());
                 prize.setText(String.valueOf(couponct.returnShippingfromEntity(shipping.getValue())));
                 update(couponList);
-
-
             } );
     }
 
@@ -168,7 +167,7 @@ public class Carrelloview {
     }
 
     @FXML
-    void searchCard(ActionEvent event) throws SQLException, ExceptionSwitchpage{
+    void searchCard(ActionEvent event) throws SQLException, ExceptionDBerror, IOException, ExceptionSwitchpage{
         CardController view = new CardController();
         CardInformationBean bean = new CardInformationBean();
         try{

@@ -156,11 +156,8 @@ public class RegisterView {
                 registerValue.setCognomeBean(cognomeTextField.getText());
                 registerValue.setDateBean(dataNascitaTextField.getValue());
 
-
-
                 registerController.insertUserDao(registerValue);
-
-
+                
                 SwitchPageContr.getInstance().switchLogout(2);
             } catch (ExceptionUserAlreadyExist e) {
                 labelError.setTextFill(Color.TOMATO);

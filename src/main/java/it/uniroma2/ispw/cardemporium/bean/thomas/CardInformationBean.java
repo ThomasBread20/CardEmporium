@@ -25,13 +25,8 @@ public class CardInformationBean {
     private String  extra;
     private boolean venduto;
     private Boolean nelCarrello;
-
-
     private int iduser;
-
-
-
-
+    
     private List<CardInformationBean> lista;
 
     public List<CardInformationBean> getLista() {
@@ -94,10 +89,6 @@ public class CardInformationBean {
         this.venduto = venduto;
         this.nelCarrello = nelCarrello;
     }
-
-
-
-
 
     public void setNomeCarta(String nomeCarta) {
         this.nomeCarta = nomeCarta;

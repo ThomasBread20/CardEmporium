@@ -6,14 +6,13 @@ import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
 
 import java.util.List;
 
+
 public class Coupontest implements CouponInterface  {
     @Override
     public double couponprize() {
-
-        double prize = CarrelloEntity.getInstance().getPrize();
-
-        List<CardEntity> cardIntoCart = CarrelloEntity.getInstance().getCardIntoCart();
         double prize1 = 0;
+        double prize = CarrelloEntity.getInstance().getPrize();
+        List<CardEntity> cardIntoCart = CarrelloEntity.getInstance().getCardIntoCart();
         for(int i = 0; i < cardIntoCart.size(); i++)
         {
             if (cardIntoCart.get(i).getNomeCarta().equals("drago bianco")){
