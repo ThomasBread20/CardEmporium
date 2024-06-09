@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Test;
     @Test
     void searchTest() {
 
-        //CardController.searchCard(cardname);
-        //ExposeController.exposeOnMarketY(cardInfoBean);
         Assertions.fail();
 
     }
