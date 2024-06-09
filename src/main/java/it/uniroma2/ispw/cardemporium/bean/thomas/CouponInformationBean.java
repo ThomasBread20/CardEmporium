@@ -1,12 +1,6 @@
 package it.uniroma2.ispw.cardemporium.bean.thomas;
 
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class CouponInformationBean {
 
     private String prize;
@@ -23,7 +17,6 @@ public class CouponInformationBean {
         }else{
             this.shipping = shipping;
         }
-
     }
 
     public String getShipping() {
@@ -54,26 +47,6 @@ public class CouponInformationBean {
         }else{
             this.type = type;
         }
-
-
-    }
-
-    public List<String > translateObserveIntoList(ObservableList<String > cards)
-    {
-        List<String> listaCarte = new ArrayList<>();
-        for(int value = 0; value < cards.size(); value++){
-            listaCarte.add(cards.get(value));
-        }
-        return listaCarte;
-    }
-
-    public ObservableList<String> translateListINtoObserve(List<String> cards)
-    {
-        ObservableList<String> listaCarte = FXCollections.observableArrayList();
-        for(int value = 0; value < cards.size(); value++){
-            listaCarte.add(cards.get(value));
-        }
-        return listaCarte;
     }
 
 }

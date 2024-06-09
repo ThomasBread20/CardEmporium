@@ -1,6 +1,4 @@
-import it.uniroma2.ispw.cardemporium.bean.LoginBean;
-import it.uniroma2.ispw.cardemporium.business.Popup;
-import it.uniroma2.ispw.cardemporium.controller.LoginController;
+import it.uniroma2.ispw.cardemporium.utility.Popup;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;

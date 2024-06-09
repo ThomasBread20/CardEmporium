@@ -7,13 +7,13 @@ import it.uniroma2.ispw.cardemporium.factorythomas.FactoryShipping;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarrelloEntity {
+public class ShoppingCartEntity {
 
-        private static CarrelloEntity instance = null;
+        private static ShoppingCartEntity instance = null;
 
-        public static CarrelloEntity getInstance(){
+        public static ShoppingCartEntity getInstance(){
                 if(instance==null){
-                        instance=new CarrelloEntity();
+                        instance=new ShoppingCartEntity();
                 }
                 return instance;
         }
@@ -46,25 +46,25 @@ public class CarrelloEntity {
 
 
 
-        public void setPrizeCoupon(String tipo) {
+        public void setPrizeCoupon(Coupon coupon) {
 
                 this.totalprizecoupon = totalprize;
 
 
                 FactoryCoupon prizefacotry = new FactoryCoupon();
 
-                this.totalprizecoupon = totalprize - prizefacotry.createCoupon(tipo).couponprize();
+                this.totalprizecoupon = totalprize - prizefacotry.createCoupon(coupon).couponprize();
 
         }
 
-        public void setPrizeShipping(String tipo) {
+        public void setPrizeShipping(Shipping shipping) {
 
                 this.totalprize = prize;
 
 
-                FactoryShipping prizefacotry = new FactoryShipping();
+                FactoryShipping factoryShipping = new FactoryShipping();
 
-                this.totalprize = prize + prizefacotry.createCoupon(tipo).couponprize();
+                this.totalprize = prize + factoryShipping.createCoupon(shipping).couponprize();
 
         }
 

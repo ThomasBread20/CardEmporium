@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.business;
+package it.uniroma2.ispw.cardemporium.utility;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 
-import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
+import static it.uniroma2.ispw.cardemporium.utility.DBconstants.*;
 
 
 public class DBconnection {

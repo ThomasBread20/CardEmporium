@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.cardemporium.dao;
 
-import it.uniroma2.ispw.cardemporium.business.DBconnection;
+import it.uniroma2.ispw.cardemporium.utility.DBconnection;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 
 import java.sql.Connection;

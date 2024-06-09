@@ -2,9 +2,11 @@ package it.uniroma2.ispw.cardemporium.ui.thomas;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.bean.thomas.CouponInformationBean;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.business.Popup;
+import it.uniroma2.ispw.cardemporium.model.Coupon;
+import it.uniroma2.ispw.cardemporium.model.Shipping;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.LogoutAction;
+import it.uniroma2.ispw.cardemporium.utility.Popup;
 import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 
@@ -19,7 +21,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -89,17 +90,17 @@ public class Carrelloview {
 
             ShoppingController couponct = new ShoppingController();
 
-            ObservableList<String> shippingType = FXCollections.observableArrayList(couponct.returnCouponorShipping(1));
+            ObservableList<String> shippingType = FXCollections.observableArrayList(couponct.returnCouponOrShipping(ShoppingController.CouponOrShipping.SHIPPING));
             shipping.setItems(shippingType);
             prize.setText("0");
             prize2.setText("Select a shipping method:");
 
 
 
-            List<String> couponList =  couponct.returnCouponorShipping(0);
+            List<String> couponList =  couponct.returnCouponOrShipping(ShoppingController.CouponOrShipping.COUPON);
             shipping.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newVaue) ->{
                 couponinfo.setShipping(shipping.getValue());
-                prize.setText(String.valueOf(couponct.returnShippingfromEntity(shipping.getValue())));
+                prize.setText(String.valueOf(couponct.returnShippingfromEntity(Shipping.fromString(shipping.getValue()))));
                 update(couponList);
             } );
     }
@@ -114,7 +115,7 @@ public class Carrelloview {
         coupon.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newVaue) ->{
             couponinfo.setType(coupon.getValue());
             double prizeCouponvalue1 = 0;
-            prizeCouponvalue1 = couponct.returnCouponfromEntity(couponinfo.getType());
+            prizeCouponvalue1 = couponct.returnCouponfromEntity(Coupon.fromString(couponinfo.getType()));
             prize.setText(String.valueOf(prizeCouponvalue1));
 
 
@@ -133,7 +134,7 @@ public class Carrelloview {
             try{
 
 
-                ShoppingController.shopping(bean, couponinfo);
+                ShoppingController.buy(bean, couponinfo);
 
                 carte.clear();
 

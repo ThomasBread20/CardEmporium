@@ -1,9 +1,8 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
-import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
 
 import it.uniroma2.ispw.cardemporium.controller.ManageControllerApp;
-import it.uniroma2.ispw.cardemporium.model.CardEntity;
 import it.uniroma2.ispw.cardemporium.model.simone.CardEntitySImo;
 import javafx.collections.ObservableList;
 

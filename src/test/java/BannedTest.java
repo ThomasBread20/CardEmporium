@@ -20,7 +20,7 @@ class BannedTest {
         LoginController login = new LoginController();
 
         try {
-            login.checkUserDao(loginBean.getUsernameBean(),loginBean.getPasswdBean());
+            login.checkUser(loginBean.getUsernameBean(),loginBean.getPasswdBean());
             Assertions.fail();
         }catch (ExceptionBannedUser e){
             e.getMessage();

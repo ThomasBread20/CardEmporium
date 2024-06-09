@@ -4,7 +4,7 @@ import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanG;
 import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanP;
-import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.simone.InsertCardController;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import it.uniroma2.ispw.cardemporium.exception.InvalidChioceException;

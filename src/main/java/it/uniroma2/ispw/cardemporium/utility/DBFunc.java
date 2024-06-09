@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.cardemporium.business;
+package it.uniroma2.ispw.cardemporium.utility;
 
 import java.sql.*;
 
-import static it.uniroma2.ispw.cardemporium.business.DBconstants.*;
+import static it.uniroma2.ispw.cardemporium.utility.DBconstants.*;
 
 public class DBFunc {
 

@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
-import it.uniroma2.ispw.cardemporium.business.CliPrinter;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 

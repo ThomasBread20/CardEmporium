@@ -23,7 +23,7 @@ class LoginTest {
         loginBean.setPasswdBean("Thomas2");
         LoginController login = new LoginController();
 
-        Users user= login.checkUserDao(loginBean.getUsernameBean(),loginBean.getPasswdBean());
+        Users user= login.checkUser(loginBean.getUsernameBean(),loginBean.getPasswdBean());
         try {
             Assertions.assertEquals("Thomas", user.getUsername());
         }catch (Exception e){

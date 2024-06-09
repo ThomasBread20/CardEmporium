@@ -2,7 +2,9 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.bean.thomas.CouponInformationBean;
-import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.model.Coupon;
+import it.uniroma2.ispw.cardemporium.model.Shipping;
+import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
@@ -46,7 +48,7 @@ public class Shoppingcart extends CliManager {
                         totalPrize += menu2( name2);
 
                     CliPrinter.printMessage("Select a Coupon: \n");
-                        List<String>  coupon = carta.returnCouponorShipping(0);
+                        List<String>  coupon = carta.returnCouponOrShipping(ShoppingController.CouponOrShipping.COUPON);
                         int value1 = 0;
                         for(int i = 0; i < coupon.size(); i++) {
                             value1 = i + 1;
@@ -55,9 +57,10 @@ public class Shoppingcart extends CliManager {
 
 
                         String name3 = reader.readLine();
-
-                        beanCoupon.setType(coupon.get(Integer.parseInt(name3) -1 ));
-                        totalPrize += carta.returnCouponfromEntity(coupon.get(Integer.parseInt(name3) -1 ));
+                        int couponChoice = Integer.parseInt(name3) -1;
+                        String couponName = coupon.get(couponChoice);
+                        beanCoupon.setType(couponName);
+                        totalPrize += carta.returnCouponfromEntity(Coupon.fromString(couponName));
 
 
                         showMenu1( totalPrize);
@@ -67,7 +70,7 @@ public class Shoppingcart extends CliManager {
                         if(result.equals("yes"))
                         {
                             bean.setLista(cards);
-                            ShoppingController.shopping(bean, beanCoupon);
+                            ShoppingController.buy(bean, beanCoupon);
                             break;
                         }else if(result.equals("no"))
                         {
@@ -102,10 +105,10 @@ public class Shoppingcart extends CliManager {
         if(name2.equals("1"))
         {
             beanCoupon.setShipping("posta1");
-            totalPrize += carta.returnShippingfromEntity("posta1");
+            totalPrize += carta.returnShippingfromEntity(Shipping.POSTA_1);
         } else if (name2.equals("2")) {
             beanCoupon.setShipping("posta4");
-            totalPrize += carta.returnShippingfromEntity("posta4");
+            totalPrize += carta.returnShippingfromEntity(Shipping.POSTA_4);
         }
         return totalPrize;
     }

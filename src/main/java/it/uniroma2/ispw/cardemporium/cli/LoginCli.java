@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.cli;
 
 import it.uniroma2.ispw.cardemporium.bean.LoginBean;
-import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
@@ -70,9 +70,7 @@ public class LoginCli extends CliManager {
 
             String pwd=reader.readLine();
             loginBean.setPasswdBean(pwd);
-            Users user = login.checkUserDao(us, pwd);
-            login.dataFuller(user,user.getRole());
-            login.createShoppingCart();
+            login.login(us, pwd);
 
 
 

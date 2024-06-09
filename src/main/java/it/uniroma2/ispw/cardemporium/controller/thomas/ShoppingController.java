@@ -2,14 +2,16 @@ package it.uniroma2.ispw.cardemporium.controller.thomas;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
 import it.uniroma2.ispw.cardemporium.bean.thomas.CouponInformationBean;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.model.Coupon;
+import it.uniroma2.ispw.cardemporium.model.Shipping;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.thomas.CouponDao;
 import it.uniroma2.ispw.cardemporium.dao.thomas.ShoppingCartDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.filesystemdb.ShopcardFS;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.ShoppingCartEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,33 +20,33 @@ import java.util.List;
 public class ShoppingController {
 
 
-
+    public static final String NO_COUPON = "NoCoupon";
+    public static final String COUPON_5 = "Coupon5";
 
     public ShoppingController() {
         //constructor
     }
 
-    static String firstCoupon = "FirstCoupon";
-    static String posta1 = "posta1";
-    static String posta4 = "posta4";
+    static final String FIRST_COUPON = "FirstCoupon";
+    static final String POSTA_1 = "posta1";
+    static final String POSTA_4 = "posta4";
 
 
-    public void searchCardByIDUser() throws SQLException, ExceptionDBerror {
+    public void initShoppingCart() throws SQLException, ExceptionDBerror {
         int id;
         try{
             ShoppingCartDAO idname = new ShoppingCartDAO();
             id = DataSingleton.getInstance().getID();
             idname.getCardbyIdUser(id);
             CouponDao couponct = new CouponDao();
-            CarrelloEntity.getInstance().setCouponList(couponct.getCoupons(id));
-
+            ShoppingCartEntity.getInstance().setCouponList(couponct.getCoupons(id));
         }catch (ExceptionDBerror e){
             throw new ExceptionDBerror("ERRORE numero 3");
         }
     }
 
     public List<CardInformationBean> getListofcardIntoShoppingCart() throws ExceptionCardNotExist {
-        List<CardEntity> listaCarte = CarrelloEntity.getInstance().getCardIntoCart();
+        List<CardEntity> listaCarte = ShoppingCartEntity.getInstance().getCardIntoCart();
         List<CardInformationBean> bean1 = new ArrayList<>();
 
 
@@ -69,7 +71,7 @@ public class ShoppingController {
         return bean1;
     }
 
-    public static void shopping(CardInformationBean bean, CouponInformationBean couponinfo) throws ExceptionDBerror {
+    public static void buy(CardInformationBean bean, CouponInformationBean couponinfo) throws ExceptionDBerror {
 
         int user = DataSingleton.getInstance().getID();
         List<CardInformationBean> cards = bean.getLista();
@@ -81,14 +83,14 @@ public class ShoppingController {
                     carrello.buyCard(cards.get(value).getCartaSingolaID(), user);
                     carrelloFS.addcard(cards.get(value).getNomeCarta(),cards.get(value).getUtenteVenditore(),cards.get(value).getPrezzo(), user);
                 }
-                if( couponinfo.getType().equals(firstCoupon)){
+                if( couponinfo.getType().equals(FIRST_COUPON)){
 
                     carrello.modifyCouponStatus(user);
-                    CarrelloEntity.getInstance().removeFirstfromCouponList();
+                    ShoppingCartEntity.getInstance().removeFirstfromCouponList();
 
                 }
-                CarrelloEntity.getInstance().clearCarrello();
-                CarrelloEntity.getInstance().resetPrize();
+                ShoppingCartEntity.getInstance().clearCarrello();
+                ShoppingCartEntity.getInstance().resetPrize();
             }
 
 
@@ -105,8 +107,8 @@ public class ShoppingController {
             int iD = bean.getCartaSingolaID();
             ShoppingCartDAO carrello = new ShoppingCartDAO();
             carrello.detCard(iD);
-            List<CardEntity> listaCarte = CarrelloEntity.getInstance().getCardIntoCart();
-            CarrelloEntity.getInstance().removePrize(listaCarte.get(indexCard).getPrezzo());
+            List<CardEntity> listaCarte = ShoppingCartEntity.getInstance().getCardIntoCart();
+            ShoppingCartEntity.getInstance().removePrize(listaCarte.get(indexCard).getPrezzo());
             listaCarte.remove(indexCard);
 
             List<CardInformationBean> bean1 = new ArrayList<>();
@@ -137,58 +139,39 @@ public class ShoppingController {
     }
 
 
-    public List<String> returnCouponorShipping(int i)  {
+    public enum CouponOrShipping {
+        COUPON,
+        SHIPPING
+    }
+
+    public List<String> returnCouponOrShipping(CouponOrShipping couponOrShipping)  {
         List<String> coupon = new ArrayList<>();
 
-        if (i == 1) {
-            coupon.add(posta1);
-            coupon.add(posta4);
+        if (couponOrShipping == CouponOrShipping.SHIPPING) {
+            coupon.add(POSTA_1);
+            coupon.add(POSTA_4);
             return coupon;
 
-        } else if (i == 0) {
+        } else if (couponOrShipping == CouponOrShipping.COUPON) {
 
-            return CarrelloEntity.getInstance().getCouponList();
+            return ShoppingCartEntity.getInstance().getCouponList();
         } else {
             return coupon;
         }
 
     }
 
-    public double returnShippingfromEntity(String i) {
-
-
-    if( i != null)
-    {
-        switch (i){
-            case "posta1" : CarrelloEntity.getInstance().setPrizeShipping(posta1);
-                break;
-            case "posta4" : CarrelloEntity.getInstance().setPrizeShipping(posta4);
-                break;
-            default : break;
-        }
-        return CarrelloEntity.getInstance().getTotalprize();
-    }else{
-        return CarrelloEntity.getInstance().getTotalprize();
-    }
-
+    public double returnShippingfromEntity(Shipping shipping) {
+        ShoppingCartEntity.getInstance().setPrizeShipping(shipping);
+        return ShoppingCartEntity.getInstance().getTotalprize();
     }
 
 
-    public double returnCouponfromEntity(String i) {
-
-
-        switch (i){
-            case "NoCoupon" : CarrelloEntity.getInstance().setPrizeCoupon("NoCoupon");
-            break;
-            case "FirstCoupon" : CarrelloEntity.getInstance().setPrizeCoupon(firstCoupon);
-            break;
-            case "Coupon5" : CarrelloEntity.getInstance().setPrizeCoupon("Coupon5");
-            break;
-            default : break;
-        }
-        return CarrelloEntity.getInstance().getTotalprizecoupon();
+    public double returnCouponfromEntity(Coupon coupon) {
+        ShoppingCartEntity.getInstance().setPrizeCoupon(coupon);
+        return ShoppingCartEntity.getInstance().getTotalprizecoupon();
     }
-
 
 
 }
+

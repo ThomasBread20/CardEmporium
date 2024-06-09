@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.LogoutAction;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.LogoutAction;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

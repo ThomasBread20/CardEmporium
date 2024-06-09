@@ -1,13 +1,13 @@
 package it.uniroma2.ispw.cardemporium.controller.thomas;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.thomas.SearchCardDao;
 import it.uniroma2.ispw.cardemporium.dao.thomas.ShoppingCartDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.ShoppingCartEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -64,8 +64,8 @@ public class CardController {
              CardEntity card = new CardEntity(bean.getCartaSingolaID(), bean.getCartaID(),bean.getCondizione(), bean.getPrezzo(),bean.getNomeCarta());
              card.setSellerUser(bean.getUtenteVenditore(),bean.getiDvenditore());
              card.setExtrainfo(bean.getExtra(),bean.getLingua(),bean.getVersione());
-             CarrelloEntity.getInstance().getCardIntoCart().add(card);
-             CarrelloEntity.getInstance().addPrize(bean.getPrezzo());
+             ShoppingCartEntity.getInstance().getCardIntoCart().add(card);
+             ShoppingCartEntity.getInstance().addPrize(bean.getPrezzo());
 
          } catch (ExceptionDBerror e) {
              throw new ExceptionCardNotExist("error");

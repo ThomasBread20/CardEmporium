@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.cardemporium.business;
+package it.uniroma2.ispw.cardemporium.utility;
 
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.ui.SwitchPageContr;

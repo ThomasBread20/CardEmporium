@@ -1,8 +1,8 @@
 package it.uniroma2.ispw.cardemporium.ui.simone;
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.LogoutAction;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.LogoutAction;
 import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.model.simone.Card;

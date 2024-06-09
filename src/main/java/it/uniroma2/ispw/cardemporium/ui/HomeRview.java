@@ -1,9 +1,9 @@
 package it.uniroma2.ispw.cardemporium.ui;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
-import it.uniroma2.ispw.cardemporium.business.LogoutAction;
-import it.uniroma2.ispw.cardemporium.business.Popup;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.LogoutAction;
+import it.uniroma2.ispw.cardemporium.utility.Popup;
 import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.controller.thomas.ShoppingController;
 import it.uniroma2.ispw.cardemporium.exception.*;

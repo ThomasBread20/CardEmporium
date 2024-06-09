@@ -5,7 +5,7 @@ import it.uniroma2.ispw.cardemporium.controller.thomas.CardInfo;
 import it.uniroma2.ispw.cardemporium.dao.Connection1Singelton;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.ShoppingCartEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -185,8 +185,8 @@ public class ShoppingCartDAO {
 
             }
 
-            CarrelloEntity.getInstance().setCardIntoCart(cardCarrellos);
-            CarrelloEntity.getInstance().setPrize();
+            ShoppingCartEntity.getInstance().setCardIntoCart(cardCarrellos);
+            ShoppingCartEntity.getInstance().setPrize();
 
 
         }

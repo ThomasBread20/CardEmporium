@@ -2,10 +2,10 @@ package it.uniroma2.ispw.cardemporium.controller.simone;
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
-import it.uniroma2.ispw.cardemporium.business.DBconstants;
+import it.uniroma2.ispw.cardemporium.utility.DBconstants;
 import it.uniroma2.ispw.cardemporium.factorysimone.MyCardBaseInterface;
 import it.uniroma2.ispw.cardemporium.factorysimone.Factory;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.simone.ExposeDAO;
 import it.uniroma2.ispw.cardemporium.dao.simone.SearchAllCardDAO;
 import it.uniroma2.ispw.cardemporium.exception.*;

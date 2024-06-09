@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.controller;
 
 import it.uniroma2.ispw.cardemporium.bean.UserBean;
-import it.uniroma2.ispw.cardemporium.business.DataSingleton;
+import it.uniroma2.ispw.cardemporium.utility.DataSingleton;
 import it.uniroma2.ispw.cardemporium.dao.simone.ManageCardDAO;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 

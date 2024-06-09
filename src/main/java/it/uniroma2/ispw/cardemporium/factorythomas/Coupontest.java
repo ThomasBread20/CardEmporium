@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.factorythomas;
 
 
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
-import it.uniroma2.ispw.cardemporium.model.CarrelloEntity;
+import it.uniroma2.ispw.cardemporium.model.ShoppingCartEntity;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class Coupontest implements CouponInterface  {
     @Override
     public double couponprize() {
         double prize1 = 0;
-        double prize = CarrelloEntity.getInstance().getPrize();
-        List<CardEntity> cardIntoCart = CarrelloEntity.getInstance().getCardIntoCart();
+        double prize = ShoppingCartEntity.getInstance().getPrize();
+        List<CardEntity> cardIntoCart = ShoppingCartEntity.getInstance().getCardIntoCart();
         for(int i = 0; i < cardIntoCart.size(); i++)
         {
             if (cardIntoCart.get(i).getNomeCarta().equals("drago bianco")){

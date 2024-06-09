@@ -2,7 +2,7 @@ package it.uniroma2.ispw.cardemporium.cli;
 
 
 import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
-import it.uniroma2.ispw.cardemporium.business.CliPrinter;
+import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.model.simone.Card;

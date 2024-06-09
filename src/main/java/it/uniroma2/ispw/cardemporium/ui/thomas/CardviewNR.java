@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.cardemporium.ui.thomas;
 
 import it.uniroma2.ispw.cardemporium.bean.thomas.CardInformationBean;
-import it.uniroma2.ispw.cardemporium.business.Popup;
+import it.uniroma2.ispw.cardemporium.utility.Popup;
 import it.uniroma2.ispw.cardemporium.controller.thomas.CardController;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionCardNotExist;
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
