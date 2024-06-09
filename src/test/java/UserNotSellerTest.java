@@ -1,8 +1,7 @@
 import it.uniroma2.ispw.cardemporium.utility.Popup;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionBannedUser;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionUserNotExist;
+
 import javafx.event.ActionEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

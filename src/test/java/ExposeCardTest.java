@@ -3,15 +3,13 @@ import it.uniroma2.ispw.cardemporium.bean.simone.CardBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.CardInfoBean;
 import it.uniroma2.ispw.cardemporium.bean.simone.ExtraBeanY;
 import it.uniroma2.ispw.cardemporium.controller.simone.ExposeController;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionSwitchpage;
 import it.uniroma2.ispw.cardemporium.exception.Exceptionquantity;
 import it.uniroma2.ispw.cardemporium.model.CardEntity;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+
 
  class ExposeCardTest {
 

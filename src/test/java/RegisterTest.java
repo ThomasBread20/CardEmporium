@@ -1,11 +1,11 @@
 import it.uniroma2.ispw.cardemporium.bean.RegisterBean;
 import it.uniroma2.ispw.cardemporium.dao.RegisterDAODB;
-import it.uniroma2.ispw.cardemporium.exception.ExceptionDBerror;
+
 import it.uniroma2.ispw.cardemporium.exception.ExceptionUserAlreadyExist;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
+
 import java.time.LocalDate;
 
  class RegisterTest {
