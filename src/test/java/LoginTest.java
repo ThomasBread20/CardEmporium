@@ -18,7 +18,7 @@ class LoginTest {
 //GUIDATO SIMONE
     LoginBean loginBean=new LoginBean();
     @Test
-    void loginTest() throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser, IOException, ExceptionSwitchpage {
+    void loginTest() throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser{
         loginBean.setUsernameBean("Thomas");
         loginBean.setPasswdBean("Thomas2");
         LoginController login = new LoginController();

@@ -30,7 +30,7 @@ import java.io.IOException;
     ExposeController exposeController=new ExposeController();
     CardInfoBean cardInfoBean=new CardInfoBean(id,new CardBean(nome,v,gioco,set),cond,price,quan,extraBeanY,lan);
     @Test
-    void  searchTest() throws  ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void  searchTest() {
 
         try {
             exposeController.exposeOnMarketY(cardInfoBean);

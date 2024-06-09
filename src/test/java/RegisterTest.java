@@ -12,7 +12,7 @@ import java.time.LocalDate;
     //GUIDATO SIMONE
     RegisterBean registerBean=new RegisterBean();
     @Test
-     void regTest() throws SQLException, ExceptionDBerror {
+     void regTest(){
         registerBean.setNameBean("test");
         registerBean.setCognomeBean("test");
         registerBean.setDateBean(LocalDate.parse("2000-11-06"));

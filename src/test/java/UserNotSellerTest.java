@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class UserNotSellerTest {
     String user = "Utente";
     @Test
-    void NotSeller() throws ExceptionUserNotExist, ExceptionDBerror, ExceptionBannedUser {
+    void NotSeller(){
 
         ActionEvent event = null;
         try {

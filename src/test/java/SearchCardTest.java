@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 
     @Test
-    void searchTest() throws ExceptionDBerror, IOException, ExceptionSwitchpage {
+    void searchTest() {
 
         //CardController.searchCard(cardname);
         //ExposeController.exposeOnMarketY(cardInfoBean);

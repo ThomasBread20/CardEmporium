@@ -5,7 +5,6 @@ import it.uniroma2.ispw.cardemporium.utility.CliPrinter;
 import it.uniroma2.ispw.cardemporium.controller.LoginController;
 import it.uniroma2.ispw.cardemporium.exception.*;
 import it.uniroma2.ispw.cardemporium.exception.IllegalStateException;
-import it.uniroma2.ispw.cardemporium.users.Users;
 
 import java.io.BufferedReader;
 import java.io.IOException;
